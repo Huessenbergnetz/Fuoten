@@ -1,0 +1,3 @@
+[submodule "libfuoten"]
+	path = libfuoten
+	url = https://github.com/Buschtrommel/libfuoten.git
