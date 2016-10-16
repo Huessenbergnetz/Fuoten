@@ -17,6 +17,8 @@ CONFIG += c++11
 
 QT += sql network
 
+include(../common/common.pri)
+
 SOURCES += \
     src/main.cpp
 
