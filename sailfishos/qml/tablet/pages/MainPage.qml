@@ -32,7 +32,6 @@ Page {
         header: PageHeader {
             title: "Fuoten"
             page: phoneMainPage
-            description: "Tablet"
         }
     }
 }
