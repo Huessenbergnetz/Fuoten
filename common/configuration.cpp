@@ -1,8 +1,13 @@
 #include "configuration.h"
 #include <QRegularExpression>
+#include <QImage>
+#include <QDir>
+#include <QStandardPaths>
 #ifdef QT_DEBUG
 #include <QtDebug>
 #endif
+
+#define DEFAULT_AVATAR "image://theme/icon-l-people"
 
 /*!
  * \brief Constructs a new Configuration object.
@@ -26,6 +31,7 @@ Configuration::Configuration(QObject *parent) :
     m_isAccountValid = false;
     checkAccountValidity();
     m_ignoreSSLErrors = value(QStringLiteral("account/ignoresslerrors"), false).toBool();
+    m_avatar = value(QStringLiteral("account/avatar"), QStringLiteral(DEFAULT_AVATAR)).toUrl();
 }
 
 
@@ -94,7 +100,7 @@ QString Configuration::getHost() const { return m_host; }
 
 void Configuration::setHost(const QString &host)
 {
-    QString _h = host;
+    QString _h = host.toLower();
     _h.remove(QRegularExpression(QStringLiteral("https?://")));
     _h.remove(QRegularExpression(QStringLiteral("/$")));
     if (_h != m_host) {
@@ -237,4 +243,82 @@ void Configuration::setIgnoreSSLErrors(bool ignoreSSLErrors)
         setValue(QStringLiteral("account/ignoresslerrors"), m_ignoreSSLErrors);
         emit ignoreSSLErrorsChanged(getIgnoreSSLErrors());
     }
+}
+
+
+QUrl Configuration::avatar() const { return m_avatar; }
+
+
+void Configuration::setAvatar(const QString &data, const QString &mime)
+{
+    QDir dataDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+
+    if (!dataDir.exists()) {
+        if (!dataDir.mkpath(dataDir.absolutePath()))
+        qCritical("Failed to create data directory.");
+        return;
+    } else {
+        QStringList oldAvatars = dataDir.entryList(QStringList({QStringLiteral("avatar.*")}), QDir::Files);
+        if (!oldAvatars.isEmpty()) {
+            for (const QString &oa : oldAvatars) {
+                dataDir.remove(oa);
+            }
+        }
+    }
+
+    if (data.isEmpty() || mime.isEmpty()) {
+
+        qWarning("Data or mime is empty, no avatar data found.");
+        m_avatar.setUrl(QStringLiteral(DEFAULT_AVATAR));
+        remove(QStringLiteral("account/avatar"));
+        emit avatarChanged(m_avatar);
+
+    } else {
+
+        QString type;
+        type.reserve(3);
+
+        if (mime.contains(QStringLiteral("png"), Qt::CaseInsensitive)) {
+            type = QStringLiteral("PNG");
+        } else if (mime.contains(QRegularExpression(QStringLiteral("jpe?g"), QRegularExpression::CaseInsensitiveOption))) {
+            type = QStringLiteral("JPG");
+        } else if (mime.contains(QStringLiteral("bmp"), Qt::CaseInsensitive)) {
+            type = QStringLiteral("BMP");
+        }
+
+        if (type.isEmpty()) {
+            qCritical("Unsupported image type %s", qPrintable(mime));
+
+            m_avatar.setUrl(QStringLiteral(DEFAULT_AVATAR));
+            remove(QStringLiteral("account/avatar"));
+            emit avatarChanged(m_avatar);
+            return;
+        }
+
+        QImage avatar;
+        QByteArray ba;
+        ba.append(data);
+
+        if (avatar.loadFromData(QByteArray::fromBase64(ba), type.toUtf8().constData())) {
+
+            const QString avatarPath = dataDir.absoluteFilePath(QStringLiteral("avatar.").append(type.toLower()));
+            if (avatar.save(avatarPath), type.toUtf8().constData()) {
+                m_avatar.setUrl(avatarPath);
+                setValue(QStringLiteral("account/avatar"), avatarPath);
+            } else {
+                m_avatar.setUrl(QStringLiteral(DEFAULT_AVATAR));
+                remove(QStringLiteral("account/avatar"));
+            }
+            emit avatarChanged(m_avatar);
+
+        } else {
+            qCritical("Can not load avatar image.");
+
+            m_avatar.setUrl(QStringLiteral(DEFAULT_AVATAR));
+            remove(QStringLiteral("account/avatar"));
+            emit avatarChanged(m_avatar);
+            return;
+        }
+    }
+
 }

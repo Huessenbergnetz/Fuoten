@@ -112,9 +112,10 @@ Page {
 
                     Image {
                         id: avatarImage
-                        source: "image://theme/icon-l-people?" + (accountArea.highlighted ? Theme.highlightColor : Theme.primaryColor)
+                        source: config.avatar
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.preferredWidth: Theme.iconSizeLarge
+                        fillMode: Image.PreserveAspectFit
                     }
 
                     Column {
@@ -179,7 +180,7 @@ Page {
                                 fillMode: Image.PreserveAspectFit
                             }
                             Item {
-                                Layout.preferredWidth: accRow.width - versionString.implicitWidth - avatarImage.implicitWidth - statusIcon.implicitWidth - accRow.spacing - (2* statusRow.spacing)
+                                Layout.preferredWidth: accRow.width - versionString.implicitWidth - avatarImage.width - statusIcon.implicitWidth - accRow.spacing - (2* statusRow.spacing)
                                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                                 height: statusString.height
                                 Label {

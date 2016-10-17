@@ -2,6 +2,7 @@
 #define CONFIGURATION_H
 
 #include <QObject>
+#include <QUrl>
 #include <Helpers/configuration.h>
 #if QT_VERSION < QT_VERSION_CHECK(5, 6, 0)
 #include <Helpers/newsappversion.h>
@@ -114,6 +115,16 @@ class Configuration : public Fuoten::Configuration
      * <TABLE><TR><TD>void</TD><TD>ignoreSSLErrorsChanged(bool ignoreSSLErrors)</TD></TR></TABLE>
      */
     Q_PROPERTY(bool ignoreSSLErrors READ getIgnoreSSLErrors WRITE setIgnoreSSLErrors NOTIFY ignoreSSLErrorsChanged)
+
+    /*!
+     * \brief Return the URL to the user avatar image.
+     *
+     * \par Access functions:
+     * <TABLE><TR><TD>QUrl</TD><TD>avatar() const</TD></TR></TABLE>
+     * \par Notifier signal:
+     * <TABLE><TR><TD>void</TD><TD>avatarChanged(const QUrl &avatar)</TD></TR></TABLE>
+     */
+    Q_PROPERTY(QUrl avatar READ avatar NOTIFY avatarChanged)
 public:
     explicit Configuration(QObject *parent = nullptr);
     ~Configuration();
@@ -135,6 +146,7 @@ public:
     Fuoten::NewsAppVersion getServerVersion() const Q_DECL_OVERRIDE;
 #endif
     QString serverVersion() const;
+    QUrl avatar() const;
 
     void setUsername(const QString &username);
     void setPassword(const QString &password);
@@ -143,11 +155,12 @@ public:
     void setInstallPath(const QString &installPath);
     void setServerPort(int serverPort);
     void setIgnoreSSLErrors(bool ignoreSSLErrors);
-
-protected:
     void setDisplayName(const QString &nDisplayName) Q_DECL_OVERRIDE;
     void setImproperlyConfiguredCron(bool nImproperlyConfiguredCron) Q_DECL_OVERRIDE;
     void setServerVersion(const QString &nServerVersion) Q_DECL_OVERRIDE;
+    void setAvatar(const QString &data, const QString &mime) Q_DECL_OVERRIDE;
+
+protected:
     void setIsAccountValid(bool nIsAccountValid) Q_DECL_OVERRIDE;
 
 signals:
@@ -162,6 +175,7 @@ signals:
     void isAccountValidChanged(bool isAccountValid);
     void serverPortChanged(int serverPort);
     void ignoreSSLErrorsChanged(bool ignoreSSLErrors);
+    void avatarChanged(const QUrl &avatar);
 
 private:
     Q_DISABLE_COPY(Configuration)
@@ -180,6 +194,7 @@ private:
     bool m_isAccountValid;
     int m_serverPort;
     bool m_ignoreSSLErrors;
+    QUrl m_avatar;
 };
 
 #endif // CONFIGURATION_H
