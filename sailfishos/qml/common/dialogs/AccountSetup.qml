@@ -54,14 +54,14 @@ Dialog {
             Item {
                 Layout.columnSpan: accountGrid.columns
                 Layout.fillWidth: true
-                height: infoText.height
+                Layout.preferredHeight: infoText.height
 
                 Text {
                     id: infoText
                     anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
                     wrapMode: Text.WordWrap
                     color: Theme.primaryColor
-                    font.pixelSize: Theme.fontSizeSmall
+                    font.pixelSize: Theme.fontSizeExtraSmall
                     //% "Set up your user account by entering your user name, your password and the host address of the server your ownCloud/Nextcloud is running on. If your ownCloud/Nextcloud is installed in a subdirectory on your server, you have to enter the installation path as well. If your server uses an other port than the default port for HTTP(S), enter it in server port. If you use the standard ports or if you do not know what this is all about, keep the 0 at the server port."
                     text: qsTrId("id-account-setup-info")
                     textFormat: Text.PlainText
@@ -145,7 +145,7 @@ Dialog {
                     //% "Use HTTPS (SSL/TLS) connection"
                     text: qsTrId("id-use-ssl-text")
                     //% "Because the News App requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption."
-                    description: qsTr("id-use-ssl-desc")
+                    description: qsTrId("id-use-ssl-desc")
                     checked: config.useSSL
                 }
             }
