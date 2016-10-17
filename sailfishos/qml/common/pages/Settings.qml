@@ -22,6 +22,7 @@
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
+import harbour.fuoten 1.0
 import harbour.fuoten.generic 1.0
 import "../parts"
 
@@ -68,6 +69,7 @@ Page {
                 id: accountArea
                 Layout.fillWidth: true
                 Layout.columnSpan: settingsGrid.columns
+                Layout.preferredHeight: contentHeight
                 contentHeight: Theme.itemSizeExtraLarge
 
                 enabled: !accValidator.inOperation
@@ -204,6 +206,65 @@ Page {
                     }
                 }
             }
+
+
+            SectionHeader {
+                //% "Appearance"
+                text: qsTrId("id-appearance")
+                Layout.columnSpan: settingsGrid.columns
+                Layout.preferredWidth: settingsGrid.width - Theme.horizontalPageMargin
+            }
+
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: langChoser.height
+
+                ComboBox {
+                    id: langChoser
+                    //% "Language"
+                    label: qsTrId("id-lang-choser-label")
+                    //% "To change the language, you have to restart the application."
+                    description: qsTrId("id-lang-choser-desc")
+                    menu: ContextMenu {
+                        Repeater {
+                            model: LanguageModel { id: langModel }
+                            MenuItem { text: model.name; readonly property string value: model.code }
+                        }
+                    }
+                    onCurrentIndexChanged: if (currentItem) { config.language = currentItem.value }
+                    currentIndex: langModel.findIndex(config.language)
+                }
+            }
+
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: mainContentChoser.height
+
+                ComboBox {
+                    id: mainContentChoser
+                    //% "Main view content"
+                    label: qsTrId("id-main-content-choser-label")
+                    //% "Choose the content to display on the first application page."
+                    description: qsTrId("id-main-content-choser-desc")
+                    menu: ContextMenu {
+                        MenuItem {
+                            //% "Feeds"
+                            text: qsTrId("id-feeds")
+                            readonly property int value: Fuoten.Feed
+                        }
+                        MenuItem {
+                            //% "Folders"
+                            text: qsTrId("id-folders")
+                            readonly property int value: Fuoten.Folder
+                        }
+                    }
+                    onCurrentIndexChanged: if (currentItem) { config.mainViewType = currentItem.value }
+                    currentIndex: config.mainViewType
+                }
+            }
+
         }
     }
 }

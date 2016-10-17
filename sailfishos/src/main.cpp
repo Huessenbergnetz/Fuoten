@@ -30,6 +30,7 @@
 #include <QtQml>
 #include <QGuiApplication>
 #include <QQuickView>
+#include <QLocale>
 #include <QTranslator>
 
 #ifndef CLAZY
@@ -37,10 +38,12 @@
 #endif
 
 #include <error.h>
+#include <fuoten.h>
 #include <Generic/accountvalidator.h>
 #include <Helpers/configuration.h>
 
 #include "../../common/configuration.h"
+#include "../../common/languagemodel.h"
 
 
 int main(int argc, char *argv[])
@@ -57,9 +60,27 @@ int main(int argc, char *argv[])
 
     Configuration config;
 
+    if (!config.language().isEmpty()) {
+        QLocale::setDefault(QLocale(config.language()));
+    } else {
+        QLocale::setDefault(QLocale::system());
+    }
+
+    QLocale l;
+    qDebug() << l.uiLanguages();
+
+#ifndef CLAZY
+    QTranslator *translator= new QTranslator(app);
+    if (translator->load(QLocale(), QStringLiteral("fuoten"), QStringLiteral("_"), SailfishApp::pathTo(QStringLiteral("l10n")).toString(QUrl::RemoveScheme), QStringLiteral(".qm"))) {
+        app->installTranslator(translator);
+    }
+#endif
+
+    qmlRegisterUncreatableType<Fuoten::Fuoten>("harbour.fuoten", 1, 0, "Fuoten", QStringLiteral("You can not create a Fuoten object"));
     qmlRegisterUncreatableType<Fuoten::Configuration>("harbour.fuoten", 1, 0, "FuotenConfiguration", QStringLiteral("You can not create a FuotenConfiguration object."));
     qmlRegisterType<Fuoten::Error>("harbour.fuoten", 1, 0, "FuotenError");
     qmlRegisterType<Fuoten::Generic::AccountValidator>("harbour.fuoten.generic", 1, 0, "AccountValidator");
+    qmlRegisterType<LanguageModel>("harbour.fuoten", 1, 0, "LanguageModel");
 
 #ifndef CLAZY
     QQuickView *view = SailfishApp::createView();

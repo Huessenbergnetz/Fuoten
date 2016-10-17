@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QUrl>
 #include <Helpers/configuration.h>
+#include <fuoten.h>
 #if QT_VERSION < QT_VERSION_CHECK(5, 6, 0)
 #include <Helpers/newsappversion.h>
 #else
@@ -125,6 +126,29 @@ class Configuration : public Fuoten::Configuration
      * <TABLE><TR><TD>void</TD><TD>avatarChanged(const QUrl &avatar)</TD></TR></TABLE>
      */
     Q_PROPERTY(QUrl avatar READ avatar NOTIFY avatarChanged)
+    /*!
+     * \brief Stores the user defined language.
+     *
+     * \par Access functions:
+     * <TABLE><TR><TD>QString</TD><TD>language() const</TD></TR><TR><TD>void</TD><TD>setLanguage(const QString &nLanguage)</TD></TR></TABLE>
+     * \par Notifier signal:
+     * <TABLE><TR><TD>void</TD><TD>languageChanged(const QString &language)</TD></TR></TABLE>
+     */
+    Q_PROPERTY(QString language READ language WRITE setLanguage NOTIFY languageChanged)
+    /*!
+     * \brief Sets the type of the application main view page.
+     *
+     * \par Access functions:
+     * <TABLE><TR><TD>Fuoten::Fuoten::Type</TD><TD>mainViewType() const</TD></TR><TR><TD>void</TD><TD>setMainViewType(Fuoten::Fuoten::Type nMainViewType)</TD></TR></TABLE>
+     * \par Notifier signal:
+     * <TABLE><TR><TD>void</TD><TD>mainViewTypeChanged(Fuoten::Fuoten::Type mainViewType)</TD></TR></TABLE>
+     */
+    Q_PROPERTY(Fuoten::Fuoten::Type mainViewType READ mainViewType WRITE setMainViewType NOTIFY mainViewTypeChanged)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
+    Q_ENUM(Fuoten::Fuoten::Type)
+#else
+    Q_ENUMS(Fuoten::Fuoten::Type)
+#endif
 public:
     explicit Configuration(QObject *parent = nullptr);
     ~Configuration();
@@ -147,6 +171,9 @@ public:
 #endif
     QString serverVersion() const;
     QUrl avatar() const;
+    QString language() const;
+    Fuoten::Fuoten::Type mainViewType() const;
+
 
     void setUsername(const QString &username);
     void setPassword(const QString &password);
@@ -159,6 +186,8 @@ public:
     void setImproperlyConfiguredCron(bool nImproperlyConfiguredCron) Q_DECL_OVERRIDE;
     void setServerVersion(const QString &nServerVersion) Q_DECL_OVERRIDE;
     void setAvatar(const QString &data, const QString &mime) Q_DECL_OVERRIDE;
+    void setLanguage(const QString &nLanguage);
+    void setMainViewType(Fuoten::Fuoten::Type nMainViewType);
 
 protected:
     void setIsAccountValid(bool nIsAccountValid) Q_DECL_OVERRIDE;
@@ -176,6 +205,9 @@ signals:
     void serverPortChanged(int serverPort);
     void ignoreSSLErrorsChanged(bool ignoreSSLErrors);
     void avatarChanged(const QUrl &avatar);
+    void languageChanged(const QString &language);
+    void mainViewTypeChanged(Fuoten::Fuoten::Type mainViewType);
+
 
 private:
     Q_DISABLE_COPY(Configuration)
@@ -195,6 +227,8 @@ private:
     int m_serverPort;
     bool m_ignoreSSLErrors;
     QUrl m_avatar;
+    QString m_language;
+    Fuoten::Fuoten::Type m_mainViewType;
 };
 
 #endif // CONFIGURATION_H

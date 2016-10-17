@@ -37,6 +37,12 @@ OTHER_FILES +=
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
+TRANSLATIONS_INSTALL_DIR = /usr/share/harbour-fuoten/l10n
+
+langfiles.path = $$TRANSLATIONS_INSTALL_DIR
+langfiles.files = ../translations/*.qm
+INSTALLS += langfiles
+
 DISTFILES += \
     qml/harbour-fuoten.qml \
     harbour-fuoten.desktop \

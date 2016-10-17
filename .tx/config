@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+
+[fuoten.main]
+file_filter = translations/fuoten_<lang>.ts
+source_file = translations/fuoten.ts
+source_lang = en
+type = QT

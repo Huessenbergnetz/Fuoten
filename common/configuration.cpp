@@ -32,6 +32,8 @@ Configuration::Configuration(QObject *parent) :
     checkAccountValidity();
     m_ignoreSSLErrors = value(QStringLiteral("account/ignoresslerrors"), false).toBool();
     m_avatar = value(QStringLiteral("account/avatar"), QStringLiteral(DEFAULT_AVATAR)).toUrl();
+    m_language = value(QStringLiteral("display/language")).toString();
+    m_mainViewType = (Fuoten::Fuoten::Type)value(QStringLiteral("display/mainViewType"), Fuoten::Fuoten::Feed).toInt();
 }
 
 
@@ -322,3 +324,37 @@ void Configuration::setAvatar(const QString &data, const QString &mime)
     }
 
 }
+
+
+
+QString Configuration::language() const { return m_language; }
+
+void Configuration::setLanguage(const QString &nLanguage)
+{
+    if (nLanguage != m_language) {
+        m_language = nLanguage;
+#ifdef QT_DEBUG
+        qDebug() << "Changed language to" << m_language;
+#endif
+        setValue(QStringLiteral("display/language"), m_language);
+        emit languageChanged(language());
+    }
+}
+
+
+
+
+Fuoten::Fuoten::Type Configuration::mainViewType() const { return m_mainViewType; }
+
+void Configuration::setMainViewType(Fuoten::Fuoten::Type nMainViewType)
+{
+    if (nMainViewType != m_mainViewType) {
+        m_mainViewType = nMainViewType;
+#ifdef QT_DEBUG
+        qDebug() << "Changed mainViewType to" << m_mainViewType;
+#endif
+        setValue(QStringLiteral("display/mainViewType"), m_mainViewType);
+        emit mainViewTypeChanged(mainViewType());
+    }
+}
+
