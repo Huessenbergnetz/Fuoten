@@ -36,7 +36,11 @@
 #include <sailfishapp.h>
 #endif
 
-#include "../../common/globals.h"
+#include <error.h>
+#include <Generic/accountvalidator.h>
+#include <Helpers/configuration.h>
+
+#include "../../common/configuration.h"
 
 
 int main(int argc, char *argv[])
@@ -51,11 +55,19 @@ int main(int argc, char *argv[])
     app->setApplicationDisplayName(QStringLiteral("Fuoten"));
     app->setApplicationVersion(QStringLiteral(VERSION_STRING));
 
+    Configuration config;
+
+    qmlRegisterUncreatableType<Fuoten::Configuration>("harbour.fuoten", 1, 0, "FuotenConfiguration", QStringLiteral("You can not create a FuotenConfiguration object."));
+    qmlRegisterType<Fuoten::Error>("harbour.fuoten", 1, 0, "FuotenError");
+    qmlRegisterType<Fuoten::Generic::AccountValidator>("harbour.fuoten.generic", 1, 0, "AccountValidator");
+
 #ifndef CLAZY
     QQuickView *view = SailfishApp::createView();
 #else
     QQuickView *view = new QQuickView();
 #endif
+
+    view->rootContext()->setContextProperty(QStringLiteral("config"), &config);
 
 #ifndef CLAZY
     view->setSource(SailfishApp::pathTo(QStringLiteral("qml/harbour-fuoten.qml")));

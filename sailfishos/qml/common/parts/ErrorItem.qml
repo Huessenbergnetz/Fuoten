@@ -3,7 +3,7 @@
  * https://www.buschmann23.de/entwicklung/anwendungen/fuoten/
  * https://github.com/Buschtrommel/Fuoten
  *
- * common/globals.h
+ * sailfishos/qml/common/parts/ErrorItem.qml
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,9 +19,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GLOBALS_H
-#define GLOBALS_H
+import QtQuick 2.2
+import QtQuick.Layouts 1.1
+import Sailfish.Silica 1.0
+import harbour.fuoten 1.0
 
+RowLayout {
 
-#endif // GLOBALS_H
+    property bool highlighted: false
+    property FuotenError error: null
+
+    spacing: Theme.paddingSmall
+
+    Image {
+        source: "image://theme/icon-l-attention?" + (highlighted ? Theme.highlightColor : Theme.primaryColor)
+        Layout.preferredWidth: Theme.iconSizeMedium
+        fillMode: Image.PreserveAspectFit
+        Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+    }
+
+    Text {
+        text: error ? error.text : ""
+        color: highlighted ? Theme.highlightColor : Theme.primaryColor
+        font.pixelSize: Theme.fontSizeSmall
+        Layout.fillWidth: true
+        wrapMode: Text.WordWrap
+        maximumLineCount: 3
+        elide: Text.ElideRight
+    }
+}
 

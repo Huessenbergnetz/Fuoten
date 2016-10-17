@@ -21,17 +21,30 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
-
+import harbour.fuoten.generic 1.0
 
 Page {
-    id: phoneMainPage
+    id: tabletMainPage
 
     SilicaListView {
         anchors.fill: parent
 
+        PullDownMenu {
+            MenuItem {
+                //% "About"
+                text: qsTrId("id-about")
+            }
+
+            MenuItem {
+                //% "Settings"
+                text: qsTrId("id-settings")
+                onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Settings.qml"))
+            }
+        }
+
         header: PageHeader {
             title: "Fuoten"
-            page: phoneMainPage
+            page: tabletMainPage
         }
     }
 }
