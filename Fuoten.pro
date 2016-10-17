@@ -2,7 +2,7 @@ TEMPLATE = subdirs
 
 SUBDIRS += libfuoten
 
-contains(CONFIG, sfos) {
+sfos {
 
 SUBDIRS += sailfishos
 
