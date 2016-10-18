@@ -29,6 +29,10 @@ langfiles.path = $$INSTALL_TRANSLATIONS_DIR
 langfiles.files = ../translations/*.qm
 INSTALLS += langfiles
 
+imgfiles.path = /usr/share/harbour-fuoten/images
+imgfiles.files = images/*
+INSTALLS += imgfiles
+
 DISTFILES += \
     qml/harbour-fuoten.qml \
     harbour-fuoten.desktop \
@@ -38,5 +42,9 @@ DISTFILES += \
     qml/tablet/cover/CoverPage.qml \
     qml/common/dialogs/AccountSetup.qml \
     qml/common/pages/Settings.qml \
-    qml/common/parts/ErrorItem.qml
+    qml/common/parts/ErrorItem.qml \
+    qml/common/pages/About.qml \
+    qml/common/models/LicensesModel.qml \
+    qml/common/models/ChangelogModel.qml \
+    qml/common/models/ContributorsModel.qml
 

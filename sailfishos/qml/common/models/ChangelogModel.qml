@@ -3,7 +3,7 @@
  * https://www.buschmann23.de/entwicklung/anwendungen/fuoten/
  * https://github.com/Buschtrommel/Fuoten
  *
- * sailfishos/qml/phone/pages/MainPage.qml
+ * sailfishos/qml/common/models/ChangelogModel.qml
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,34 +20,22 @@
  */
 
 import QtQuick 2.2
-import Sailfish.Silica 1.0
-import harbour.fuoten.generic 1.0
 
-Page {
-    id: phoneMainPage
+/*
+  Types:
+  0 - New
+  1 - Improved/Enhanced
+  2 - Fixed
+  3 - Note
+*/
 
-    SilicaListView {
-        anchors.fill: parent
-
-        PullDownMenu {
-            MenuItem {
-                //% "About"
-                text: qsTrId("id-about")
-                onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/About.qml"))
-            }
-
-            MenuItem {
-                //% "Settings"
-                text: qsTrId("id-settings")
-                onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Settings.qml"))
-            }
-        }
-
-        header: PageHeader {
-            title: "Fuoten"
-            page: phoneMainPage
-        }
+ListModel {
+    ListElement {
+        version: "0.0.1"
+        date: 1476809072000
+        entries: [
+            ListElement { type: 3; issue: ""; description: "initial release" }
+        ]
     }
 }
-
 

@@ -59,7 +59,7 @@ Page {
             }
 
             SectionHeader {
-                //% "User Account"
+                //% "User account"
                 text: qsTrId("id-user-account")
                 Layout.columnSpan: settingsGrid.columns
                 Layout.preferredWidth: settingsGrid.width - Theme.horizontalPageMargin

@@ -67,14 +67,20 @@ int main(int argc, char *argv[])
     }
 
 #ifndef CLAZY
+    const QString l10nDir = SailfishApp::pathTo(QStringLiteral("l10n")).toString(QUrl::RemoveScheme);
     QTranslator *appTrans = new QTranslator(app);
-    if (appTrans->load(QLocale(), QStringLiteral("fuoten"), QStringLiteral("_"), SailfishApp::pathTo(QStringLiteral("l10n")).toString(QUrl::RemoveScheme), QStringLiteral(".qm"))) {
+    if (appTrans->load(QLocale(), QStringLiteral("fuoten"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm"))) {
         app->installTranslator(appTrans);
     }
 
     QTranslator *libTrans = new QTranslator(app);
-    if (libTrans->load(QLocale(), QStringLiteral("libfuoten"), QStringLiteral("_"), SailfishApp::pathTo(QStringLiteral("l10n")).toString(QUrl::RemoveScheme), QStringLiteral(".qm"))) {
+    if (libTrans->load(QLocale(), QStringLiteral("libfuoten"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm"))) {
         app->installTranslator(libTrans);
+    }
+
+    QTranslator *btscTrans = new QTranslator(app);
+    if (btscTrans->load(QLocale(), QStringLiteral("btsc"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm"))) {
+        app->installTranslator(btscTrans);
     }
 #endif
 

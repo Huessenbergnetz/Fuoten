@@ -4,7 +4,7 @@ SUBDIRS += libfuoten
 
 sfos {
 
-SUBDIRS += sailfishos
+SUBDIRS += sailfishos BT_SFOS_Components
 
 sailfishos.depends = libfuoten
 

@@ -3,7 +3,7 @@
  * https://www.buschmann23.de/entwicklung/anwendungen/fuoten/
  * https://github.com/Buschtrommel/Fuoten
  *
- * sailfishos/qml/phone/pages/MainPage.qml
+ * sailfishos/qml/common/models/ChangelogModel.qml
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,34 +20,24 @@
  */
 
 import QtQuick 2.2
-import Sailfish.Silica 1.0
-import harbour.fuoten.generic 1.0
 
-Page {
-    id: phoneMainPage
+ListModel {
+    id: contModel
+    ListElement {
+        name: "Matthias Fehring (Buschmann)"
+        role: ""
+        section: ""
+        image: "buschmann.png"
+        website: "http://www.buschmann23.de"
+        twitter: "buschmann23"
+        github: "buschmann23"
+    }
 
-    SilicaListView {
-        anchors.fill: parent
-
-        PullDownMenu {
-            MenuItem {
-                //% "About"
-                text: qsTrId("id-about")
-                onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/About.qml"))
-            }
-
-            MenuItem {
-                //% "Settings"
-                text: qsTrId("id-settings")
-                onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Settings.qml"))
-            }
-        }
-
-        header: PageHeader {
-            title: "Fuoten"
-            page: phoneMainPage
-        }
+    Component.onCompleted: {
+        //% "Main developer, Fuoten creator"
+        contModel.get(0).role = qsTrId("fuoten-author-role")
+        //% "Author"
+        contModel.get(0).section = qsTrId("fuoten-author-section")
     }
 }
-
 
