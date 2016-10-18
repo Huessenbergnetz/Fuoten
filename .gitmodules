@@ -1,3 +1,6 @@
 [submodule "libfuoten"]
 	path = libfuoten
 	url = https://github.com/Buschtrommel/libfuoten.git
+[submodule "BT_SFOS_Components"]
+	path = BT_SFOS_Components
+	url = https://github.com/Buschtrommel/BT_SFOS_Components.git
