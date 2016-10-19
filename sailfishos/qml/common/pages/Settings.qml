@@ -219,6 +219,7 @@ Page {
             Item {
                 Layout.fillWidth: true
                 Layout.preferredHeight: langChoser.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
 
                 ComboBox {
                     id: langChoser
@@ -241,6 +242,7 @@ Page {
             Item {
                 Layout.fillWidth: true
                 Layout.preferredHeight: mainContentChoser.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
 
                 ComboBox {
                     id: mainContentChoser
