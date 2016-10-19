@@ -27,7 +27,7 @@
 #include <Helpers/configuration.h>
 #include <fuoten.h>
 #if QT_VERSION < QT_VERSION_CHECK(5, 6, 0)
-#include <Helpers/newsappversion.h>
+#include <Helpers/versionnumber.h>
 #else
 #include <QVersionNumber>
 #endif
@@ -188,7 +188,7 @@ public:
 #if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     QVersionNumber getServerVersion() const Q_DECL_OVERRIDE;
 #else
-    Fuoten::NewsAppVersion getServerVersion() const Q_DECL_OVERRIDE;
+    Fuoten::VersionNumber getServerVersion() const Q_DECL_OVERRIDE;
 #endif
     QString serverVersion() const;
     QUrl avatar() const;
@@ -259,8 +259,8 @@ private:
     QString m_displayName;
     bool m_improperlyConfiguredCron;
 #if QT_VERSION < QT_VERSION_CHECK(5, 6 ,0)
-    Fuoten::NewsAppVersion m_serverVersion;
-    Fuoten::NewsAppVersion m_savedAppVersion;
+    Fuoten::VersionNumber m_serverVersion;
+    Fuoten::VersionNumber m_savedAppVersion;
 #else
     QVersionNumber m_serverVersion;
     QVersionNumber m_savedAppVersion;

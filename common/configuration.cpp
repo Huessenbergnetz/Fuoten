@@ -43,8 +43,8 @@ Configuration::Configuration(QObject *parent) :
     m_installPath = value(QStringLiteral("account/installpath")).toString();
     m_displayName = value(QStringLiteral("account/displayname")).toString();
 #if QT_VERSION < QT_VERSION_CHECK(5, 6 ,0)
-    m_serverVersion = Fuoten::NewsAppVersion(value(QStringLiteral("account/serverversion")).toString());
-    m_savedAppVersion = Fuoten::NewsAppVersion(value(QStringLiteral("system/appVersion")).toString());
+    m_serverVersion = Fuoten::VersionNumber(value(QStringLiteral("account/serverversion")).toString());
+    m_savedAppVersion = Fuoten::VersionNumber(value(QStringLiteral("system/appVersion")).toString());
 #else
     m_serverVersion = QVersionNumber::fromString(value(QStringLiteral("account/serverversion")).toString());
     m_savedAppVersion = QVersionNumber::fromString(value(QStringLiteral("system/appVersion")).toString());
@@ -201,7 +201,7 @@ void Configuration::setImproperlyConfiguredCron(bool nImproperlyConfiguredCron)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
 QVersionNumber Configuration::getServerVersion() const { return m_serverVersion; }
 #else
-Fuoten::NewsAppVersion Configuration::getServerVersion() const { return m_serverVersion; }
+Fuoten::VersionNumber Configuration::getServerVersion() const { return m_serverVersion; }
 #endif
 
 QString Configuration::serverVersion() const { return m_serverVersion.toString(); }
@@ -386,7 +386,7 @@ void Configuration::setMainViewType(Fuoten::Fuoten::Type nMainViewType)
 bool Configuration::checkForUpdate() const
 {
 #if QT_VERSION < QT_VERSION_CHECK(5, 6 ,0)
-    Fuoten::NewsAppVersion current(QStringLiteral(VERSION_STRING));
+    Fuoten::VersionNumber current(QStringLiteral(VERSION_STRING));
     return m_savedAppVersion.lowerThan(current);
 #else
     QVersionNumber current = QVersionNumber::fromString(QStringLiteral(VERSION_STRING));
