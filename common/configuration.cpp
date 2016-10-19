@@ -44,8 +44,10 @@ Configuration::Configuration(QObject *parent) :
     m_displayName = value(QStringLiteral("account/displayname")).toString();
 #if QT_VERSION < QT_VERSION_CHECK(5, 6 ,0)
     m_serverVersion = Fuoten::NewsAppVersion(value(QStringLiteral("account/serverversion")).toString());
+    m_savedAppVersion = Fuoten::NewsAppVersion(value(QStringLiteral("system/appVersion")).toString());
 #else
     m_serverVersion = QVersionNumber::fromString(value(QStringLiteral("account/serverversion")).toString());
+    m_savedAppVersion = QVersionNumber::fromString(value(QStringLiteral("system/appVersion")).toString());
 #endif
     m_serverPort = value(QStringLiteral("account/serverport"), 0).toInt();
     m_improperlyConfiguredCron = value(QStringLiteral("warnings/improperlyConfiguredCron"), false).toBool();
@@ -379,3 +381,27 @@ void Configuration::setMainViewType(Fuoten::Fuoten::Type nMainViewType)
     }
 }
 
+
+
+bool Configuration::checkForUpdate() const
+{
+#if QT_VERSION < QT_VERSION_CHECK(5, 6 ,0)
+    Fuoten::NewsAppVersion current(QStringLiteral(VERSION_STRING));
+    return m_savedAppVersion.lowerThan(current);
+#else
+    QVersionNumber current = QVersionNumber::fromString(QStringLiteral(VERSION_STRING));
+    return m_savedAppVersion < m_currentAppVersion;
+#endif
+}
+
+
+bool Configuration::isFirstStart() const
+{
+    return m_savedAppVersion.isNull();
+}
+
+
+void Configuration::setCurrentVersion()
+{
+    setValue(QStringLiteral("system/appVersion"), QStringLiteral(VERSION_STRING));
+}

@@ -210,6 +210,25 @@ public:
     void setLanguage(const QString &nLanguage);
     void setMainViewType(Fuoten::Fuoten::Type nMainViewType);
 
+    /*!
+     * \brief Returns true if Fuoten has been updated.
+     *
+     * Compares the current version with the last saved version.
+     */
+    Q_INVOKABLE bool checkForUpdate() const;
+
+    /*!
+     * \brief Returns true if this is the first start of Fuoten.
+     *
+     * Checks if a valid version has been saved.
+     */
+    Q_INVOKABLE bool isFirstStart() const;
+
+    /*!
+     * \brief Saves the current application version in the settings file.
+     */
+    Q_INVOKABLE void setCurrentVersion();
+
 protected:
     void setIsAccountValid(bool nIsAccountValid) Q_DECL_OVERRIDE;
 
@@ -241,8 +260,10 @@ private:
     bool m_improperlyConfiguredCron;
 #if QT_VERSION < QT_VERSION_CHECK(5, 6 ,0)
     Fuoten::NewsAppVersion m_serverVersion;
+    Fuoten::NewsAppVersion m_savedAppVersion;
 #else
     QVersionNumber m_serverVersion;
+    QVersionNumber m_savedAppVersion;
 #endif
     bool m_isAccountValid;
     int m_serverPort;

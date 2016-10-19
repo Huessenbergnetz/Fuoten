@@ -24,9 +24,11 @@ import Sailfish.Silica 1.0
 
 ApplicationWindow
 {
-    initialPage: Screen.sizeCategory >= Screen.Large
-                 ? Qt.resolvedUrl("tablet/pages/MainPage.qml")
-                 : Qt.resolvedUrl("phone/pages/MainPage.qml")
+    initialPage: config.isFirstStart()
+                 ? Qt.resolvedUrl("common/wizard/Welcome.qml")
+                 : Screen.sizeCategory >= Screen.Large
+                   ? Qt.resolvedUrl("tablet/pages/MainPage.qml")
+                   : Qt.resolvedUrl("phone/pages/MainPage.qml")
     cover: Screen.sizeCategory >= Screen.Large
            ? Qt.resolvedUrl("tablet/cover/CoverPage.qml")
            : Qt.resolvedUrl("phone/cover/CoverPage.qml")
