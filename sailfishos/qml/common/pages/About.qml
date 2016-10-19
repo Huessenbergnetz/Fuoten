@@ -61,11 +61,6 @@ AboutPage {
 
     licensesModel: LicensesModel {}
 
-    paypalOrganization: "Buschtrommel"
-    paypalItem: "Fuoten"
-    paypalEmail: "kontakt@buschmann23.de"
-//    paypalMessage: donation.message
-//    paypalLabel: donation.label
-//    paypalDescription: donation.description
+    privacyPolicyQmlFile: Qt.resolvedUrl("PrivacyPolicy.qml")
 }
 
