@@ -73,6 +73,7 @@ Dialog {
                 Layout.fillWidth: true
                 //% "User name"
                 label: qsTrId("id-user-name"); placeholderText: label
+                inputMethodHints: Qt.ImhNoAutoUppercase | Qt.ImhNoPredictiveText
                 EnterKey.enabled: text || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: password.focus = true
@@ -101,8 +102,19 @@ Dialog {
                 inputMethodHints: Qt.ImhUrlCharactersOnly
                 EnterKey.enabled: text || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
-                EnterKey.onClicked: port.focus = true
+                EnterKey.onClicked: installPath.focus = true
                 text: config.host
+            }
+
+            TextField {
+                id: installPath
+                Layout.fillWidth: true
+                //% "Installation path"
+                label: qsTrId("id-server-path"); placeholderText: label
+                inputMethodHints: Qt.ImhUrlCharactersOnly
+                EnterKey.iconSource: "image://theme/icon-m-enter-next"
+                EnterKey.onClicked: port.focus = true
+                text: config.installPath
             }
 
             TextField {
@@ -113,20 +125,9 @@ Dialog {
                 inputMethodHints: Qt.ImhDigitsOnly
                 validator: IntValidator { bottom: 0; top: 65536 }
                 EnterKey.enabled: text || inputMethodComposing
-                EnterKey.iconSource: "image://theme/icon-m-enter-next"
-                EnterKey.onClicked: installPath.focus = true
-                text: config.serverPort
-            }
-
-            TextField {
-                id: installPath
-                Layout.fillWidth: true
-                //% "Installation path"
-                label: qsTrId("id-server-path"); placeholderText: label
-                inputMethodHints: Qt.ImhUrlCharactersOnly
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
-                EnterKey.onClicked: installPath.focus = false
-                text: config.installPath
+                EnterKey.onClicked: port.focus = false
+                text: config.serverPort
             }
 
             Item {
