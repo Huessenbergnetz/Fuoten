@@ -46,6 +46,9 @@
 
 #include "../../common/configuration.h"
 #include "../../common/languagemodel.h"
+#include "../../common/sqlitemanager.h"
+#include "../../common/sqlitestoragehandler.h"
+
 
 
 #ifdef QT_DEBUG
@@ -112,6 +115,13 @@ int main(int argc, char *argv[])
     qInstallMessageHandler(fuotenMessageHandler);
 #endif
 
+    SQLiteStorageHandler sqlsh;
+
+    SQLiteManager *dbm = new SQLiteManager(app);
+    QObject::connect(dbm, &SQLiteManager::databaseReady, &sqlsh, &SQLiteStorageHandler::databaseReady);
+    QObject::connect(dbm, &SQLiteManager::finished, dbm, &QObject::deleteLater);
+    dbm->start(QThread::LowPriority);
+
     Configuration config;
 
     if (!config.language().isEmpty()) {
@@ -153,6 +163,7 @@ int main(int argc, char *argv[])
 #endif
 
     view->rootContext()->setContextProperty(QStringLiteral("config"), &config);
+    view->rootContext()->setContextProperty(QStringLiteral("storage"), &sqlsh);
 
 #ifndef CLAZY
     view->setSource(SailfishApp::pathTo(QStringLiteral("qml/harbour-fuoten.qml")));
