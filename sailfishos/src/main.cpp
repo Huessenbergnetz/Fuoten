@@ -25,6 +25,8 @@
 
 #ifdef QT_DEBUG
 #include <QtDebug>
+#include <QFile>
+#include <QTextStream>
 #endif
 
 #include <QtQml>
@@ -46,6 +48,53 @@
 #include "../../common/languagemodel.h"
 
 
+#ifdef QT_DEBUG
+void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
+    QString t;
+    switch (type) {
+    case QtDebugMsg:
+        t = QStringLiteral("D");
+        break;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
+    case QtInfoMsg:
+        t = QStringLiteral("I");
+        break;
+#endif
+    case QtWarningMsg:
+        t = QStringLiteral("W");
+        break;
+    case QtCriticalMsg:
+        t = QStringLiteral("C");
+        break;
+    case QtFatalMsg:
+        t = QStringLiteral("F");
+        break;
+    }
+
+    QRegularExpression re(QStringLiteral("([\\w:]+)\\("));
+
+    QString txt = QStringLiteral("[%1] %2: %3:%4 - %5").arg(t,
+                                                            QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz")),
+                                                            re.match(QString(context.function)).captured(1),
+                                                            QString::number(context.line),
+                                                            msg);
+
+    fprintf(stderr, "%s\n", txt.toLocal8Bit().constData());
+
+    QFile logFile(QDir::homePath().append(QStringLiteral("/fuoten.log")));
+    logFile.open(QIODevice::WriteOnly | QIODevice::Append);
+    QTextStream ts(&logFile);
+    ts << txt << endl;
+
+    if (type == QtFatalMsg) {
+        abort();
+    }
+}
+#endif
+
+
+
 int main(int argc, char *argv[])
 {
 #ifndef CLAZY
@@ -57,6 +106,11 @@ int main(int argc, char *argv[])
     app->setApplicationName(QStringLiteral("harbour-fuoten"));
     app->setApplicationDisplayName(QStringLiteral("Fuoten"));
     app->setApplicationVersion(QStringLiteral(VERSION_STRING));
+
+#ifdef QT_DEBUG
+    QFile::remove(QDir::homePath().append(QStringLiteral("/fuoten.log")));
+    qInstallMessageHandler(fuotenMessageHandler);
+#endif
 
     Configuration config;
 
