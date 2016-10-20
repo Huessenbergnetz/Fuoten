@@ -77,11 +77,19 @@ void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, con
 
     QRegularExpression re(QStringLiteral("([\\w:]+)\\("));
 
-    QString txt = QStringLiteral("[%1] %2: %3:%4 - %5").arg(t,
-                                                            QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz")),
-                                                            re.match(QString(context.function)).captured(1),
-                                                            QString::number(context.line),
-                                                            msg);
+    QString txt;
+
+    if (context.function) {
+
+        txt = QStringLiteral("[%1] %2: %3:%4 - %5").arg(t,
+                                                        QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz")),
+                                                        re.match(QString(context.function)).captured(1),
+                                                        QString::number(context.line),
+                                                        msg);
+
+    } else {
+        txt = QStringLiteral("[%1] %2: %3").arg(t, QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz")), msg);
+    }
 
     fprintf(stderr, "%s\n", txt.toLocal8Bit().constData());
 
