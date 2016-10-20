@@ -88,7 +88,9 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<Fuoten::Configuration>("harbour.fuoten", 1, 0, "FuotenConfiguration", QStringLiteral("You can not create a FuotenConfiguration object."));
     qmlRegisterType<Fuoten::Error>("harbour.fuoten", 1, 0, "FuotenError");
     qmlRegisterType<Fuoten::Generic::AccountValidator>("harbour.fuoten.generic", 1, 0, "AccountValidator");
+
     qmlRegisterType<LanguageModel>("harbour.fuoten", 1, 0, "LanguageModel");
+    qmlRegisterUncreatableType<Configuration>("harbour.fuoten", 1, 0, "Configuratoin", QStringLiteral("You can not create a Configuration object"));
 
 #ifndef CLAZY
     QQuickView *view = SailfishApp::createView();
