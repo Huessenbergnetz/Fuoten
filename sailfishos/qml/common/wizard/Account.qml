@@ -22,7 +22,7 @@
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
-import harbour.fuoten.generic 1.0
+import harbour.fuoten 1.0
 import "../parts"
 
 Dialog {

@@ -23,6 +23,11 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QStandardPaths>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonValue>
+#include <QHash>
 #ifdef QT_DEBUG
 #include <QtDebug>
 #endif
@@ -37,7 +42,184 @@ SQLiteStorageHandler::SQLiteStorageHandler(QObject *parent) : Fuoten::StorageHan
 
 void SQLiteStorageHandler::foldersRequested(const QJsonDocument &json)
 {
+    if (!m_ready) {
+        return;
+    }
 
+    if (json.isEmpty() || json.isNull()) {
+        return;
+    }
+
+    const QJsonArray folders = json.object().value(QStringLiteral("folders")).toArray();
+
+#ifdef QT_DEBUG
+    qDebug() << "Processing" << folders.size() << "folders requested from the remote server.";
+#endif
+
+    QHash<quint64, QString> reqFolders;
+
+    for (const QJsonValue &f : folders) {
+        QJsonObject o = f.toObject();
+        if (!o.isEmpty()) {
+            reqFolders.insert(o.value(QStringLiteral("id")).toVariant().toULongLong(), o.value(QStringLiteral("name")).toString());
+        }
+    }
+
+    QSqlQuery q(m_db);
+
+    // query the currently local available folders in the database
+    QHash<quint64, QString> currentFolders;
+
+    if (!q.exec(QStringLiteral("SELECT id, name FROM folders"))) {
+        //% "Failed to query the folders from the local database."
+        setQueryError(qtTrId("fuoten-failed-query-folders"), &q);
+        return;
+    }
+
+    while (q.next()) {
+        currentFolders.insert(q.value(0).toULongLong(), q.value(1).toString());
+    }
+
+    if (reqFolders.isEmpty() && currentFolders.isEmpty()) {
+#ifdef QT_DEBUG
+        qDebug() << "Nothing to do. Returning.";
+#endif
+        return;
+    }
+
+    QList<quint64> deletedIds;
+    QList<QPair<quint64, QString>> newFolders;
+    QList<QPair<quint64, QString>> updatedFolders;
+
+    if (currentFolders.isEmpty()) {
+
+        // add all requested folders to the list of new folders
+        QHash<quint64, QString>::const_iterator i = reqFolders.constBegin();
+        while (i != reqFolders.constEnd()) {
+            newFolders.append(QPair<quint64, QString>(i.key(), i.value()));
+            ++i;
+        }
+
+    } else {
+
+        // checking for updated and deleted folders
+        QHash<quint64, QString>::const_iterator i = currentFolders.constBegin();
+        while (i != currentFolders.constEnd()) {
+            if (reqFolders.contains(i.key())) {
+                if (reqFolders.value(i.key()) != i.value()) {
+                    updatedFolders.append(qMakePair(i.key(), reqFolders.value(i.key())));
+                }
+            } else {
+                deletedIds << i.key();
+            }
+            ++i;
+        }
+
+        // checking for newly added folders
+        i = reqFolders.constBegin();
+        while (i != reqFolders.constEnd()) {
+            if (!currentFolders.contains(i.key())) {
+                newFolders.append(qMakePair(i.key(), i.value()));
+            }
+            ++i;
+        }
+    }
+
+    // start updating the database
+    if (!deletedIds.isDetached() || !newFolders.isEmpty() || !updatedFolders.isEmpty()) {
+
+        if (!m_db.transaction()) {
+            //% "Failed to begin a database transaction."
+            setDbError(qtTrId("fuoten-error-transaction-begin"));
+            return;
+        }
+
+        if (!deletedIds.isEmpty()) {
+
+            for (int i = 0; i < deletedIds.size(); ++i) {
+
+#ifdef QT_DEBUG
+                qDebug() << "Deleting folder with ID" << deletedIds.at(i) << "from local database.";
+#endif
+
+                if (!q.prepare(QStringLiteral("DELETE FROM folders WHERE id = ?"))) {
+                    //% "Failed to prepare database query."
+                    setQueryError(qtTrId("fuoten-error-failed-prepare-query"), &q);
+                    return;
+                }
+
+                q.addBindValue(deletedIds.at(i));
+
+                if (!q.exec()) {
+                    //% "Failed to execute database query."
+                    setQueryError(qtTrId("fuoten-error-failed-execute-query"), &q);
+                    return;
+                }
+            }
+        }
+
+        if (!updatedFolders.isEmpty()) {
+
+            for (int i = 0; i < updatedFolders.size(); ++i) {
+
+#ifdef QT_DEBUG
+                qDebug() << "Updating name of folder with ID" << updatedFolders.at(i).first << "in local database to:" << updatedFolders.at(i).second;
+#endif
+
+                if (!q.prepare(QStringLiteral("UPDATE folders SET name = ? WHERE id = ?"))) {
+                    //% "Failed to prepare database query."
+                    setQueryError(qtTrId("fuoten-error-failed-prepare-query"), &q);
+                    return;
+                }
+
+                q.addBindValue(updatedFolders.at(i).second);
+                q.addBindValue(updatedFolders.at(i).first);
+
+                if (!q.exec()) {
+                    //% "Failed to execute database query."
+                    setQueryError(qtTrId("fuoten-error-failed-execute-query"), &q);
+                    return;
+                }
+            }
+
+        }
+
+
+        if (!newFolders.isEmpty()) {
+
+            for (int i = 0; i < newFolders.size(); ++i) {
+
+#ifdef QT_DEBUG
+                qDebug() << "Adding folder" << newFolders.at(i).second << "with ID" << newFolders.at(i).first << "to the local database.";
+#endif
+                if (!q.prepare(QStringLiteral("INSERT INTO folders (id, name) VALUES (?, ?)"))) {
+                    //% "Failed to prepare database query."
+                    setQueryError(qtTrId("fuoten-error-failed-prepare-query"), &q);
+                    return;
+                }
+
+                q.addBindValue(newFolders.at(i).first);
+                q.addBindValue(newFolders.at(i).second);
+
+                if (!q.exec()) {
+                    //% "Failed to execute database query."
+                    setQueryError(qtTrId("fuoten-error-failed-execute-query"), &q);
+                    return;
+                }
+            }
+        }
+
+
+
+        if (!m_db.commit()) {
+            //% "Failed to commit a database transaction."
+            setDbError(qtTrId("fuoten-error-transaction-commit"));
+            return;
+        }
+
+    }
+
+    emit requestedFolders(updatedFolders, newFolders, deletedIds);
 }
 
 
@@ -113,3 +295,15 @@ void SQLiteStorageHandler::setError(Fuoten::Error *nError)
 
 
 
+void SQLiteStorageHandler::setDbError(const QString &message)
+{
+    setError(new Fuoten::Error(Fuoten::Error::ApplicationError, Fuoten::Error::Critical, message, m_db.lastError().databaseText(), this));
+}
+
+
+void SQLiteStorageHandler::setQueryError(const QString &message, QSqlQuery *q)
+{
+    if (q) {
+        setError(new Fuoten::Error(Fuoten::Error::ApplicationError, Fuoten::Error::Critical, message, q->lastError().text(), this));
+    }
+}

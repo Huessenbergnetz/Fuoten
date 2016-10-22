@@ -21,7 +21,6 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
-import harbour.fuoten.generic 1.0
 
 Page {
     id: tabletMainPage
@@ -39,6 +38,11 @@ Page {
                 //% "Settings"
                 text: qsTrId("id-settings")
                 onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Settings.qml"))
+            }
+            MenuItem {
+                //% "Synchronize"
+                text: qsTrId("fuoten-synchronize")
+                onClicked: synchronizer.sync()
             }
         }
 

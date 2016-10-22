@@ -41,15 +41,14 @@
 
 #include <error.h>
 #include <fuoten.h>
-#include <Generic/accountvalidator.h>
+#include <Helpers/accountvalidator.h>
 #include <Helpers/configuration.h>
+#include <Helpers/synchronizer.h>
 
 #include "../../common/configuration.h"
 #include "../../common/languagemodel.h"
 #include "../../common/sqlitemanager.h"
 #include "../../common/sqlitestoragehandler.h"
-
-
 
 #ifdef QT_DEBUG
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
@@ -123,13 +122,6 @@ int main(int argc, char *argv[])
     qInstallMessageHandler(fuotenMessageHandler);
 #endif
 
-    SQLiteStorageHandler sqlsh;
-
-    SQLiteManager *dbm = new SQLiteManager(app);
-    QObject::connect(dbm, &SQLiteManager::databaseReady, &sqlsh, &SQLiteStorageHandler::databaseReady);
-    QObject::connect(dbm, &SQLiteManager::finished, dbm, &QObject::deleteLater);
-    dbm->start(QThread::LowPriority);
-
     Configuration config;
 
     if (!config.language().isEmpty()) {
@@ -156,10 +148,22 @@ int main(int argc, char *argv[])
     }
 #endif
 
+    SQLiteStorageHandler sqlsh;
+
+    SQLiteManager *dbm = new SQLiteManager(app);
+    QObject::connect(dbm, &SQLiteManager::databaseReady, &sqlsh, &SQLiteStorageHandler::databaseReady);
+    QObject::connect(dbm, &SQLiteManager::finished, dbm, &QObject::deleteLater);
+    dbm->start(QThread::LowPriority);
+
+
+    Fuoten::Synchronizer synchronizer;
+    synchronizer.setConfiguration(&config);
+    synchronizer.setStorageHandler(&sqlsh);
+
     qmlRegisterUncreatableType<Fuoten::Fuoten>("harbour.fuoten", 1, 0, "Fuoten", QStringLiteral("You can not create a Fuoten object"));
     qmlRegisterUncreatableType<Fuoten::Configuration>("harbour.fuoten", 1, 0, "FuotenConfiguration", QStringLiteral("You can not create a FuotenConfiguration object."));
     qmlRegisterType<Fuoten::Error>("harbour.fuoten", 1, 0, "FuotenError");
-    qmlRegisterType<Fuoten::Generic::AccountValidator>("harbour.fuoten.generic", 1, 0, "AccountValidator");
+    qmlRegisterType<Fuoten::AccountValidator>("harbour.fuoten", 1, 0, "AccountValidator");
 
     qmlRegisterType<LanguageModel>("harbour.fuoten", 1, 0, "LanguageModel");
     qmlRegisterUncreatableType<Configuration>("harbour.fuoten", 1, 0, "Configuratoin", QStringLiteral("You can not create a Configuration object"));
@@ -172,6 +176,7 @@ int main(int argc, char *argv[])
 
     view->rootContext()->setContextProperty(QStringLiteral("config"), &config);
     view->rootContext()->setContextProperty(QStringLiteral("storage"), &sqlsh);
+    view->rootContext()->setContextProperty(QStringLiteral("synchronizer"), &synchronizer);
 
 #ifndef CLAZY
     view->setSource(SailfishApp::pathTo(QStringLiteral("qml/harbour-fuoten.qml")));

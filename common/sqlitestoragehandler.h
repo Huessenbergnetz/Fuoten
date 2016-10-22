@@ -27,13 +27,15 @@
 #include <Helpers/storagehandler.h>
 #include <error.h>
 
+class QSqlQuery;
+
 class QJsonDocument;
 
 class SQLiteStorageHandler : public Fuoten::StorageHandler
 {
     Q_OBJECT
     /*!
-     * \brief Returns true when the databases have been setup successfully.
+     * \brief Returns true when the database has been setup successfully.
      *
      * \par Access functions:
      * <TABLE><TR><TD>bool</TD><TD>ready() const</TD></TR></TABLE>
@@ -77,6 +79,8 @@ private:
     QSqlDatabase m_db;
 
     void setError(Fuoten::Error *nError);
+    void setDbError(const QString &message);
+    void setQueryError(const QString &message, QSqlQuery *q);
 };
 
 #endif // SQLITESTORAGEHANDLER_H

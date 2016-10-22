@@ -28,7 +28,7 @@
 #include <QStringList>
 #include <QDir>
 #ifdef QT_DEBUG
-#include <QDebug>
+#include <QtDebug>
 #endif
 
 SQLiteManager::SQLiteManager(QObject *parent) : QThread(parent)
