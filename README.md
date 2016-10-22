@@ -9,7 +9,7 @@ At first you have to clone this repository including all submodules (libfuoten, 
 
     git clone --recursive https://github.com/Buschtrommel/Fuoten.git
     
-Now create open the *Fuoten.pro* project file in the SDK and configure your build targets. For every build target
+Now open the *Fuoten.pro* project file in the SDK and configure your build targets. For every build target
 you have to specify the following additional *qmake arguments* (can be done on the Projects page of the Qt Creator).
 
     CONFIG+=sfos INSTALL_LIB_DIR=/usr/share/harbour-fuoten/lib INSTALL_TRANSLATIONS_DIR=/usr/share/harbour-fuoten/l10n BTSC_APP_NAME=fuoten
