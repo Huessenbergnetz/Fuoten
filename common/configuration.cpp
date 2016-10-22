@@ -198,11 +198,7 @@ void Configuration::setImproperlyConfiguredCron(bool nImproperlyConfiguredCron)
 }
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
 QVersionNumber Configuration::getServerVersion() const { return m_serverVersion; }
-#else
-Fuoten::VersionNumber Configuration::getServerVersion() const { return m_serverVersion; }
-#endif
 
 QString Configuration::serverVersion() const { return m_serverVersion.toString(); }
 
@@ -386,11 +382,9 @@ void Configuration::setMainViewType(Fuoten::Fuoten::Type nMainViewType)
 bool Configuration::checkForUpdate() const
 {
 #if QT_VERSION < QT_VERSION_CHECK(5, 6 ,0)
-    Fuoten::VersionNumber current(QStringLiteral(VERSION_STRING));
-    return m_savedAppVersion.lowerThan(current);
+    return m_savedAppVersion < QVersionNumber(QStringLiteral(VERSION_STRING));
 #else
-    QVersionNumber current = QVersionNumber::fromString(QStringLiteral(VERSION_STRING));
-    return m_savedAppVersion < m_currentAppVersion;
+    return m_savedAppVersion < QVersionNumber::fromString(QStringLiteral(VERSION_STRING));
 #endif
 }
 

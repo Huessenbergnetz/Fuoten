@@ -185,11 +185,7 @@ public:
     int getServerPort() const Q_DECL_OVERRIDE;
     QString getUserAgent() const Q_DECL_OVERRIDE;
     bool getIgnoreSSLErrors() const Q_DECL_OVERRIDE;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     QVersionNumber getServerVersion() const Q_DECL_OVERRIDE;
-#else
-    Fuoten::VersionNumber getServerVersion() const Q_DECL_OVERRIDE;
-#endif
     QString serverVersion() const;
     QUrl avatar() const;
     QString language() const;
@@ -258,13 +254,8 @@ private:
     QString m_installPath;
     QString m_displayName;
     bool m_improperlyConfiguredCron;
-#if QT_VERSION < QT_VERSION_CHECK(5, 6 ,0)
-    Fuoten::VersionNumber m_serverVersion;
-    Fuoten::VersionNumber m_savedAppVersion;
-#else
     QVersionNumber m_serverVersion;
     QVersionNumber m_savedAppVersion;
-#endif
     bool m_isAccountValid;
     int m_serverPort;
     bool m_ignoreSSLErrors;
