@@ -3,15 +3,11 @@
 HEADERS += \
     $$PWD/globals.h \
     $$PWD/configuration.h \
-    $$PWD/languagemodel.h \
-    $$PWD/sqlitemanager.h \
-    $$PWD/sqlitestoragehandler.h
+    $$PWD/languagemodel.h
 
 SOURCES += \
     $$PWD/configuration.cpp \
-    $$PWD/languagemodel.cpp \
-    $$PWD/sqlitemanager.cpp \
-    $$PWD/sqlitestoragehandler.cpp
+    $$PWD/languagemodel.cpp
 
 DISTFILES += \
     $$PWD/qml/common/models/PrivacyPolicyModel.qml

@@ -160,15 +160,15 @@ class Configuration : public Fuoten::Configuration
      * \brief Sets the type of the application main view page.
      *
      * \par Access functions:
-     * <TABLE><TR><TD>Fuoten::Fuoten::Type</TD><TD>mainViewType() const</TD></TR><TR><TD>void</TD><TD>setMainViewType(Fuoten::Fuoten::Type nMainViewType)</TD></TR></TABLE>
+     * <TABLE><TR><TD>Fuoten::FuotenEnums::Type</TD><TD>mainViewType() const</TD></TR><TR><TD>void</TD><TD>setMainViewType(Fuoten::FuotenEnums::Type nMainViewType)</TD></TR></TABLE>
      * \par Notifier signal:
-     * <TABLE><TR><TD>void</TD><TD>mainViewTypeChanged(Fuoten::Fuoten::Type mainViewType)</TD></TR></TABLE>
+     * <TABLE><TR><TD>void</TD><TD>mainViewTypeChanged(Fuoten::FuotenEnums::Type mainViewType)</TD></TR></TABLE>
      */
-    Q_PROPERTY(Fuoten::Fuoten::Type mainViewType READ mainViewType WRITE setMainViewType NOTIFY mainViewTypeChanged)
+    Q_PROPERTY(Fuoten::FuotenEnums::Type mainViewType READ mainViewType WRITE setMainViewType NOTIFY mainViewTypeChanged)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
-    Q_ENUM(Fuoten::Fuoten::Type)
+    Q_ENUM(Fuoten::FuotenEnums::Type)
 #else
-    Q_ENUMS(Fuoten::Fuoten::Type)
+    Q_ENUMS(Fuoten::FuotenEnums::Type)
 #endif
 public:
     explicit Configuration(QObject *parent = nullptr);
@@ -189,7 +189,7 @@ public:
     QString serverVersion() const;
     QUrl avatar() const;
     QString language() const;
-    Fuoten::Fuoten::Type mainViewType() const;
+    Fuoten::FuotenEnums::Type mainViewType() const;
 
 
     void setUsername(const QString &username);
@@ -204,7 +204,7 @@ public:
     void setServerVersion(const QString &nServerVersion) Q_DECL_OVERRIDE;
     void setAvatar(const QString &data, const QString &mime) Q_DECL_OVERRIDE;
     void setLanguage(const QString &nLanguage);
-    void setMainViewType(Fuoten::Fuoten::Type nMainViewType);
+    void setMainViewType(Fuoten::FuotenEnums::Type nMainViewType);
 
     /*!
      * \brief Returns true if Fuoten has been updated.
@@ -242,7 +242,7 @@ signals:
     void ignoreSSLErrorsChanged(bool ignoreSSLErrors);
     void avatarChanged(const QUrl &avatar);
     void languageChanged(const QString &language);
-    void mainViewTypeChanged(Fuoten::Fuoten::Type mainViewType);
+    void mainViewTypeChanged(Fuoten::FuotenEnums::Type mainViewType);
 
 
 private:
@@ -261,7 +261,7 @@ private:
     bool m_ignoreSSLErrors;
     QUrl m_avatar;
     QString m_language;
-    Fuoten::Fuoten::Type m_mainViewType;
+    Fuoten::FuotenEnums::Type m_mainViewType;
 };
 
 #endif // CONFIGURATION_H

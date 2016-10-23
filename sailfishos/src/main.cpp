@@ -34,6 +34,8 @@
 #include <QQuickView>
 #include <QLocale>
 #include <QTranslator>
+#include <QDir>
+#include <QStandardPaths>
 
 #ifndef CLAZY
 #include <sailfishapp.h>
@@ -44,11 +46,10 @@
 #include <Helpers/accountvalidator.h>
 #include <Helpers/configuration.h>
 #include <Helpers/synchronizer.h>
+#include <Storage/sqlitestorage.h>
 
 #include "../../common/configuration.h"
 #include "../../common/languagemodel.h"
-#include "../../common/sqlitemanager.h"
-#include "../../common/sqlitestoragehandler.h"
 
 #ifdef QT_DEBUG
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
@@ -148,19 +149,21 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    SQLiteStorageHandler sqlsh;
+    QDir dataDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
 
-    SQLiteManager *dbm = new SQLiteManager(app);
-    QObject::connect(dbm, &SQLiteManager::databaseReady, &sqlsh, &SQLiteStorageHandler::databaseReady);
-    QObject::connect(dbm, &SQLiteManager::finished, dbm, &QObject::deleteLater);
-    dbm->start(QThread::LowPriority);
+    if (!dataDir.exists()) {
+        if (!dataDir.mkpath(dataDir.absolutePath()))
+        qFatal("Failed to create data directory.");
+    }
 
+    Fuoten::SQLiteStorage sqliteStorage(dataDir.absoluteFilePath(QStringLiteral("database.sqlite")));
+    sqliteStorage.init();
 
     Fuoten::Synchronizer synchronizer;
     synchronizer.setConfiguration(&config);
-    synchronizer.setStorageHandler(&sqlsh);
+    synchronizer.setStorage(&sqliteStorage);
 
-    qmlRegisterUncreatableType<Fuoten::Fuoten>("harbour.fuoten", 1, 0, "Fuoten", QStringLiteral("You can not create a Fuoten object"));
+    qmlRegisterUncreatableType<Fuoten::FuotenEnums>("harbour.fuoten", 1, 0, "Fuoten", QStringLiteral("You can not create a Fuoten object"));
     qmlRegisterUncreatableType<Fuoten::Configuration>("harbour.fuoten", 1, 0, "FuotenConfiguration", QStringLiteral("You can not create a FuotenConfiguration object."));
     qmlRegisterType<Fuoten::Error>("harbour.fuoten", 1, 0, "FuotenError");
     qmlRegisterType<Fuoten::AccountValidator>("harbour.fuoten", 1, 0, "AccountValidator");
@@ -175,7 +178,7 @@ int main(int argc, char *argv[])
 #endif
 
     view->rootContext()->setContextProperty(QStringLiteral("config"), &config);
-    view->rootContext()->setContextProperty(QStringLiteral("storage"), &sqlsh);
+    view->rootContext()->setContextProperty(QStringLiteral("storage"), &sqliteStorage);
     view->rootContext()->setContextProperty(QStringLiteral("synchronizer"), &synchronizer);
 
 #ifndef CLAZY
