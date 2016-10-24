@@ -62,10 +62,10 @@ public:
         Name                        /**< Language display name */
     };
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE Q_DECL_FINAL;
-    QModelIndex index(int row, int column = 0, const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE Q_DECL_FINAL;
-    QHash<int, QByteArray> roleNames() const Q_DECL_OVERRIDE Q_DECL_FINAL;
-    QVariant data(const QModelIndex &index, int role = Qt::UserRole) const Q_DECL_OVERRIDE Q_DECL_FINAL;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override Q_DECL_FINAL;
+    QModelIndex index(int row, int column = 0, const QModelIndex &parent = QModelIndex()) const override Q_DECL_FINAL;
+    QHash<int, QByteArray> roleNames() const override Q_DECL_FINAL;
+    QVariant data(const QModelIndex &index, int role = Qt::UserRole) const override Q_DECL_FINAL;
 
     /*!
      * \brief Returns the index of the language identified by \a langCode.

@@ -203,18 +203,18 @@ public:
     explicit Configuration(QObject *parent = nullptr);
     ~Configuration();
 
-    QString getUsername() const Q_DECL_OVERRIDE;
-    QString getPassword() const Q_DECL_OVERRIDE;
-    bool getUseSSL() const Q_DECL_OVERRIDE;
-    QString getHost() const Q_DECL_OVERRIDE;
-    QString getInstallPath() const Q_DECL_OVERRIDE;
+    QString getUsername() const override;
+    QString getPassword() const override;
+    bool getUseSSL() const override;
+    QString getHost() const override;
+    QString getInstallPath() const override;
     QString displayName() const;
     bool improperlyConfiguredCron() const;
-    bool isAccountValid() const Q_DECL_OVERRIDE;
-    int getServerPort() const Q_DECL_OVERRIDE;
-    QString getUserAgent() const Q_DECL_OVERRIDE;
-    bool getIgnoreSSLErrors() const Q_DECL_OVERRIDE;
-    QVersionNumber getServerVersion() const Q_DECL_OVERRIDE;
+    bool isAccountValid() const override;
+    int getServerPort() const override;
+    QString getUserAgent() const override;
+    bool getIgnoreSSLErrors() const override;
+    QVersionNumber getServerVersion() const override;
     QString serverVersion() const;
     QUrl avatar() const;
     QString language() const;
@@ -230,10 +230,10 @@ public:
     void setInstallPath(const QString &installPath);
     void setServerPort(int serverPort);
     void setIgnoreSSLErrors(bool ignoreSSLErrors);
-    void setDisplayName(const QString &nDisplayName) Q_DECL_OVERRIDE;
-    void setImproperlyConfiguredCron(bool nImproperlyConfiguredCron) Q_DECL_OVERRIDE;
-    void setServerVersion(const QString &nServerVersion) Q_DECL_OVERRIDE;
-    void setAvatar(const QString &data, const QString &mime) Q_DECL_OVERRIDE;
+    void setDisplayName(const QString &nDisplayName) override;
+    void setImproperlyConfiguredCron(bool nImproperlyConfiguredCron) override;
+    void setServerVersion(const QString &nServerVersion) override;
+    void setAvatar(const QString &data, const QString &mime) override;
     void setLanguage(const QString &nLanguage);
     void setMainViewType(Fuoten::FuotenEnums::Type nMainViewType);
     void setMainViewSorting(Fuoten::FuotenEnums::SortingRole nMainViewSorting);
@@ -260,7 +260,7 @@ public:
     Q_INVOKABLE void setCurrentVersion();
 
 protected:
-    void setIsAccountValid(bool nIsAccountValid) Q_DECL_OVERRIDE;
+    void setIsAccountValid(bool nIsAccountValid) override;
 
 signals:
     void usernameChanged(const QString &username);
