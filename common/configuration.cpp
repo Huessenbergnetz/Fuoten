@@ -57,6 +57,9 @@ Configuration::Configuration(QObject *parent) :
     m_avatar = value(QStringLiteral("account/avatar"), QStringLiteral(DEFAULT_AVATAR)).toUrl();
     m_language = value(QStringLiteral("display/language")).toString();
     m_mainViewType = (Fuoten::FuotenEnums::Type)value(QStringLiteral("display/mainViewType"), Fuoten::FuotenEnums::Feed).toInt();
+    m_mainViewSorting = (Fuoten::FuotenEnums::SortingRole)value(QStringLiteral("display/mainViewSorting"), Fuoten::FuotenEnums::Name).toInt();
+    m_mainViewHideRead = value(QStringLiteral("display/mainViewHideRead"), false).toBool();
+    m_mainViewSortOrder = (Qt::SortOrder)value(QStringLiteral("display/mainViewSortOrder"), Qt::AscendingOrder).toInt();
 }
 
 
@@ -376,6 +379,56 @@ void Configuration::setMainViewType(Fuoten::FuotenEnums::Type nMainViewType)
         emit mainViewTypeChanged(mainViewType());
     }
 }
+
+
+Fuoten::FuotenEnums::SortingRole Configuration::mainViewSorting() const { return m_mainViewSorting; }
+
+void Configuration::setMainViewSorting(Fuoten::FuotenEnums::SortingRole nMainViewSorting)
+{
+    if (nMainViewSorting != m_mainViewSorting) {
+        m_mainViewSorting = nMainViewSorting;
+#ifdef QT_DEBUG
+        qDebug() << "Changed mainViewSorting to" << m_mainViewSorting;
+#endif
+        setValue(QStringLiteral("display/mainViewSorting"), m_mainViewSorting);
+        emit mainViewSortingChanged(mainViewSorting());
+    }
+}
+
+
+
+bool Configuration::mainViewHideRead() const { return m_mainViewHideRead; }
+
+void Configuration::setMainViewHideRead(bool nMainViewHideRead)
+{
+    if (nMainViewHideRead != m_mainViewHideRead) {
+        m_mainViewHideRead = nMainViewHideRead;
+#ifdef QT_DEBUG
+        qDebug() << "Changed mainViewHideRead to" << m_mainViewHideRead;
+#endif
+        setValue(QStringLiteral("display/mainViewHideRead"), m_mainViewHideRead);
+        emit mainViewHideReadChanged(mainViewHideRead());
+    }
+}
+
+
+
+Qt::SortOrder Configuration::mainViewSortOrder() const { return m_mainViewSortOrder; }
+
+void Configuration::setMainViewSortOrder(Qt::SortOrder nMainViewSortOrder)
+{
+    if (nMainViewSortOrder != m_mainViewSortOrder) {
+        m_mainViewSortOrder = nMainViewSortOrder;
+#ifdef QT_DEBUG
+        qDebug() << "Changed mainViewSortOrder to" << m_mainViewSortOrder;
+#endif
+        setValue(QStringLiteral("display/mainViewSortOrder"), m_mainViewSortOrder);
+        emit mainViewSortOrderChanged(mainViewSortOrder());
+    }
+}
+
+
+
 
 
 
