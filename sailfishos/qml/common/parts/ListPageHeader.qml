@@ -30,7 +30,7 @@ Column {
     property alias searchText: searchField.text
     property alias headerTitle: header.title
 
-    width: parent.width
+    width: parent ? parent.width : Screen.width
 
 
     PageHeader {
