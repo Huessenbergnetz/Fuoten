@@ -25,6 +25,6 @@ TextSwitch {
     //% "Sort descending"
     text: qsTrId("fuoten-sort-descending-label")
     //% "If enabled, depending on the context, the feeds, folders or articles will be sorted in descending order."
-    description: qsTr("fuoten-sort-descending-desc")
+    description: qsTrId("fuoten-sort-descending-desc")
 }
 

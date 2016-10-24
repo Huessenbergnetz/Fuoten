@@ -25,6 +25,6 @@ TextSwitch {
     //% "Hide read"
     text: qsTrId("fuoten-hide-read-label")
     //% "Depending on the context, feeds or folders with zero unread articles or unread articles itself will be hidden."
-    description: qsTr("fuoten-hide-read-desc")
+    description: qsTrId("fuoten-hide-read-desc")
 }
 
