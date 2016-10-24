@@ -96,6 +96,8 @@ SilicaListView {
 
         contentHeight: Theme.itemSizeSmall
 
+        menu: folderContextMenu
+
         ListView.onAdd: AddAnimation { target: folderListItem }
         ListView.onRemove: RemoveAnimation { target: folderListItem }
 
@@ -150,6 +152,17 @@ SilicaListView {
             CountBubble {
                 value: model.display.unreadCount
                 color: folderListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+            }
+        }
+
+        Component {
+            id: folderContextMenu
+            ContextMenu {
+                MenuItem {
+                    //% "Rename folder"
+                    text: qsTrId("fuoten-rename-folder")
+                    onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/RenameFolderDialog.qml"), {folderId: model.display.id, folderName: model.display.name})
+                }
             }
         }
     }
