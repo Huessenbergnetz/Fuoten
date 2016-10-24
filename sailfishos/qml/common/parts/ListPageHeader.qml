@@ -71,7 +71,7 @@ Column {
 
             Label {
                 Layout.fillWidth: true
-                //% "Undread articles"
+                //% "Unread articles"
                 text: qsTrId("fuoten-unread-articles")
                 truncationMode: TruncationMode.Fade
                 color: undreadItems.highlighted ? (localstorage.starred ? Theme.highlightColor : Theme.secondaryHighlightColor) : (localstorage.starred ? Theme.primaryColor : Theme.secondaryColor)
