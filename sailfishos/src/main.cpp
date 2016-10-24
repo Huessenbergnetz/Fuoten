@@ -47,6 +47,9 @@
 #include <Helpers/configuration.h>
 #include <Helpers/synchronizer.h>
 #include <Storage/sqlitestorage.h>
+#include <Storage/abstractstorage.h>
+#include <Models/folderlistmodel.h>
+#include <Models/folderlistfiltermodel.h>
 
 #include "../../common/configuration.h"
 #include "../../common/languagemodel.h"
@@ -167,6 +170,10 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<Fuoten::Configuration>("harbour.fuoten", 1, 0, "FuotenConfiguration", QStringLiteral("You can not create a FuotenConfiguration object."));
     qmlRegisterType<Fuoten::Error>("harbour.fuoten", 1, 0, "FuotenError");
     qmlRegisterType<Fuoten::AccountValidator>("harbour.fuoten", 1, 0, "AccountValidator");
+    qmlRegisterUncreatableType<Fuoten::AbstractStorage>("harbour.fuoten", 1, 0, "AbstractStorage", QStringLiteral("You can not create an AbstractStorage object."));
+
+    qmlRegisterType<Fuoten::FolderListModel>("harbour.fuoten.models", 1, 0, "FolderListModel");
+    qmlRegisterType<Fuoten::FolderListFilterModel>("harbour.fuoten.models", 1, 0, "FolderListFilterModel");
 
     qmlRegisterType<LanguageModel>("harbour.fuoten", 1, 0, "LanguageModel");
     qmlRegisterUncreatableType<Configuration>("harbour.fuoten", 1, 0, "Configuratoin", QStringLiteral("You can not create a Configuration object"));
@@ -178,7 +185,7 @@ int main(int argc, char *argv[])
 #endif
 
     view->rootContext()->setContextProperty(QStringLiteral("config"), &config);
-    view->rootContext()->setContextProperty(QStringLiteral("storage"), &sqliteStorage);
+    view->rootContext()->setContextProperty(QStringLiteral("localstorage"), &sqliteStorage);
     view->rootContext()->setContextProperty(QStringLiteral("synchronizer"), &synchronizer);
 
 #ifndef CLAZY
