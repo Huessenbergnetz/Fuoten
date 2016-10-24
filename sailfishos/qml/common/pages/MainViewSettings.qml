@@ -26,10 +26,22 @@ import "../parts"
 Page {
     id: mainViewSettingsPage
 
-    SilicaListView {
+    SilicaFlickable {
         id: mainViewSettingsFlick
         anchors.fill: parent
         contentHeight: mainViewSettingsGrid.height
+
+        PullDownMenu {
+            MenuItem {
+                //% "Create folder"
+                text: qsTrId("fuoten-create-folder")
+                onClicked: pageStack.push(Qt.resolvedUrl("../dialogs/CreateFolderDialog.qml"))
+            }
+            MenuItem {
+                //% "Add feed"
+                text: qsTrId("fuoten-add-feed")
+            }
+        }
 
         VerticalScrollDecorator { flickable: mainViewSettingsFlick; page: mainViewSettingsPage }
 

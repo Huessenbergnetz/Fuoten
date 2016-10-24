@@ -59,5 +59,6 @@ DISTFILES += \
     qml/common/parts/SortingChoser.qml \
     qml/common/parts/HideReadSwitch.qml \
     qml/common/parts/SortOrderSwitch.qml \
-    qml/common/dialogs/RenameFolderDialog.qml
+    qml/common/dialogs/RenameFolderDialog.qml \
+    qml/common/dialogs/CreateFolderDialog.qml
 
