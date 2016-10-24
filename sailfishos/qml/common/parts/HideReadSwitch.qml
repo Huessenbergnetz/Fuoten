@@ -18,26 +18,13 @@
  */
 
 import QtQuick 2.2
-import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
-import harbour.fuoten 1.0
 
-Page {
-    id: phoneMainPage
-
-    property bool settingsAttached: false
-
-    onStatusChanged: {
-        if (status === PageStatus.Active && !settingsAttached) {
-            pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/MainViewSettings.qml"))
-            settingsAttached = true
-        }
-    }
-
-    Loader {
-        anchors.fill: parent
-        source: config.mainViewType === Fuoten.Folder ? Qt.resolvedUrl("FolderListView.qml") : Qt.resolvedUrl("FeedsListView.qml")
-    }
+TextSwitch {
+    automaticCheck: false
+    //% "Hide read"
+    text: qsTrId("fuoten-hide-read-label")
+    //% "Depending on the context, feeds or folders with zero unread articles or unread articles itself will be hidden."
+    description: qsTr("fuoten-hide-read-desc")
 }
-
 

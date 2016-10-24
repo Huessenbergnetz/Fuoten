@@ -33,6 +33,9 @@ SilicaListView {
     property Item page
     property bool searchVisible: false
     property bool startPage: true
+    property alias sortingRole: folderListModel.sortingRole
+    property alias sortOrder: folderListModel.sortOrder
+    property alias hideRead: folderListModel.hideRead
 
     PullDownMenu {
         busy: synchronizer.inOperation
@@ -79,8 +82,12 @@ SilicaListView {
     }
 
     model: FolderListFilterModel {
+        id: folderListModel
+        sortingRole: config.mainViewSorting
         storage: localstorage
         search: folderListFlick.searchString
+        hideRead: config.mainViewHideRead
+        sortOrder: config.mainViewSortOrder
         Component.onCompleted: load()
     }
 
@@ -127,8 +134,6 @@ SilicaListView {
                     Text {
                         font.pixelSize: Theme.fontSizeTiny
                         color: folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-//                        //% "%n Unread"
-//                        text: qsTrId("fuoten-unread-count", model.display.unreadCount)
                         text: "|"
                     }
 

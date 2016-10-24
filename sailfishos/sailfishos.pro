@@ -54,5 +54,9 @@ DISTFILES += \
     qml/phone/pages/FolderListView.qml \
     qml/common/parts/ListPageHeader.qml \
     qml/phone/pages/FeedsListView.qml \
-    qml/common/parts/CountBubble.qml
+    qml/common/parts/CountBubble.qml \
+    qml/common/pages/MainViewSettings.qml \
+    qml/common/parts/SortingChoser.qml \
+    qml/common/parts/HideReadSwitch.qml \
+    qml/common/parts/SortOrderSwitch.qml
 

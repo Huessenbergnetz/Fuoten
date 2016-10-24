@@ -18,26 +18,13 @@
  */
 
 import QtQuick 2.2
-import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
-import harbour.fuoten 1.0
 
-Page {
-    id: phoneMainPage
-
-    property bool settingsAttached: false
-
-    onStatusChanged: {
-        if (status === PageStatus.Active && !settingsAttached) {
-            pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/MainViewSettings.qml"))
-            settingsAttached = true
-        }
-    }
-
-    Loader {
-        anchors.fill: parent
-        source: config.mainViewType === Fuoten.Folder ? Qt.resolvedUrl("FolderListView.qml") : Qt.resolvedUrl("FeedsListView.qml")
-    }
+TextSwitch {
+    automaticCheck: false
+    //% "Sort descending"
+    text: qsTrId("fuoten-sort-descending-label")
+    //% "If enabled, depending on the context, the feeds, folders or articles will be sorted in descending order."
+    description: qsTr("fuoten-sort-descending-desc")
 }
-
 
