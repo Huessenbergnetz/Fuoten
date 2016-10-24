@@ -3,8 +3,6 @@
  * https://www.buschmann23.de/entwicklung/anwendungen/fuoten/
  * https://github.com/Buschtrommel/Fuoten
  *
- * sailfishos/qml/phone/pages/MainPage.qml
- *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -20,37 +18,16 @@
  */
 
 import QtQuick 2.2
+import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
+import harbour.fuoten 1.0
 
 Page {
     id: phoneMainPage
 
-    SilicaListView {
+    Loader {
         anchors.fill: parent
-
-        PullDownMenu {
-            MenuItem {
-                //% "About"
-                text: qsTrId("id-about")
-                onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/About.qml"))
-            }
-
-            MenuItem {
-                //% "Settings"
-                text: qsTrId("id-settings")
-                onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Settings.qml"))
-            }
-            MenuItem {
-                //% "Synchronize"
-                text: qsTrId("fuoten-synchronize")
-                onClicked: synchronizer.sync()
-            }
-        }
-
-        header: PageHeader {
-            title: "Fuoten"
-            page: phoneMainPage
-        }
+        source: config.mainViewType === Fuoten.Folder ? Qt.resolvedUrl("FolderListView.qml") : Qt.resolvedUrl("FeedsListView.qml")
     }
 }
 

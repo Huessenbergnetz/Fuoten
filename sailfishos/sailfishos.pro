@@ -50,5 +50,9 @@ DISTFILES += \
     qml/common/pages/PrivacyPolicy.qml \
     qml/common/wizard/Welcome.qml \
     qml/common/wizard/Account.qml \
-    qml/common/parts/AccountItem.qml
+    qml/common/parts/AccountItem.qml \
+    qml/phone/pages/FolderListView.qml \
+    qml/common/parts/ListPageHeader.qml \
+    qml/phone/pages/FeedsListView.qml \
+    qml/common/parts/CountBubble.qml
 
