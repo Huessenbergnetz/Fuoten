@@ -31,6 +31,8 @@ RowLayout {
 
     spacing: Theme.paddingSmall
 
+    visible: error
+
     Image {
         source: "image://theme/icon-l-attention?" + (highlighted ? Theme.highlightColor : Theme.primaryColor)
         Layout.preferredWidth: Theme.iconSizeMedium
