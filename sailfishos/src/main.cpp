@@ -52,6 +52,7 @@
 #include <Models/folderlistfiltermodel.h>
 #include <API/renamefolder.h>
 #include <API/createfolder.h>
+#include <folder.h>
 
 #include "../../common/configuration.h"
 #include "../../common/languagemodel.h"
@@ -179,6 +180,8 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Fuoten::RenameFolder>("harbour.fuoten.api", 1, 0, "RenameFolder");
     qmlRegisterType<Fuoten::CreateFolder>("harbour.fuoten.api", 1, 0, "CreateFolder");
+
+    qmlRegisterType<Fuoten::Folder>("harbour.fuoten.items", 1, 0, "Folder");
 
     qmlRegisterType<LanguageModel>("harbour.fuoten", 1, 0, "LanguageModel");
     qmlRegisterUncreatableType<Configuration>("harbour.fuoten", 1, 0, "Configuratoin", QStringLiteral("You can not create a Configuration object"));

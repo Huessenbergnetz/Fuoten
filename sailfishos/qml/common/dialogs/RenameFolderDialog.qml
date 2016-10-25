@@ -21,73 +21,48 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
-import harbour.fuoten.api 1.0
-import "../parts"
+import harbour.fuoten.items 1.0
 
-Page {
+Dialog {
     id: renameFolderDialog
 
-    backNavigation: !renameFolder.inOperation
+    property string newName: ""
 
-    property alias folderId: renameFolder.folderId
-    property alias folderName: currentName.text
+    property Folder folder: null
 
-    RenameFolder {
-        id: renameFolder
-        configuration: config
-        storage: localstorage
-        onSucceeded: {
-            pageStack.pop()
-        }
-    }
+    canAccept: (newName.length > 0) && (newName !== dHeader.title)
+
+    onAccepted: if (folder) { folder.rename(renameFolderDialog.newName, config, localstorage) }
 
     SilicaFlickable {
         id: renameFolderDialogFlick
         anchors.fill: parent
 
-        contentHeight: renameFolderCol.height
+        contentHeight: renameFolderCol.height + dHeader.height
+
+        DialogHeader {
+            id: dHeader
+            //% "Rename folder"
+            acceptText: qsTrId("fuoten-rename-folder")
+            dialog: renameFolderDialog
+            flickable: renameFolderCol
+            title: folder ? folder.name : ""
+        }
 
         Column {
             id: renameFolderCol
-            width: parent.width
+            anchors { left: parent.left; right: parent.right; top: dHeader.bottom }
             spacing: Theme.paddingMedium
-
-            PageHeader {
-                //% "Rename folder"
-                title: qsTrId("fuoten-rename-folder")
-                page: renameFolderDialog
-            }
-
-            Label {
-                id: currentName
-                anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
-                font.pixelSize: Theme.fontSizeExtraLarge
-                wrapMode: Text.Wrap
-                color: Theme.highlightColor
-            }
 
             TextField {
                 id: newNameField
                 width: parent.width
                 //% "New folder name"
                 label: qsTrId("fuoten-new-folder-name"); placeholderText: label
-                enabled: !renameFolder.inOperation
-                EnterKey.enabled: (renameFolder.newName.length > 0) && (renameFolder.newName != currentName.text)
+                EnterKey.enabled: renameFolderDialog.canAccept
                 EnterKey.iconSource: "image://theme/icon-m-enter-accept"
-                EnterKey.onClicked: renameFolder.execute()
-                onTextChanged: renameFolder.newName = text
-            }
+                onTextChanged: renameFolderDialog.newName = text.trim()
 
-            ErrorItem {
-                anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
-                error: renameFolder.error
-            }
-
-            BusyIndicator {
-                size: BusyIndicatorSize.Large
-                visible: renameFolder.inOperation
-                running: renameFolder.inOperation
-                anchors.horizontalCenter: parent.horizontalCenter
             }
         }
     }

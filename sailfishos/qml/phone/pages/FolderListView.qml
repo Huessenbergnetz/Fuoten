@@ -179,17 +179,23 @@ SilicaListView {
             folderListItemRemorse.execute(folderListItem, qsTrId("fuoten-deleting").arg(model.display.name), function() {model.display.remove(config, localstorage)})
         }
 
+        function renameFolder(newName) {
+            model.display.rename(newName, config, localstorage)
+        }
+
         Component {
             id: folderContextMenu
             ContextMenu {
                 MenuItem {
                     //% "Rename folder"
                     text: qsTrId("fuoten-rename-folder")
-                    onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/RenameFolderDialog.qml"), {folderId: model.display.id, folderName: model.display.name})
+                    enabled: !model.display.inOperation
+                    onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/RenameFolderDialog.qml"), {folder: model.display})
                 }
                 MenuItem {
                     //% "Delete folder"
                     text: qsTrId("fuoten-delete-folder")
+                    enabled: !model.display.inOperation
                     onClicked: folderListItem.deleteFolder()
                 }
             }
