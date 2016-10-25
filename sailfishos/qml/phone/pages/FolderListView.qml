@@ -101,9 +101,19 @@ SilicaListView {
         ListView.onAdd: AddAnimation { target: folderListItem }
         ListView.onRemove: RemoveAnimation { target: folderListItem }
 
+        onClicked: model.display.error ? model.display.clearError() : ""
+
+        ErrorItem {
+            error: model.display.error
+            anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
+            highlighted: folderListItem.highlighted
+            fontSize: Theme.fontSizeExtraSmall
+        }
+
         RowLayout {
             anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
             spacing: Theme.paddingMedium
+            visible: !model.display.error
 
             Image {
                 Layout.preferredWidth: Theme.iconSizeMedium
@@ -152,7 +162,21 @@ SilicaListView {
             CountBubble {
                 value: model.display.unreadCount
                 color: folderListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                visible: !model.display.inOperation
             }
+
+            BusyIndicator {
+                size: BusyIndicatorSize.Small
+                visible: model.display.inOperation
+                running: model.display.inOperation
+            }
+        }
+
+        RemorseItem { id: folderListItemRemorse }
+
+        function deleteFolder() {
+            //% "Deleting %1"
+            folderListItemRemorse.execute(folderListItem, qsTrId("fuoten-deleting").arg(model.display.name), function() {model.display.remove(config, localstorage)})
         }
 
         Component {
@@ -162,6 +186,11 @@ SilicaListView {
                     //% "Rename folder"
                     text: qsTrId("fuoten-rename-folder")
                     onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/RenameFolderDialog.qml"), {folderId: model.display.id, folderName: model.display.name})
+                }
+                MenuItem {
+                    //% "Delete folder"
+                    text: qsTrId("fuoten-delete-folder")
+                    onClicked: folderListItem.deleteFolder()
                 }
             }
         }

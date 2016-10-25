@@ -29,18 +29,23 @@ RowLayout {
     property bool highlighted: false
     property FuotenError error: null
 
-    spacing: Theme.paddingSmall
+    property real iconSize: Theme.iconSizeMedium
+    property alias fontSize: errorText.font.pixelSize
+
+    spacing: Theme.paddingMedium
 
     visible: error
 
     Image {
         source: "image://theme/icon-l-attention?" + (highlighted ? Theme.highlightColor : Theme.primaryColor)
-        Layout.preferredWidth: Theme.iconSizeMedium
+        Layout.preferredWidth: iconSize
+        Layout.preferredHeight: iconSize
         fillMode: Image.PreserveAspectFit
         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
     }
 
     Text {
+        id: errorText
         text: error ? error.text : ""
         color: highlighted ? Theme.highlightColor : Theme.primaryColor
         font.pixelSize: Theme.fontSizeSmall
