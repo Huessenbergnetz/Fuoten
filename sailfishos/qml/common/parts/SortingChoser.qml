@@ -53,12 +53,6 @@ ComboBox {
             visible: sortingChoser.type === Fuoten.Folder || mainView
         }
         MenuItem {
-            //% "Item count"
-            text: qsTrId("fuoten-sort-item-count")
-            readonly property int value: Fuoten.ItemCount
-            visible: sortingChoser.type === Fuoten.Folder || mainView
-        }
-        MenuItem {
             //% "Feed count"
             text: qsTrId("fuoten-sort-feed-count")
             readonly property int value: Fuoten.FeedCount

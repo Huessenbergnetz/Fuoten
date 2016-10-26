@@ -133,29 +133,11 @@ SilicaListView {
                     textFormat: Text.StyledText
                 }
 
-                RowLayout {
-                    spacing: Theme.paddingSmall/2
-
-                    Text {
-                        font.pixelSize: Theme.fontSizeTiny
-                        color: folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                        //% "%n Feed(s)"
-                        text: qsTrId("fuoten-feeds-count", model.display.feedCount)
-                    }
-
-                    Text {
-                        font.pixelSize: Theme.fontSizeTiny
-                        color: folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                        text: "|"
-                    }
-
-                    Text {
-                        font.pixelSize: Theme.fontSizeTiny
-                        color: folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                        //% "%n Item(s)"
-                        text: qsTrId("fuoten-items-count", model.display.itemCount)
-                        Layout.fillWidth: true
-                    }
+                Text {
+                    font.pixelSize: Theme.fontSizeTiny
+                    color: folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                    //% "%n Feed(s)"
+                    text: qsTrId("fuoten-feeds-count", model.display.feedCount)
                 }
             }
 
