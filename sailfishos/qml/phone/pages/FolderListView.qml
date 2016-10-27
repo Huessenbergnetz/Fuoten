@@ -161,8 +161,9 @@ SilicaListView {
             folderListItemRemorse.execute(folderListItem, qsTrId("fuoten-deleting").arg(model.display.name), function() {model.display.remove(config, localstorage)})
         }
 
-        function renameFolder(newName) {
-            model.display.rename(newName, config, localstorage)
+        function markFolderRead() {
+            //% "Marking %1 read"
+            folderListItemRemorse.execute(folderListItem, qsTrId("fuoten-marking-read").arg(model.display.name), function() {model.display.markAsRead(config, localstorage)})
         }
 
         Component {
@@ -174,6 +175,12 @@ SilicaListView {
                     enabled: !model.display.inOperation
                     onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/RenameFolderDialog.qml"), {folder: model.display})
                 }
+                MenuItem {
+                    text: qsTrId("fuoten-mark-folder-read")
+                    enabled: !model.display.inOperation
+                    onClicked: folderListItem.markFolderRead()
+                }
+
                 MenuItem {
                     //% "Delete folder"
                     text: qsTrId("fuoten-delete-folder")
