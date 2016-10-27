@@ -16,7 +16,7 @@ DEFINES += VERSION_STRING=\"\\\"$${VERSION}\\\"\"
 include(../common/common.pri)
 
 LIBS += -L$$OUT_PWD/../libfuoten -lfuoten
-INCLUDEPATH += $$PWD/../libfuoten/src
+INCLUDEPATH += $$PWD/../libfuoten
 
 SOURCES += \
     src/main.cpp

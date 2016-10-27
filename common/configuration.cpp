@@ -34,7 +34,7 @@
  * \brief Constructs a new Configuration object.
  */
 Configuration::Configuration(QObject *parent) :
-    Fuoten::Configuration(parent)
+    Fuoten::AbstractConfiguration(parent)
 {
     m_username = value(QStringLiteral("account/user")).toString();
     m_password = value(QStringLiteral("account/password")).toString();

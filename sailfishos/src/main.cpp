@@ -41,18 +41,16 @@
 #include <sailfishapp.h>
 #endif
 
-#include <error.h>
-#include <fuoten.h>
-#include <Helpers/accountvalidator.h>
-#include <Helpers/configuration.h>
-#include <Helpers/synchronizer.h>
-#include <Storage/sqlitestorage.h>
-#include <Storage/abstractstorage.h>
-#include <Models/folderlistmodel.h>
-#include <Models/folderlistfiltermodel.h>
-#include <API/renamefolder.h>
-#include <API/createfolder.h>
-#include <folder.h>
+#include <Fuoten/Error>
+#include <Fuoten/FuotenEnums>
+#include <Fuoten/Helpers/AccountValidator>
+#include <Fuoten/Helpers/AbstractConfiguration>
+#include <Fuoten/Helpers/Synchronizer>
+#include <Fuoten/Storage/SQLiteStorage>
+#include <Fuoten/Storage/AbstractStorage>
+#include <Fuoten/Models/FolderListFilterModel>
+#include <Fuoten/API/CreateFolder>
+#include <Fuoten/Folder>
 
 #include "../../common/configuration.h"
 #include "../../common/languagemodel.h"
@@ -170,15 +168,13 @@ int main(int argc, char *argv[])
     synchronizer.setStorage(&sqliteStorage);
 
     qmlRegisterUncreatableType<Fuoten::FuotenEnums>("harbour.fuoten", 1, 0, "Fuoten", QStringLiteral("You can not create a Fuoten object"));
-    qmlRegisterUncreatableType<Fuoten::Configuration>("harbour.fuoten", 1, 0, "FuotenConfiguration", QStringLiteral("You can not create a FuotenConfiguration object."));
+    qmlRegisterUncreatableType<Fuoten::AbstractConfiguration>("harbour.fuoten", 1, 0, "FuotenConfiguration", QStringLiteral("You can not create a FuotenConfiguration object."));
     qmlRegisterType<Fuoten::Error>("harbour.fuoten", 1, 0, "FuotenError");
     qmlRegisterType<Fuoten::AccountValidator>("harbour.fuoten", 1, 0, "AccountValidator");
     qmlRegisterUncreatableType<Fuoten::AbstractStorage>("harbour.fuoten", 1, 0, "AbstractStorage", QStringLiteral("You can not create an AbstractStorage object."));
 
-    qmlRegisterType<Fuoten::FolderListModel>("harbour.fuoten.models", 1, 0, "FolderListModel");
     qmlRegisterType<Fuoten::FolderListFilterModel>("harbour.fuoten.models", 1, 0, "FolderListFilterModel");
 
-    qmlRegisterType<Fuoten::RenameFolder>("harbour.fuoten.api", 1, 0, "RenameFolder");
     qmlRegisterType<Fuoten::CreateFolder>("harbour.fuoten.api", 1, 0, "CreateFolder");
 
     qmlRegisterType<Fuoten::Folder>("harbour.fuoten.items", 1, 0, "Folder");

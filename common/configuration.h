@@ -24,10 +24,10 @@
 
 #include <QObject>
 #include <QUrl>
-#include <Helpers/configuration.h>
-#include <fuoten.h>
+#include <Fuoten/Helpers/AbstractConfiguration>
+#include <Fuoten/FuotenEnums>
 #if QT_VERSION < QT_VERSION_CHECK(5, 6, 0)
-#include <Helpers/versionnumber.h>
+#include <Fuoten/Helpers/VersionNumber>
 #else
 #include <QVersionNumber>
 #endif
@@ -35,7 +35,7 @@
 /*!
  * \brief Provides the configuration interface for Fuoten.
  */
-class Configuration : public Fuoten::Configuration
+class Configuration : public Fuoten::AbstractConfiguration
 {
     Q_OBJECT
     /*!
