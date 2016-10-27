@@ -177,7 +177,7 @@ SilicaListView {
                 }
                 MenuItem {
                     text: qsTrId("fuoten-mark-folder-read")
-                    enabled: !model.display.inOperation
+                    enabled: !model.display.inOperation && model.display.unreadCount > 0
                     onClicked: folderListItem.markFolderRead()
                 }
 
