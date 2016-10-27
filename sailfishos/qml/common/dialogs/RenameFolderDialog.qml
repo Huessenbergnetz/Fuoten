@@ -30,7 +30,7 @@ Dialog {
 
     property Folder folder: null
 
-    canAccept: (newName.length > 0) && (newName !== dHeader.title)
+    canAccept: folder && (newName.length > 0) && (newName !== dHeader.title)
 
     onAccepted: if (folder) { folder.rename(renameFolderDialog.newName, config, localstorage) }
 
