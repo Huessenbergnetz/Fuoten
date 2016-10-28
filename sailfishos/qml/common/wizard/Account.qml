@@ -41,7 +41,7 @@ Dialog {
     SilicaFlickable {
         id: welcomeAccountFlick
         anchors.fill: parent
-        contentHeight: (accountGrid.visible ? accountGrid.height : account.height) + dHeader.height
+        contentHeight: (accountGrid.visible ? accountGrid.height : 0) + account.height + dHeader.height
 
         VerticalScrollDecorator { flickable: welcomeAccountDialog; page: welcomeAccountDialog }
 
@@ -101,7 +101,7 @@ Dialog {
 
         GridLayout {
             id: accountGrid
-            anchors { left: parent.left; right: parent.right; top: dHeader.bottom }
+            anchors { left: parent.left; right: parent.right; top: dHeader.bottom; topMargin: account.contentHeight }
             visible: !account.inOperation && !config.isAccountValid
 
             columnSpacing: 0
