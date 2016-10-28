@@ -22,9 +22,8 @@ you have to specify the following additional *qmake arguments* (can be done on t
 
     CONFIG+=sfos INSTALL_LIB_DIR=/usr/share/harbour-fuoten/lib INSTALL_TRANSLATIONS_DIR=/usr/share/harbour-fuoten/l10n BTSC_APP_NAME=fuoten
     
-To create the translations, run the following scripts inside the Fuoten repository base directory:
+To create the translations, run the following script inside the Fuoten repository base directory:
 
-    ./updatel10n.sh
     ./releasel10n.sh
     
 Now you are ready to build and run Fuoten on your Sailfish OS device or in the emulator.
