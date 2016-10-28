@@ -2,6 +2,14 @@
 ownCloud / Nextcloud News App client for [Sailfish OS](https://sailfishos.org/) (other platforms maybe later)
 that uses [libfuoten](https://github.com/Buschtrommel/libfuoten).
 
+## Contributing
+### Translations
+Translation is done on Transifex. If you want to help translating Fuoten, please consider also to help translating libfuoten and
+BT SFOS Components, as both are used by Fuoten.
+* [Fuoten](https://www.transifex.com/buschtrommel/fuoten)
+* [libfuoten](https://www.transifex.com/buschtrommel/libfuoten)
+* [BT SFOS Components](https://www.transifex.com/buschtrommel/bt-sfos-components)
+
 ## Sailfish OS building instructions
 To build Fuoten for Sailfish OS, you need the [Sailfish OS Application SDK](https://sailfishos.org/wiki/Application_SDK).
 
