@@ -6,8 +6,8 @@ CONFIG += c++11
 QT += sql network
 
 VER_MAJ = 0
-VER_MIN = 0
-VER_PAT = 1
+VER_MIN = 1
+VER_PAT = 0
 
 VERSION = $${VER_MAJ}.$${VER_MIN}.$${VER_PAT}
 

@@ -31,10 +31,16 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
-        version: "0.0.1"
-        date: 1476809072000
+        version: "0.1.0"
+        date: 1477643507000
         entries: [
-            ListElement { type: 3; issue: ""; description: "initial release" }
+            ListElement { type: 3; issue: ""; description: "first preview release"},
+            ListElement { type: 0; issue: "1"; description: "folder list view" },
+            ListElement { type: 0; issue: "7"; description: "folder list sorting"},
+            ListElement { type: 0; issue: "3"; description: "delete folders"},
+            ListElement { type: 0; issue: "2"; description: "create folders"},
+            ListElement { type: 0; issue: "4"; description: "rename folders"},
+            ListElement { type: 0; issue: "5"; description: "mark folder as read"}
         ]
     }
 }
