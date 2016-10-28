@@ -176,6 +176,7 @@ SilicaListView {
                     onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/RenameFolderDialog.qml"), {folder: model.display})
                 }
                 MenuItem {
+                    //% "Mark folder read"
                     text: qsTrId("fuoten-mark-folder-read")
                     enabled: !model.display.inOperation && model.display.unreadCount > 0
                     onClicked: folderListItem.markFolderRead()
@@ -189,5 +190,25 @@ SilicaListView {
                 }
             }
         }
+    }
+
+    ViewPlaceholder {
+        id: invalidAccountPlaceHolder
+        flickable: folderListFlick
+        enabled: folderListFlick.count === 0 && !config.isAccountValid && !folderListModel.inOperation
+        //% "Invalid account configuration"
+        text: qsTrId("fuoten-invalid-account")
+        //% "Open the settings to configure your account"
+        hintText: qsTrId("fuoten-invalid-account-hint")
+    }
+
+    ViewPlaceholder {
+        id: emptyContent
+        flickable: folderListFlick
+        enabled: folderListFlick.count === 0 && config.isAccountValid && !folderListModel.inOperation
+        //% "No folders found"
+        text: qsTrId("fuoten-no-folders-found")
+        //% "Synchronize your data or check your filter settings."
+        hintText: qsTrId("fuoten-no-folders-found-hint")
     }
 }
