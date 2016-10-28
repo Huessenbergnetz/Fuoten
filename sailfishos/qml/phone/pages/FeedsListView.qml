@@ -78,5 +78,53 @@ SilicaListView {
         folders: false
         onSearchTextChanged: feedListFlick.searchString = searchText
     }
+
+    model: FeedListModel {
+        id: feedListModel
+        storage: localstorage
+        Component.onCompleted: load()
+    }
+
+    delegate: ListItem {
+        id: feedListItem
+
+        contentHeight: Theme.itemSizeSmall
+
+        ListView.onAdd: AddAnimation { target: feedListItem }
+        ListView.onRemove: RemoveAnimation { target: feedListItem }
+
+        RowLayout {
+            anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
+            spacing: Theme.paddingMedium
+            visible: !model.display.error
+
+            Image {
+                Layout.preferredHeight: Theme.iconSizeSmall
+                Layout.preferredWidth: Theme.iconSizeSmall
+                source: model.display.faviconLink
+            }
+
+            Label {
+                Layout.fillWidth: true
+                font.pixelSize: Theme.fontSizeSmall
+                text: Theme.highlightText(model.display ? model.display.title : "", feedListFlick.searchString, Theme.highlightColor)
+                truncationMode: TruncationMode.Fade
+                color: feedListItem.highlighted ? (model.display.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (model.display.unreadCount ? Theme.primaryColor : Theme.secondaryColor)
+                textFormat: Text.StyledText
+            }
+
+            CountBubble {
+                value: model.display.unreadCount
+                color: feedListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                visible: !model.display.inOperation
+            }
+
+            BusyIndicator {
+                size: BusyIndicatorSize.Small
+                visible: model.display.inOperation
+                running: model.display.inOperation
+            }
+        }
+    }
 }
 

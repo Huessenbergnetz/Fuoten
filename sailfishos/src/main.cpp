@@ -51,6 +51,9 @@
 #include <Fuoten/Models/FolderListFilterModel>
 #include <Fuoten/API/CreateFolder>
 #include <Fuoten/Folder>
+#include <Fuoten/Feed>
+
+#include <Fuoten/Models/FeedListModel>
 
 #include "../../common/configuration.h"
 #include "../../common/languagemodel.h"
@@ -174,10 +177,12 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<Fuoten::AbstractStorage>("harbour.fuoten", 1, 0, "AbstractStorage", QStringLiteral("You can not create an AbstractStorage object."));
 
     qmlRegisterType<Fuoten::FolderListFilterModel>("harbour.fuoten.models", 1, 0, "FolderListFilterModel");
+    qmlRegisterType<Fuoten::FeedListModel>("harbour.fuoten.models", 1, 0, "FeedListModel");
 
     qmlRegisterType<Fuoten::CreateFolder>("harbour.fuoten.api", 1, 0, "CreateFolder");
 
     qmlRegisterType<Fuoten::Folder>("harbour.fuoten.items", 1, 0, "Folder");
+    qmlRegisterType<Fuoten::Feed>("harbour.fuoten.items", 1, 0, "Feed");
 
     qmlRegisterType<LanguageModel>("harbour.fuoten", 1, 0, "LanguageModel");
     qmlRegisterUncreatableType<Configuration>("harbour.fuoten", 1, 0, "Configuratoin", QStringLiteral("You can not create a Configuration object"));
