@@ -106,7 +106,7 @@ SilicaListView {
 
             Label {
                 Layout.fillWidth: true
-                font.pixelSize: Theme.fontSizeSmall
+                font.pixelSize: Theme.fontSizeMedium
                 text: Theme.highlightText(model.display ? model.display.title : "", feedListFlick.searchString, Theme.highlightColor)
                 truncationMode: TruncationMode.Fade
                 color: feedListItem.highlighted ? (model.display.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (model.display.unreadCount ? Theme.primaryColor : Theme.secondaryColor)
