@@ -137,6 +137,8 @@ SilicaListView {
 
         contentHeight: Theme.itemSizeSmall
 
+        menu: feedContextMenu
+
         ListView.onAdd: AddAnimation { target: feedListItem }
         ListView.onRemove: RemoveAnimation { target: feedListItem }
 
@@ -165,6 +167,25 @@ SilicaListView {
                 color: model.display.unreadCount ? Theme.highlightColor : feedListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                 visible: !model.display.inOperation
                 font.pixelSize: Theme.fontSizeMedium
+            }
+
+            BusyIndicator {
+                size: BusyIndicatorSize.Small
+                visible: model.display.inOperation
+                running: model.display.inOperation
+            }
+        }
+
+
+        Component {
+            id: feedContextMenu
+            ContextMenu {
+                MenuItem {
+                    //% "Rename feed"
+                    text: qsTrId("fuoten-rename-feed")
+                    enabled: !model.display.inOperation
+                    onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/RenameFeedDialog.qml"), {feed: model.display})
+                }
             }
         }
     }
