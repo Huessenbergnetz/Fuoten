@@ -39,6 +39,7 @@ SilicaListView {
     ContextConfig {
         id: feedContextConfig
         contextType: !folder ? FuotenApp.StartPage : FuotenApp.Feeds
+        contextId: folder ? folder.id : -1
     }
 
     Component.onCompleted: {
