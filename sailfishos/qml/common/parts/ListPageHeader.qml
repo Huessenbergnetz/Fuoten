@@ -20,15 +20,18 @@
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
+import harbour.fuoten.models 1.0
 
 Column {
     property alias page: header.page
     property bool folders: true
     property bool startPage: true
+    property bool feedListPage: false
     property alias searchVisible: searchField.visible
     property alias searchPlaceHolder: searchField.placeholderText
     property alias searchText: searchField.text
     property alias headerTitle: header.title
+    property alias headerDescription: header.description
 
     width: parent ? parent.width : Screen.width
 
@@ -57,7 +60,7 @@ Column {
     ListItem {
         id: undreadItems
         contentHeight: Theme.itemSizeSmall
-        visible: !searchField.visible && startPage
+        visible: !searchField.visible && (startPage || feedListPage)
 
         RowLayout {
             anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
@@ -77,9 +80,10 @@ Column {
                 color: undreadItems.highlighted ? (localstorage.starred ? Theme.highlightColor : Theme.secondaryHighlightColor) : (localstorage.starred ? Theme.primaryColor : Theme.secondaryColor)
             }
 
-            CountBubble {
-                value: localstorage.totalUnread
-                color: undreadItems.highlighted ? Theme.highlightColor : Theme.primaryColor
+            Label {
+                text: localstorage.totalUnread
+                color: localstorage.totalUnread ? Theme.highlightColor : undreadItems.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                font.pixelSize: Theme.fontSizeMedium
             }
         }
     }
@@ -107,9 +111,68 @@ Column {
                 color: starredItems.highlighted ? (localstorage.starred ? Theme.highlightColor : Theme.secondaryHighlightColor) : (localstorage.starred ? Theme.primaryColor : Theme.secondaryColor)
             }
 
-            CountBubble {
-                value: localstorage.starred
-                color: starredItems.highlighted ? Theme.highlightColor : Theme.primaryColor
+            Label {
+                text: localstorage.starred
+                color: localstorage.starred ? Theme.highlightColor : starredItems.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                font.pixelSize: Theme.fontSizeMedium
+            }
+        }
+    }
+
+    Repeater {
+        model: FeedListFilterModel {
+            doubleParentId: 0
+            storage: localstorage
+            Component.onCompleted: if (folders && startPage) { load() }
+        }
+
+        delegate: ListItem {
+            id: feedListItem
+
+            contentHeight: Theme.itemSizeSmall
+
+            ListView.onAdd: AddAnimation { target: feedListItem }
+            ListView.onRemove: RemoveAnimation { target: feedListItem }
+
+            RowLayout {
+                anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
+                spacing: Theme.paddingMedium
+                visible: !display.error
+
+                Item {
+                    Layout.preferredHeight: Theme.iconSizeMedium
+                    Layout.preferredWidth: Theme.iconSizeMedium
+
+                    Image {
+                        height: Theme.iconSizeMedium - (20 * Theme.pixelRatio)
+                        width: Theme.iconSizeMedium - (20 * Theme.pixelRatio)
+                        source: display.faviconLink
+                        anchors.centerIn: parent
+                    }
+
+                }
+
+                Label {
+                    Layout.fillWidth: true
+                    font.pixelSize: Theme.fontSizeMedium
+                    text: display.title
+                    truncationMode: TruncationMode.Fade
+                    color: feedListItem.highlighted ? (display.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (display.unreadCount ? Theme.primaryColor : Theme.secondaryColor)
+                    textFormat: Text.StyledText
+                }
+
+                Label {
+                    text: display.unreadCount
+                    color: display.unreadCount ? Theme.highlightColor : feedListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                    visible: !display.inOperation
+                    font.pixelSize: Theme.fontSizeMedium
+                }
+
+                BusyIndicator {
+                    size: BusyIndicatorSize.Small
+                    visible: display.inOperation
+                    running: display.inOperation
+                }
             }
         }
     }

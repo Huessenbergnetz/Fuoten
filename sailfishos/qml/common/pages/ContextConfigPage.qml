@@ -110,7 +110,7 @@ Page {
                             //% "Feed count"
                             text: qsTrId("fuoten-sort-feed-count")
                             readonly property int value: Fuoten.FeedCount
-                            visible: (cc.contextType === FuotenApp.Folder) || (cc.contextType === FuotenApp.StartPage && config.mainViewType === Fuoten.Folder)
+                            visible: (cc.contextType === FuotenApp.Folders) || (cc.contextType === FuotenApp.StartPage && config.mainViewType === Fuoten.Folder)
                         }
                     }
 
@@ -180,7 +180,7 @@ Page {
                 Layout.fillWidth: true
                 Layout.preferredHeight: respPinned.implicitHeight
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                visible: cc.contextType === FuotenApp.StartPage && config.mainViewType === Fuoten.Feed
+                visible: cc.contextType === FuotenApp.Feeds || (config.mainViewType === Fuoten.Feed && cc.contextType === FuotenApp.StartPage)
 
                 TextSwitch {
                     id: respPinned

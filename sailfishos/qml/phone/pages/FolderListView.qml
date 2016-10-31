@@ -43,7 +43,7 @@ SilicaListView {
 
     Component.onCompleted: {
         if (!page.forwardNavigation && page.status === PageStatus.Active) {
-            pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: folderContextConfig})
+            pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: folderContextConfig, name: startPage ? "" : title})
         }
     }
 
@@ -51,7 +51,7 @@ SilicaListView {
         target: page
         onStatusChanged: {
             if (page.status === PageStatus.Active && !page.forwardNavigation) {
-                pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: folderContextConfig})
+                pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: folderContextConfig, name: startPage ? "" : title})
             }
         }
     }
@@ -121,7 +121,7 @@ SilicaListView {
         ListView.onAdd: AddAnimation { target: folderListItem }
         ListView.onRemove: RemoveAnimation { target: folderListItem }
 
-        onClicked: model.display.error ? model.display.clearError() : ""
+        onClicked: model.display.error ? model.display.clearError() : pageStack.push(Qt.resolvedUrl("FeedsListPage.qml"), {folder: model.display})
 
         ErrorItem {
             error: model.display.error
@@ -156,15 +156,16 @@ SilicaListView {
                 Text {
                     font.pixelSize: Theme.fontSizeTiny
                     color: folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                    //% "%n Feed(s)"
+                    //% "%n feed(s)"
                     text: qsTrId("fuoten-feeds-count", model.display.feedCount)
                 }
             }
 
-            CountBubble {
-                value: model.display.unreadCount
-                color: folderListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+            Label {
+                text: model.display.unreadCount
+                color: model.display.unreadCount ? Theme.highlightColor : folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                 visible: !model.display.inOperation
+                font.pixelSize: Theme.fontSizeMedium
             }
 
             BusyIndicator {

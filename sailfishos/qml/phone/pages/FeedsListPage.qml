@@ -21,36 +21,16 @@ import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
 import harbour.fuoten 1.0
+import harbour.fuoten.items 1.0
 
 Page {
-    id: phoneMainPage
+    id: feedListPage
 
-    property bool contextAttached: false
+    property alias folder: flv.folder
 
-    function loadMainView() {
-        if (contextAttached) {
-            pageStack.popAttached(phoneMainPage, PageStackAction.Immediate);
-        }
-
-        if (config.mainViewType === Fuoten.Folder) {
-            mainPageLoader.setSource(Qt.resolvedUrl("FolderListView.qml"), {page: phoneMainPage, startPage: true})
-        } else {
-            mainPageLoader.setSource(Qt.resolvedUrl("FeedsListView.qml"), {page: phoneMainPage})
-        }
-
-        contextAttached = true
-    }
-
-    Component.onCompleted: loadMainView()
-
-    Connections {
-        target: config
-        onMainViewTypeChanged: loadMainView()
-    }
-
-    Loader {
-        id: mainPageLoader
-        anchors.fill: parent
+    FeedsListView {
+        id: flv
+        page: feedListPage
     }
 }
 

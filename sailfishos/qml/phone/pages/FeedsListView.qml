@@ -22,6 +22,7 @@ import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
 import harbour.fuoten 1.0
 import harbour.fuoten.models 1.0
+import harbour.fuoten.items 1.0
 import "../../common/parts"
 
 
@@ -33,17 +34,16 @@ SilicaListView {
     property string searchString
     property Page page: null
     property bool searchVisible: false
-    property bool startPage: false
-    property string title: "Fuoten"
+    property Folder folder: null
 
     ContextConfig {
         id: feedContextConfig
-        contextType: startPage ? FuotenApp.StartPage : FuotenApp.Feeds
+        contextType: !folder ? FuotenApp.StartPage : FuotenApp.Feeds
     }
 
     Component.onCompleted: {
         if (!page.forwardNavigation && page.status === PageStatus.Active) {
-            pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: feedContextConfig})
+            pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: feedContextConfig, name: folder ? folder.name : ""})
         }
     }
 
@@ -51,7 +51,7 @@ SilicaListView {
         target: page
         onStatusChanged: {
             if (page.status === PageStatus.Active && !page.forwardNavigation) {
-                pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: feedContextConfig})
+                pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: feedContextConfig, name: folder ? folder.name : ""})
             }
         }
     }
@@ -63,14 +63,23 @@ SilicaListView {
             //% "About"
             text: qsTrId("id-about")
             onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/About.qml"))
-            visible: startPage
+            visible: !folder
         }
 
         MenuItem {
             //% "Settings"
             text: qsTrId("id-settings")
             onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Settings.qml"))
-            visible: startPage
+            visible: !folder
+        }
+
+        MenuItem {
+            visible: folder
+            //% "Mark folder read"
+            text: qsTrId("fuoten-mark-folder-read")
+            enabled: !folder.inOperation && folder.unreadCount > 0
+            onClicked: //% "Marking %1 read"
+                       remorsePop.execute(qsTrId("fuoten-marking-read").arg(folder.name), function() {folder.markAsRead(config, localstorage)})
         }
 
         MenuItem {
@@ -94,16 +103,20 @@ SilicaListView {
 
     header: ListPageHeader {
         id: feedsListHeader
-        headerTitle: feedListFlick.title
+        headerTitle: feedListFlick.folder ? feedListFlick.folder.name : "Fuoten"
+        //% "%n feed(s)"
+        headerDescription: feedListFlick.folder ? qsTrId("fuoten-feeds-count", feedListFlick.folder.feedCount) : ""
         page: feedListFlick.page
         searchVisible: feedListFlick.searchVisible
-        startPage: feedListFlick.startPage
+        startPage: !folder
         folders: false
+        feedListPage: folder !== null
         onSearchTextChanged: feedListFlick.searchString = searchText
     }
 
     model: FeedListFilterModel {
         id: feedListModel
+        parentId: feedListFlick.folder ? feedListFlick.folder.id : -1
         storage: localstorage
         sortingRole: feedContextConfig.sorting
         search: feedListFlick.searchString
@@ -116,7 +129,7 @@ SilicaListView {
 
     section {
         property: 'display.folderName'
-        delegate: feedContextConfig.showFolderSections ? secHeader : null
+        delegate: feedContextConfig.showFolderSections && !folder ? secHeader : null
     }
 
     delegate: ListItem {
@@ -147,18 +160,17 @@ SilicaListView {
                 textFormat: Text.StyledText
             }
 
-            CountBubble {
-                value: model.display.unreadCount
-                color: feedListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+            Label {
+                text: model.display.unreadCount
+                color: model.display.unreadCount ? Theme.highlightColor : feedListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                 visible: !model.display.inOperation
-            }
-
-            BusyIndicator {
-                size: BusyIndicatorSize.Small
-                visible: model.display.inOperation
-                running: model.display.inOperation
+                font.pixelSize: Theme.fontSizeMedium
             }
         }
+    }
+
+    RemorsePopup {
+        id: remorsePop
     }
 
     Component {
