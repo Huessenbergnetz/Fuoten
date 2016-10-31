@@ -131,6 +131,8 @@ Column {
 
             contentHeight: Theme.itemSizeSmall
 
+            menu: feedContextMenu
+
             ListView.onAdd: AddAnimation { target: feedListItem }
             ListView.onRemove: RemoveAnimation { target: feedListItem }
 
@@ -172,6 +174,18 @@ Column {
                     size: BusyIndicatorSize.Small
                     visible: display.inOperation
                     running: display.inOperation
+                }
+            }
+
+            Component {
+                id: feedContextMenu
+                ContextMenu {
+                    MenuItem {
+                        //% "Rename feed"
+                        text: qsTrId("fuoten-rename-feed")
+                        enabled: !model.display.inOperation
+                        onClicked: pageStack.push(Qt.resolvedUrl("../dialogs/RenameFeedDialog.qml"), {feed: model.display})
+                    }
                 }
             }
         }
