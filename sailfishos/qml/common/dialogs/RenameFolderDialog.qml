@@ -45,7 +45,7 @@ Dialog {
             //% "Rename folder"
             acceptText: qsTrId("fuoten-rename-folder")
             dialog: renameFolderDialog
-            flickable: renameFolderCol
+            flickable: renameFolderDialogFlick
             title: folder ? folder.name : ""
         }
 
