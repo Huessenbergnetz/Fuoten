@@ -76,8 +76,8 @@
     </message>
     <message id="id-settings">
         <location filename="../sailfishos/qml/common/pages/Settings.qml" line="-8"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+49"/>
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+52"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+71"/>
+        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+71"/>
         <location filename="../sailfishos/qml/tablet/pages/MainPage.qml" line="+39"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
@@ -125,36 +125,32 @@
         <translation>Um die Sprache zu ändern, müssen Sie die Anwendung neu starten.</translation>
     </message>
     <message id="fuoten-add-feed">
-        <location filename="../sailfishos/qml/common/pages/MainViewSettings.qml" line="+42"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+45"/>
         <source>Add feed</source>
         <translation>Feed hinzufügen</translation>
     </message>
     <message id="fuoten-mainview-settings">
-        <location line="+17"/>
+        <location line="+19"/>
         <source>Main view settings</source>
         <translation>Einstellungen Startseite</translation>
     </message>
     <message id="id-main-content-choser-label">
-        <location line="+14"/>
         <location filename="../sailfishos/qml/common/pages/Settings.qml" line="+21"/>
         <source>Main view content</source>
         <translation>Inhalt der Hauptansicht</translation>
     </message>
     <message id="id-main-content-choser-desc">
         <location line="+2"/>
-        <location filename="../sailfishos/qml/common/pages/Settings.qml" line="+2"/>
         <source>Choose the content to display on the first application page.</source>
         <translation>Wählen Sie den Inhalt, der auf der ersten Seite gezeigt wird.</translation>
     </message>
     <message id="id-feeds">
         <location line="+4"/>
-        <location filename="../sailfishos/qml/common/pages/Settings.qml" line="+4"/>
         <source>Feeds</source>
         <translation>Feeds</translation>
     </message>
     <message id="id-folders">
         <location line="+5"/>
-        <location filename="../sailfishos/qml/common/pages/Settings.qml" line="+5"/>
         <source>Folders</source>
         <translation>Ordner</translation>
     </message>
@@ -309,7 +305,7 @@
         <translation>Synchronisieren</translation>
     </message>
     <message id="fuoten-feeds-count" numerus="yes">
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+72"/>
+        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+73"/>
         <source>%n Feed(s)</source>
         <translation><numerusform>%n Feed</numerusform><numerusform>%n Feeds</numerusform></translation>
     </message>
@@ -365,7 +361,7 @@
         <translation>Markiert</translation>
     </message>
     <message id="fuoten-hide-read-label">
-        <location filename="../sailfishos/qml/common/parts/HideReadSwitch.qml" line="+26"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+89"/>
         <source>Hide read</source>
         <translation>Gelesene ausblenden</translation>
     </message>
@@ -375,12 +371,22 @@
         <translation>Abhängig vom Kontext werden Ordner und Feeds ohne ungelesene Artikel oder ungelesene Artikel selbst ausgeblendet.</translation>
     </message>
     <message id="fuoten-sort-by-label">
-        <location filename="../sailfishos/qml/common/parts/SortingChoser.qml" line="+29"/>
+        <location line="-72"/>
         <source>Sort by</source>
         <translation>Sortiere nach</translation>
     </message>
-    <message id="fuoten-sort-by-desc">
+    <message id="fuoten-feed-settings">
+        <location line="-16"/>
+        <source>Feed settings</source>
+        <translation>Feed-Einstellungen</translation>
+    </message>
+    <message id="fuoten-folder-settings">
         <location line="+2"/>
+        <source>Folder settings</source>
+        <translation>Ordnereinstellungen</translation>
+    </message>
+    <message id="fuoten-sort-by-desc">
+        <location line="+16"/>
         <source>Choose the role you want to sort the content by.</source>
         <translation>Wählen Sie die Eigenschaft, nach der der Inhalt sortiert werden soll.</translation>
     </message>
@@ -410,7 +416,7 @@
         <translation>Feed-Anzahl</translation>
     </message>
     <message id="fuoten-sort-descending-label">
-        <location filename="../sailfishos/qml/common/parts/SortOrderSwitch.qml" line="+26"/>
+        <location line="+20"/>
         <source>Sort descending</source>
         <translation>Absteigend sortieren</translation>
     </message>
@@ -419,9 +425,29 @@
         <source>If enabled, depending on the context, the feeds, folders or articles will be sorted in descending order.</source>
         <translation>Falls aktiviert, werden abhängig vom Kontext Feeds, Ordner oder Artikel absteigend sortiert.</translation>
     </message>
+    <message id="fuoten-sortbyfolder-label">
+        <location line="+38"/>
+        <source>Sort by folder</source>
+        <translation>Nach Ordner sortieren</translation>
+    </message>
+    <message id="fuoten-sortbyfolder-desc">
+        <location line="+2"/>
+        <source>Sort the feeds in the list by their folder.</source>
+        <translation>Sortiert die Feeds nach den Namen ihrer Order.</translation>
+    </message>
+    <message id="fuoten-respect-pinned-label">
+        <location line="+16"/>
+        <source>Respect pinned</source>
+        <translation>Angeheftet anwenden</translation>
+    </message>
+    <message id="fuoten-respect-pinned-desc">
+        <location line="+2"/>
+        <source>Use the pinned status of feeds to show pinned feeds before not pinned feeds.</source>
+        <translation>Zeigt angeheftete Feeds vor den anderen Feeds an.</translation>
+    </message>
     <message id="fuoten-create-folder">
         <location filename="../sailfishos/qml/common/dialogs/CreateFolderDialog.qml" line="+54"/>
-        <location filename="../sailfishos/qml/common/pages/MainViewSettings.qml" line="-47"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-151"/>
         <source>Create folder</source>
         <translation>Ordner erstellen</translation>
     </message>

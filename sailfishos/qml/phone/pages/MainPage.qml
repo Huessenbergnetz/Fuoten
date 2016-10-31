@@ -25,18 +25,32 @@ import harbour.fuoten 1.0
 Page {
     id: phoneMainPage
 
-    property bool settingsAttached: false
+    property bool contextAttached: false
 
-    onStatusChanged: {
-        if (status === PageStatus.Active && !settingsAttached) {
-            pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/MainViewSettings.qml"))
-            settingsAttached = true
+    function loadMainView() {
+        if (contextAttached) {
+            pageStack.popAttached(phoneMainPage, PageStackAction.Immediate);
         }
+
+        if (config.mainViewType === Fuoten.Folder) {
+            mainPageLoader.setSource(Qt.resolvedUrl("FolderListView.qml"), {page: phoneMainPage, startPage: true})
+        } else {
+            mainPageLoader.setSource(Qt.resolvedUrl("FeedsListView.qml"), {page: phoneMainPage, startPage: true})
+        }
+
+        contextAttached = true
+    }
+
+    Component.onCompleted: loadMainView()
+
+    Connections {
+        target: config
+        onMainViewTypeChanged: loadMainView()
     }
 
     Loader {
+        id: mainPageLoader
         anchors.fill: parent
-        source: config.mainViewType === Fuoten.Folder ? Qt.resolvedUrl("FolderListView.qml") : Qt.resolvedUrl("FeedsListView.qml")
     }
 }
 

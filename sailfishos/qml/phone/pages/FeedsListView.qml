@@ -20,6 +20,7 @@
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
+import harbour.fuoten 1.0
 import harbour.fuoten.models 1.0
 import "../../common/parts"
 
@@ -30,9 +31,30 @@ SilicaListView {
     currentIndex: -1
 
     property string searchString
-    property Item page
+    property Page page: null
     property bool searchVisible: false
-    property bool startPage: true
+    property bool startPage: false
+    property string title: "Fuoten"
+
+    ContextConfig {
+        id: feedContextConfig
+        contextType: startPage ? FuotenApp.StartPage : FuotenApp.Feeds
+    }
+
+    Component.onCompleted: {
+        if (!page.forwardNavigation && page.status === PageStatus.Active) {
+            pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: feedContextConfig})
+        }
+    }
+
+    Connections {
+        target: page
+        onStatusChanged: {
+            if (page.status === PageStatus.Active && !page.forwardNavigation) {
+                pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: feedContextConfig})
+            }
+        }
+    }
 
     PullDownMenu {
         busy: synchronizer.inOperation
@@ -72,6 +94,7 @@ SilicaListView {
 
     header: ListPageHeader {
         id: feedsListHeader
+        headerTitle: feedListFlick.title
         page: feedListFlick.page
         searchVisible: feedListFlick.searchVisible
         startPage: feedListFlick.startPage
@@ -79,10 +102,21 @@ SilicaListView {
         onSearchTextChanged: feedListFlick.searchString = searchText
     }
 
-    model: FeedListModel {
+    model: FeedListFilterModel {
         id: feedListModel
         storage: localstorage
-        Component.onCompleted: load()
+        sortingRole: feedContextConfig.sorting
+        search: feedListFlick.searchString
+        hideRead: feedContextConfig.hideRead
+        sortOrder: feedContextConfig.sortOrder
+        respectPinned: feedContextConfig.respectPinned
+        sortByFolder: feedContextConfig.showFolderSections
+        Component.onCompleted: load(config.language)
+    }
+
+    section {
+        property: 'display.folderName'
+        delegate: feedContextConfig.showFolderSections ? secHeader : null
     }
 
     delegate: ListItem {
@@ -124,6 +158,15 @@ SilicaListView {
                 visible: model.display.inOperation
                 running: model.display.inOperation
             }
+        }
+    }
+
+    Component {
+        id: secHeader
+        SectionHeader {
+            text: section
+            visible: text != ""
+            height: Theme.itemSizeExtraSmall
         }
     }
 }

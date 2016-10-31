@@ -20,6 +20,7 @@
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
+import harbour.fuoten 1.0
 import harbour.fuoten.models 1.0
 import "../../common/parts"
 
@@ -33,9 +34,27 @@ SilicaListView {
     property Item page
     property bool searchVisible: false
     property bool startPage: true
-    property alias sortingRole: folderListModel.sortingRole
-    property alias sortOrder: folderListModel.sortOrder
-    property alias hideRead: folderListModel.hideRead
+    property string title: "Fuoten"
+
+    ContextConfig {
+        id: folderContextConfig
+        contextType: startPage ? FuotenApp.StartPage : FuotenApp.Folders
+    }
+
+    Component.onCompleted: {
+        if (!page.forwardNavigation && page.status === PageStatus.Active) {
+            pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: folderContextConfig})
+        }
+    }
+
+    Connections {
+        target: page
+        onStatusChanged: {
+            if (page.status === PageStatus.Active && !page.forwardNavigation) {
+                pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: folderContextConfig})
+            }
+        }
+    }
 
     PullDownMenu {
         busy: synchronizer.inOperation
@@ -75,6 +94,7 @@ SilicaListView {
 
     header: ListPageHeader {
         id: folderListHeader
+        headerTitle: folderListFlick.title
         page: folderListFlick.page
         searchVisible: folderListFlick.searchVisible
         startPage: folderListFlick.startPage
@@ -83,11 +103,11 @@ SilicaListView {
 
     model: FolderListFilterModel {
         id: folderListModel
-        sortingRole: config.mainViewSorting
+        sortingRole: folderContextConfig.sorting
         storage: localstorage
         search: folderListFlick.searchString
-        hideRead: config.mainViewHideRead
-        sortOrder: config.mainViewSortOrder
+        hideRead: folderContextConfig.hideRead
+        sortOrder: folderContextConfig.sortOrder
         Component.onCompleted: load()
     }
 

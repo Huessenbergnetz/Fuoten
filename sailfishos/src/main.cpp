@@ -54,9 +54,12 @@
 #include <Fuoten/Feed>
 
 #include <Fuoten/Models/FeedListModel>
+#include <Fuoten/Models/FeedListFilterModel>
 
 #include "../../common/configuration.h"
 #include "../../common/languagemodel.h"
+#include "../../common/enums.h"
+#include "../../common/contextconfig.h"
 
 #ifdef QT_DEBUG
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
@@ -178,6 +181,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Fuoten::FolderListFilterModel>("harbour.fuoten.models", 1, 0, "FolderListFilterModel");
     qmlRegisterType<Fuoten::FeedListModel>("harbour.fuoten.models", 1, 0, "FeedListModel");
+    qmlRegisterType<Fuoten::FeedListFilterModel>("harbour.fuoten.models", 1, 0, "FeedListFilterModel");
 
     qmlRegisterType<Fuoten::CreateFolder>("harbour.fuoten.api", 1, 0, "CreateFolder");
 
@@ -186,6 +190,9 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<LanguageModel>("harbour.fuoten", 1, 0, "LanguageModel");
     qmlRegisterUncreatableType<Configuration>("harbour.fuoten", 1, 0, "Configuratoin", QStringLiteral("You can not create a Configuration object"));
+
+    qmlRegisterUncreatableType<FuotenAppEnums>("harbour.fuoten", 1, 0, "FuotenApp", QStringLiteral("You can not crate an FuotenApp object."));
+    qmlRegisterType<ContextConfig>("harbour.fuoten", 1, 0, "ContextConfig");
 
 #ifndef CLAZY
     QQuickView *view = SailfishApp::createView();

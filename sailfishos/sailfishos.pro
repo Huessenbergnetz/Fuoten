@@ -55,10 +55,7 @@ DISTFILES += \
     qml/common/parts/ListPageHeader.qml \
     qml/phone/pages/FeedsListView.qml \
     qml/common/parts/CountBubble.qml \
-    qml/common/pages/MainViewSettings.qml \
-    qml/common/parts/SortingChoser.qml \
-    qml/common/parts/HideReadSwitch.qml \
-    qml/common/parts/SortOrderSwitch.qml \
     qml/common/dialogs/RenameFolderDialog.qml \
-    qml/common/dialogs/CreateFolderDialog.qml
+    qml/common/dialogs/CreateFolderDialog.qml \
+    qml/common/pages/ContextConfigPage.qml
 
