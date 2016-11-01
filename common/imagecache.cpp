@@ -25,7 +25,6 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QFile>
-#include <QImageReader>
 #ifdef QT_DEBUG
 #include <QtDebug>
 #endif
@@ -145,7 +144,7 @@ void ImageCache::getImage()
     setInOperation(true);
 
     if (m_sourceUrl.isEmpty()) {
-        qDebug() << "Source URL empty.";
+        qWarning("Source URL empty");
         setDefaultImage();
         return;
     }
@@ -153,7 +152,7 @@ void ImageCache::getImage()
     QUrl imageUrl(m_sourceUrl);
 
     if (!imageUrl.isValid()) {
-        qDebug() << "Invalid image URL.";
+        qWarning("Invalid image URL");
         setDefaultImage();
         return;
     }
@@ -201,8 +200,7 @@ void ImageCache::requestImage(const QNetworkRequest &request)
 void ImageCache::gotImage()
 {
     if (m_reply->error() != QNetworkReply::NoError) {
-        qDebug() << "Network error";
-        qDebug() << m_reply->errorString();
+        qDebug("Netowrk error");
         setDefaultImage();
         return;
     }
@@ -210,8 +208,6 @@ void ImageCache::gotImage()
     QUrl redirectUrl = m_reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
 
     if (redirectUrl.isValid()) {
-
-        qDebug() << "Redirecting to" << redirectUrl;
 
         m_reply->deleteLater();
         m_reply = nullptr;
@@ -223,18 +219,15 @@ void ImageCache::gotImage()
 
         QByteArray imgData = m_reply->readAll();
 
-        QImageReader ir(m_reply);
-        qDebug() << ir.imageCount();
-
         if (imgData.size() == 0) {
-            qDebug() << "No Image data.";
+            qWarning("No image data");
             setDefaultImage();
             return;
         }
 
         if (!saveAsImage(imgData)) {
             if (!saveAsFile(imgData)) {
-                qDebug() << "Failed to save to cache.";
+                qWarning("Failed to save image to cache.");
                 setDefaultImage();
                 return;
             }
@@ -255,13 +248,13 @@ bool ImageCache::saveAsFile(const QByteArray &data)
 {
     QFile f(m_filePath);
     if (!f.open(QIODevice::WriteOnly)) {
-        qDebug() << "Can not open cache file for writing.";
+        qWarning("Can not open cache file for writing.");
         return false;
     }
 
     if (f.write(data) < 0) {
         f.close();
-        qDebug() << "Can not write data to file";
+        qWarning("Can not write data to file.");
         return false;
     }
 
@@ -275,17 +268,17 @@ bool ImageCache::saveAsImage(const QByteArray &data)
 {
     QImage i;
     if (!i.loadFromData(data)) {
-        qDebug() << "Can not load image data.";
+        qWarning("Can not load image data.");
         return false;
     }
 
     if (i.isNull()) {
-        qDebug() << "No valid image.";
+        qWarning("No valid image");
         return false;
     }
 
     if (!i.save(m_filePath)) {
-        qDebug() << "Can not save image.";
+        qWarning("Can not save image.");
         return false;
     }
 
