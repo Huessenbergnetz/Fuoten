@@ -43,6 +43,7 @@ Page {
             MenuItem {
                 //% "Add feed"
                 text: qsTrId("fuoten-add-feed")
+                onClicked: pageStack.push(Qt.resolvedUrl("../dialogs/CreateFeedDialog.qml"))
             }
         }
 
