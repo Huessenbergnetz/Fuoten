@@ -35,6 +35,9 @@ PkgConfigBR:
 # Runtime dependencies which are not automatically detected
 Requires:
   - sailfishsilica-qt5 >= 0.10.9 
+  - qt5-plugin-imageformat-gif
+  - qt5-plugin-imageformat-ico
+  - qt5-plugin-imageformat-jpeg
 
 # All installed files
 Files:

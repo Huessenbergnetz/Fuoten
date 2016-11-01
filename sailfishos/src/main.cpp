@@ -60,6 +60,7 @@
 #include "../../common/languagemodel.h"
 #include "../../common/enums.h"
 #include "../../common/contextconfig.h"
+#include "../../common/imagecache.h"
 
 #ifdef QT_DEBUG
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
@@ -160,10 +161,18 @@ int main(int argc, char *argv[])
 #endif
 
     QDir dataDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+    QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
 
     if (!dataDir.exists()) {
-        if (!dataDir.mkpath(dataDir.absolutePath()))
-        qFatal("Failed to create data directory.");
+        if (!dataDir.mkpath(dataDir.absolutePath())) {
+            qFatal("Failed to create data directory.");
+        }
+    }
+
+    if (!cacheDir.exists()) {
+        if (!cacheDir.mkpath(cacheDir.absolutePath())) {
+            qFatal("Failed to create cache directory.");
+        }
     }
 
     Fuoten::SQLiteStorage sqliteStorage(dataDir.absoluteFilePath(QStringLiteral("database.sqlite")));
@@ -193,6 +202,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterUncreatableType<FuotenAppEnums>("harbour.fuoten", 1, 0, "FuotenApp", QStringLiteral("You can not crate an FuotenApp object."));
     qmlRegisterType<ContextConfig>("harbour.fuoten", 1, 0, "ContextConfig");
+    qmlRegisterType<ImageCache>("harbour.fuoten", 1, 0, "ImageCache");
 
 #ifndef CLAZY
     QQuickView *view = SailfishApp::createView();
