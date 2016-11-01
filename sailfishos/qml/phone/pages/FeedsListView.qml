@@ -78,7 +78,7 @@ SilicaListView {
             visible: folder
             //% "Mark folder read"
             text: qsTrId("fuoten-mark-folder-read")
-            enabled: !folder.inOperation && folder.unreadCount > 0
+            enabled: folder && !folder.inOperation && folder.unreadCount > 0
             onClicked: //% "Marking %1 read"
                        remorsePop.execute(qsTrId("fuoten-marking-read").arg(folder.name), function() {folder.markAsRead(config, localstorage)})
         }
@@ -148,10 +148,12 @@ SilicaListView {
             spacing: Theme.paddingMedium
             visible: !model.display.error
 
-            Image {
+            CachedImage {
+                sourceUrl: model.display.faviconLink
                 Layout.preferredHeight: Theme.iconSizeSmall
                 Layout.preferredWidth: Theme.iconSizeSmall
-                source: model.display.faviconLink
+                sourceSize.width: Theme.iconSizeSmall
+                sourceSize.height: Theme.iconSizeSmall
             }
 
             Label {

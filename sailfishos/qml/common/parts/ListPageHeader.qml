@@ -145,13 +145,12 @@ Column {
                     Layout.preferredHeight: Theme.iconSizeMedium
                     Layout.preferredWidth: Theme.iconSizeMedium
 
-                    Image {
-                        height: Theme.iconSizeMedium - (20 * Theme.pixelRatio)
-                        width: Theme.iconSizeMedium - (20 * Theme.pixelRatio)
-                        source: display.faviconLink
+                    CachedImage {
+                        sourceUrl: display.faviconLink
+                        sourceSize.width: Theme.iconSizeMedium - (20 * Theme.pixelRatio)
+                        sourceSize.height: Theme.iconSizeMedium - (20 * Theme.pixelRatio)
                         anchors.centerIn: parent
                     }
-
                 }
 
                 Label {
