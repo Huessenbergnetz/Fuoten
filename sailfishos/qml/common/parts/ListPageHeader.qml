@@ -122,7 +122,7 @@ Column {
     Repeater {
         model: FeedListFilterModel {
             doubleParentId: 0
-            storage: localstorage
+            storage: folders ? localstorage : null
             Component.onCompleted: if (folders && startPage) { load() }
         }
 
@@ -176,6 +176,13 @@ Column {
                 }
             }
 
+            RemorseItem { id: feedListItemRemorse }
+
+            function deleteFeed() {
+                //% "Deleting %1"
+                feedListItemRemorse.execute(feedListItem, qsTrId("fuoten-deleting").arg(display.title), function() {display.remove(config, localstorage)})
+            }
+
             Component {
                 id: feedContextMenu
                 ContextMenu {
@@ -183,7 +190,13 @@ Column {
                         //% "Rename feed"
                         text: qsTrId("fuoten-rename-feed")
                         enabled: !model.display.inOperation
-                        onClicked: pageStack.push(Qt.resolvedUrl("../dialogs/RenameFeedDialog.qml"), {feed: model.display})
+                        onClicked: pageStack.push(Qt.resolvedUrl("../dialogs/RenameFeedDialog.qml"), {feed: display})
+                    }
+                    MenuItem {
+                        //% "Delete feed"
+                        text: qsTrId("fuoten-delete-feed")
+                        enabled: !display.inOperation
+                        onClicked: feedListItem.deleteFeed()
                     }
                 }
             }

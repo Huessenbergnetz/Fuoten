@@ -179,6 +179,12 @@ SilicaListView {
             }
         }
 
+        RemorseItem { id: feedListItemRemorse }
+
+        function deleteFeed() {
+            //% "Deleting %1"
+            feedListItemRemorse.execute(feedListItem, qsTrId("fuoten-deleting").arg(model.display.title), function() {model.display.remove(config, localstorage)})
+        }
 
         Component {
             id: feedContextMenu
@@ -188,6 +194,12 @@ SilicaListView {
                     text: qsTrId("fuoten-rename-feed")
                     enabled: !model.display.inOperation
                     onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/RenameFeedDialog.qml"), {feed: model.display})
+                }
+                MenuItem {
+                    //% "Delete feed"
+                    text: qsTrId("fuoten-delete-feed")
+                    enabled: !model.display.inOperation
+                    onClicked: feedListItem.deleteFeed()
                 }
             }
         }
