@@ -33,11 +33,27 @@ ListModel {
         github: "buschmann23"
     }
 
+    ListElement {
+        name: "Peter Jespersen (Flywheeldk)"
+        role: ""
+        section: ""
+        image: "flywheeldk.png"
+        website: "http://illogical.dk/"
+        twitter: "myflywheel"
+        linkedin: "pjespersen"
+        bitbucket: "flywheel"
+    }
+
     Component.onCompleted: {
         //% "Main developer, Fuoten creator"
         contModel.get(0).role = qsTrId("fuoten-author-role")
         //% "Author"
         contModel.get(0).section = qsTrId("fuoten-author-section")
+
+        //% "Danish translation"
+        contModel.get(1).role = qsTrId("fuoten-flywheeldk-role")
+        //% "Thanks to"
+        contModel.get(1).section = qsTrId("fuotn-thanks-to-section")
     }
 }
 
