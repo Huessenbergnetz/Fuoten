@@ -8,7 +8,20 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
-* Fir Oct 28 2016 Matthias Fehring <kontakt@buschmann23.de> 0.1.0-1
+* Wed Nov  2 2016 Matthias Fehring <kontakt@buschmann23.de> 0.2.0-1
+- info: second preview release
+- new: Feed object (#24)
+- new: abstract feed model (#12)
+- new: feed storing in AbstractStorage and SQLiteStorage (#15)
+- new: feed list model (#13)
+- new: feed list filter model (#14)
+- new: mark feed as read (#20)
+- new: move feed (#18)
+- new: create feed (#16)
+- new: delete feed (#17)
+- new: rename feed (#19)
+
+* Fri Oct 28 2016 Matthias Fehring <kontakt@buschmann23.de> 0.1.0-1
 - info: first preview release
 - new: folder list view
 - new: folder list sorting

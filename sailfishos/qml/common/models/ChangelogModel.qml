@@ -31,6 +31,21 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.2.0"
+        date: 1478089348000
+        entries: [
+            ListElement { type: 3; issue: ""; description: "second preview release"},
+            ListElement { type: 0; issue: "6"; description: "feeds list view" },
+            ListElement { type: 0; issue: "8"; description: "feeds list sorting" },
+            ListElement { type: 0; issue: "12"; description: "mark feeds as read" },
+            ListElement { type: 0; issue: "11"; description: "move feeds" },
+            ListElement { type: 0; issue: "9"; description: "add feeds" },
+            ListElement { type: 0; issue: "13"; description: "delete feeds" },
+            ListElement { type: 0; issue: "10"; description: "rename feeds" }
+        ]
+    }
+
+    ListElement {
         version: "0.1.0"
         date: 1477643507000
         entries: [
