@@ -196,6 +196,12 @@ SilicaListView {
                     onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/RenameFeedDialog.qml"), {feed: model.display})
                 }
                 MenuItem {
+                    //% "Move feed"
+                    text: qsTrId("fuoten-move-feed")
+                    enabled: !model.display.inOperation
+                    onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/MoveFeedDialog.qml"), {feed: model.display})
+                }
+                MenuItem {
                     //% "Delete feed"
                     text: qsTrId("fuoten-delete-feed")
                     enabled: !model.display.inOperation
