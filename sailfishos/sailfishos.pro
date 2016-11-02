@@ -62,5 +62,6 @@ DISTFILES += \
     qml/common/dialogs/RenameFeedDialog.qml \
     qml/common/parts/FoldersComboBox.qml \
     qml/common/dialogs/CreateFeedDialog.qml \
-    qml/common/dialogs/MoveFeedDialog.qml
+    qml/common/dialogs/MoveFeedDialog.qml \
+    qml/phone/pages/FeedListDelegate.qml
 

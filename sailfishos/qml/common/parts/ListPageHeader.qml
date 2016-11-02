@@ -32,6 +32,7 @@ Column {
     property alias searchText: searchField.text
     property alias headerTitle: header.title
     property alias headerDescription: header.description
+    property alias feedListDelegate: feedRepeater.delegate
 
     width: parent ? parent.width : Screen.width
 
@@ -120,86 +121,11 @@ Column {
     }
 
     Repeater {
+        id: feedRepeater
         model: FeedListFilterModel {
             doubleParentId: 0
             storage: folders ? localstorage : null
             Component.onCompleted: if (folders && startPage) { load() }
-        }
-
-        delegate: ListItem {
-            id: feedListItem
-
-            contentHeight: Theme.itemSizeSmall
-
-            menu: feedContextMenu
-
-            ListView.onAdd: AddAnimation { target: feedListItem }
-            ListView.onRemove: RemoveAnimation { target: feedListItem }
-
-            RowLayout {
-                anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
-                spacing: Theme.paddingMedium
-                visible: !display.error
-
-                Item {
-                    Layout.preferredHeight: Theme.iconSizeMedium
-                    Layout.preferredWidth: Theme.iconSizeMedium
-
-                    CachedImage {
-                        sourceUrl: display.faviconLink
-                        sourceSize.width: Theme.iconSizeMedium - (20 * Theme.pixelRatio)
-                        sourceSize.height: Theme.iconSizeMedium - (20 * Theme.pixelRatio)
-                        anchors.centerIn: parent
-                    }
-                }
-
-                Label {
-                    Layout.fillWidth: true
-                    font.pixelSize: Theme.fontSizeMedium
-                    text: display.title
-                    truncationMode: TruncationMode.Fade
-                    color: feedListItem.highlighted ? (display.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (display.unreadCount ? Theme.primaryColor : Theme.secondaryColor)
-                    textFormat: Text.StyledText
-                }
-
-                Label {
-                    text: display.unreadCount
-                    color: display.unreadCount ? Theme.highlightColor : feedListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                    visible: !display.inOperation
-                    font.pixelSize: Theme.fontSizeMedium
-                }
-
-                BusyIndicator {
-                    size: BusyIndicatorSize.Small
-                    visible: display.inOperation
-                    running: display.inOperation
-                }
-            }
-
-            RemorseItem { id: feedListItemRemorse }
-
-            function deleteFeed() {
-                //% "Deleting %1"
-                feedListItemRemorse.execute(feedListItem, qsTrId("fuoten-deleting").arg(display.title), function() {display.remove(config, localstorage)})
-            }
-
-            Component {
-                id: feedContextMenu
-                ContextMenu {
-                    MenuItem {
-                        //% "Rename feed"
-                        text: qsTrId("fuoten-rename-feed")
-                        enabled: !model.display.inOperation
-                        onClicked: pageStack.push(Qt.resolvedUrl("../dialogs/RenameFeedDialog.qml"), {feed: display})
-                    }
-                    MenuItem {
-                        //% "Delete feed"
-                        text: qsTrId("fuoten-delete-feed")
-                        enabled: !display.inOperation
-                        onClicked: feedListItem.deleteFeed()
-                    }
-                }
-            }
         }
     }
 }
