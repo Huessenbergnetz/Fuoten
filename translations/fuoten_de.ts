@@ -76,7 +76,7 @@
     </message>
     <message id="id-settings">
         <location filename="../sailfishos/qml/common/pages/Settings.qml" line="-8"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+71"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+72"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+71"/>
         <location filename="../sailfishos/qml/tablet/pages/MainPage.qml" line="+39"/>
         <source>Settings</source>
@@ -125,12 +125,18 @@
         <translation>Um die Sprache zu ändern, müssen Sie die Anwendung neu starten.</translation>
     </message>
     <message id="fuoten-add-feed">
+        <location filename="../sailfishos/qml/common/dialogs/CreateFeedDialog.qml" line="+54"/>
         <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+45"/>
         <source>Add feed</source>
         <translation>Feed hinzufügen</translation>
     </message>
+    <message id="fuoten-feed-address">
+        <location line="+7"/>
+        <source>Feed address</source>
+        <translation>Feed-Adresse</translation>
+    </message>
     <message id="fuoten-mainview-settings">
-        <location line="+19"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+20"/>
         <source>Main view settings</source>
         <translation>Einstellungen Startseite</translation>
     </message>
@@ -286,7 +292,7 @@
         <translation>Indem Sie Fuoten benutzen, willigen Sie in die folgende Datenschutzerklärung ein.</translation>
     </message>
     <message id="fuoten-hide-search">
-        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+15"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+24"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+15"/>
         <source>Hide search</source>
         <translation>Suche verbergen</translation>
@@ -305,27 +311,44 @@
         <translation>Synchronisieren</translation>
     </message>
     <message id="fuoten-feeds-count" numerus="yes">
+        <location line="+12"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+73"/>
-        <source>%n Feed(s)</source>
+        <source>%n feed(s)</source>
+        <oldsource>%n Feed(s)</oldsource>
         <translation><numerusform>%n Feed</numerusform><numerusform>%n Feeds</numerusform></translation>
     </message>
+    <message id="fuoten-mark-feed-read">
+        <location line="+91"/>
+        <source>Mark feed read</source>
+        <translation>Als gelesen markieren</translation>
+    </message>
     <message id="fuoten-deleting">
-        <location line="+21"/>
+        <location filename="../sailfishos/qml/common/parts/ListPageHeader.qml" line="+183"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="-14"/>
+        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+22"/>
         <source>Deleting %1</source>
         <translation>Lösche %1</translation>
     </message>
+    <message id="fuoten-delete-feed">
+        <location line="+14"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+26"/>
+        <source>Delete feed</source>
+        <translation>Feed löschen</translation>
+    </message>
     <message id="fuoten-marking-read">
-        <location line="+5"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="-129"/>
+        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+5"/>
         <source>Marking %1 read</source>
         <translation>Markiere %1 als gelesen</translation>
     </message>
     <message id="fuoten-mark-folder-read">
-        <location line="+14"/>
+        <location line="-3"/>
+        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+14"/>
         <source>Mark folder read</source>
         <translation>Ordner als gelesen markieren</translation>
     </message>
     <message id="fuoten-delete-folder">
-        <location line="+7"/>
+        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+7"/>
         <source>Delete folder</source>
         <translation>Ordner löschen</translation>
     </message>
@@ -350,13 +373,13 @@
         <translation>Synchronisieren Sie Ihre Daten oder prüfen Sie die Filtereinstellungen.</translation>
     </message>
     <message id="fuoten-unread-articles">
-        <location filename="../sailfishos/qml/common/parts/ListPageHeader.qml" line="+75"/>
+        <location filename="../sailfishos/qml/common/parts/ListPageHeader.qml" line="-119"/>
         <source>Unread articles</source>
         <oldsource>Undread articles</oldsource>
         <translation>Ungelesene Artikel</translation>
     </message>
     <message id="fuoten-starred-articles">
-        <location line="+30"/>
+        <location line="+31"/>
         <source>Starred articles</source>
         <translation>Markiert</translation>
     </message>
@@ -447,7 +470,7 @@
     </message>
     <message id="fuoten-create-folder">
         <location filename="../sailfishos/qml/common/dialogs/CreateFolderDialog.qml" line="+54"/>
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-151"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-152"/>
         <source>Create folder</source>
         <translation>Ordner erstellen</translation>
     </message>
@@ -462,6 +485,45 @@
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="-38"/>
         <source>Rename folder</source>
         <translation>Ordner umbenennen</translation>
+    </message>
+    <message id="fuoten-rename-feed">
+        <location filename="../sailfishos/qml/common/dialogs/RenameFeedDialog.qml" line="+46"/>
+        <location filename="../sailfishos/qml/common/parts/ListPageHeader.qml" line="+82"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+114"/>
+        <source>Rename feed</source>
+        <translation>Feed umbenennen</translation>
+    </message>
+    <message id="fuoten-new-feed-name">
+        <location line="+15"/>
+        <source>New feed name</source>
+        <translation>Neuer Feed-Name</translation>
+    </message>
+    <message id="fuoten-folder">
+        <location filename="../sailfishos/qml/common/parts/FoldersComboBox.qml" line="+27"/>
+        <source>Folder</source>
+        <translation>Ordner</translation>
+    </message>
+    <message id="fuoten-no-folder">
+        <location filename="../sailfishos/qml/common/dialogs/MoveFeedDialog.qml" line="+64"/>
+        <location filename="../sailfishos/qml/common/parts/FoldersComboBox.qml" line="+5"/>
+        <source>-- No folder --</source>
+        <translation>-- Kein Ordner --</translation>
+    </message>
+    <message id="fuoten-move-feed">
+        <location line="-17"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+12"/>
+        <source>Move feed</source>
+        <translation>Feed verschieben</translation>
+    </message>
+    <message id="fuoten-current-folder-label">
+        <location line="+14"/>
+        <source>Current folder: %1</source>
+        <translation>Aktueller Ordner: %1</translation>
+    </message>
+    <message id="fuoten-target-folder">
+        <location line="+11"/>
+        <source>Target folder</source>
+        <translation>Zielordner</translation>
     </message>
 </context>
 </TS>
