@@ -201,7 +201,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-author-role">
-        <location filename="../sailfishos/qml/common/models/ContributorsModel.qml" line="+38"/>
+        <location filename="../sailfishos/qml/common/models/ContributorsModel.qml" line="+49"/>
         <source>Main developer, Fuoten creator</source>
         <oldsource>Main developer, Gibrievida creator</oldsource>
         <translation type="unfinished"></translation>
@@ -209,6 +209,16 @@
     <message id="fuoten-author-section">
         <location line="+2"/>
         <source>Author</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-flywheeldk-role">
+        <location line="+3"/>
+        <source>Danish translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuotn-thanks-to-section">
+        <location line="+2"/>
+        <source>Thanks to</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-privacy-0">
