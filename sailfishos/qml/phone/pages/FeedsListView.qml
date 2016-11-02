@@ -196,6 +196,12 @@ SilicaListView {
                     onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/RenameFeedDialog.qml"), {feed: model.display})
                 }
                 MenuItem {
+                    //% "Mark feed read"
+                    text: qsTrId("fuoten-mark-feed-read")
+                    enabled: !model.display.inOpeartion
+                    onClicked: model.display.markAsRead(config, localstorage)
+                }
+                MenuItem {
                     //% "Move feed"
                     text: qsTrId("fuoten-move-feed")
                     enabled: !model.display.inOperation
