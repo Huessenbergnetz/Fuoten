@@ -39,7 +39,7 @@ ImageCache::ImageCache(QObject *parent) :
     m_nam = nullptr;
     m_reply = nullptr;
     m_inOperation = false;
-    m_defaultImageUrl = QUrl("image://theme/icon-l-image");
+    m_defaultImageUrl = QUrl(QStringLiteral("image://theme/icon-l-image"));
 }
 
 

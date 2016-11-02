@@ -80,7 +80,7 @@ void ContextConfig::setSorting(Fuoten::FuotenEnums::SortingRole nSorting)
 #ifdef QT_DEBUG
         qDebug() << "Changed sorting to" << m_sorting;
 #endif
-        setValue(path("sorting"), m_sorting);
+        setValue(path(QStringLiteral("sorting")), m_sorting);
         emit sortingChanged(sorting());
     }
 }
@@ -97,7 +97,7 @@ void ContextConfig::setHideRead(bool nHideRead)
 #ifdef QT_DEBUG
         qDebug() << "Changed hideRead to" << m_hideRead;
 #endif
-        setValue(path("hideRead"), m_hideRead);
+        setValue(path(QStringLiteral("hideRead")), m_hideRead);
         emit hideReadChanged(hideRead());
     }
 }
@@ -114,7 +114,7 @@ void ContextConfig::setSortOrder(Qt::SortOrder nSortOrder)
 #ifdef QT_DEBUG
         qDebug() << "Changed sortOrder to" << m_sortOrder;
 #endif
-        setValue(path("sortOrder"), m_sortOrder);
+        setValue(path(QStringLiteral("sortOrder")), m_sortOrder);
         emit sortOrderChanged(sortOrder());
     }
 }

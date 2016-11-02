@@ -75,10 +75,7 @@ class ContextConfig : public QSettings
      * <TABLE><TR><TD>void</TD><TD>respectPinnedChanged(bool respectPinned)</TD></TR></TABLE>
      */
     Q_PROPERTY(bool respectPinned READ respectPinned WRITE setRespectPinned NOTIFY respectPinnedChanged)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
-    Q_ENUM(FuotenAppEnums::Context)
-    Q_ENUM(Fuoten::FuotenEnums::SortingRole)
-#else
+#if QT_VERSION < QT_VERSION_CHECK(5, 5, 0)
     Q_ENUMS(FuotenAppEnums::Context)
     Q_ENUMS(Fuoten::FuotenEnums::SortingRole)
 #endif
