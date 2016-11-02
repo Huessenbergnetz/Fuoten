@@ -24,7 +24,7 @@
 #include <algorithm>
 
 LanguageModel::LanguageModel(QObject *parent) :
-    QAbstractListModel(parent), m_supportedLangs({QStringLiteral("de"), QStringLiteral("en")})
+    QAbstractListModel(parent), m_supportedLangs({QStringLiteral("de"), QStringLiteral("da"), QStringLiteral("en")})
 {
     init();
 }
