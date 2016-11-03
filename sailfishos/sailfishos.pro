@@ -63,5 +63,6 @@ DISTFILES += \
     qml/common/parts/FoldersComboBox.qml \
     qml/common/dialogs/CreateFeedDialog.qml \
     qml/common/dialogs/MoveFeedDialog.qml \
-    qml/phone/pages/FeedListDelegate.qml
+    qml/phone/pages/FeedListDelegate.qml \
+    qml/common/parts/CachedImage.qml
 

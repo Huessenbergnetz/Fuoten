@@ -15,13 +15,10 @@ SOURCES += \
     $$PWD/imagecache.cpp
 
 DISTFILES += \
-    $$PWD/qml/common/models/PrivacyPolicyModel.qml \
-    $$PWD/qml/common/parts/CachedImage.qml
-
-commonQmlFiles.files = $$PWD/qml/*
+    $$PWD/qml/common/models/PrivacyPolicyModel.qml
 
 sfos {
+    commonQmlFiles.files = $$PWD/qml/*
     commonQmlFiles.path = /usr/share/harbour-fuoten/qml
+    INSTALLS += commonQmlFiles
 }
-
-INSTALLS += commonQmlFiles
