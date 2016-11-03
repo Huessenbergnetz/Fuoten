@@ -83,6 +83,7 @@ void ImageCache::setCacheUrl(const QUrl &nCacheUrl)
         qDebug() << "Changed cacheUrl to" << m_cacheUrl;
 #endif
         emit cacheUrlChanged(cacheUrl());
+        setInOperation(false);
     }
 }
 
@@ -169,7 +170,9 @@ void ImageCache::getImage()
 
     if (QFileInfo::exists(m_filePath)) {
 
-        setCacheUrl(QUrl(m_filePath));
+        QUrl cu(m_filePath);
+        cu.setScheme(QStringLiteral("file"));
+        setCacheUrl(cu);
 
     } else {
 
