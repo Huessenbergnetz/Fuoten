@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/SettingsPage.qml</file>
+        <file>qml/LabeledTextField.qml</file>
+        <file>qml/TextSwitch.qml</file>
+        <file>qml/navigation.js</file>
+        <file>qml/FoldersPage.qml</file>
+        <file>qml/CountBubble.qml</file>
+        <file>qml/FeedsPage.qml</file>
+        <file>qml/CachedImage.qml</file>
+    </qresource>
+</RCC>
