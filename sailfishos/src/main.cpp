@@ -52,10 +52,12 @@
 #include <Fuoten/API/CreateFolder>
 #include <Fuoten/Folder>
 #include <Fuoten/Feed>
+#include <Fuoten/Article>
 #include <Fuoten/API/CreateFeed>
 
 #include <Fuoten/Models/FeedListModel>
 #include <Fuoten/Models/FeedListFilterModel>
+#include <Fuoten/Models/ArticleListModel>
 
 #include "../../common/configuration.h"
 #include "../../common/languagemodel.h"
@@ -192,12 +194,14 @@ int main(int argc, char *argv[])
     qmlRegisterType<Fuoten::FolderListFilterModel>("harbour.fuoten.models", 1, 0, "FolderListFilterModel");
     qmlRegisterType<Fuoten::FeedListModel>("harbour.fuoten.models", 1, 0, "FeedListModel");
     qmlRegisterType<Fuoten::FeedListFilterModel>("harbour.fuoten.models", 1, 0, "FeedListFilterModel");
+    qmlRegisterType<Fuoten::ArticleListModel>("harbour.fuoten.models", 1, 0, "ArticleListModel");
 
     qmlRegisterType<Fuoten::CreateFolder>("harbour.fuoten.api", 1, 0, "CreateFolder");
     qmlRegisterType<Fuoten::CreateFeed>("harbour.fuoten.api", 1, 0, "CreateFeed");
 
     qmlRegisterType<Fuoten::Folder>("harbour.fuoten.items", 1, 0, "Folder");
     qmlRegisterType<Fuoten::Feed>("harbour.fuoten.items", 1, 0, "Feed");
+    qmlRegisterType<Fuoten::Article>("harbour.fuoten.items", 1, 0, "Article");
 
     qmlRegisterType<LanguageModel>("harbour.fuoten", 1, 0, "LanguageModel");
     qmlRegisterUncreatableType<Configuration>("harbour.fuoten", 1, 0, "Configuratoin", QStringLiteral("You can not create a Configuration object"));

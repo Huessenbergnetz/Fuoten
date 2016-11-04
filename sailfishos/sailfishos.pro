@@ -64,5 +64,7 @@ DISTFILES += \
     qml/common/dialogs/CreateFeedDialog.qml \
     qml/common/dialogs/MoveFeedDialog.qml \
     qml/phone/pages/FeedListDelegate.qml \
-    qml/common/parts/CachedImage.qml
+    qml/common/parts/CachedImage.qml \
+    qml/phone/pages/ArticlesListView.qml \
+    qml/phone/pages/ArticlesListPage.qml
 

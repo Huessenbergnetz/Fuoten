@@ -37,7 +37,7 @@ ListItem {
         ListView.onAdd: AddAnimation { target: feedListItem }
         ListView.onRemove: RemoveAnimation { target: feedListItem }
 
-        onClicked: model.display.error ? model.display.clearError() : ""
+        onClicked: model.display.error ? model.display.clearError() : pageStack.push(Qt.resolvedUrl("ArticlesListPage.qml"), {context: FuotenApp.FeedItems, feed: model.display})
 
         ErrorItem {
             error: model.display.error

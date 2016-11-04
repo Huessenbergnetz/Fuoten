@@ -63,11 +63,11 @@ Page {
                 //% "Main view settings"
                 title: cc.contextType === FuotenApp.StartPage
                        ? qsTrId("fuoten-mainview-settings")
-                       : cc.contextType === FuotenApp.Items
-                         //% "Feed settings"
-                         ? qsTrId("fuoten-feed-settings")
+                       : cc.contextType === FuotenApp.Feeds
                          //% "Folder settings"
-                         : qsTrId("fuoten-folder-settings")
+                         ? qsTrId("fuoten-folder-settings")
+                         //% "Articles list settings"
+                         : qsTrId("fuoten-articles-list-settings")
                 page: contextConfigPage
                 Layout.columnSpan: contextConfigGrid.columns
                 Layout.fillWidth: true
@@ -77,6 +77,7 @@ Page {
                 Layout.fillWidth: true
                 Layout.preferredHeight: sortingChoser.height
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                visible: cc.contextType < FuotenApp.AllItems
 
                 ComboBox {
                     id: sortingChoser
@@ -99,13 +100,12 @@ Page {
                             //% "Time"
                             text: qsTrId("fuoten-sort-time")
                             readonly property int value: Fuoten.Time
-                            visible: cc.contextType === FuotenApp.Items
+                            visible: cc.contextType > FuotenApp.Feeds
                         }
                         MenuItem {
                             //% "Unread count"
                             text: qsTrId("fuoten-sort-unread-count")
                             readonly property int value: Fuoten.UnreadCount
-                            visible: cc.contextType !== FuotenApp.Items && cc.contextType !== FuotenApp.SingleItem
                         }
                         MenuItem {
                             //% "Feed count"

@@ -165,8 +165,14 @@ QString ContextConfig::path(const QString &key) const
         return QStringLiteral("Folders_%1/%2").arg(QString::number(contextId()), key);
     case FuotenAppEnums::Feeds:
         return QStringLiteral("Feeds_%1/%2").arg(QString::number(contextId()), key);
-    case FuotenAppEnums::Items:
-        return QStringLiteral("Items_%1/%2").arg(QString::number(contextId()), key);
+    case FuotenAppEnums::AllItems:
+        return QStringLiteral("AllItems/%1").arg(key);
+    case FuotenAppEnums::FolderItems:
+        return QStringLiteral("FolderItems_%1/%2").arg(QString::number(contextId()), key);
+    case FuotenAppEnums::FeedItems:
+        return QStringLiteral("FeedItems_%1/%2").arg(QString::number(contextId()), key);
+    case FuotenAppEnums::StarredItems:
+        return QStringLiteral("StarredItems_%1/%2").arg(QString::number(contextId()), key);
     case FuotenAppEnums::SingleItem:
         return QStringLiteral("Item_%1/%2").arg(QString::number(contextId()), key);
     default:

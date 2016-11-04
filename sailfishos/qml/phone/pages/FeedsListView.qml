@@ -109,6 +109,8 @@ SilicaListView {
         folders: false
         folder: feedListFlick.folder
         onSearchTextChanged: feedListFlick.searchString = searchText
+        onAllArticlesClicked: folder ? pageStack.push(Qt.resolvedUrl("ArticlesListPage.qml"), {context: FuotenApp.FolderItems, folder: folder}) : pageStack.push(Qt.resolvedUrl("ArticlesListPage.qml"), {context: FuotenApp.AllItems})
+        onStarredItemsClicked: pageStack.push(Qt.resolvedUrl("ArticlesListPage.qml"), {context: FuotenApp.StarredItems})
     }
 
     model: FeedListFilterModel {

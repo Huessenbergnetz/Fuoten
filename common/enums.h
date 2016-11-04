@@ -8,11 +8,14 @@ class FuotenAppEnums {
 public:
 
     enum Context {
-        StartPage   = 0,
-        Folders     = 1,
-        Feeds       = 2,
-        Items       = 3,
-        SingleItem  = 4
+        StartPage       = 0,
+        Folders         = 1,
+        Feeds           = 2,
+        AllItems        = 3,
+        FolderItems     = 4,
+        FeedItems       = 5,
+        StarredItems    = 6,
+        SingleItem      = 7
     };
 #if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
     Q_ENUM(Context)

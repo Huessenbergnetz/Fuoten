@@ -20,10 +20,13 @@
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
+//import harbour.fuoten 1.0
 import harbour.fuoten.models 1.0
 import harbour.fuoten.items 1.0
 
 Column {
+    id: lph
+
     property alias page: header.page
     property bool folders: true
     property bool startPage: !folder && !feed
@@ -31,11 +34,15 @@ Column {
     property alias searchPlaceHolder: searchField.placeholderText
     property alias searchText: searchField.text
     property alias feedListDelegate: feedRepeater.delegate
+    property alias title: header.title
+    property alias description: header.description
     property Folder folder: null
     property Feed feed: null
 
     width: parent ? parent.width : Screen.width
 
+    signal allArticlesClicked()
+    signal starredItemsClicked()
 
     PageHeader {
         id: header
@@ -66,11 +73,13 @@ Column {
     }
 
     ListItem {
-        id: unreadItems
+        id: allArticles
         contentHeight: Theme.itemSizeSmall
         visible: !searchField.visible && (startPage || folder)
 
         property int unreadCount: folder ? folder.unreadCount : localstorage.totalUnread
+
+        onClicked: lph.allArticlesClicked()
 
         RowLayout {
             anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
@@ -79,22 +88,20 @@ Column {
             Image {
                 Layout.preferredWidth: folders ? Theme.iconSizeMedium : Theme.iconSizeSmall
                 Layout.preferredHeight: folders ? Theme.iconSizeMedium : Theme.iconSizeSmall
-                source: (folders ? "image://theme/icon-m-favorite-selected?" : "image://theme/icon-s-favorite?") + (unreadItems.highlighted ? (unreadItems.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (unreadItems.unreadCount ? Theme.primaryColor : Theme.secondaryColor))
+                source: (folders ? "image://theme/icon-m-favorite-selected?" : "image://theme/icon-s-favorite?") + (allArticles.highlighted ? (allArticles.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (allArticles.unreadCount ? Theme.primaryColor : Theme.secondaryColor))
             }
 
             Label {
                 Layout.fillWidth: true
-//                //% "Unread articles"
-//                text: qsTrId("fuoten-unread-articles")
                 //% "All articles"
                 text: qsTrId("fuoten-all-articles")
                 truncationMode: TruncationMode.Fade
-                color: unreadItems.highlighted ? (unreadItems.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (unreadItems.unreadCount ? Theme.primaryColor : Theme.secondaryColor)
+                color: allArticles.highlighted ? (allArticles.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (allArticles.unreadCount ? Theme.primaryColor : Theme.secondaryColor)
             }
 
             Label {
-                text: unreadItems.unreadCount
-                color: unreadItems.unreadCount ? Theme.highlightColor : unreadItems.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                text: allArticles.unreadCount
+                color: allArticles.unreadCount ? Theme.highlightColor : allArticles.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                 font.pixelSize: Theme.fontSizeMedium
             }
         }
@@ -104,6 +111,8 @@ Column {
         id: starredItems
         contentHeight: Theme.itemSizeSmall
         visible: !searchField.visible && startPage
+
+        onClicked: lph.starredItemsClicked()
 
         RowLayout {
             anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
