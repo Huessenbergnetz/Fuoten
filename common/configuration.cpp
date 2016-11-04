@@ -57,7 +57,11 @@ Configuration::Configuration(QObject *parent) :
     m_avatar = value(QStringLiteral("account/avatar"), QStringLiteral(DEFAULT_AVATAR)).toUrl();
     m_language = value(QStringLiteral("display/language")).toString();
     m_mainViewType = (Fuoten::FuotenEnums::Type)value(QStringLiteral("display/mainViewType"), Fuoten::FuotenEnums::Feed).toInt();
-    m_lastSync = QDateTime::fromTime_t(value(QStringLiteral("system/lastsync"), 0).toUInt());
+
+    uint lsts = value(QStringLiteral("system/lastsync"), 0).toUInt();
+    if (lsts > 0) {
+        m_lastSync = QDateTime::fromTime_t(lsts);
+    }
 }
 
 
