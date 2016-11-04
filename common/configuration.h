@@ -24,6 +24,7 @@
 
 #include <QObject>
 #include <QUrl>
+#include <QDateTime>
 #include <Fuoten/Helpers/AbstractConfiguration>
 #include <Fuoten/FuotenEnums>
 #if QT_VERSION < QT_VERSION_CHECK(5, 6, 0)
@@ -192,6 +193,15 @@ class Configuration : public Fuoten::AbstractConfiguration
      * <TABLE><TR><TD>void</TD><TD>mainViewSortOrderChanged(Qt::SortOrder mainViewSortOrder)</TD></TR></TABLE>
      */
     Q_PROPERTY(Qt::SortOrder mainViewSortOrder READ mainViewSortOrder WRITE setMainViewSortOrder NOTIFY mainViewSortOrderChanged)
+    /*!
+     * \brief Stores the date and time of the last full sync.
+     *
+     * \par Access functions:
+     * <TABLE><TR><TD>QDateTime</TD><TD>getLastSync() const</TD></TR><TR><TD>void</TD><TD>setLastSync(const QDateTime &lastSync)</TD></TR></TABLE>
+     * \par Notifier signal:
+     * <TABLE><TR><TD>void</TD><TD>lastSyncChanged(const QDateTime &lastSync)</TD></TR></TABLE>
+     */
+    Q_PROPERTY(QDateTime lastSync READ getLastSync WRITE setLastSync NOTIFY lastSyncChanged)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
     Q_ENUM(Fuoten::FuotenEnums::Type)
     Q_ENUM(Fuoten::FuotenEnums::SortingRole)
@@ -222,6 +232,7 @@ public:
     Fuoten::FuotenEnums::SortingRole mainViewSorting() const;
     bool mainViewHideRead() const;
     Qt::SortOrder mainViewSortOrder() const;
+    QDateTime getLastSync() const;
 
     void setUsername(const QString &username);
     void setPassword(const QString &password);
@@ -239,6 +250,7 @@ public:
     void setMainViewSorting(Fuoten::FuotenEnums::SortingRole nMainViewSorting);
     void setMainViewHideRead(bool nMainViewHideRead);
     void setMainViewSortOrder(Qt::SortOrder nMainViewSortOrder);
+    void setLastSync(const QDateTime &lastSync);
 
     /*!
      * \brief Returns true if Fuoten has been updated.
@@ -280,6 +292,7 @@ signals:
     void mainViewSortingChanged(Fuoten::FuotenEnums::SortingRole mainViewSorting);
     void mainViewHideReadChanged(bool mainViewHideRead);
     void mainViewSortOrderChanged(Qt::SortOrder mainViewSortOrder);
+    void lastSyncChanged(const QDateTime &lastSync);
 
 private:
     Q_DISABLE_COPY(Configuration)
@@ -301,6 +314,7 @@ private:
     Fuoten::FuotenEnums::SortingRole m_mainViewSorting;
     bool m_mainViewHideRead;
     Qt::SortOrder m_mainViewSortOrder;
+    QDateTime m_lastSync;
 };
 
 #endif // CONFIGURATION_H

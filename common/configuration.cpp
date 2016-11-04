@@ -60,6 +60,7 @@ Configuration::Configuration(QObject *parent) :
     m_mainViewSorting = (Fuoten::FuotenEnums::SortingRole)value(QStringLiteral("display/mainViewSorting"), Fuoten::FuotenEnums::Name).toInt();
     m_mainViewHideRead = value(QStringLiteral("display/mainViewHideRead"), false).toBool();
     m_mainViewSortOrder = (Qt::SortOrder)value(QStringLiteral("display/mainViewSortOrder"), Qt::AscendingOrder).toInt();
+    m_lastSync = QDateTime::fromTime_t(value(QStringLiteral("system/lastsync"), 0).toUInt());
 }
 
 
@@ -428,6 +429,19 @@ void Configuration::setMainViewSortOrder(Qt::SortOrder nMainViewSortOrder)
 }
 
 
+QDateTime Configuration::getLastSync() const { return m_lastSync; }
+
+void Configuration::setLastSync(const QDateTime &lastSync)
+{
+    if (lastSync != m_lastSync) {
+        m_lastSync = lastSync;
+#ifdef QT_DEBUG
+        qDebug() << "Changed lastSync to" << m_lastSync;
+#endif
+        setValue(QStringLiteral("system/lastsync"), lastSync.toTime_t());
+        Q_EMIT lastSyncChanged(getLastSync());
+    }
+}
 
 
 
