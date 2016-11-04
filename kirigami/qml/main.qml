@@ -33,13 +33,13 @@ Kirigami.ApplicationWindow {
         actions: [
             Kirigami.Action {
                 //% "%n unread article(s)"
-                text: qsTrId("fuoten-unread-articles-with-count").arg(localstorage.totalUnread)
+                text: qsTrId("fuoten-unread-articles-with-count", localstorage.totalUnread)
                 iconName: "visibility"
             },
 
             Kirigami.Action {
                 //% "%n starred article(s)"
-                text: qsTrId("fuoten-starred-articles-with-count").arg(localstorage.stared)
+                text: qsTrId("fuoten-starred-articles-with-count", localstorage.stared)
                 iconName: "love"
             },
 
