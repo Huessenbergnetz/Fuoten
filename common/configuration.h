@@ -167,33 +167,6 @@ class Configuration : public Fuoten::AbstractConfiguration
      */
     Q_PROPERTY(Fuoten::FuotenEnums::Type mainViewType READ mainViewType WRITE setMainViewType NOTIFY mainViewTypeChanged)
     /*!
-     * \brief Stores the sorting of the main view.
-     *
-     * \par Access functions:
-     * <TABLE><TR><TD>Fuoten::FuotenEnums::SortingRole</TD><TD>mainViewSorting() const</TD></TR><TR><TD>void</TD><TD>setMainViewSorting(Fuoten::FuotenEnums::SortingRole nMainViewSorting)</TD></TR></TABLE>
-     * \par Notifier signal:
-     * <TABLE><TR><TD>void</TD><TD>mainViewSortingChanged(Fuoten::FuotenEnums::SortingRole mainViewSorting)</TD></TR></TABLE>
-     */
-    Q_PROPERTY(Fuoten::FuotenEnums::SortingRole mainViewSorting READ mainViewSorting WRITE setMainViewSorting NOTIFY mainViewSortingChanged)
-    /*!
-     * \brief If true, objects without unread items will be hidden on the main view.
-     *
-     * \par Access functions:
-     * <TABLE><TR><TD>bool</TD><TD>mainViewHideRead() const</TD></TR><TR><TD>void</TD><TD>setMainViewHideRead(bool nMainViewHideRead)</TD></TR></TABLE>
-     * \par Notifier signal:
-     * <TABLE><TR><TD>void</TD><TD>mainViewHideReadChanged(bool mainViewHideRead)</TD></TR></TABLE>
-     */
-    Q_PROPERTY(bool mainViewHideRead READ mainViewHideRead WRITE setMainViewHideRead NOTIFY mainViewHideReadChanged)
-    /*!
-     * \brief Stores the sort order of the main view content.
-     *
-     * \par Access functions:
-     * <TABLE><TR><TD>Qt::SortOrder</TD><TD>mainViewSortOrder() const</TD></TR><TR><TD>void</TD><TD>setMainViewSortOrder(Qt::SortOrder nMainViewSortOrder)</TD></TR></TABLE>
-     * \par Notifier signal:
-     * <TABLE><TR><TD>void</TD><TD>mainViewSortOrderChanged(Qt::SortOrder mainViewSortOrder)</TD></TR></TABLE>
-     */
-    Q_PROPERTY(Qt::SortOrder mainViewSortOrder READ mainViewSortOrder WRITE setMainViewSortOrder NOTIFY mainViewSortOrderChanged)
-    /*!
      * \brief Stores the date and time of the last full sync.
      *
      * \par Access functions:
@@ -204,10 +177,8 @@ class Configuration : public Fuoten::AbstractConfiguration
     Q_PROPERTY(QDateTime lastSync READ getLastSync WRITE setLastSync NOTIFY lastSyncChanged)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
     Q_ENUM(Fuoten::FuotenEnums::Type)
-    Q_ENUM(Fuoten::FuotenEnums::SortingRole)
 #else
     Q_ENUMS(Fuoten::FuotenEnums::Type)
-    Q_ENUMS(Fuoten::FuotenEnums::SortingRole)
 #endif
 public:
     explicit Configuration(QObject *parent = nullptr);
@@ -229,9 +200,6 @@ public:
     QUrl avatar() const;
     QString language() const;
     Fuoten::FuotenEnums::Type mainViewType() const;
-    Fuoten::FuotenEnums::SortingRole mainViewSorting() const;
-    bool mainViewHideRead() const;
-    Qt::SortOrder mainViewSortOrder() const;
     QDateTime getLastSync() const;
 
     void setUsername(const QString &username);
@@ -247,9 +215,6 @@ public:
     void setAvatar(const QString &data, const QString &mime) override;
     void setLanguage(const QString &nLanguage);
     void setMainViewType(Fuoten::FuotenEnums::Type nMainViewType);
-    void setMainViewSorting(Fuoten::FuotenEnums::SortingRole nMainViewSorting);
-    void setMainViewHideRead(bool nMainViewHideRead);
-    void setMainViewSortOrder(Qt::SortOrder nMainViewSortOrder);
     void setLastSync(const QDateTime &lastSync);
 
     /*!
@@ -289,9 +254,6 @@ signals:
     void avatarChanged(const QUrl &avatar);
     void languageChanged(const QString &language);
     void mainViewTypeChanged(Fuoten::FuotenEnums::Type mainViewType);
-    void mainViewSortingChanged(Fuoten::FuotenEnums::SortingRole mainViewSorting);
-    void mainViewHideReadChanged(bool mainViewHideRead);
-    void mainViewSortOrderChanged(Qt::SortOrder mainViewSortOrder);
     void lastSyncChanged(const QDateTime &lastSync);
 
 private:
@@ -311,9 +273,6 @@ private:
     QUrl m_avatar;
     QString m_language;
     Fuoten::FuotenEnums::Type m_mainViewType;
-    Fuoten::FuotenEnums::SortingRole m_mainViewSorting;
-    bool m_mainViewHideRead;
-    Qt::SortOrder m_mainViewSortOrder;
     QDateTime m_lastSync;
 };
 
