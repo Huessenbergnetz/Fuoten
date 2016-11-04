@@ -94,10 +94,8 @@ SilicaListView {
 
     header: ListPageHeader {
         id: folderListHeader
-        headerTitle: folderListFlick.title
         page: folderListFlick.page
         searchVisible: folderListFlick.searchVisible
-        startPage: folderListFlick.startPage
         feedListDelegate: FeedListDelegate { folderView: true }
         onSearchTextChanged: folderListFlick.searchString = searchText
     }

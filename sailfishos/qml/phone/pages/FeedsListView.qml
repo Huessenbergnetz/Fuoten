@@ -104,14 +104,10 @@ SilicaListView {
 
     header: ListPageHeader {
         id: feedsListHeader
-        headerTitle: feedListFlick.folder ? feedListFlick.folder.name : "Fuoten"
-        //% "%n feed(s)"
-        headerDescription: feedListFlick.folder ? qsTrId("fuoten-feeds-count", feedListFlick.folder.feedCount) : ""
         page: feedListFlick.page
         searchVisible: feedListFlick.searchVisible
-        startPage: !folder
         folders: false
-        feedListPage: folder !== null
+        folder: feedListFlick.folder
         onSearchTextChanged: feedListFlick.searchString = searchText
     }
 

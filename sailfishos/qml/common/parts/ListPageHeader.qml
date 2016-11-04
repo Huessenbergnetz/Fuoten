@@ -21,25 +21,32 @@ import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
 import harbour.fuoten.models 1.0
+import harbour.fuoten.items 1.0
 
 Column {
     property alias page: header.page
     property bool folders: true
-    property bool startPage: true
-    property bool feedListPage: false
+    property bool startPage: !folder && !feed
     property alias searchVisible: searchField.visible
     property alias searchPlaceHolder: searchField.placeholderText
     property alias searchText: searchField.text
-    property alias headerTitle: header.title
-    property alias headerDescription: header.description
     property alias feedListDelegate: feedRepeater.delegate
+    property Folder folder: null
+    property Feed feed: null
 
     width: parent ? parent.width : Screen.width
 
 
     PageHeader {
         id: header
-        title: "Fuoten"
+        title: folder ? folder.name : feed ? feed.title : "Fuoten"
+        description: folder
+                        //% "%n feed(s)"
+                     ? qsTrId("fuoten-feeds-count", folder.feedCount)
+                     : feed
+                        //% "%n unread article(s)"
+                       ? qsTrId("fuoten-unread-articles-with-count", feed.unreadCount)
+                       : ""
     }
 
     SearchField {
@@ -59,9 +66,11 @@ Column {
     }
 
     ListItem {
-        id: undreadItems
+        id: unreadItems
         contentHeight: Theme.itemSizeSmall
-        visible: !searchField.visible && (startPage || feedListPage)
+        visible: !searchField.visible && (startPage || folder)
+
+        property int unreadCount: folder ? folder.unreadCount : localstorage.totalUnread
 
         RowLayout {
             anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
@@ -70,20 +79,22 @@ Column {
             Image {
                 Layout.preferredWidth: folders ? Theme.iconSizeMedium : Theme.iconSizeSmall
                 Layout.preferredHeight: folders ? Theme.iconSizeMedium : Theme.iconSizeSmall
-                source: (folders ? "image://theme/icon-m-favorite-selected?" : "image://theme/icon-s-favorite?") + (undreadItems.highlighted ? (localstorage.totalUnread ? Theme.highlightColor : Theme.secondaryHighlightColor) : (undreadItems.totalUnread ? Theme.primaryColor : Theme.secondaryColor))
+                source: (folders ? "image://theme/icon-m-favorite-selected?" : "image://theme/icon-s-favorite?") + (unreadItems.highlighted ? (unreadItems.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (unreadItems.unreadCount ? Theme.primaryColor : Theme.secondaryColor))
             }
 
             Label {
                 Layout.fillWidth: true
-                //% "Unread articles"
-                text: qsTrId("fuoten-unread-articles")
+//                //% "Unread articles"
+//                text: qsTrId("fuoten-unread-articles")
+                //% "All articles"
+                text: qsTrId("fuoten-all-articles")
                 truncationMode: TruncationMode.Fade
-                color: undreadItems.highlighted ? (localstorage.starred ? Theme.highlightColor : Theme.secondaryHighlightColor) : (localstorage.starred ? Theme.primaryColor : Theme.secondaryColor)
+                color: unreadItems.highlighted ? (unreadItems.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (unreadItems.unreadCount ? Theme.primaryColor : Theme.secondaryColor)
             }
 
             Label {
-                text: localstorage.totalUnread
-                color: localstorage.totalUnread ? Theme.highlightColor : undreadItems.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                text: unreadItems.unreadCount
+                color: unreadItems.unreadCount ? Theme.highlightColor : unreadItems.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                 font.pixelSize: Theme.fontSizeMedium
             }
         }
