@@ -132,6 +132,7 @@ Page {
                     text: qsTrId("fuoten-sort-descending-label")
                     //% "If enabled, depending on the context, the feeds, folders or articles will be sorted in descending order."
                     description: qsTrId("fuoten-sort-descending-desc")
+                    checked: cc.sortOrder === Qt.DescendingOrder
                     onClicked: {
                         if (cc.sortOrder === Qt.DescendingOrder) {
                             cc.sortOrder = Qt.AscendingOrder
