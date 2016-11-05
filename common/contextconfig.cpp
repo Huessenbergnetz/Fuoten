@@ -31,7 +31,7 @@ void ContextConfig::load()
 {
     setSorting((Fuoten::FuotenEnums::SortingRole)value(path(QStringLiteral("sorting")), Fuoten::FuotenEnums::Name).toInt());
     setHideRead(value(path(QStringLiteral("hideRead")), false).toBool());
-    setSortOrder((Qt::SortOrder)value(path(QStringLiteral("sortOrder")), Qt::AscendingOrder).toInt());
+    setSortOrder((Qt::SortOrder)value(path(QStringLiteral("sortOrder")), m_contextType < FuotenAppEnums::AllItems ? Qt::AscendingOrder : Qt::DescendingOrder).toInt());
     setShowFolderSections(value(path(QStringLiteral("showFolderSections")), true).toBool());
     setRespectPinned(value(path(QStringLiteral("respectPinned")), true).toBool());
 }

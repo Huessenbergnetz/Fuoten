@@ -53,7 +53,7 @@ SilicaListView {
                        : folder
                          ? folder.name
                          : contextType === FuotenApp.AllItems
-                           ? qsTr("fuoten-all-articles")
+                           ? qsTrId("fuoten-all-articles")
                            : contextType === FuotenApp.StarredItems
                              ? qsTrId("fuoten-starred-articles")
                              : ""
@@ -126,7 +126,7 @@ SilicaListView {
         folders: false
         folder: articlesListView.folder
         feed: articlesListView.feed
-        onSearchTextChanged: articlesListView.searchString
+        onSearchTextChanged: articlesListView.searchString = searchText
         Component.onCompleted: {
             switch (contextType) {
             case FuotenApp.AllItems:
@@ -143,8 +143,11 @@ SilicaListView {
         }
     }
 
-    model: ArticleListModel {
+    model: ArticleListFilterModel {
         storage: localstorage
+        sortOrder: articlesContextConfig.sortOrder
+        hideRead: articlesContextConfig.hideRead
+        search: articlesListView.searchString
         Component.onCompleted: {
             if (feed) {
                 parentId = feed.id
@@ -194,7 +197,7 @@ SilicaListView {
 
                 Text {
                     id: titleText
-                    text: Theme.highlightText(display.title, articlesListView.searchString, Theme.highlightColor)
+                    text: Theme.highlightText(display ? display.title : "", articlesListView.searchString, Theme.highlightColor)
                     Layout.fillWidth: true
                     color: articleListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
                     maximumLineCount: 3
@@ -210,6 +213,7 @@ SilicaListView {
                     textFormat: Text.PlainText
                     color: articleListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                     font.pixelSize: Theme.fontSizeTiny
+                    visible: articlesListView.contextType !== FuotenApp.FeedItems
                 }
 
                 Text {

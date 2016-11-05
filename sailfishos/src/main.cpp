@@ -58,6 +58,7 @@
 #include <Fuoten/Models/FeedListModel>
 #include <Fuoten/Models/FeedListFilterModel>
 #include <Fuoten/Models/ArticleListModel>
+#include <Fuoten/Models/ArticleListFilterModel>
 
 #include "../../common/configuration.h"
 #include "../../common/languagemodel.h"
@@ -195,6 +196,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<Fuoten::FeedListModel>("harbour.fuoten.models", 1, 0, "FeedListModel");
     qmlRegisterType<Fuoten::FeedListFilterModel>("harbour.fuoten.models", 1, 0, "FeedListFilterModel");
     qmlRegisterType<Fuoten::ArticleListModel>("harbour.fuoten.models", 1, 0, "ArticleListModel");
+    qmlRegisterType<Fuoten::ArticleListFilterModel>("harbour.fuoten.models", 1, 0, "ArticleListFilterModel");
 
     qmlRegisterType<Fuoten::CreateFolder>("harbour.fuoten.api", 1, 0, "CreateFolder");
     qmlRegisterType<Fuoten::CreateFeed>("harbour.fuoten.api", 1, 0, "CreateFeed");
