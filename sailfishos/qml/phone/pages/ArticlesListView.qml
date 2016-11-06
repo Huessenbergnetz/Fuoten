@@ -257,7 +257,7 @@ SilicaListView {
     ViewPlaceholder {
         id: emptyContent
         flickable: articlesListView
-        enabled: articlesListView.count === 0 && config.isAccountValid && !folderListModel.inOperation
+        enabled: articlesListView.count === 0 && config.isAccountValid && !articlesModel.inOperation
         //% "No articles found"
         text: qsTrId("fuoten-no-articles-found")
         //% "Synchronize your data or check your filter settings."

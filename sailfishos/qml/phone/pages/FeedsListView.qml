@@ -156,7 +156,7 @@ SilicaListView {
     ViewPlaceholder {
         id: invalidAccountPlaceHolder
         flickable: feedListView
-        enabled: feedListView.count === 0 && !config.isAccountValid && !folderListModel.inOperation
+        enabled: feedListView.count === 0 && !config.isAccountValid && !feedListModel.inOperation
         //% "Invalid account configuration"
         text: qsTrId("fuoten-invalid-account")
         //% "Open the settings to configure your account"
@@ -166,7 +166,7 @@ SilicaListView {
     ViewPlaceholder {
         id: emptyContent
         flickable: feedListView
-        enabled: feedListView.count === 0 && config.isAccountValid && !folderListModel.inOperation
+        enabled: feedListView.count === 0 && config.isAccountValid && !feedListModel.inOperation
         //% "No feeds found"
         text: qsTrId("fuoten-no-feeds-found")
         //% "Synchronize your data or check your filter settings."
