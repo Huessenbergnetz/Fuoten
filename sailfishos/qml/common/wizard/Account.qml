@@ -29,13 +29,16 @@ Dialog {
     id: welcomeAccountDialog
 
     backNavigation: false
-    canAccept: config.isAccountValid
+    canAccept: config.isAccountValid && !account.inOperation
     acceptDestination: Screen.sizeCategory >= Screen.Large
                        ? Qt.resolvedUrl("../../tablet/pages/MainPage.qml")
                        : Qt.resolvedUrl("../../phone/pages/MainPage.qml")
     acceptDestinationAction: PageStackAction.Replace
 
-    onAccepted: config.setCurrentVersion()
+    onAccepted: {
+        config.setCurrentVersion()
+        synchronizer.sync()
+    }
 
 
     SilicaFlickable {
