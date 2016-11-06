@@ -56,7 +56,7 @@ Configuration::Configuration(QObject *parent) :
     m_ignoreSSLErrors = value(QStringLiteral("account/ignoresslerrors"), false).toBool();
     m_avatar = value(QStringLiteral("account/avatar"), QStringLiteral(DEFAULT_AVATAR)).toUrl();
     m_language = value(QStringLiteral("display/language")).toString();
-    m_mainViewType = (Fuoten::FuotenEnums::Type)value(QStringLiteral("display/mainViewType"), Fuoten::FuotenEnums::Feed).toInt();
+    m_mainViewType = (Fuoten::FuotenEnums::Type)value(QStringLiteral("display/mainViewType"), Fuoten::FuotenEnums::Folder).toInt();
 
     uint lsts = value(QStringLiteral("system/lastsync"), 0).toUInt();
     if (lsts > 0) {
