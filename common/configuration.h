@@ -200,7 +200,7 @@ public:
     QUrl avatar() const;
     QString language() const;
     Fuoten::FuotenEnums::Type mainViewType() const;
-    QDateTime getLastSync() const;
+    QDateTime getLastSync() const override;
 
     void setUsername(const QString &username);
     void setPassword(const QString &password);
@@ -215,7 +215,7 @@ public:
     void setAvatar(const QString &data, const QString &mime) override;
     void setLanguage(const QString &nLanguage);
     void setMainViewType(Fuoten::FuotenEnums::Type nMainViewType);
-    void setLastSync(const QDateTime &lastSync);
+    void setLastSync(const QDateTime &lastSync) override;
 
     /*!
      * \brief Returns true if Fuoten has been updated.
