@@ -219,7 +219,7 @@ SilicaListView {
 
                 Text {
                     id: dateText
-                    text: display.pubDate
+                    text: display.humanPubDate
                     textFormat: Text.PlainText
                     color: articleListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                     font.pixelSize: Theme.fontSizeTiny
