@@ -144,6 +144,7 @@ SilicaListView {
     }
 
     model: ArticleListFilterModel {
+        id: articlesModel
         storage: localstorage
         sortOrder: articlesContextConfig.sortOrder
         hideRead: articlesContextConfig.hideRead
@@ -244,5 +245,22 @@ SilicaListView {
 
     RemorsePopup {
         id: remorsePop
+    }
+
+    BusyIndicator {
+        anchors.centerIn: parent
+        size: BusyIndicatorSize.Large
+        visible: articlesModel.inOperation
+        running: articlesModel.inOperation
+    }
+
+    ViewPlaceholder {
+        id: emptyContent
+        flickable: articlesListView
+        enabled: articlesListView.count === 0 && config.isAccountValid && !folderListModel.inOperation
+        //% "No articles found"
+        text: qsTrId("fuoten-no-articles-found")
+        //% "Synchronize your data or check your filter settings."
+        hintText: qsTrId("fuoten-no-content-found-hint")
     }
 }

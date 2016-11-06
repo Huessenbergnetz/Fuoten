@@ -214,6 +214,13 @@ SilicaListView {
         }
     }
 
+    BusyIndicator {
+        anchors.centerIn: parent
+        size: BusyIndicatorSize.Large
+        visible: folderListModel.inOperation
+        running: folderListModel.inOperation
+    }
+
     ViewPlaceholder {
         id: invalidAccountPlaceHolder
         flickable: folderListFlick
@@ -231,6 +238,6 @@ SilicaListView {
         //% "No folders found"
         text: qsTrId("fuoten-no-folders-found")
         //% "Synchronize your data or check your filter settings."
-        hintText: qsTrId("fuoten-no-folders-found-hint")
+        hintText: qsTrId("fuoten-no-content-found-hint")
     }
 }

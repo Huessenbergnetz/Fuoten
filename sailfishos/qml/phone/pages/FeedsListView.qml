@@ -27,7 +27,7 @@ import "../../common/parts"
 
 
 SilicaListView {
-    id: feedListFlick
+    id: feedListView
     anchors.fill: parent
     currentIndex: -1
 
@@ -84,12 +84,12 @@ SilicaListView {
         }
 
         MenuItem {
-            text: feedListFlick.searchVisible
+            text: feedListView.searchVisible
                     //% "Hide search"
                   ? qsTrId("fuoten-hide-search")
                     //% "Show search"
                   : qsTrId("fuoten-show-search")
-            onClicked: feedListFlick.searchVisible = !feedListFlick.searchVisible
+            onClicked: feedListView.searchVisible = !feedListView.searchVisible
         }
 
         MenuItem {
@@ -100,25 +100,25 @@ SilicaListView {
         }
     }
 
-    VerticalScrollDecorator { flickable: feedListFlick; page: feedListFlick.page }
+    VerticalScrollDecorator { flickable: feedListView; page: feedListView.page }
 
     header: ListPageHeader {
         id: feedsListHeader
-        page: feedListFlick.page
-        searchVisible: feedListFlick.searchVisible
+        page: feedListView.page
+        searchVisible: feedListView.searchVisible
         folders: false
-        folder: feedListFlick.folder
-        onSearchTextChanged: feedListFlick.searchString = searchText
+        folder: feedListView.folder
+        onSearchTextChanged: feedListView.searchString = searchText
         onAllArticlesClicked: folder ? pageStack.push(Qt.resolvedUrl("ArticlesListPage.qml"), {context: FuotenApp.FolderItems, folder: folder}) : pageStack.push(Qt.resolvedUrl("ArticlesListPage.qml"), {context: FuotenApp.AllItems})
         onStarredItemsClicked: pageStack.push(Qt.resolvedUrl("ArticlesListPage.qml"), {context: FuotenApp.StarredItems})
     }
 
     model: FeedListFilterModel {
         id: feedListModel
-        parentId: feedListFlick.folder ? feedListFlick.folder.id : -1
+        parentId: feedListView.folder ? feedListView.folder.id : -1
         storage: localstorage
         sortingRole: feedContextConfig.sorting
-        search: feedListFlick.searchString
+        search: feedListView.searchString
         hideRead: feedContextConfig.hideRead
         sortOrder: feedContextConfig.sortOrder
         respectPinned: feedContextConfig.respectPinned
@@ -131,7 +131,7 @@ SilicaListView {
         delegate: feedContextConfig.showFolderSections && !folder ? secHeader : null
     }
 
-    delegate: FeedListDelegate { searchString: feedListFlick.searchString }
+    delegate: FeedListDelegate { searchString: feedListView.searchString }
 
     RemorsePopup {
         id: remorsePop
@@ -144,6 +144,33 @@ SilicaListView {
             visible: text != ""
             height: Theme.itemSizeExtraSmall
         }
+    }
+
+    BusyIndicator {
+        anchors.centerIn: parent
+        size: BusyIndicatorSize.Large
+        visible: feedListModel.inOperation
+        running: feedListModel.inOperation
+    }
+
+    ViewPlaceholder {
+        id: invalidAccountPlaceHolder
+        flickable: feedListView
+        enabled: feedListView.count === 0 && !config.isAccountValid && !folderListModel.inOperation
+        //% "Invalid account configuration"
+        text: qsTrId("fuoten-invalid-account")
+        //% "Open the settings to configure your account"
+        hintText: qsTrId("fuoten-invalid-account-hint")
+    }
+
+    ViewPlaceholder {
+        id: emptyContent
+        flickable: feedListView
+        enabled: feedListView.count === 0 && config.isAccountValid && !folderListModel.inOperation
+        //% "No feeds found"
+        text: qsTrId("fuoten-no-feeds-found")
+        //% "Synchronize your data or check your filter settings."
+        hintText: qsTrId("fuoten-no-content-found-hint")
     }
 }
 
