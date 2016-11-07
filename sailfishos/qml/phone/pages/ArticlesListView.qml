@@ -101,6 +101,14 @@ SilicaListView {
         }
 
         MenuItem {
+            visible: !feed && !folder && contextType === FuotenApp.AllItems
+            //% "Mark all as read"
+            text: qsTrId("fuoten-mark-all-read")
+            //% "Marking all read"
+            onClicked: remorsePop.execute(qsTrId("fuoten-marking-all-read"), function() {})
+        }
+
+        MenuItem {
             text: articlesListView.searchVisible
                     //% "Hide search"
                   ? qsTrId("fuoten-hide-search")
@@ -125,6 +133,7 @@ SilicaListView {
         searchVisible: articlesListView.searchVisible
         folders: false
         folder: articlesListView.folder
+        folderItems: contextType === FuotenApp.FolderItems
         feed: articlesListView.feed
         onSearchTextChanged: articlesListView.searchString = searchText
         Component.onCompleted: {
@@ -171,6 +180,8 @@ SilicaListView {
 
         ListView.onAdd: AddAnimation { target: articleListItem }
         ListView.onRemove: RemoveAnimation { target: articleListItem }
+
+        menu: itemContextMenu
 
         Item {
             width: gi.width
@@ -238,6 +249,26 @@ SilicaListView {
                     Layout.preferredHeight: Theme.iconSizeSmall
                     source: "image://theme/icon-s-favorite?" + (articleListItem.highlighted ? Theme.highlightColor : Theme.primaryColor)
                     Behavior on opacity { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad } }
+                }
+            }
+        }
+
+        Component {
+            id: itemContextMenu
+            ContextMenu {
+                MenuItem {
+                    text: display.unread
+                            //% "Mark as read"
+                          ? qsTrId("fuoten-mark-item-as-read")
+                            //% "Mark as unread"
+                          : qsTrId("fuoten-mark-item-as-unread")
+                }
+                MenuItem {
+                    text: display.starred
+                            //% "Remove from favorites"
+                          ? qsTrId("fuoten-remove-from-favorites")
+                            //% "Add to favorites"
+                          : qsTrId("fuoten-add-to-favorites")
                 }
             }
         }
