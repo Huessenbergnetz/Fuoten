@@ -183,6 +183,8 @@ SilicaListView {
 
         menu: itemContextMenu
 
+        onClicked: display.error ? display.clearError() : ""
+
         Item {
             width: gi.width
             height: gi.height
@@ -199,9 +201,17 @@ SilicaListView {
             }
         }
 
+        ErrorItem {
+            error: display.error
+            anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
+            highlighted: articleListItem.highlighted
+            fontSize: Theme.fontSizeExtraSmall
+        }
+
         RowLayout {
             anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
             spacing: Theme.paddingSmall
+            visible: !display.error
 
             ColumnLayout {
                 id: textCol
@@ -262,6 +272,7 @@ SilicaListView {
                           ? qsTrId("fuoten-mark-item-as-read")
                             //% "Mark as unread"
                           : qsTrId("fuoten-mark-item-as-unread")
+                    onClicked: display.mark(!display.unread, config, localstorage)
                 }
                 MenuItem {
                     text: display.starred
