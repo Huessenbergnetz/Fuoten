@@ -109,7 +109,7 @@ SilicaListView {
         search: folderListFlick.searchString
         hideRead: folderContextConfig.hideRead
         sortOrder: folderContextConfig.sortOrder
-        Component.onCompleted: load()
+        Component.onCompleted: load(config.language)
     }
 
     delegate: ListItem {
