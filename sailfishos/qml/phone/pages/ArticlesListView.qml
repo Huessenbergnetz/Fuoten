@@ -275,6 +275,7 @@ SilicaListView {
                           ? qsTrId("fuoten-remove-from-favorites")
                             //% "Add to favorites"
                           : qsTrId("fuoten-add-to-favorites")
+                    onClicked: display.star(!display.starred, config, localstorage)
                 }
             }
         }
