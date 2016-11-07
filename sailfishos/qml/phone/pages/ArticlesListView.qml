@@ -178,7 +178,16 @@ SilicaListView {
 
         menu: itemContextMenu
 
-        onClicked: display.error ? display.clearError() : ""
+        onClicked: {
+            if (display.error) {
+                display.clearError()
+            } else {
+                if (display.unread) {
+                    display.mark(false, config, localstorage)
+                }
+                Qt.openUrlExternally(display.url)
+            }
+        }
 
         Item {
             width: gi.width
