@@ -48,13 +48,16 @@ Column {
     PageHeader {
         id: header
         title: folder ? folder.name : feed ? feed.title : "Fuoten"
-        description: folder
-                        //% "%n feed(s)"
-                     ? qsTrId("fuoten-feeds-count", folder.feedCount)
-                     : feed
+        description: (folder && folderItems)
                         //% "%n unread article(s)"
-                       ? qsTrId("fuoten-unread-articles-with-count", feed.unreadCount)
-                       : ""
+                     ? qsTrId("fuoten-unread-articles-with-count", folder.unreadCount)
+                     : (folder && !folderItems)
+                        //% "%n feed(s)"
+                       ? qsTrId("fuoten-feeds-count", folder.feedCount)
+                       : feed
+                            //% "%n unread article(s)"
+                         ? qsTrId("fuoten-unread-articles-with-count", feed.unreadCount)
+                         : ""
     }
 
     SearchField {
