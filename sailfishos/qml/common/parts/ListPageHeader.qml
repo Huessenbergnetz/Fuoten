@@ -29,6 +29,7 @@ Column {
 
     property alias page: header.page
     property bool folders: true
+    property bool folderItems: false
     property bool startPage: !folder && !feed
     property alias searchVisible: searchField.visible
     property alias searchPlaceHolder: searchField.placeholderText
@@ -75,7 +76,7 @@ Column {
     ListItem {
         id: allArticles
         contentHeight: Theme.itemSizeSmall
-        visible: !searchField.visible && (startPage || folder)
+        visible: !searchField.visible && (startPage || folder) && !folderItems
 
         property int unreadCount: folder ? folder.unreadCount : localstorage.totalUnread
 
