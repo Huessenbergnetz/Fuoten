@@ -137,17 +137,12 @@ SilicaListView {
         feed: articlesListView.feed
         onSearchTextChanged: articlesListView.searchString = searchText
         Component.onCompleted: {
-            switch (contextType) {
-            case FuotenApp.AllItems:
+            if (contextType === FuotenApp.AllItems) {
                 startPage = false
                 title = qsTrId("fuoten-all-articles")
-                break;
-            case FuotenApp.StarredItems:
+            } else if (contextType === FuotenApp.StarredItems) {
                 startPage = false
                 title = qsTrId("fuoten-starred-articles")
-                break;
-            case FuotenApp.FolderItems:
-                description = qsTrId("fuoten-unread-articles-with-count", folder.unreadCount)
             }
         }
     }
