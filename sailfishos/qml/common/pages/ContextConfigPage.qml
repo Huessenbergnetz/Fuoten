@@ -77,6 +77,7 @@ Page {
                 Layout.fillWidth: true
                 Layout.preferredHeight: sortingChoser.height
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                Layout.columnSpan: contextConfigGrid.columns
                 visible: cc.contextType < FuotenApp.AllItems
 
                 ComboBox {
@@ -193,6 +194,24 @@ Page {
                     description: qsTrId("fuoten-respect-pinned-desc")
                     checked: cc.respectPinned
                     onClicked: cc.respectPinned = !cc.respectPinned
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: excerptSwitch.implicitHeight
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                visible: cc.contextType > FuotenApp.Feeds
+
+                TextSwitch {
+                    id: excerptSwitch
+                    automaticCheck: false
+                    //% "Show excerpt"
+                    text: qsTrId("fuoten-show-excerpt-label")
+                    //% "Shows some lines of the article content in the article list."
+                    description: qsTrId("fuoten-show-excerpt-desc")
+                    checked: cc.showExcerpt
+                    onClicked: cc.showExcerpt = !cc.showExcerpt
                 }
             }
         }

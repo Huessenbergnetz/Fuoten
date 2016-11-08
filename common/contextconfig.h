@@ -75,6 +75,15 @@ class ContextConfig : public QSettings
      * <TABLE><TR><TD>void</TD><TD>respectPinnedChanged(bool respectPinned)</TD></TR></TABLE>
      */
     Q_PROPERTY(bool respectPinned READ respectPinned WRITE setRespectPinned NOTIFY respectPinnedChanged)
+    /*!
+     * \brief If true, article lists will show an excerpt of the body text.
+     *
+     * \par Access functions:
+     * <TABLE><TR><TD>bool</TD><TD>showExcerpt() const</TD></TR><TR><TD>void</TD><TD>setShowExcerpt(bool nShowExcerpt)</TD></TR></TABLE>
+     * \par Notifier signal:
+     * <TABLE><TR><TD>void</TD><TD>showExcerptChanged(bool showExcerpt)</TD></TR></TABLE>
+     */
+    Q_PROPERTY(bool showExcerpt READ showExcerpt WRITE setShowExcerpt NOTIFY showExcerptChanged)
 #if QT_VERSION < QT_VERSION_CHECK(5, 5, 0)
     Q_ENUMS(FuotenAppEnums::Context)
     Q_ENUMS(Fuoten::FuotenEnums::SortingRole)
@@ -90,6 +99,7 @@ public:
     Qt::SortOrder sortOrder() const;
     bool showFolderSections() const;
     bool respectPinned() const;
+    bool showExcerpt() const;
 
 
     void setContextType(FuotenAppEnums::Context nContextType);
@@ -99,6 +109,7 @@ public:
     void setSortOrder(Qt::SortOrder nSortOrder);
     void setShowFolderSections(bool nShowFolderSections);
     void setRespectPinned(bool nRespectPinned);
+    void setShowExcerpt(bool nShowExcerpt);
 
 
 signals:
@@ -109,6 +120,7 @@ signals:
     void sortOrderChanged(Qt::SortOrder sortOrder);
     void showFolderSectionsChanged(bool showFolderSections);
     void respectPinnedChanged(bool respectPinned);
+    void showExcerptChanged(bool showExcerpt);
 
 private:
     Q_DISABLE_COPY(ContextConfig)
@@ -119,6 +131,7 @@ private:
     Qt::SortOrder m_sortOrder;
     bool m_showFolderSections;
     bool m_respectPinned;
+    bool m_showExcerpt;
 
     QString path(const QString &key) const;
 

@@ -16,6 +16,7 @@ ContextConfig::ContextConfig(QObject *parent) :
     m_sortOrder = (Qt::SortOrder)value(path(QStringLiteral("sortOrder")), Qt::AscendingOrder).toInt();
     m_showFolderSections = value(path(QStringLiteral("showFolderSections")), false).toBool();
     m_respectPinned = value(path(QStringLiteral("respectPinned")), true).toBool();
+    m_showExcerpt = value(path(QStringLiteral("showExcerpt")), false).toBool();
 }
 
 
@@ -34,6 +35,7 @@ void ContextConfig::load()
     setSortOrder((Qt::SortOrder)value(path(QStringLiteral("sortOrder")), m_contextType < FuotenAppEnums::AllItems ? Qt::AscendingOrder : Qt::DescendingOrder).toInt());
     setShowFolderSections(value(path(QStringLiteral("showFolderSections")), true).toBool());
     setRespectPinned(value(path(QStringLiteral("respectPinned")), true).toBool());
+    setShowExcerpt(value(path(QStringLiteral("showExcerpt")), false).toBool());
 }
 
 
@@ -149,6 +151,23 @@ void ContextConfig::setRespectPinned(bool nRespectPinned)
         emit respectPinnedChanged(respectPinned());
     }
 }
+
+
+bool ContextConfig::showExcerpt() const { return m_showExcerpt; }
+
+void ContextConfig::setShowExcerpt(bool nShowExcerpt)
+{
+    if (nShowExcerpt != m_showExcerpt) {
+        m_showExcerpt = nShowExcerpt;
+#ifdef QT_DEBUG
+        qDebug() << "Changed showExcerpt to" << m_showExcerpt;
+#endif
+        setValue(path(QStringLiteral("showExcerpt")), m_showExcerpt);
+        Q_EMIT showExcerptChanged(showExcerpt());
+    }
+}
+
+
 
 
 

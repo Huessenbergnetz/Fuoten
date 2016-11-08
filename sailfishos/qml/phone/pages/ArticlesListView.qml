@@ -153,6 +153,7 @@ SilicaListView {
         sortOrder: articlesContextConfig.sortOrder
         hideRead: articlesContextConfig.hideRead
         search: articlesListView.searchString
+        bodyLimit: articlesContextConfig.showExcerpt ? 250 : -1
         Component.onCompleted: {
             if (feed) {
                 parentId = feed.id
@@ -165,12 +166,23 @@ SilicaListView {
             }
             load()
         }
+        onBodyLimitChanged: bodyLimitChangedTimer.start()
+    }
+
+    Timer {
+        id: bodyLimitChangedTimer
+        interval: 200
+        onTriggered: {
+            if (!articlesModel.inOperation) {
+                articlesModel.reload()
+            }
+        }
     }
 
     delegate: ListItem {
         id: articleListItem
 
-        contentHeight: Math.max(textCol.height, iconCol.height) + Theme.paddingSmall
+        contentHeight: !display.error ? Math.max(textCol.height, iconCol.height) + Theme.paddingSmall : errorItem.height + Theme.paddingSmall
         contentWidth: parent.width
 
         ListView.onAdd: AddAnimation { target: articleListItem }
@@ -206,6 +218,7 @@ SilicaListView {
         }
 
         ErrorItem {
+            id: errorItem
             error: display.error
             anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
             highlighted: articleListItem.highlighted
@@ -220,6 +233,7 @@ SilicaListView {
             ColumnLayout {
                 id: textCol
                 Layout.fillWidth: true
+                spacing: 0
 
                 Text {
                     id: titleText
@@ -231,6 +245,19 @@ SilicaListView {
                     elide: Text.ElideRight
                     textFormat: Text.StyledText
                     font.pixelSize: Theme.fontSizeSmall
+                }
+
+                Text {
+                    id: excerptText
+                    visible: articlesContextConfig.showExcerpt
+                    text: display.body
+                    Layout.fillWidth: true
+                    color: articleListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                    maximumLineCount: 5
+                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                    elide: Text.ElideRight
+                    textFormat: Text.PlainText
+                    font.pixelSize: Theme.fontSizeExtraSmall
                 }
 
                 Text {
