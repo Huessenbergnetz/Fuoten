@@ -8,6 +8,12 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Mon Nov  7 2016 Matthias Fehring <kontakt@buschmann23.de> 0.3.0-1
+- info: third preview release
+- new: article list view
+- new: mark articles as read/unread
+- new: star/unstar articles
+
 * Wed Nov  2 2016 Matthias Fehring <kontakt@buschmann23.de> 0.2.0-1
 - info: second preview release
 - new: Feed object (#24)
