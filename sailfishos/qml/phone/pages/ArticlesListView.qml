@@ -197,7 +197,8 @@ SilicaListView {
                 if (display.unread) {
                     display.mark(false, config, localstorage)
                 }
-                Qt.openUrlExternally(display.url)
+                pageStack.push(Qt.resolvedUrl("ArticlePage.qml"), {article: display})
+//                Qt.openUrlExternally(display.url)
             }
         }
 
@@ -249,7 +250,7 @@ SilicaListView {
 
                 Text {
                     id: excerptText
-                    visible: articlesContextConfig.showExcerpt
+                    visible: articlesContextConfig.showExcerpt && display.body.length > 0
                     text: display.body
                     Layout.fillWidth: true
                     color: articleListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
@@ -260,21 +261,46 @@ SilicaListView {
                     font.pixelSize: Theme.fontSizeExtraSmall
                 }
 
-                Text {
-                    id: feedText
-                    text: display.feedTitle
-                    textFormat: Text.PlainText
-                    color: articleListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                    font.pixelSize: Theme.fontSizeTiny
-                    visible: articlesListView.contextType !== FuotenApp.FeedItems
-                }
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Theme.paddingSmall
 
-                Text {
-                    id: dateText
-                    text: display.humanPubDate
-                    textFormat: Text.PlainText
-                    color: articleListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                    font.pixelSize: Theme.fontSizeTiny
+                    Text {
+                        text: display.humanPubDate
+                        textFormat: Text.PlainText
+                        color: Theme.secondaryHighlightColor
+                        font.pixelSize: Theme.fontSizeTiny
+                    }
+
+                    Text {
+                        text: "|"
+                        textFormat: Text.PlainText
+                        color: Theme.secondaryHighlightColor
+                        font.pixelSize: Theme.fontSizeTiny
+                    }
+
+                    Text {
+                        text: display.humanPubTime
+                        textFormat: Text.PlainText
+                        color: Theme.secondaryHighlightColor
+                        font.pixelSize: Theme.fontSizeTiny
+                    }
+
+                    Text {
+                        text: "|"
+                        textFormat: Text.PlainText
+                        color: Theme.secondaryHighlightColor
+                        font.pixelSize: Theme.fontSizeTiny
+                        visible: articlesListView.contextType !== FuotenApp.FeedItems
+                    }
+
+                    Text {
+                        text: display.feedTitle
+                        textFormat: Text.PlainText
+                        color: Theme.secondaryHighlightColor
+                        font.pixelSize: Theme.fontSizeTiny
+                        visible: articlesListView.contextType !== FuotenApp.FeedItems
+                    }
                 }
             }
 
@@ -285,11 +311,11 @@ SilicaListView {
 
                 Image {
                     id: starImage
-                    opacity: display.starred ? 1 : 0
+                    opacity: display.starred ? 1.0 : 0.0
                     Layout.preferredWidth: Theme.iconSizeSmall
                     Layout.preferredHeight: Theme.iconSizeSmall
                     source: "image://theme/icon-s-favorite?" + (articleListItem.highlighted ? Theme.highlightColor : Theme.primaryColor)
-                    Behavior on opacity { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad } }
+                    Behavior on opacity { FadeAnimator {} }
                 }
             }
         }

@@ -37,7 +37,7 @@ ListModel {
     ListElement {
         name: "BT SFOS Components"
         author: "Buschtrommel/Matthias Fehring"
-        version: "1.0.0"
+        version: "1.0.3"
         license: "Modified BSD License"
         licenseFile: "BSD-3.qml"
         website: "https://github.com/Buschtrommel/BT_SFOS_Components"
@@ -50,6 +50,14 @@ ListModel {
         license: "Creative Commons Attribution 4.0 International Public License"
         licenseFile: "CC-BY-4_0.qml"
         website: "https://www.transifex.com/buschtrommel/fuoten"
+    }
+
+    ListElement {
+        name: "Rescaling Richtext QML"
+        author: "Martin Grimme"
+        license: "GNU Lesser General Public License, Version 2"
+        licenseFile: "GPLv2.qml"
+        website: "https://github.com/pycage/tidings"
     }
 
     Component.onCompleted: {

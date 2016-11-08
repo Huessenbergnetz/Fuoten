@@ -66,5 +66,8 @@ DISTFILES += \
     qml/phone/pages/FeedListDelegate.qml \
     qml/common/parts/CachedImage.qml \
     qml/phone/pages/ArticlesListView.qml \
-    qml/phone/pages/ArticlesListPage.qml
+    qml/phone/pages/ArticlesListPage.qml \
+    qml/common/parts/RescalingRichText.qml \
+    qml/phone/pages/ArticlePage.qml \
+    qml/phone/pages/WebViewPage.qml
 
