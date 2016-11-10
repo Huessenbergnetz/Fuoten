@@ -66,6 +66,7 @@ Page {
                 //% "Copy URL"
                 text: qsTrId("fuoten-copy-url")
                 enabled: article
+                onClicked: Clipboard.text = article.url.toString()
             }
             MenuItem {
                 //% "Open in browser"
