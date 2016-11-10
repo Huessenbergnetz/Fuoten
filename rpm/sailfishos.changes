@@ -8,6 +8,15 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Thu Nov 10 2016 Matthias Fehring <kontakt@buschmann23.de> 0.4.0-1
+- info: fourth preview release
+- new: show last sync time in pull down menu (#24)
+- new: copy article url to clipboard menu entry (#23)
+- new: article content display (#15)
+- new: context setting for article opening (#19)
+- new: mark all articles as read (#18)
+- new: optional article excerpt in article list (#20)
+
 * Mon Nov  7 2016 Matthias Fehring <kontakt@buschmann23.de> 0.3.0-1
 - info: third preview release
 - new: article list view
