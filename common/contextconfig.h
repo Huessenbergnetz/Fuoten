@@ -84,6 +84,15 @@ class ContextConfig : public QSettings
      * <TABLE><TR><TD>void</TD><TD>showExcerptChanged(bool showExcerpt)</TD></TR></TABLE>
      */
     Q_PROPERTY(bool showExcerpt READ showExcerpt WRITE setShowExcerpt NOTIFY showExcerptChanged)
+    /*!
+     * \brief The way articles should be opened.
+     *
+     * \par Access functions:
+     * <TABLE><TR><TD>FuotenAppEnums::OpenIn</TD><TD>openArticles() const</TD></TR><TR><TD>void</TD><TD>setOpenArticles(FuotenAppEnums::OpenIn nOpenArticles)</TD></TR></TABLE>
+     * \par Notifier signal:
+     * <TABLE><TR><TD>void</TD><TD>openArticlesChanged(FuotenAppEnums::OpenIn openArticles)</TD></TR></TABLE>
+     */
+    Q_PROPERTY(FuotenAppEnums::OpenIn openArticles READ openArticles WRITE setOpenArticles NOTIFY openArticlesChanged)
 #if QT_VERSION < QT_VERSION_CHECK(5, 5, 0)
     Q_ENUMS(FuotenAppEnums::Context)
     Q_ENUMS(Fuoten::FuotenEnums::SortingRole)
@@ -100,6 +109,11 @@ public:
     bool showFolderSections() const;
     bool respectPinned() const;
     bool showExcerpt() const;
+    /*!
+     * \brief Getter function for the \link ContextConfig::openArticles openArticles \endlink property.
+     * \sa ContextConfig::setOpenArticles(), ContextConfig::openArticlesChanged()
+     */
+    FuotenAppEnums::OpenIn openArticles() const;
 
 
     void setContextType(FuotenAppEnums::Context nContextType);
@@ -110,6 +124,12 @@ public:
     void setShowFolderSections(bool nShowFolderSections);
     void setRespectPinned(bool nRespectPinned);
     void setShowExcerpt(bool nShowExcerpt);
+    /*!
+     * \brief Setter function for the \link ContextConfig::openArticles openArticles \endlink property.
+     * Emits the openArticlesChanged() signal if \a nOpenArticles is not equal to the stored value.
+     * \sa ContextConfig::openArticles(), ContextConfig::openArticlesChanged()
+     */
+    void setOpenArticles(FuotenAppEnums::OpenIn nOpenArticles);
 
 
 signals:
@@ -121,6 +141,11 @@ signals:
     void showFolderSectionsChanged(bool showFolderSections);
     void respectPinnedChanged(bool respectPinned);
     void showExcerptChanged(bool showExcerpt);
+    /*!
+     * \brief This is emitted if the value of the \link ContextConfig::openArticles openArticles \endlink property changes.
+     * \sa ContextConfig::openArticles(), ContextConfig::setOpenArticles()
+     */
+    void openArticlesChanged(FuotenAppEnums::OpenIn openArticles);
 
 private:
     Q_DISABLE_COPY(ContextConfig)
@@ -132,6 +157,7 @@ private:
     bool m_showFolderSections;
     bool m_respectPinned;
     bool m_showExcerpt;
+    FuotenAppEnums::OpenIn m_openArticles;
 
     QString path(const QString &key) const;
 

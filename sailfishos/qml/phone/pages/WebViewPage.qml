@@ -19,16 +19,17 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
+import harbour.fuoten.items 1.0
 
 Page {
     id: articleWebView
 
-    property string url: ""
+    property Article article: null
 
     Loader {
         id: webViewLoader
         anchors.fill: parent
-        sourceComponent: articleWebView.status === PageStatus.Active ? webViewComponent : undefined
+        sourceComponent: ((articleWebView.status === PageStatus.Active) && article) ? webViewComponent : undefined
     }
 
     Component {
@@ -38,7 +39,7 @@ Page {
             id: webView
             anchors.fill: parent
 
-            url: articleWebView.url
+            url: article.url
 
             Component.onCompleted: {
                 experimental.userAgent = "Mozilla/5.0 (Maemo; Linux; Jolla; Sailfish; Mobile) AppleWebKit/534.13 (KHTML, like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13";
@@ -50,9 +51,34 @@ Page {
 
             PullDownMenu {
                 MenuItem {
+                    text: article && article.starred
+                            //% "Remove from favorites"
+                          ? qsTrId("fuoten-remove-from-favorites")
+                            //% "Add to favorites"
+                          : qsTrId("fuoten-add-to-favorites")
+                    onClicked: article.star(!article.starred, config, localstorage, true)
+                    enabled: !article.inOperation
+                }
+                MenuItem {
+                    text: article && article.unread
+                            //% "Mark as read"
+                          ? qsTrId("fuoten-mark-item-as-read")
+                            //% "Mark as unread"
+                          : qsTrId("fuoten-mark-item-as-unread")
+                    onClicked: article.mark(!article.unread, config, localstorage, true)
+                    enabled: !article.inOperation
+                }
+
+                MenuItem {
+                    //% "Copy URL"
+                    text: qsTrId("fuoten-copy-url")
+                    enabled: article
+                }
+
+                MenuItem {
                     //% "Open in browser"
                     text: qsTrId("fuoten-open-in-browser")
-                    onClicked: Qt.openUrlExternally(articleWebView.url)
+                    onClicked: Qt.openUrlExternally(article.url)
                 }
 
                 MenuItem {

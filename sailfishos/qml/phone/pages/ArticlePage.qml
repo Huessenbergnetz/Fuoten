@@ -31,7 +31,7 @@ Page {
 
     onStatusChanged: {
         if ((status === PageStatus.Active) && !articlePage.canNavigateForward) {
-            pageStack.pushAttached(Qt.resolvedUrl("WebViewPage.qml"), {url: article.url})
+            pageStack.pushAttached(Qt.resolvedUrl("WebViewPage.qml"), {article: article})
         }
     }
 

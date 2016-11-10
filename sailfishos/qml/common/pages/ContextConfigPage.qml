@@ -123,6 +123,42 @@ Page {
 
             Item {
                 Layout.fillWidth: true
+                Layout.preferredHeight: openInChoser.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                Layout.columnSpan: contextConfigGrid.columns
+                visible: cc.contextType > FuotenApp.Feeds
+
+                ComboBox {
+                    id: openInChoser
+                    //% "Open articles"
+                    label: qsTrId("fuoten-open-in-label")
+                    //% "Choose the way you want to open articles."
+                    description: qsTrId("fuoten-open-in-desc")
+                    menu: ContextMenu {
+                        MenuItem {
+                            //% "Internal"
+                            text: qsTrId("fuoten-open-article-internal")
+                            readonly property int value: FuotenApp.OpenInternal
+                        }
+                        MenuItem {
+                            //% "Internal web view"
+                            text: qsTrId("fuoten-open-article-webview")
+                            readonly property int value: FuotenApp.OpenWebView
+                        }
+                        MenuItem {
+                            //% "External browser"
+                            text: qsTrId("fuoten-open-article-external")
+                            readonly property int value: FuotenApp.OpenExternal
+                        }
+                    }
+
+                    onCurrentIndexChanged: if (currentItem) { cc.openArticles = currentItem.value }
+                    currentIndex: cc.openArticles
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
                 Layout.preferredHeight: sortOrderSwitch.implicitHeight
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
 

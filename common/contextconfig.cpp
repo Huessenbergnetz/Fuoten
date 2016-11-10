@@ -17,6 +17,7 @@ ContextConfig::ContextConfig(QObject *parent) :
     m_showFolderSections = value(path(QStringLiteral("showFolderSections")), false).toBool();
     m_respectPinned = value(path(QStringLiteral("respectPinned")), true).toBool();
     m_showExcerpt = value(path(QStringLiteral("showExcerpt")), false).toBool();
+    m_openArticles = (FuotenAppEnums::OpenIn)value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenInternal).toInt();
 }
 
 
@@ -36,6 +37,7 @@ void ContextConfig::load()
     setShowFolderSections(value(path(QStringLiteral("showFolderSections")), true).toBool());
     setRespectPinned(value(path(QStringLiteral("respectPinned")), true).toBool());
     setShowExcerpt(value(path(QStringLiteral("showExcerpt")), false).toBool());
+    setOpenArticles((FuotenAppEnums::OpenIn)value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenInternal).toInt());
 }
 
 
@@ -164,6 +166,21 @@ void ContextConfig::setShowExcerpt(bool nShowExcerpt)
 #endif
         setValue(path(QStringLiteral("showExcerpt")), m_showExcerpt);
         Q_EMIT showExcerptChanged(showExcerpt());
+    }
+}
+
+
+FuotenAppEnums::OpenIn ContextConfig::openArticles() const { return m_openArticles; }
+
+void ContextConfig::setOpenArticles(FuotenAppEnums::OpenIn nOpenArticles)
+{
+    if (nOpenArticles != m_openArticles) {
+        m_openArticles = nOpenArticles;
+#ifdef QT_DEBUG
+        qDebug() << "Changed openArticles to" << m_openArticles;
+#endif
+        setValue(path(QStringLiteral("openArticles")), m_openArticles);
+        Q_EMIT openArticlesChanged(openArticles());
     }
 }
 

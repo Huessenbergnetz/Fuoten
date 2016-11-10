@@ -194,10 +194,20 @@ SilicaListView {
             if (display.error) {
                 display.clearError()
             } else {
+                switch(articlesContextConfig.openArticles) {
+                case FuotenApp.OpenInternal:
+                    pageStack.push(Qt.resolvedUrl("ArticlePage.qml"), {article: display})
+                    break
+                case FuotenApp.OpenWebView:
+                    pageStack.push(Qt.resolvedUrl("WebViewPage.qml"), {article: display})
+                    break;
+                default:
+                    Qt.openUrlExternally(display.url)
+                }
+
                 if (display.unread) {
                     display.mark(false, config, localstorage, true)
                 }
-                pageStack.push(Qt.resolvedUrl("ArticlePage.qml"), {article: display})
             }
         }
 
