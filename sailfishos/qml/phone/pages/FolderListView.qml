@@ -61,7 +61,7 @@ SilicaListView {
         busy: synchronizer.inOperation
         property string lastSyncString: config.getHumanLastSync()
 
-        onActiveChanged: lastSyncString = config.getHumanLastSync()
+        onActiveChanged: if(active) { lastSyncString = config.getHumanLastSync() }
 
         MenuItem {
             //% "About"
