@@ -34,6 +34,13 @@ ListModel {
     }
 
     ListElement {
+        name: "Åke Engelbrektson"
+        role: ""
+        section: ""
+        website: "https://svenskasprakfiler.se"
+    }
+
+    ListElement {
         name: "Peter Jespersen (Flywheeldk)"
         role: ""
         section: ""
@@ -50,10 +57,15 @@ ListModel {
         //% "Author"
         contModel.get(0).section = qsTrId("fuoten-author-section")
 
-        //% "Danish translation"
-        contModel.get(1).role = qsTrId("fuoten-flywheeldk-role")
+        //% "Swedish translation"
+        contModel.get(1).role = qsTrId("fuoten-eson-role")
         //% "Thanks to"
         contModel.get(1).section = qsTrId("fuotn-thanks-to-section")
+
+        //% "Danish translation"
+        contModel.get(2).role = qsTrId("fuoten-flywheeldk-role")
+        //% "Thanks to"
+        contModel.get(2).section = qsTrId("fuotn-thanks-to-section")
     }
 }
 
