@@ -97,7 +97,7 @@ SilicaListView {
             //% "Mark feed read"
             text: qsTrId("fuoten-mark-feed-read")
             enabled: feed && !feed.inOperation && feed.unreadCount > 0
-            onClicked: feed.markAsRead(config, localstorage)
+            onClicked: feed.markAsRead(config, localstorage, true)
         }
 
         MenuItem {
@@ -195,10 +195,9 @@ SilicaListView {
                 display.clearError()
             } else {
                 if (display.unread) {
-                    display.mark(false, config, localstorage)
+                    display.mark(false, config, localstorage, true)
                 }
                 pageStack.push(Qt.resolvedUrl("ArticlePage.qml"), {article: display})
-//                Qt.openUrlExternally(display.url)
             }
         }
 
@@ -329,7 +328,7 @@ SilicaListView {
                           ? qsTrId("fuoten-mark-item-as-read")
                             //% "Mark as unread"
                           : qsTrId("fuoten-mark-item-as-unread")
-                    onClicked: display.mark(!display.unread, config, localstorage)
+                    onClicked: display.mark(!display.unread, config, localstorage, true)
                 }
                 MenuItem {
                     text: display.starred
@@ -337,7 +336,7 @@ SilicaListView {
                           ? qsTrId("fuoten-remove-from-favorites")
                             //% "Add to favorites"
                           : qsTrId("fuoten-add-to-favorites")
-                    onClicked: display.star(!display.starred, config, localstorage)
+                    onClicked: display.star(!display.starred, config, localstorage, true)
                 }
             }
         }

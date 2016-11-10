@@ -50,7 +50,7 @@ Page {
                       ? qsTrId("fuoten-remove-from-favorites")
                         //% "Add to favorites"
                       : qsTrId("fuoten-add-to-favorites")
-                onClicked: article.star(!article.starred, config, localstorage)
+                onClicked: article.star(!article.starred, config, localstorage, true)
                 enabled: !article.inOperation
             }
             MenuItem {
@@ -59,7 +59,7 @@ Page {
                       ? qsTrId("fuoten-mark-item-as-read")
                         //% "Mark as unread"
                       : qsTrId("fuoten-mark-item-as-unread")
-                onClicked: article.mark(!article.unread, config, localstorage)
+                onClicked: article.mark(!article.unread, config, localstorage, true)
                 enabled: !article.inOperation
             }
             MenuItem {

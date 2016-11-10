@@ -185,7 +185,7 @@ SilicaListView {
 
         function markFolderRead() {
             //% "Marking %1 read"
-            folderListItemRemorse.execute(folderListItem, qsTrId("fuoten-marking-read").arg(model.display.name), function() {model.display.markAsRead(config, localstorage)})
+            folderListItemRemorse.execute(folderListItem, qsTrId("fuoten-marking-read").arg(model.display.name), function() {model.display.markAsRead(config, localstorage, true)})
         }
 
         Component {

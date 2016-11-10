@@ -107,7 +107,7 @@ ListItem {
                     //% "Mark feed read"
                     text: qsTrId("fuoten-mark-feed-read")
                     enabled: !model.display.inOpeartion
-                    onClicked: model.display.markAsRead(config, localstorage)
+                    onClicked: model.display.markAsRead(config, localstorage, true)
                 }
                 MenuItem {
                     //% "Move feed"

@@ -80,7 +80,7 @@ SilicaListView {
             text: qsTrId("fuoten-mark-folder-read")
             enabled: folder && !folder.inOperation && folder.unreadCount > 0
             onClicked: //% "Marking %1 read"
-                       remorsePop.execute(qsTrId("fuoten-marking-read").arg(folder.name), function() {folder.markAsRead(config, localstorage)})
+                       remorsePop.execute(qsTrId("fuoten-marking-read").arg(folder.name), function() {folder.markAsRead(config, localstorage, true)})
         }
 
         MenuItem {
