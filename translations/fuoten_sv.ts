@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" sourcelanguage="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sv" sourcelanguage="en" version="2.1">
 <context>
     <name/>
     <message id="id-user-account">
@@ -6,73 +6,73 @@
         <location filename="../sailfishos/qml/common/pages/Settings.qml" line="+57"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+92"/>
         <source>User account</source>
-        <translation>Benutzerkonto</translation>
+        <translation>Användarkonto</translation>
     </message>
     <message id="id-account-setup-info">
         <location line="+28"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+35"/>
         <source>Set up your user account by entering your user name, your password and the host address of the server your ownCloud/Nextcloud is running on. If your ownCloud/Nextcloud is installed in a subdirectory on your server, you have to enter the installation path as well. If your server uses an other port than the default port for HTTP(S), enter it in server port. If you use the standard ports or if you do not know what this is all about, keep the 0 at the server port.</source>
-        <translation>Richten Sie Ihr Benutzerkonto ein, indem Sie Ihren Benutzernamen, Ihr Passwort und die Adresse des Servers angeben, auf dem Ihre ownCloud/Nextcloud läuft. FalIs Ihre ownCloud/Nextcloud in einem Unterverzeichnis installiert ist, müssen Sie auch den Installationspfad angeben. Falls Ihr Server einen anderen als den Standard-Port für HTTP(S) nutzt, geben Sie diesen bei Server-Port ein. Wenn Sie die Standard-Ports verwenden oder wenn Sie keine Ahnung haben, was Ports sind, lassen Sie einfach die 0 dort stehen.</translation>
+        <translation>Skapa ditt användarkonto genom att ange användarnamn och lösenord, samt värdadressen till den server som din ownCloud/Nextcloud körs på. Om din ownCloud/Nextcloud är installerad i en undermapp på din server, måste du också ange installationssökvägen. Om servern använder någon annan port än standardporten för HTTP(S), anger du den i &quot;Serverport&quot;. Om du använder standardportar eller inte vet vad det här betyder, kan du bara låta nollan stå kvar.</translation>
     </message>
     <message id="id-user-name">
         <location line="+9"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+9"/>
         <source>User name</source>
-        <translation>Benutzername</translation>
+        <translation>Användarnamn</translation>
     </message>
     <message id="id-password">
         <location line="+12"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+11"/>
         <source>Password</source>
-        <translation>Passwort</translation>
+        <translation>Lösenord</translation>
     </message>
     <message id="id-host">
         <location line="+12"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+11"/>
         <source>Host</source>
-        <translation>Server-Adresse</translation>
+        <translation>Värd</translation>
     </message>
     <message id="id-host-placeholder">
         <location line="+2"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+2"/>
         <source>Host: e.g. cloud.example.com</source>
-        <translation>Host: bspw. wolke.beispiel.de</translation>
+        <translation>Värd: t.ex. moln.exempel.com</translation>
     </message>
     <message id="id-server-port">
         <location line="+23"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+21"/>
         <source>Server port</source>
-        <translation>Server-Port</translation>
+        <translation>Serverport</translation>
     </message>
     <message id="id-server-path">
         <location line="-11"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="-10"/>
         <source>Installation path</source>
-        <translation>Installationspfad</translation>
+        <translation>Installationssökväg</translation>
     </message>
     <message id="id-use-ssl-text">
         <location line="+34"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+33"/>
         <source>Use HTTPS (SSL/TLS) connection</source>
-        <translation>HTTPS-Verbindung nutzen (SSL/TLS)</translation>
+        <translation>Använd HTTPS-anslutning (SSL/TLS)</translation>
     </message>
     <message id="id-use-ssl-desc">
         <location line="+2"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+2"/>
         <source>Because the News App requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption.</source>
-        <translation>Da Ihr Benutzername und Ihr Passwort bei jeder Anfrage an den Server gesendet werden, sollten Sie die Verbindung verschlüsseln, falls Ihr Server Verschlüsselung unterstützt oder sogar verlangt.</translation>
+        <translation>Eftersom nyhets-appen måste skicka ditt användarnamn och lösenord med varje begäran, skall detta vara aktiverat för att använda en krypterad anslutning, när din server stöder eller t.o.m. kräver kryptering.</translation>
     </message>
     <message id="id-ignore-ssl-errs-text">
         <location line="+13"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+13"/>
         <source>Ignore SSL errors</source>
-        <translation>SSL-Fehler ignorieren</translation>
+        <translation>Ignorera SSL-fel</translation>
     </message>
     <message id="id-ignore-ssl-errs-desc">
         <location line="+2"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+2"/>
         <source>Only ignore SSL errors when you really know what you are doing. Ignoring SSL errors is a big security risk.</source>
-        <translation>Ignorieren Sie SSL-Fehler nur, wenn Sie wirklich wissen, was Sie tun. Das Ignorieren von SSL-Fehlern ist ein großes Sicherheitsrisiko.</translation>
+        <translation>Ignorera SSL-fel endast om du verkligen vet vad du gör. Att strunta i SSL-fel är en stor säkerhetsrisk.</translation>
     </message>
     <message id="id-settings">
         <location filename="../sailfishos/qml/common/pages/Settings.qml" line="-8"/>
@@ -80,13 +80,13 @@
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+75"/>
         <location filename="../sailfishos/qml/tablet/pages/MainPage.qml" line="+39"/>
         <source>Settings</source>
-        <translation>Einstellungen</translation>
+        <translation>Inställningar</translation>
     </message>
     <message id="id-settings-account-invalid">
         <location filename="../sailfishos/qml/common/parts/AccountItem.qml" line="+75"/>
         <source>Your account is not or improperly configured. Click here to configure your account.</source>
         <oldsource>You account is not or improperly configured. Click here to configure your account.</oldsource>
-        <translation>Ihr Benutzerkonto ist nicht oder nicht korrekt eingerichtet. Drücken Sie hier, um Ihr Konto einzurichten.</translation>
+        <translation>Ditt konto är felaktigt eller inte alls konfigurerat. Tryck här för att konfigurera ditt konto.</translation>
     </message>
     <message id="id-settings-version">
         <location line="+67"/>
@@ -97,68 +97,68 @@
     <message id="id-settings-ssl-enabled">
         <location line="+24"/>
         <source>HTTPS enabled</source>
-        <translation>HTTPS aktiviert</translation>
+        <translation>HTTPS aktiverat</translation>
     </message>
     <message id="id-settings-ignore-ssl-errors">
         <location line="+3"/>
         <source>Ignoring errors</source>
-        <translation>Fehler ignorieren</translation>
+        <translation>Ignorerar fel</translation>
     </message>
     <message id="id-settings-ssl-disabled">
         <location line="+2"/>
         <source>HTTPS disabled</source>
-        <translation>HTTPS deaktiviert</translation>
+        <translation>HTTPS inaktiverat</translation>
     </message>
     <message id="id-appearance">
         <location filename="../sailfishos/qml/common/pages/Settings.qml" line="+23"/>
         <source>Appearance</source>
-        <translation>Darstellung</translation>
+        <translation>Utseende</translation>
     </message>
     <message id="id-lang-choser-label">
         <location line="+14"/>
         <source>Language</source>
-        <translation>Sprache</translation>
+        <translation>Språk</translation>
     </message>
     <message id="id-lang-choser-desc">
         <location line="+2"/>
         <source>To change the language, you have to restart the application.</source>
-        <translation>Um die Sprache zu ändern, müssen Sie die Anwendung neu starten.</translation>
+        <translation>Du måste starta om appen för att ändra språk.</translation>
     </message>
     <message id="fuoten-add-feed">
         <location filename="../sailfishos/qml/common/dialogs/CreateFeedDialog.qml" line="+54"/>
         <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+45"/>
         <source>Add feed</source>
-        <translation>Feed hinzufügen</translation>
+        <translation>Lägg till flöde</translation>
     </message>
     <message id="fuoten-feed-address">
         <location line="+7"/>
         <source>Feed address</source>
-        <translation>Feed-Adresse</translation>
+        <translation>Flödesadress</translation>
     </message>
     <message id="fuoten-mainview-settings">
         <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+20"/>
         <source>Main view settings</source>
-        <translation>Einstellungen Startseite</translation>
+        <translation>Inställningar för huvudvyn</translation>
     </message>
     <message id="id-main-content-choser-label">
         <location filename="../sailfishos/qml/common/pages/Settings.qml" line="+21"/>
         <source>Main view content</source>
-        <translation>Inhalt der Hauptansicht</translation>
+        <translation>Huvudvyns innehåll</translation>
     </message>
     <message id="id-main-content-choser-desc">
         <location line="+2"/>
         <source>Choose the content to display on the first application page.</source>
-        <translation>Wählen Sie den Inhalt, der auf der ersten Seite gezeigt wird.</translation>
+        <translation>Välj innehåll att visa på appens förstasida.</translation>
     </message>
     <message id="id-feeds">
         <location line="+4"/>
         <source>Feeds</source>
-        <translation>Feeds</translation>
+        <translation>Flöden</translation>
     </message>
     <message id="id-folders">
         <location line="+5"/>
         <source>Folders</source>
-        <translation>Ordner</translation>
+        <translation>Mappar</translation>
     </message>
     <message id="id-about">
         <location filename="../sailfishos/qml/common/pages/About.qml" line="+29"/>
@@ -166,12 +166,12 @@
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="-7"/>
         <location filename="../sailfishos/qml/tablet/pages/MainPage.qml" line="-5"/>
         <source>About</source>
-        <translation>Über</translation>
+        <translation>Om</translation>
     </message>
     <message id="about-desc">
         <location line="+4"/>
         <source>Client for the ownCloud/Nextcloud News App.</source>
-        <translation>Client für die ownCloud/Nextcloud News App.</translation>
+        <translation>Klient för ownCloud/Nextcloud nyhets-app.</translation>
     </message>
     <message id="id-munich">
         <location line="+20"/>
@@ -181,7 +181,7 @@
     <message id="id-germany">
         <location line="+2"/>
         <source>Germany</source>
-        <translation>Deutschland</translation>
+        <translation>Tyskland</translation>
     </message>
     <message id="id-default-lang">
         <location filename="../common/languagemodel.cpp" line="+128"/>
@@ -191,89 +191,90 @@
     <message id="fuoten-libfuoten-desc">
         <location filename="../sailfishos/qml/common/models/LicensesModel.qml" line="+65"/>
         <source>Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API.</source>
-        <translation>Libfuoten ist eine auf Qt basierende Bibliothek zum Zugriff auf die ownCloud/Nextcloud New App API.</translation>
+        <translation>Libfuoten är ett Qt baserat bibliotek som tillhandahåller åtkomst till en API för ownCloud/Nextcloud nyhets-app.</translation>
     </message>
     <message id="btsfoscmops-desc">
         <location line="+2"/>
         <source>BT SFOS Components are a set of QML components for Sailfish OS.</source>
-        <translation>BT SFOS Components sind eine Sammlung von QML-Komponenten für Sailfish OS.</translation>
+        <translation>BT SFOS Components är en uppsättning QML-komponenter för Sailfish OS.</translation>
     </message>
     <message id="fuoten-author-role">
         <location filename="../sailfishos/qml/common/models/ContributorsModel.qml" line="+56"/>
         <source>Main developer, Fuoten creator</source>
         <oldsource>Main developer, Gibrievida creator</oldsource>
-        <translation>Hauptentwickler, Fuoten-Urheber</translation>
+        <translation>Huvudutvecklare, Fuoten-skapare</translation>
     </message>
     <message id="fuoten-author-section">
         <location line="+2"/>
         <source>Author</source>
-        <translation>Autor</translation>
+        <translation>Utvecklare</translation>
     </message>
     <message id="fuoten-eson-role">
         <location line="+3"/>
         <source>Swedish translation</source>
-        <translation>Schwedische Übersetzung</translation>
+        <translation>Svensk översättning</translation>
     </message>
     <message id="fuoten-flywheeldk-role">
         <location line="+5"/>
         <source>Danish translation</source>
-        <translation>Dänische Übersetzung</translation>
+        <translation>Dansk översättning</translation>
     </message>
     <message id="fuotn-thanks-to-section">
         <location line="-3"/>
         <location line="+5"/>
         <source>Thanks to</source>
-        <translation>Danke an</translation>
+        <translation>Tack till</translation>
     </message>
     <message id="fuoten-privacy-0">
         <location filename="../common/qml/common/models/PrivacyPolicyModel.qml" line="+84"/>
         <source>What information does Fuoten collect?</source>
-        <translation>Welche Informationen sammelt Fuoten?</translation>
+        <translation>Vilken information samlar Fuoten in?</translation>
     </message>
     <message id="fuoten-privacy-1">
         <location line="+2"/>
         <source>In order to log in to your ownCloud/Nextcloud server, Fuoten collects the server address, your user name and your password. These information is only saved on your device and is not given to the author of Fuoten or other third parties.</source>
-        <translation>Um sich an Ihrem ownCloud/Nextcloud-Server anzumelden, benötigt Fuoten die Server-Adresse, Ihren Benutzernamen und Ihr Passwort. Diese Informationen werden nur auf Ihrem gerät gespeichert und weder an den Autor von Fuoten oder andere Dritte weitergegeben.</translation>
+        <translation>För att kunna logga in på din ownCloud-/Nextcloud-server, samlar ocNews in serveradressen, ditt användarnamn och ditt lösenord. Denna information sparas endast på din enhet och förs inte vidare till Fuotens utvecklare eller tredje part.
+</translation>
     </message>
     <message id="fuoten-privacy-2">
         <location line="+2"/>
         <source>What does Fuoten use your information for?</source>
-        <translation>Wofür benötigt Fuoten Ihre Informationen?</translation>
+        <translation>Vad använder Fuoten informationen till?</translation>
     </message>
     <message id="fuoten-privacy-3">
         <location line="+2"/>
         <source>Fuoten needs your log in data to connect to your ownCloud/Nextcloud server. Your login data is used to grant Fuoten access to the News App API to perform the tasks of synchronizing your ownCloud/Nextcloud News App data with your device.</source>
-        <translation>Fuoten benötigt Ihre Anmeldedaten um sich mit Ihrem ownCloud/Nextcloud-Server zu verbinden. Ihre Anmeldedaten werden dazu genutzt, Fuoten den Zugriff auf die New App API zu erlauben, um die News-App-Daten mit Ihrem Gerät zu synchronisieren.</translation>
+        <translation>Fuoten behöver din inloggningsdata för att ansluta till din ownCloud-/Nextcloud-server. Din data används för att ge Fouten åtkomst till nyhets-appens API, så att ownClouds/Nextclouds nyhetsdata kan synkroniseras med din bärbara enhet.</translation>
     </message>
     <message id="fuoten-privacy-4">
         <location line="+2"/>
         <source>Does ocNews disclose any information to outside parties?</source>
-        <translation>Teilt Fuoten irgendeine Information mit Dritten?</translation>
+        <translation>Avslöjar Fuoten någon information för utomstående parter?</translation>
     </message>
     <message id="fuoten-privacy-5">
         <location line="+2"/>
         <source>Fuoten only uses your data for the login process into the server that you configure in the settings. Fuoten does not send these data to the author of Fuoten or other third parties. For questions concerning the privacy on the server side, you have to contact your ownCloud/Nextcloud service provider.</source>
-        <translation>Fuoten nutzt Ihre Daten nur für die Anmeldung an dem von Ihnen in den Einstellungen eingestellten Server. Fuoten sendet diese Daten weder an den Autor von Fuoten noch an andere Dritte. Fragen zum Datenschutz auf der Server-Seite richten Sie bitte an den Betreiber Ihrer ownCloud/Nextcloud.</translation>
+        <translation>Fuoten använder din data, endast för inloggning till den server du har konfigurerat i inställningarna. Fuoten skickar inte denna data vidare till varken programutvecklare eller tredje part. För frågor angående sekretess på serversidan, måste du kontakta ownCloud-/Nextcloud-tjänstens leverantör.</translation>
     </message>
     <message id="fuoten-privacy-6">
         <location line="+2"/>
         <source>Third party links</source>
-        <translation>Links zu Dritten</translation>
+        <translation>Tredjepartslänkar</translation>
     </message>
     <message id="fuoten-privacy-7">
         <location line="+2"/>
         <source>Fuoten is a cloud based RSS/Atom feed reader. The links to websites directly included in the application have been checked for legality. Showing feed content and/or opening feed link addresses is in the user&apos;s responsibility. For questions concerning the privacy of the used feed content and/or website content you have to contact the feed provider.</source>
-        <translation>Fuoten ist ein Cloud-basierter RSS/Atom Feed Reader. Die direkt in die Anwendung integrierten Verknüpfungen zu Internetseiten wurden auf Rechtmäßigkeit geprüft. Das Hinzufügen von Feeds sowie das Aufrufen von Feed-Inhalten und/oder das Öffnen von darin enthaltenen Verknüpfungen liegt im Verantwortungsbereich des Nutzers. Fragen zum Datenschutz der abonnierten Feeds und der Feed-Inhalte richten Sie bitte an den Anbieter des jeweiligen Feeds.</translation>
+        <translation>Fouten är en molnbaserad RSS-/Atom-flödesläsare. De webbsidelänkar som inkluderats direkt i appen har kontrollerats för legalitet. Visat flödesinnehåll och/eller öppning av flödeslänkar, är användarens ansvar. För frågor rörande sekretess i det använda flödesinnehållet och/eller webbsidesinnehåll, måste du kontakta respektive flödesleverantör.</translation>
     </message>
     <message id="fuoten-privacy-8">
         <location line="+2"/>
         <source>Your consent</source>
-        <translation>Ihr Einverständnis</translation>
+        <translation>Ditt samtycke</translation>
     </message>
     <message id="fuoten-privacy-9">
         <location line="+2"/>
         <source>By using Fuoten, you consent to this privacy policy.</source>
-        <translation>Indem Sie Fuoten benutzen willigen Sie in diese Datenschutzerklärung ein.</translation>
+        <translation>Genom att använda Fouten, samtycker du till denna sekretesspolicy.</translation>
     </message>
     <message id="fuoten-privacy-10">
         <location line="+2"/>
@@ -284,52 +285,52 @@
         <location filename="../sailfishos/qml/common/pages/PrivacyPolicy.qml" line="+45"/>
         <location filename="../sailfishos/qml/common/wizard/Welcome.qml" line="+73"/>
         <source>Privacy policy</source>
-        <translation>Datenschutzerklärung</translation>
+        <translation>Sekretesspolicy</translation>
     </message>
     <message id="fuoten-check-account">
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="-166"/>
         <location line="+19"/>
         <source>Check account</source>
-        <translation>Zugang prüfen</translation>
+        <translation>Kontrollera kontot</translation>
     </message>
     <message id="fuoten-wizard-finish">
         <location line="+22"/>
         <source>Finish</source>
-        <translation>Abschließen</translation>
+        <translation>Slutför</translation>
     </message>
     <message id="fuoten-welcome">
         <location filename="../sailfishos/qml/common/wizard/Welcome.qml" line="-29"/>
         <source>Welcome to Fuoten</source>
-        <translation>Willkommen zu Fuoten</translation>
+        <translation>Välkommen till Fuoten</translation>
     </message>
     <message id="fuoten-welcome-privacy-consent">
         <location line="+15"/>
         <source>By using Fuoten, you consent to the following privacy policy.</source>
-        <translation>Indem Sie Fuoten benutzen, willigen Sie in die folgende Datenschutzerklärung ein.</translation>
+        <translation>Genom att använda Fouten, samtycker du till följande sekretesspolicy.</translation>
     </message>
     <message id="fuoten-mark-all-read">
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+106"/>
         <source>Mark all as read</source>
-        <translation>Alle als gelesen markieren</translation>
+        <translation>Märk allt som läst</translation>
     </message>
     <message id="fuoten-marking-all-read">
         <location line="+2"/>
         <source>Marking all read</source>
-        <translation>Alle als gelesen markieren</translation>
+        <translation>Märker allt som läst</translation>
     </message>
     <message id="fuoten-hide-search">
         <location line="+6"/>
         <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+24"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+15"/>
         <source>Hide search</source>
-        <translation>Suche verbergen</translation>
+        <translation>Dölj sökfältet</translation>
     </message>
     <message id="fuoten-show-search">
         <location line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+2"/>
         <source>Show search</source>
-        <translation>Suche anzeigen</translation>
+        <translation>Visa sökfältet</translation>
     </message>
     <message id="fuoten-synchronize">
         <location line="+6"/>
@@ -337,196 +338,196 @@
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+6"/>
         <location filename="../sailfishos/qml/tablet/pages/MainPage.qml" line="+10"/>
         <source>Synchronize</source>
-        <translation>Synchronisieren</translation>
+        <translation>Synkronisera</translation>
     </message>
     <message id="fuoten-mark-item-as-read">
         <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+59"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+216"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+65"/>
         <source>Mark as read</source>
-        <translation>Als gelesen markieren</translation>
+        <translation>Märk som läst</translation>
     </message>
     <message id="fuoten-mark-item-as-unread">
         <location line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+2"/>
         <source>Mark as unread</source>
-        <translation>Als ungelesen markieren</translation>
+        <translation>Märk som oläst</translation>
     </message>
     <message id="fuoten-copy-url">
         <location line="+6"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+7"/>
         <source>Copy URL</source>
-        <translation>Adresse kopieren</translation>
+        <translation>Kopiera URL</translation>
     </message>
     <message id="fuoten-open-in-browser">
         <location line="+6"/>
         <location line="+14"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+7"/>
         <source>Open in browser</source>
-        <translation>In Browser öffnen</translation>
+        <translation>Öppna i webbläsaren</translation>
     </message>
     <message id="fuoten-scroll-to-top">
         <location line="-5"/>
         <source>Scroll to top</source>
-        <translation>Zurück nach oben</translation>
+        <translation>Skrolla till toppen</translation>
     </message>
     <message id="fuoten-remove-from-favorites">
         <location line="-32"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+6"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="-25"/>
         <source>Remove from favorites</source>
-        <translation>Von Favoriten entfernen</translation>
+        <translation>Ta bort från Favoriter</translation>
     </message>
     <message id="fuoten-add-to-favorites">
         <location line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+2"/>
         <source>Add to favorites</source>
-        <translation>Zu Favoriten hinzufügen</translation>
+        <translation>Lägg till i Favoriter</translation>
     </message>
     <message id="fuoten-no-articles-found">
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+23"/>
         <source>No articles found</source>
-        <translation>Keine Artikel gefunden</translation>
+        <translation>Inga artiklar hittades</translation>
     </message>
     <message id="fuoten-no-content-found-hint">
         <location line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+76"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+163"/>
         <source>Synchronize your data or check your filter settings.</source>
-        <translation>Synchronisieren Sie Ihre Daten oder prüfen Sie die Filtereinstellungen.</translation>
+        <translation>Synkronisera din data eller kontrollera filterinställningarna.</translation>
     </message>
     <message id="fuoten-feeds-count" numerus="yes">
         <location filename="../sailfishos/qml/common/parts/ListPageHeader.qml" line="+56"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="-80"/>
         <source>%n feed(s)</source>
         <oldsource>%n Feed(s)</oldsource>
-        <translation><numerusform>%n Feed</numerusform><numerusform>%n Feeds</numerusform></translation>
+        <translation><numerusform>%n flöde</numerusform><numerusform>%n flöden</numerusform></translation>
     </message>
     <message id="fuoten-unread-articles-with-count" numerus="yes">
         <location line="-3"/>
         <location line="+6"/>
         <source>%n unread article(s)</source>
-        <translation><numerusform>%n ungelesener Artikel</numerusform><numerusform>%n ungelesene Artikel</numerusform></translation>
+        <translation><numerusform>%n oläst artikel</numerusform><numerusform>%n olästa artiklar</numerusform></translation>
     </message>
     <message id="fuoten-all-articles">
         <location line="+42"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-317"/>
         <location line="+86"/>
         <source>All articles</source>
-        <translation>Alle Artikel</translation>
+        <translation>Alla artiklar</translation>
     </message>
     <message id="fuoten-mark-feed-read">
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-44"/>
         <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="+108"/>
         <source>Mark feed read</source>
-        <translation>Als gelesen markieren</translation>
+        <translation>Märk flödet som läst</translation>
     </message>
     <message id="fuoten-deleting">
         <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="-14"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+22"/>
         <source>Deleting %1</source>
-        <translation>Lösche %1</translation>
+        <translation>Tar bort %1</translation>
     </message>
     <message id="fuoten-delete-feed">
         <location line="+26"/>
         <source>Delete feed</source>
-        <translation>Feed löschen</translation>
+        <translation>Ta bort flöde</translation>
     </message>
     <message id="fuoten-marking-read">
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-6"/>
         <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="-90"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+5"/>
         <source>Marking %1 read</source>
-        <translation>Markiere %1 als gelesen</translation>
+        <translation>Märker %1 som läst</translation>
     </message>
     <message id="fuoten-mark-folder-read">
         <location line="-3"/>
         <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="-3"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+14"/>
         <source>Mark folder read</source>
-        <translation>Ordner als gelesen markieren</translation>
+        <translation>Märk mappen som läst</translation>
     </message>
     <message id="fuoten-synchronizing">
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="-116"/>
         <source>Synchronizing</source>
-        <translation>Synchronisiere</translation>
+        <translation type="unfinished"/>
     </message>
     <message id="fuoten-last-sync-time">
         <location line="+3"/>
         <source>Last synchronization: %1 ago</source>
         <extracomment>%1 will contain something like &quot;11 minutes&quot;</extracomment>
-        <translation>Letzte Synchronisation: %1 her</translation>
+        <translation type="unfinished"/>
     </message>
     <message id="fuoten-delete-folder">
         <location line="+120"/>
         <source>Delete folder</source>
-        <translation>Ordner löschen</translation>
+        <translation>Ta bort mapp</translation>
     </message>
     <message id="fuoten-invalid-account">
         <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+81"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+20"/>
         <source>Invalid account configuration</source>
-        <translation>Ungültige Kontoeinstellungen</translation>
+        <translation>Ogiltig kontokonfiguration</translation>
     </message>
     <message id="fuoten-invalid-account-hint">
         <location line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+2"/>
         <source>Open the settings to configure your account</source>
-        <translation>Öffnen Sie die Einstellungen, um Ihr Benutzerkonto einzurichten.</translation>
+        <translation>Öppna inställningarna och konfigurera ditt konto</translation>
     </message>
     <message id="fuoten-no-feeds-found">
         <location line="+8"/>
         <source>No feeds found</source>
-        <translation>Keine Feeds gefunden</translation>
+        <translation>Inga flöden hittades</translation>
     </message>
     <message id="fuoten-no-folders-found">
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+8"/>
         <source>No folders found</source>
-        <translation>Keine Ordner gefunden</translation>
+        <translation>Inga mappar hittades</translation>
     </message>
     <message id="fuoten-starred-articles">
         <location filename="../sailfishos/qml/common/parts/ListPageHeader.qml" line="+33"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-31"/>
         <location line="+87"/>
         <source>Starred articles</source>
-        <translation>Markiert</translation>
+        <translation>Stjärnmärkta artiklar</translation>
     </message>
     <message id="fuoten-hide-read-label">
         <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+127"/>
         <source>Hide read</source>
-        <translation>Gelesene ausblenden</translation>
+        <translation>Dölj lästa</translation>
     </message>
     <message id="fuoten-hide-read-desc">
         <location line="+2"/>
         <source>Depending on the context, feeds or folders with zero unread articles or unread articles itself will be hidden.</source>
-        <translation>Abhängig vom Kontext werden Ordner und Feeds ohne ungelesene Artikel oder ungelesene Artikel selbst ausgeblendet.</translation>
+        <translation>Beroende på kontext, kommer flöden och mappar med noll olästa artiklar, eller enskilda lästa artiklar, att döljas.</translation>
     </message>
     <message id="fuoten-sort-by-label">
         <location line="-108"/>
         <source>Sort by</source>
-        <translation>Sortiere nach</translation>
+        <translation>Sortera efter</translation>
     </message>
     <message id="fuoten-folder-settings">
         <location line="-18"/>
         <source>Folder settings</source>
-        <translation>Ordnereinstellungen</translation>
+        <translation>Mappinställningar</translation>
     </message>
     <message id="fuoten-articles-list-settings">
         <location line="+2"/>
         <source>Articles list settings</source>
-        <translation>Einstellungen Artikelliste</translation>
+        <translation>Inställningar för artikellista</translation>
     </message>
     <message id="fuoten-sort-by-desc">
         <location line="+18"/>
         <source>Choose the role you want to sort the content by.</source>
-        <translation>Wählen Sie die Eigenschaft, nach der der Inhalt sortiert werden soll.</translation>
+        <translation>Välj hur du vill sortera innehållet.</translation>
     </message>
     <message id="fuoten-sort-database-id">
         <location line="+4"/>
         <source>Database ID</source>
-        <translation>Datenbank-ID</translation>
+        <translation>Databas-ID</translation>
     </message>
     <message id="fuoten-sort-title">
         <location line="+5"/>
@@ -536,164 +537,164 @@
     <message id="fuoten-sort-time">
         <location line="+5"/>
         <source>Time</source>
-        <translation>Zeit</translation>
+        <translation>Tid</translation>
     </message>
     <message id="fuoten-sort-unread-count">
         <location line="+6"/>
         <source>Unread count</source>
-        <translation>Anzahl Ungelesener</translation>
+        <translation>Antal olästa</translation>
     </message>
     <message id="fuoten-sort-feed-count">
         <location line="+5"/>
         <source>Feed count</source>
-        <translation>Feed-Anzahl</translation>
+        <translation>Antal flöden</translation>
     </message>
     <message id="fuoten-open-in-label">
         <location line="+21"/>
         <source>Open articles</source>
         <oldsource>Open articles in</oldsource>
-        <translation>Artikel öffnen</translation>
+        <translation>Öppna artiklar</translation>
     </message>
     <message id="fuoten-open-in-desc">
         <location line="+2"/>
         <source>Choose the way you want to open articles.</source>
-        <translation>Wählen Sie die Art, wie Artikel geöffnet werden sollen.</translation>
+        <translation>Välj på vilket sätt du vill öppna artiklar.</translation>
     </message>
     <message id="fuoten-open-article-internal">
         <location line="+4"/>
         <source>Internal</source>
-        <translation>Intern</translation>
+        <translation>Internt</translation>
     </message>
     <message id="fuoten-open-article-webview">
         <location line="+5"/>
         <source>Internal web view</source>
-        <translation>Interne Web-Ansicht</translation>
+        <translation>Intern webbvy</translation>
     </message>
     <message id="fuoten-open-article-external">
         <location line="+5"/>
         <source>External browser</source>
-        <translation>Externer Browser</translation>
+        <translation>Extern webbläsare</translation>
     </message>
     <message id="fuoten-sort-descending-label">
         <location line="+19"/>
         <source>Sort descending</source>
-        <translation>Absteigend sortieren</translation>
+        <translation>Sortera fallande</translation>
     </message>
     <message id="fuoten-sort-descending-desc">
         <location line="+2"/>
         <source>If enabled, depending on the context, the feeds, folders or articles will be sorted in descending order.</source>
-        <translation>Falls aktiviert, werden abhängig vom Kontext Feeds, Ordner oder Artikel absteigend sortiert.</translation>
+        <translation>Vid aktivering, beroende på kontext, kommer flöden, mappar eller artiklar att sorteras i fallande ordning.</translation>
     </message>
     <message id="fuoten-sortbyfolder-label">
         <location line="+39"/>
         <source>Sort by folder</source>
-        <translation>Nach Ordner sortieren</translation>
+        <translation>Sortera efter mapp</translation>
     </message>
     <message id="fuoten-sortbyfolder-desc">
         <location line="+2"/>
         <source>Sort the feeds in the list by their folder.</source>
-        <translation>Sortiert die Feeds nach den Namen ihrer Order.</translation>
+        <translation>Sortera flöden i listan efter mapp.</translation>
     </message>
     <message id="fuoten-respect-pinned-label">
         <location line="+16"/>
         <source>Respect pinned</source>
-        <translation>Angeheftet anwenden</translation>
+        <translation>Respektera &quot;Fäst&quot;</translation>
     </message>
     <message id="fuoten-respect-pinned-desc">
         <location line="+2"/>
         <source>Use the pinned status of feeds to show pinned feeds before not pinned feeds.</source>
-        <translation>Zeigt angeheftete Feeds vor den anderen Feeds an.</translation>
+        <translation>Använd flödens fäststatus för att visa klistrade flöden före icke klistrade.</translation>
     </message>
     <message id="fuoten-show-excerpt-label">
         <location line="+16"/>
         <source>Show excerpt</source>
-        <translation>Auszug anzeigen</translation>
+        <translation>Visa utdrag</translation>
     </message>
     <message id="fuoten-show-excerpt-desc">
         <location line="+2"/>
         <source>Shows some lines of the article content in the article list.</source>
-        <translation>Zeigt einige Zeilen aus dem Artikelinhalt in der Artikelliste an.</translation>
+        <translation>Visa några rader av artikelinnehållet, i artikellistan.</translation>
     </message>
     <message id="fuoten-create-folder">
         <location filename="../sailfishos/qml/common/dialogs/CreateFolderDialog.qml" line="+54"/>
         <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-208"/>
         <source>Create folder</source>
-        <translation>Ordner erstellen</translation>
+        <translation>Skapa mapp</translation>
     </message>
     <message id="fuoten-new-folder-name">
         <location line="+8"/>
         <location filename="../sailfishos/qml/common/dialogs/RenameFolderDialog.qml" line="+61"/>
         <source>New folder name</source>
-        <translation>Neuer Ordnername</translation>
+        <translation>Nytt mappnamn</translation>
     </message>
     <message id="fuoten-rename-folder">
         <location filename="../sailfishos/qml/common/dialogs/RenameFolderDialog.qml" line="-15"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="-43"/>
         <source>Rename folder</source>
-        <translation>Ordner umbenennen</translation>
+        <translation>Byt namn på mappen</translation>
     </message>
     <message id="fuoten-rename-feed">
         <location filename="../sailfishos/qml/common/dialogs/RenameFeedDialog.qml" line="+46"/>
         <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="-18"/>
         <source>Rename feed</source>
-        <translation>Feed umbenennen</translation>
+        <translation>Byt namn på flödet</translation>
     </message>
     <message id="fuoten-new-feed-name">
         <location line="+15"/>
         <source>New feed name</source>
-        <translation>Neuer Feed-Name</translation>
+        <translation>Nytt flödesnamn</translation>
     </message>
     <message id="fuoten-folder">
         <location filename="../sailfishos/qml/common/parts/FoldersComboBox.qml" line="+27"/>
         <source>Folder</source>
-        <translation>Ordner</translation>
+        <translation>Mapp</translation>
     </message>
     <message id="fuoten-no-folder">
         <location filename="../sailfishos/qml/common/dialogs/MoveFeedDialog.qml" line="+64"/>
         <location filename="../sailfishos/qml/common/parts/FoldersComboBox.qml" line="+5"/>
         <source>-- No folder --</source>
-        <translation>-- Kein Ordner --</translation>
+        <translation>-- Ingen mapp --</translation>
     </message>
     <message id="fuoten-move-feed">
         <location line="-17"/>
         <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="+12"/>
         <source>Move feed</source>
-        <translation>Feed verschieben</translation>
+        <translation>Flytta flödet</translation>
     </message>
     <message id="fuoten-current-folder-label">
         <location line="+14"/>
         <source>Current folder: %1</source>
-        <translation>Aktueller Ordner: %1</translation>
+        <translation>Aktuell mapp: %1</translation>
     </message>
     <message id="fuoten-target-folder">
         <location line="+11"/>
         <source>Target folder</source>
-        <translation>Zielordner</translation>
+        <translation>Målmapp</translation>
     </message>
     <message id="fuoten-back">
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+29"/>
         <source>Back</source>
-        <translation>Zurück</translation>
+        <translation>Tillbaka</translation>
     </message>
     <message id="fuoten-seconds" numerus="yes">
         <location filename="../common/configuration.cpp" line="+434"/>
         <source>%n second(s)</source>
-        <translation><numerusform>%n Sekunde</numerusform><numerusform>%n Sekunden</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message id="fuoten-minutes" numerus="yes">
         <location line="+4"/>
         <source>%n minute(s)</source>
-        <translation><numerusform>%n Minute</numerusform><numerusform>%n Minuten</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message id="fuoten-hours" numerus="yes">
         <location line="+4"/>
         <source>%n hour(s)</source>
-        <translation><numerusform>%n Stunde</numerusform><numerusform>%n Stunden</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message id="fuoten-days" numerus="yes">
         <location line="+4"/>
         <source>%n day(s)</source>
-        <translation><numerusform>%n Tag</numerusform><numerusform>%n Tage</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 </TS>
