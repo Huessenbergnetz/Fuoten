@@ -31,6 +31,20 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.4.0"
+        date: 1478792919000
+        entries: [
+            ListElement { type: 3; issue: ""; description: "fourth preview release" },
+            ListElement { type: 0; issue: "24"; description: "show last sync time in pull down menu" },
+            ListElement { type: 0; issue: "23"; description: "copy article url to clipboard menu entry" },
+            ListElement { type: 0; issue: "15"; description: "article content display" },
+            ListElement { type: 0; issue: "19"; description: "context setting for article opening" },
+            ListElement { type: 0; issue: "18"; description: "mark all articles as read" },
+            ListElement { type: 0; issue: "20"; description: "optional article excerpt in article list" }
+        ]
+    }
+
+    ListElement {
         version: "0.3.0"
         date: 1478558957000
         entries: [
