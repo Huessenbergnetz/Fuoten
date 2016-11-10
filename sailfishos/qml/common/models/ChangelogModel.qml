@@ -40,7 +40,8 @@ ListModel {
             ListElement { type: 0; issue: "15"; description: "article content display" },
             ListElement { type: 0; issue: "19"; description: "context setting for article opening" },
             ListElement { type: 0; issue: "18"; description: "mark all articles as read" },
-            ListElement { type: 0; issue: "20"; description: "optional article excerpt in article list" }
+            ListElement { type: 0; issue: "20"; description: "optional article excerpt in article list" },
+            ListElement { type: 0; issue: ""; description: "Swedish translation by Åke Engelbrektson" }
         ]
     }
 
@@ -51,7 +52,8 @@ ListModel {
             ListElement { type: 3; issue: ""; description: "third preview release" },
             ListElement { type: 0; issue: "14"; description: "article list" },
             ListElement { type: 0; issue: "16"; description: "mark articles as read/unread" },
-            ListElement { type: 0; issue: "17"; description: "star/unstar articles" }
+            ListElement { type: 0; issue: "17"; description: "star/unstar articles" },
+            ListElement { type: 0; issue: ""; description: "partly Danish translation by Peter Jespersen" }
         ]
     }
 

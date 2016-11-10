@@ -16,12 +16,14 @@
 - new: context setting for article opening (#19)
 - new: mark all articles as read (#18)
 - new: optional article excerpt in article list (#20)
+- new: Swedish translation by Åke Engelbrektson
 
 * Mon Nov  7 2016 Matthias Fehring <kontakt@buschmann23.de> 0.3.0-1
 - info: third preview release
 - new: article list view
 - new: mark articles as read/unread
 - new: star/unstar articles
+- new: partly Danish translation by Peter Jespersen
 
 * Wed Nov  2 2016 Matthias Fehring <kontakt@buschmann23.de> 0.2.0-1
 - info: second preview release
