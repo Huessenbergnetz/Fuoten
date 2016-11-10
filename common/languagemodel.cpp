@@ -24,7 +24,7 @@
 #include <algorithm>
 
 LanguageModel::LanguageModel(QObject *parent) :
-    QAbstractListModel(parent), m_supportedLangs({QStringLiteral("de"), QStringLiteral("da"), QStringLiteral("en")})
+    QAbstractListModel(parent), m_supportedLangs({QStringLiteral("de"), QStringLiteral("da"), QStringLiteral("en"), QStringLiteral("sv")})
 {
     init();
 }
@@ -94,7 +94,7 @@ QVariant LanguageModel::data(const QModelIndex &index, int role) const
 
 bool langLessThan(Language *a, Language *b)
 {
-    return (a->name < b->name);
+    return (QString::localeAwareCompare(a->name, b->name) < 0);
 }
 
 
