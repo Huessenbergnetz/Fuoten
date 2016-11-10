@@ -58,7 +58,11 @@ SilicaListView {
     }
 
     PullDownMenu {
-        busy: synchronizer.inOperation
+        id: feedListViewPullDown
+        busy: synchronizer.inOperation || (folder && folder.inOperation)
+        property string lastSyncString: config.getHumanLastSync()
+
+        onActiveChanged: lastSyncString = config.getHumanLastSync()
 
         MenuItem {
             //% "About"
@@ -97,6 +101,15 @@ SilicaListView {
             text: qsTrId("fuoten-synchronize")
             onClicked: synchronizer.sync()
             enabled: !synchronizer.inOperation
+        }
+
+        MenuLabel {
+            text: synchronizer.inOperation
+                    //% "Synchronizing"
+                  ? qsTrId("fuoten-synchronizing")
+                    //: %1 will contain something like "11 minutes"
+                    //% "Last synchronization: %1 ago"
+                  : qsTrId("fuoten-last-sync-time").arg(feedListViewPullDown.lastSyncString)
         }
     }
 

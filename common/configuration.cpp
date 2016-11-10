@@ -24,6 +24,7 @@
 #include <QImage>
 #include <QDir>
 #include <QStandardPaths>
+#include <math.h>
 #ifdef QT_DEBUG
 #include <QtDebug>
 #endif
@@ -420,4 +421,28 @@ bool Configuration::isFirstStart() const
 void Configuration::setCurrentVersion()
 {
     setValue(QStringLiteral("system/appVersion"), QStringLiteral(VERSION_STRING));
+}
+
+
+
+QString Configuration::getHumanLastSync() const
+{
+    qreal td = (qreal)getLastSync().secsTo(QDateTime::currentDateTimeUtc());
+
+    if (td < 60.0) {
+        //% "%n second(s)"
+        return qtTrId("fuoten-seconds", td);
+    } else if (td < 7200.0) {
+        long int rtd = lround(td/60.0);
+        //% "%n minute(s)"
+        return qtTrId("fuoten-minutes", rtd);
+    } else if (td < 172800.0) {
+        long int rtd = lround(td/3600.0);
+        //% "%n hour(s)"
+        return qtTrId("fuoten-hours", rtd);
+    } else  {
+        long int rtd = lround(td/86400.0);
+        //% "%n day(s)"
+        return qtTrId("fuoten-days", rtd);
+    }
 }

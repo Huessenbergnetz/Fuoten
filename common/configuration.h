@@ -202,6 +202,11 @@ public:
     Fuoten::FuotenEnums::Type mainViewType() const;
     QDateTime getLastSync() const override;
 
+    /*!
+     * \brief Returns a human readable relative last sync time.
+     */
+    Q_INVOKABLE QString getHumanLastSync() const;
+
     void setUsername(const QString &username);
     void setPassword(const QString &password);
     void setUseSSL(bool useSSL);
