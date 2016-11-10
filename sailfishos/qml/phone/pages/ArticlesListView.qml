@@ -105,7 +105,7 @@ SilicaListView {
             //% "Mark all as read"
             text: qsTrId("fuoten-mark-all-read")
             //% "Marking all read"
-            onClicked: remorsePop.execute(qsTrId("fuoten-marking-all-read"), function() {})
+            onClicked: remorsePop.execute(qsTrId("fuoten-marking-all-read"), function() {localstorage.enqueueMarkAllItemsRead()})
         }
 
         MenuItem {
