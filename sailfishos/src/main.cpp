@@ -206,7 +206,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<Fuoten::Article>("harbour.fuoten.items", 1, 0, "Article");
 
     qmlRegisterType<LanguageModel>("harbour.fuoten", 1, 0, "LanguageModel");
-    qmlRegisterUncreatableType<Configuration>("harbour.fuoten", 1, 0, "Configuratoin", QStringLiteral("You can not create a Configuration object"));
+    qmlRegisterUncreatableType<Configuration>("harbour.fuoten", 1, 0, "Configuration", QStringLiteral("You can not create a Configuration object"));
 
     qmlRegisterUncreatableType<FuotenAppEnums>("harbour.fuoten", 1, 0, "FuotenApp", QStringLiteral("You can not crate an FuotenApp object."));
     qmlRegisterType<ContextConfig>("harbour.fuoten", 1, 0, "ContextConfig");
