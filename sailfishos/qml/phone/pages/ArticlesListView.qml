@@ -82,7 +82,7 @@ SilicaListView {
 
     PullDownMenu {
         id: articlesListViewPullDown
-        busy: synchronizer.inOperation || (feed && feed.inOperation) || (folder && folder.inOperation)
+        busy: synchronizer.inOperation || (feed && feed.inOperation) || (folder && folder.inOperation) || localstorage.inOperation
         property string lastSyncString: config.getHumanLastSync()
 
         onActiveChanged: if(active) { lastSyncString = config.getHumanLastSync() }
@@ -93,7 +93,7 @@ SilicaListView {
             text: qsTrId("fuoten-mark-folder-read")
             enabled: folder && !folder.inOperation && folder.unreadCount > 0
             onClicked: //% "Marking %1 read"
-                       remorsePop.execute(qsTrId("fuoten-marking-read").arg(folder.name), function() {folder.markAsRead(config, localstorage)})
+                       remorsePop.execute(qsTrId("fuoten-marking-read").arg(folder.name), function() {folder.markAsRead(config, localstorage, true)})
         }
 
         MenuItem {
@@ -106,6 +106,7 @@ SilicaListView {
 
         MenuItem {
             visible: !feed && !folder && contextType === FuotenApp.AllItems
+            enabled: !localstorage.inOperation
             //% "Mark all as read"
             text: qsTrId("fuoten-mark-all-read")
             //% "Marking all read"
