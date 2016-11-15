@@ -124,7 +124,7 @@ void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, con
 int main(int argc, char *argv[])
 {
 #ifndef CLAZY
-    QGuiApplication* app = SailfishApp::application(argc, argv);
+    QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
 #else
     QGuiApplication* app = new QGuiApplication(argc, argv);
 #endif
@@ -138,27 +138,27 @@ int main(int argc, char *argv[])
     qInstallMessageHandler(fuotenMessageHandler);
 #endif
 
-    Configuration config;
+    QScopedPointer<Configuration> config(new Configuration);
 
-    if (!config.language().isEmpty()) {
-        QLocale::setDefault(QLocale(config.language()));
+    if (!config->language().isEmpty()) {
+        QLocale::setDefault(QLocale(config->language()));
     } else {
         QLocale::setDefault(QLocale::system());
     }
 
 #ifndef CLAZY
     const QString l10nDir = SailfishApp::pathTo(QStringLiteral("l10n")).toString(QUrl::RemoveScheme);
-    QTranslator *appTrans = new QTranslator(app);
+    QTranslator *appTrans = new QTranslator(app.data());
     if (appTrans->load(QLocale(), QStringLiteral("fuoten"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm"))) {
         app->installTranslator(appTrans);
     }
 
-    QTranslator *libTrans = new QTranslator(app);
+    QTranslator *libTrans = new QTranslator(app.data());
     if (libTrans->load(QLocale(), QStringLiteral("libfuoten"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm"))) {
         app->installTranslator(libTrans);
     }
 
-    QTranslator *btscTrans = new QTranslator(app);
+    QTranslator *btscTrans = new QTranslator(app.data());
     if (btscTrans->load(QLocale(), QStringLiteral("btsc"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm"))) {
         app->installTranslator(btscTrans);
     }
@@ -179,12 +179,12 @@ int main(int argc, char *argv[])
         }
     }
 
-    Fuoten::SQLiteStorage sqliteStorage(dataDir.absoluteFilePath(QStringLiteral("database.sqlite")));
-    sqliteStorage.init();
+    QScopedPointer<Fuoten::SQLiteStorage> sqliteStorage(new Fuoten::SQLiteStorage(dataDir.absoluteFilePath(QStringLiteral("database.sqlite"))));
+    sqliteStorage->init();
 
-    Fuoten::Synchronizer synchronizer;
-    synchronizer.setConfiguration(&config);
-    synchronizer.setStorage(&sqliteStorage);
+    QScopedPointer<Fuoten::Synchronizer> synchronizer(new Fuoten::Synchronizer);
+    synchronizer->setConfiguration(config.data());
+    synchronizer->setStorage(sqliteStorage.data());
 
     qmlRegisterUncreatableType<Fuoten::FuotenEnums>("harbour.fuoten", 1, 0, "Fuoten", QStringLiteral("You can not create a Fuoten object"));
     qmlRegisterUncreatableType<Fuoten::AbstractConfiguration>("harbour.fuoten", 1, 0, "FuotenConfiguration", QStringLiteral("You can not create a FuotenConfiguration object."));
@@ -208,19 +208,19 @@ int main(int argc, char *argv[])
     qmlRegisterType<LanguageModel>("harbour.fuoten", 1, 0, "LanguageModel");
     qmlRegisterUncreatableType<Configuration>("harbour.fuoten", 1, 0, "Configuration", QStringLiteral("You can not create a Configuration object"));
 
-    qmlRegisterUncreatableType<FuotenAppEnums>("harbour.fuoten", 1, 0, "FuotenApp", QStringLiteral("You can not crate an FuotenApp object."));
+    qmlRegisterUncreatableType<FuotenAppEnums>("harbour.fuoten", 1, 0, "FuotenApp", QStringLiteral("You can not create a FuotenApp object."));
     qmlRegisterType<ContextConfig>("harbour.fuoten", 1, 0, "ContextConfig");
     qmlRegisterType<ImageCache>("harbour.fuoten", 1, 0, "ImageCache");
 
 #ifndef CLAZY
-    QQuickView *view = SailfishApp::createView();
+    QScopedPointer<QQuickView> view(SailfishApp::createView());
 #else
     QQuickView *view = new QQuickView();
 #endif
 
-    view->rootContext()->setContextProperty(QStringLiteral("config"), &config);
-    view->rootContext()->setContextProperty(QStringLiteral("localstorage"), &sqliteStorage);
-    view->rootContext()->setContextProperty(QStringLiteral("synchronizer"), &synchronizer);
+    view->rootContext()->setContextProperty(QStringLiteral("config"), config.data());
+    view->rootContext()->setContextProperty(QStringLiteral("localstorage"), sqliteStorage.data());
+    view->rootContext()->setContextProperty(QStringLiteral("synchronizer"), synchronizer.data());
 
 #ifndef CLAZY
     view->setSource(SailfishApp::pathTo(QStringLiteral("qml/harbour-fuoten.qml")));
