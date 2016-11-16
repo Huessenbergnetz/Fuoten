@@ -25,121 +25,13 @@ import harbour.fuoten.models 1.0
 import harbour.fuoten.items 1.0
 import "../../common/parts"
 
-SilicaListView {
+BaseListView {
     id: articlesListView
-    anchors.fill: parent
-    currentIndex: -1
 
-    property string searchString
-    property bool searchVisible: false
-    property Page page: null
-    property Feed feed: null
-    property Folder folder: null
-    property alias contextType: articlesContextConfig.contextType
+    inOperation: articlesModel.inOperation
 
-    property string _contextName: ""
-
-    ContextConfig {
-        id: articlesContextConfig
-        contextId: feed ? feed.id
-                          : folder
-                            ? folder.id
-                            : -1
-    }
-
-    function setContextName() {
-        _contextName = feed
-                       ? feed.title
-                       : folder
-                         ? folder.name
-                         : contextType === FuotenApp.AllItems
-                           ? qsTrId("fuoten-all-articles")
-                           : contextType === FuotenApp.StarredItems
-                             ? qsTrId("fuoten-starred-articles")
-                             : ""
-    }
-
-    Component.onCompleted: {
-        if (!page.forwardNavigation && page.status === PageStatus.Active) {
-            if (_contextName.length === 0) {
-                setContextName()
-            }
-            pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: articlesContextConfig, name: _contextName})
-        }
-    }
-
-    Connections {
-        target: page
-        onStatusChanged: {
-            if (page.status === PageStatus.Active && !page.forwardNavigation) {
-                if (_contextName.length === 0) {
-                    setContextName()
-                }
-                pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: articlesContextConfig, name: _contextName})
-            }
-        }
-    }
-
-    PullDownMenu {
-        id: articlesListViewPullDown
-        busy: synchronizer.inOperation || (feed && feed.inOperation) || (folder && folder.inOperation) || localstorage.inOperation
-        property string lastSyncString: config.getHumanLastSync()
-
-        onActiveChanged: if(active) { lastSyncString = config.getHumanLastSync() }
-
-        MenuItem {
-            visible: folder
-            //% "Mark folder read"
-            text: qsTrId("fuoten-mark-folder-read")
-            enabled: folder && !folder.inOperation && folder.unreadCount > 0
-            onClicked: //% "Marking %1 read"
-                       remorsePop.execute(qsTrId("fuoten-marking-read").arg(folder.name), function() {folder.markAsRead(config, localstorage, true)})
-        }
-
-        MenuItem {
-            visible: feed
-            //% "Mark feed read"
-            text: qsTrId("fuoten-mark-feed-read")
-            enabled: feed && !feed.inOperation && feed.unreadCount > 0
-            onClicked: feed.markAsRead(config, localstorage, true)
-        }
-
-        MenuItem {
-            visible: !feed && !folder && contextType === FuotenApp.AllItems
-            enabled: !localstorage.inOperation
-            //% "Mark all as read"
-            text: qsTrId("fuoten-mark-all-read")
-            //% "Marking all read"
-            onClicked: remorsePop.execute(qsTrId("fuoten-marking-all-read"), function() {localstorage.enqueueMarkAllItemsRead()})
-        }
-
-        MenuItem {
-            text: articlesListView.searchVisible
-                    //% "Hide search"
-                  ? qsTrId("fuoten-hide-search")
-                    //% "Show search"
-                  : qsTrId("fuoten-show-search")
-            onClicked: articlesListView.searchVisible = !articlesListView.searchVisible
-        }
-
-        MenuItem {
-            //% "Synchronize"
-            text: qsTrId("fuoten-synchronize")
-            onClicked: synchronizer.sync()
-            enabled: !synchronizer.inOperation
-        }
-
-        MenuLabel {
-            text: synchronizer.inOperation
-                    //% "Synchronizing"
-                  ? qsTrId("fuoten-synchronizing")
-                    //: %1 will contain something like "11 minutes"
-                    //% "Last synchronization: %1 ago"
-                  : qsTrId("fuoten-last-sync-time").arg(articlesListViewPullDown.lastSyncString)
-        }
-    }
-
-    VerticalScrollDecorator { flickable: articlesListView; page: articlesListView.page }
+    //% "No articles found"
+    noContentText: qsTrId("fuoten-no-articles-found")
 
     header: ListPageHeader {
         id: articlesListHeader
@@ -164,10 +56,10 @@ SilicaListView {
     model: ArticleListFilterModel {
         id: articlesModel
         storage: localstorage
-        sortOrder: articlesContextConfig.sortOrder
-        hideRead: articlesContextConfig.hideRead
+        sortOrder: articlesListView.cc.sortOrder
+        hideRead: articlesListView.cc.hideRead
         search: articlesListView.searchString
-        bodyLimit: articlesContextConfig.showExcerpt ? 250 : -1
+        bodyLimit: articlesListView.cc.showExcerpt ? 250 : -1
         Component.onCompleted: {
             if (feed) {
                 parentId = feed.id
@@ -196,7 +88,7 @@ SilicaListView {
     delegate: ListItem {
         id: articleListItem
 
-        contentHeight: !display.error ? Math.max(textCol.height, iconCol.height) + Theme.paddingSmall : errorItem.height + Theme.paddingSmall
+        contentHeight: display && display.error ? errorItem.height + Theme.paddingSmall : Math.max(textCol.height, iconCol.height) + Theme.paddingSmall
         contentWidth: parent.width
 
         ListView.onAdd: AddAnimation { target: articleListItem }
@@ -208,7 +100,7 @@ SilicaListView {
             if (display.error) {
                 display.clearError()
             } else {
-                switch(articlesContextConfig.openArticles) {
+                switch(articlesListView.cc.openArticles) {
                 case FuotenApp.OpenInternal:
                     pageStack.push(Qt.resolvedUrl("ArticlePage.qml"), {article: display})
                     break
@@ -273,7 +165,7 @@ SilicaListView {
 
                 Text {
                     id: excerptText
-                    visible: articlesContextConfig.showExcerpt && display.body.length > 0
+                    visible: articlesListView.cc.showExcerpt && display.body.length > 0
                     text: display.body
                     Layout.fillWidth: true
                     color: articleListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
@@ -364,26 +256,5 @@ SilicaListView {
                 }
             }
         }
-    }
-
-    RemorsePopup {
-        id: remorsePop
-    }
-
-    BusyIndicator {
-        anchors.centerIn: parent
-        size: BusyIndicatorSize.Large
-        visible: articlesModel.inOperation
-        running: articlesModel.inOperation
-    }
-
-    ViewPlaceholder {
-        id: emptyContent
-        flickable: articlesListView
-        enabled: articlesListView.count === 0 && config.isAccountValid && !articlesModel.inOperation
-        //% "No articles found"
-        text: qsTrId("fuoten-no-articles-found")
-        //% "Synchronize your data or check your filter settings."
-        hintText: qsTrId("fuoten-no-content-found-hint")
     }
 }

@@ -35,7 +35,7 @@ Page {
         if (config.mainViewType === Fuoten.Folder) {
             mainPageLoader.setSource(Qt.resolvedUrl("FolderListView.qml"), {page: phoneMainPage, startPage: true})
         } else {
-            mainPageLoader.setSource(Qt.resolvedUrl("FeedsListView.qml"), {page: phoneMainPage})
+            mainPageLoader.setSource(Qt.resolvedUrl("FeedsListView.qml"), {page: phoneMainPage, startPage: true})
         }
 
         contextAttached = true

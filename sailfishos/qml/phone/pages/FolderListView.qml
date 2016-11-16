@@ -25,103 +25,31 @@ import harbour.fuoten.models 1.0
 import "../../common/parts"
 
 
-SilicaListView {
-    id: folderListFlick
-    anchors.fill: parent
-    currentIndex: -1
+BaseListView {
+    id: folderListView
 
-    property string searchString
-    property Item page
-    property bool searchVisible: false
-    property bool startPage: true
-    property string title: "Fuoten"
-
-    ContextConfig {
-        id: folderContextConfig
-        contextType: startPage ? FuotenApp.StartPage : FuotenApp.Folders
-    }
-
-    Component.onCompleted: {
-        if (!page.forwardNavigation && page.status === PageStatus.Active) {
-            pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: folderContextConfig, name: startPage ? "" : title})
-        }
-    }
-
-    Connections {
-        target: page
-        onStatusChanged: {
-            if (page.status === PageStatus.Active && !page.forwardNavigation) {
-                pageStack.pushAttached(Qt.resolvedUrl("../../common/pages/ContextConfigPage.qml"), {cc: folderContextConfig, name: startPage ? "" : title})
-            }
-        }
-    }
-
-    PullDownMenu {
-        id: folderListViewPullDown
-        busy: synchronizer.inOperation
-        property string lastSyncString: config.getHumanLastSync()
-
-        onActiveChanged: if(active) { lastSyncString = config.getHumanLastSync() }
-
-        MenuItem {
-            //% "About"
-            text: qsTrId("id-about")
-            onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/About.qml"))
-            visible: startPage
-        }
-
-        MenuItem {
-            //% "Settings"
-            text: qsTrId("id-settings")
-            onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Settings.qml"))
-            visible: startPage
-        }
-
-        MenuItem {
-            text: folderListFlick.searchVisible
-                    //% "Hide search"
-                  ? qsTrId("fuoten-hide-search")
-                    //% "Show search"
-                  : qsTrId("fuoten-show-search")
-            onClicked: folderListFlick.searchVisible = !folderListFlick.searchVisible
-        }
-
-        MenuItem {
-            //% "Synchronize"
-            text: qsTrId("fuoten-synchronize")
-            onClicked: synchronizer.sync()
-            enabled: !synchronizer.inOperation
-        }
-
-        MenuLabel {
-            text: synchronizer.inOperation
-                    //% "Synchronizing"
-                  ? qsTrId("fuoten-synchronizing")
-                    //: %1 will contain something like "11 minutes"
-                    //% "Last synchronization: %1 ago"
-                  : qsTrId("fuoten-last-sync-time").arg(folderListViewPullDown.lastSyncString)
-        }
-    }
-
-    VerticalScrollDecorator { flickable: folderListFlick; page: folderListFlick.page }
+    contextType: startPage ? FuotenApp.StartPage : FuotenApp.Folders
+    inOperation: folderListModel.inOperation
+    //% "No folders found"
+    noContentText: qsTrId("fuoten-no-folders-found")
 
     header: ListPageHeader {
         id: folderListHeader
-        page: folderListFlick.page
-        searchVisible: folderListFlick.searchVisible
+        page: folderListView.page
+        searchVisible: folderListView.searchVisible
         feedListDelegate: FeedListDelegate { folderView: true }
-        onSearchTextChanged: folderListFlick.searchString = searchText
+        onSearchTextChanged: folderListView.searchString = searchText
         onAllArticlesClicked: startPage ? pageStack.push(Qt.resolvedUrl("ArticlesListPage.qml"), {context: FuotenApp.AllItems}) : ""
         onStarredItemsClicked: pageStack.push(Qt.resolvedUrl("ArticlesListPage.qml"), {context: FuotenApp.StarredItems})
     }
 
     model: FolderListFilterModel {
         id: folderListModel
-        sortingRole: folderContextConfig.sorting
+        sortingRole: folderListView.cc.sorting
         storage: localstorage
-        search: folderListFlick.searchString
-        hideRead: folderContextConfig.hideRead
-        sortOrder: folderContextConfig.sortOrder
+        search: folderListView.searchString
+        hideRead: folderListView.cc.hideRead
+        sortOrder: folderListView.cc.sortOrder
         Component.onCompleted: load(config.language)
     }
 
@@ -161,7 +89,7 @@ SilicaListView {
                 Label {
                     Layout.fillWidth: true
                     font.pixelSize: Theme.fontSizeSmall
-                    text: Theme.highlightText(model.display ? model.display.name : "", folderListFlick.searchString, Theme.highlightColor)
+                    text: Theme.highlightText(model.display ? model.display.name : "", folderListView.searchString, Theme.highlightColor)
                     truncationMode: TruncationMode.Fade
                     color: folderListItem.highlighted ? (model.display.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (model.display.unreadCount ? Theme.primaryColor : Theme.secondaryColor)
                     textFormat: Text.StyledText
@@ -226,31 +154,5 @@ SilicaListView {
             }
         }
     }
-
-    BusyIndicator {
-        anchors.centerIn: parent
-        size: BusyIndicatorSize.Large
-        visible: folderListModel.inOperation
-        running: folderListModel.inOperation
-    }
-
-    ViewPlaceholder {
-        id: invalidAccountPlaceHolder
-        flickable: folderListFlick
-        enabled: folderListFlick.count === 0 && !config.isAccountValid && !folderListModel.inOperation
-        //% "Invalid account configuration"
-        text: qsTrId("fuoten-invalid-account")
-        //% "Open the settings to configure your account"
-        hintText: qsTrId("fuoten-invalid-account-hint")
-    }
-
-    ViewPlaceholder {
-        id: emptyContent
-        flickable: folderListFlick
-        enabled: folderListFlick.count === 0 && config.isAccountValid && !folderListModel.inOperation
-        //% "No folders found"
-        text: qsTrId("fuoten-no-folders-found")
-        //% "Synchronize your data or check your filter settings."
-        hintText: qsTrId("fuoten-no-content-found-hint")
-    }
 }
+
