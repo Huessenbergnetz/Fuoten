@@ -250,6 +250,75 @@ Page {
                     onClicked: cc.showExcerpt = !cc.showExcerpt
                 }
             }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: Theme.itemSizeSmall
+                visible: cc.contextType === FuotenApp.FeedItems && contextConfigGrid.columns > 1
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: deletionStrategyChoser.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                visible: cc.contextType === FuotenApp.FeedItems
+
+                ComboBox {
+                    id: deletionStrategyChoser
+                    //% "Articles cleanup"
+                    label: qsTrId("fuoten-articles-cleanup")
+                    description: currentIndex === 0
+                                    //% "Articles will never be cleaned up."
+                                 ? qsTrId("fuoten-articles-no-cleanup-desc")
+                                 : currentIndex === 1
+                                     //% "Articles will be deleted if they have been published more than %n days ago. Set the number of days in the next input field."
+                                   ? qsTrId("fuoten-articles-cleanup-time-desc", cc.deletionValue)
+                                     //% "Articles will be deleted if there are more than %n articles in the local storage. Set the number in the next input field."
+                                   : qsTrId("fuoten-articles-cleanup-count-desc", cc.deletionValue)
+                    menu: ContextMenu {
+                        MenuItem {
+                            //% "No cleanup"
+                            text: qsTrId("fuoten-articles-no-cleanup")
+                            readonly property int value: Fuoten.NoItemDeletion
+                        }
+                        MenuItem {
+                            //% "By time"
+                            text: qsTrId("fuoten-articles-cleanup-time")
+                            readonly property int value: Fuoten.DeleteItemsByTime
+                        }
+                        MenuItem {
+                            //% "By count"
+                            text: qsTrId("fuoten-articles-cleanup-count")
+                            readonly property int value: Fuoten.DeleteItemsByCount
+                        }
+                    }
+
+                    onCurrentIndexChanged: if (currentItem) { cc.deletionStrategy = currentItem.value }
+                    currentIndex: cc.deletionStrategy
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: deletionValueField.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                visible: cc.contextType === FuotenApp.FeedItems && cc.deletionStrategy !== Fuoten.NoItemDeletion
+
+                TextField {
+                    id: deletionValueField
+                    width: parent.width
+                    placeholderText: cc.deletionStrategy === Fuoten.DeleteItemsByTime
+                                       //% "Days old"
+                                     ? qsTrId("fuoten-articles-cleanup-days")
+                                       //% "Count to keep"
+                                     : qsTrId("fuoten-articles-cleanup-number")
+                    label: placeholderText
+                    validator: IntValidator { bottom: 0; top: 65535 }
+                    text: cc.deletionValue
+                    onTextChanged: if (acceptableInput) cc.deletionValue = parseInt(text)
+                    inputMethodHints: Qt.ImhDigitsOnly
+                }
+            }
         }
     }
 

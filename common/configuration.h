@@ -201,6 +201,8 @@ public:
     QString language() const;
     Fuoten::FuotenEnums::Type mainViewType() const;
     QDateTime getLastSync() const override;
+    Fuoten::FuotenEnums::ItemDeletionStrategy getPerFeedDeletionStrategy(qint64 feedId) const override;
+    quint16 getPerFeedDeletionValue(qint64 feedId) const override;
 
     /*!
      * \brief Returns a human readable relative last sync time.

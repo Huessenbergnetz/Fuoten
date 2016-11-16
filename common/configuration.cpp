@@ -400,6 +400,18 @@ void Configuration::setLastSync(const QDateTime &lastSync)
 }
 
 
+Fuoten::FuotenEnums::ItemDeletionStrategy Configuration::getPerFeedDeletionStrategy(qint64 feedId) const
+{
+    return (Fuoten::FuotenEnums::ItemDeletionStrategy)value(QStringLiteral("FeedItems_%1/deletionStrategy").arg(feedId), Fuoten::FuotenEnums::DeleteItemsByTime).toInt();
+}
+
+
+
+quint16 Configuration::getPerFeedDeletionValue(qint64 feedId) const
+{
+    return value(QStringLiteral("FeedItems_%1/deletionValue").arg(feedId), 14).toUInt();
+}
+
 
 
 bool Configuration::checkForUpdate() const

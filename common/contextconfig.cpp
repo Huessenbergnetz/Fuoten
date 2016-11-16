@@ -18,6 +18,8 @@ ContextConfig::ContextConfig(QObject *parent) :
     m_respectPinned = value(path(QStringLiteral("respectPinned")), true).toBool();
     m_showExcerpt = value(path(QStringLiteral("showExcerpt")), false).toBool();
     m_openArticles = (FuotenAppEnums::OpenIn)value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenInternal).toInt();
+    m_deletionStrategy = (Fuoten::FuotenEnums::ItemDeletionStrategy)value(path(QStringLiteral("deletionStrategy")), Fuoten::FuotenEnums::DeleteItemsByTime).toInt();
+    m_deletionValue = value(path(QStringLiteral("deletionValue")), 14).toUInt();
 }
 
 
@@ -38,6 +40,8 @@ void ContextConfig::load()
     setRespectPinned(value(path(QStringLiteral("respectPinned")), true).toBool());
     setShowExcerpt(value(path(QStringLiteral("showExcerpt")), false).toBool());
     setOpenArticles((FuotenAppEnums::OpenIn)value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenInternal).toInt());
+    setDeletionStrategy((Fuoten::FuotenEnums::ItemDeletionStrategy)value(path(QStringLiteral("deletionStrategy")), Fuoten::FuotenEnums::DeleteItemsByTime).toInt());
+    setDeletionValue(value(path(QStringLiteral("deletionValue")), 14).toUInt());
 }
 
 
@@ -183,6 +187,40 @@ void ContextConfig::setOpenArticles(FuotenAppEnums::OpenIn nOpenArticles)
         Q_EMIT openArticlesChanged(openArticles());
     }
 }
+
+
+
+Fuoten::FuotenEnums::ItemDeletionStrategy ContextConfig::deletionStrategy() const { return m_deletionStrategy; }
+
+void ContextConfig::setDeletionStrategy(Fuoten::FuotenEnums::ItemDeletionStrategy nDeletionStrategy)
+{
+    if (nDeletionStrategy != m_deletionStrategy) {
+        m_deletionStrategy = nDeletionStrategy;
+#ifdef QT_DEBUG
+        qDebug() << "Changed deletionStrategy to" << m_deletionStrategy;
+#endif
+        setValue(path(QStringLiteral("deletionStrategy")), m_deletionStrategy);
+        Q_EMIT deletionStrategyChanged(deletionStrategy());
+    }
+}
+
+
+
+
+quint16 ContextConfig::deletionValue() const { return m_deletionValue; }
+
+void ContextConfig::setDeletionValue(quint16 nDeletionValue)
+{
+    if (nDeletionValue != m_deletionValue) {
+        m_deletionValue = nDeletionValue;
+#ifdef QT_DEBUG
+        qDebug() << "Changed deletionValue to" << m_deletionValue;
+#endif
+        setValue(path(QStringLiteral("deletionValue")), m_deletionValue);
+        Q_EMIT deletionValueChanged(deletionValue());
+    }
+}
+
 
 
 

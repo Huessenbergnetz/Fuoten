@@ -93,9 +93,28 @@ class ContextConfig : public QSettings
      * <TABLE><TR><TD>void</TD><TD>openArticlesChanged(FuotenAppEnums::OpenIn openArticles)</TD></TR></TABLE>
      */
     Q_PROPERTY(FuotenAppEnums::OpenIn openArticles READ openArticles WRITE setOpenArticles NOTIFY openArticlesChanged)
+    /*!
+     * \brief Deletion strategy for items per feed.
+     *
+     * \par Access functions:
+     * <TABLE><TR><TD>Fuoten::FuotenEnums::ItemDeletionStrategy</TD><TD>deletionStrategy() const</TD></TR><TR><TD>void</TD><TD>setDeletionStrategy(Fuoten::FuotenEnums::ItemDeletionStrategy nDeletionStrategy)</TD></TR></TABLE>
+     * \par Notifier signal:
+     * <TABLE><TR><TD>void</TD><TD>deletionStrategyChanged(Fuoten::FuotenEnums::ItemDeletionStrategy deletionStrategy)</TD></TR></TABLE>
+     */
+    Q_PROPERTY(Fuoten::FuotenEnums::ItemDeletionStrategy deletionStrategy READ deletionStrategy WRITE setDeletionStrategy NOTIFY deletionStrategyChanged)
+    /*!
+     * \brief Value for the deletion strategy for items per feed.
+     *
+     * \par Access functions:
+     * <TABLE><TR><TD>quint16</TD><TD>deletionValue() const</TD></TR><TR><TD>void</TD><TD>setDeletionValue(quint16 nDeletionValue)</TD></TR></TABLE>
+     * \par Notifier signal:
+     * <TABLE><TR><TD>void</TD><TD>deletionValueChanged(quint16 deletionValue)</TD></TR></TABLE>
+     */
+    Q_PROPERTY(quint16 deletionValue READ deletionValue WRITE setDeletionValue NOTIFY deletionValueChanged)
 #if QT_VERSION < QT_VERSION_CHECK(5, 5, 0)
     Q_ENUMS(FuotenAppEnums::Context)
     Q_ENUMS(Fuoten::FuotenEnums::SortingRole)
+    Q_ENUMS(Fuoten::FuotenEnums::ItemDeletionStrategy)
 #endif
 public:
     explicit ContextConfig(QObject *parent = nullptr);
@@ -114,6 +133,16 @@ public:
      * \sa ContextConfig::setOpenArticles(), ContextConfig::openArticlesChanged()
      */
     FuotenAppEnums::OpenIn openArticles() const;
+    /*!
+     * \brief Getter function for the \link ContextConfig::deletionStrategy deletionStrategy \endlink property.
+     * \sa ContextConfig::setDeletionStrategy(), ContextConfig::deletionStrategyChanged()
+     */
+    Fuoten::FuotenEnums::ItemDeletionStrategy deletionStrategy() const;
+    /*!
+     * \brief Getter function for the \link ContextConfig::deletionValue deletionValue \endlink property.
+     * \sa ContextConfig::setDeletionValue(), ContextConfig::deletionValueChanged()
+     */
+    quint16 deletionValue() const;
 
 
     void setContextType(FuotenAppEnums::Context nContextType);
@@ -130,6 +159,18 @@ public:
      * \sa ContextConfig::openArticles(), ContextConfig::openArticlesChanged()
      */
     void setOpenArticles(FuotenAppEnums::OpenIn nOpenArticles);
+    /*!
+     * \brief Setter function for the \link ContextConfig::deletionStrategy deletionStrategy \endlink property.
+     * Emits the deletionStrategyChanged() signal if \a nDeletionStrategy is not equal to the stored value.
+     * \sa ContextConfig::deletionStrategy(), ContextConfig::deletionStrategyChanged()
+     */
+    void setDeletionStrategy(Fuoten::FuotenEnums::ItemDeletionStrategy nDeletionStrategy);
+    /*!
+     * \brief Setter function for the \link ContextConfig::deletionValue deletionValue \endlink property.
+     * Emits the deletionValueChanged() signal if \a nDeletionValue is not equal to the stored value.
+     * \sa ContextConfig::deletionValue(), ContextConfig::deletionValueChanged()
+     */
+    void setDeletionValue(quint16 nDeletionValue);
 
 
 signals:
@@ -146,6 +187,16 @@ signals:
      * \sa ContextConfig::openArticles(), ContextConfig::setOpenArticles()
      */
     void openArticlesChanged(FuotenAppEnums::OpenIn openArticles);
+    /*!
+     * \brief This is emitted if the value of the \link ContextConfig::deletionStrategy deletionStrategy \endlink property changes.
+     * \sa ContextConfig::deletionStrategy(), ContextConfig::setDeletionStrategy()
+     */
+    void deletionStrategyChanged(Fuoten::FuotenEnums::ItemDeletionStrategy deletionStrategy);
+    /*!
+     * \brief This is emitted if the value of the \link ContextConfig::deletionValue deletionValue \endlink property changes.
+     * \sa ContextConfig::deletionValue(), ContextConfig::setDeletionValue()
+     */
+    void deletionValueChanged(quint16 deletionValue);
 
 private:
     Q_DISABLE_COPY(ContextConfig)
@@ -158,6 +209,8 @@ private:
     bool m_respectPinned;
     bool m_showExcerpt;
     FuotenAppEnums::OpenIn m_openArticles;
+    Fuoten::FuotenEnums::ItemDeletionStrategy m_deletionStrategy;
+    quint16 m_deletionValue;
 
     QString path(const QString &key) const;
 
