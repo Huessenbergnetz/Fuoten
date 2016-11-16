@@ -18,10 +18,8 @@
  */
 
 import QtQuick 2.2
-import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
-import harbour.fuoten 1.0
-import harbour.fuoten.items 1.0
+import "../../common/parts"
 
 Page {
     id: feedListPage
@@ -31,6 +29,14 @@ Page {
     FeedsListView {
         id: flv
         page: feedListPage
+        anchors {
+            fill: parent
+            bottomMargin: syncPanel.height
+        }
+    }
+
+    SyncPanel {
+        id: syncPanel
     }
 }
 

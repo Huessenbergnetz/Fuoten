@@ -40,6 +40,8 @@ SilicaListView {
 
     property string _contextName: ""
 
+    clip: synchronizer.inOperation || synchronizer.error
+
     ContextConfig {
         id: contextConfig
         contextId: feed ? feed.id
