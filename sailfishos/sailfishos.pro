@@ -70,5 +70,6 @@ DISTFILES += \
     qml/common/parts/RescalingRichText.qml \
     qml/phone/pages/ArticlePage.qml \
     qml/phone/pages/WebViewPage.qml \
-    qml/phone/pages/BaseListView.qml
+    qml/phone/pages/BaseListView.qml \
+    qml/common/parts/SyncPanel.qml
 
