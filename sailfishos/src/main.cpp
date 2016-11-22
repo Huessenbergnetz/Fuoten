@@ -67,6 +67,8 @@
 #include "../../common/contextconfig.h"
 #include "../../common/imagecache.h"
 
+#include "fuoteniconprovider.h"
+
 #ifdef QT_DEBUG
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -217,6 +219,8 @@ int main(int argc, char *argv[])
 
 #ifndef CLAZY
     QScopedPointer<QQuickView> view(SailfishApp::createView());
+    QScopedPointer<FuotenIconProvider> fip(new FuotenIconProvider);
+    view->engine()->addImageProvider(QStringLiteral("fuoten"), fip.data());
 #else
     QQuickView *view = new QQuickView();
 #endif

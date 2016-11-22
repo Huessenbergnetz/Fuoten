@@ -92,7 +92,7 @@ Column {
             Image {
                 Layout.preferredWidth: folders ? Theme.iconSizeMedium : Theme.iconSizeSmall
                 Layout.preferredHeight: folders ? Theme.iconSizeMedium : Theme.iconSizeSmall
-                source: (folders ? "image://theme/icon-m-favorite-selected?" : "image://theme/icon-s-favorite?") + (allArticles.highlighted ? (allArticles.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (allArticles.unreadCount ? Theme.primaryColor : Theme.secondaryColor))
+                source: (folders ? "image://fuoten/icon-m-feed?" : "image://fuoten/icon-s-feed?") + (allArticles.highlighted ? (allArticles.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (allArticles.unreadCount ? Theme.primaryColor : Theme.secondaryColor))
             }
 
             Label {

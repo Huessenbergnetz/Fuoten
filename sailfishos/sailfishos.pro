@@ -29,9 +29,13 @@ langfiles.path = $$INSTALL_TRANSLATIONS_DIR
 langfiles.files = ../translations/*.qm
 INSTALLS += langfiles
 
-imgfiles.path = /usr/share/harbour-fuoten/images
-imgfiles.files = images/*
-INSTALLS += imgfiles
+contimgs.path = /usr/share/harbour-fuoten/images/contributors
+contimgs.files = images/contributors/*
+INSTALLS += contimgs
+
+icons.path = /usr/share/harbour-fuoten/images
+icons.files = images/*.png
+INSTALLS += icons
 
 DISTFILES += \
     qml/harbour-fuoten.qml \
@@ -72,4 +76,7 @@ DISTFILES += \
     qml/phone/pages/WebViewPage.qml \
     qml/phone/pages/BaseListView.qml \
     qml/common/parts/SyncPanel.qml
+
+HEADERS += \
+    src/fuoteniconprovider.h
 
