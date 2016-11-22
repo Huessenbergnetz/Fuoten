@@ -21,21 +21,35 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
+import harbour.fuoten 1.0
 import harbour.fuoten.api 1.0
 import "../parts"
 
 Page {
     id: createFeedDialog
 
-    backNavigation: !createFeed.inOperation
+    backNavigation: !createFeed.inOperation && !getItems.inOperation
 
     CreateFeed {
         id: createFeed
         configuration: config
         storage: localstorage
-        onSucceeded: {
-            pageStack.pop()
+    }
+
+    Connections {
+        target: localstorage
+        onCreatedFeed: {
+            getItems.parentId = id
+            getItems.execute()
         }
+    }
+
+    GetItems {
+        id: getItems
+        configuration: config
+        storage: localstorage
+        type: Fuoten.Feed
+        onSucceeded: pageStack.pop()
     }
 
     SilicaFlickable {
