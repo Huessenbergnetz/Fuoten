@@ -151,8 +151,8 @@ SilicaListView {
             text: synchronizer.inOperation
                     //% "Synchronizing"
                   ? qsTrId("fuoten-synchronizing")
-                    //: %1 will contain something like "11 minutes"
-                    //% "Last synchronization: %1 ago"
+                    //: %1 will contain something like "11 minutes ago"
+                    //% "Last synchronization: %1"
                   : qsTrId("fuoten-last-sync-time").arg(baseListViewPullDown.lastSyncString)
         }
     }

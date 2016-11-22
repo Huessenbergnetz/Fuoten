@@ -441,20 +441,23 @@ QString Configuration::getHumanLastSync() const
 {
     qreal td = (qreal)getLastSync().secsTo(QDateTime::currentDateTimeUtc());
 
-    if (td < 60.0) {
-        //% "%n second(s)"
-        return qtTrId("fuoten-seconds", td);
+    if (td <= 10) {
+        //% "just now"
+        return qtTrId("fuoten-just-now");
+    } else if (td < 60.0) {
+        //% "%n second(s) ago"
+        return qtTrId("fuoten-seconds-ago", td);
     } else if (td < 7200.0) {
         long int rtd = lround(td/60.0);
-        //% "%n minute(s)"
-        return qtTrId("fuoten-minutes", rtd);
+        //% "%n minute(s) ago"
+        return qtTrId("fuoten-minutes-ago", rtd);
     } else if (td < 172800.0) {
         long int rtd = lround(td/3600.0);
-        //% "%n hour(s)"
-        return qtTrId("fuoten-hours", rtd);
+        //% "%n hour(s) ago"
+        return qtTrId("fuoten-hours-ago", rtd);
     } else  {
         long int rtd = lround(td/86400.0);
-        //% "%n day(s)"
-        return qtTrId("fuoten-days", rtd);
+        //% "%n day(s) ago"
+        return qtTrId("fuoten-days-ago", rtd);
     }
 }
