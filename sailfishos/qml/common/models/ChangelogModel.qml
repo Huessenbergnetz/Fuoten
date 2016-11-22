@@ -32,7 +32,7 @@ import QtQuick 2.2
 ListModel {
     ListElement {
         version: "0.5.0"
-        date: 1479826664000
+        date: 1479845385000
         entries: [
             ListElement { type: 3; issue: ""; description: "fifth preview release" },
             ListElement { type: 0; issue: "22"; description: "cover information and cover action" },
