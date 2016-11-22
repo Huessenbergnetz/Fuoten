@@ -180,6 +180,7 @@ int main(int argc, char *argv[])
     }
 
     QScopedPointer<Fuoten::SQLiteStorage> sqliteStorage(new Fuoten::SQLiteStorage(dataDir.absoluteFilePath(QStringLiteral("database.sqlite"))));
+    sqliteStorage->setConfiguration(config.data());
     sqliteStorage->init();
 
     QScopedPointer<Fuoten::Synchronizer> synchronizer(new Fuoten::Synchronizer);
