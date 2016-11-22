@@ -12,7 +12,7 @@
         <location line="+28"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+35"/>
         <source>Set up your user account by entering your user name, your password and the host address of the server your ownCloud/Nextcloud is running on. If your ownCloud/Nextcloud is installed in a subdirectory on your server, you have to enter the installation path as well. If your server uses an other port than the default port for HTTP(S), enter it in server port. If you use the standard ports or if you do not know what this is all about, keep the 0 at the server port.</source>
-        <translation type="unfinished"/>
+        <translation>Sæt din brugerkonto op, ved at indtaste dit brugernavn, din adgangskode og adressen på den server din ownCloud / Nextcloud kører på. Hvis din ownCloud / Nextcloud er installeret i en undermappe på din server, skal du også indtaste installationsstien. Hvis din server bruger en anden port end standardporten til HTTP(S), skal du indtaste den under server-port. Hvis du bruger standardporte, eller hvis du ikke ved hvad det er, så lad serverporten være 0.</translation>
     </message>
     <message id="id-user-name">
         <location line="+9"/>
@@ -42,7 +42,7 @@
         <location line="+23"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+21"/>
         <source>Server port</source>
-        <translation type="unfinished"/>
+        <translation>Serverport</translation>
     </message>
     <message id="id-server-path">
         <location line="-11"/>
@@ -60,7 +60,7 @@
         <location line="+2"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+2"/>
         <source>Because the News App requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption.</source>
-        <translation type="unfinished"/>
+        <translation>Da News App kræver at både brugernavn og adgangskode sendes med hver forespørgsel, bør du aktivere denne indstilling for at bruge en krypteret forbindelse, hvis din server understøtter eller kræver kryptering.</translation>
     </message>
     <message id="id-ignore-ssl-errs-text">
         <location line="+13"/>
@@ -72,12 +72,11 @@
         <location line="+2"/>
         <location filename="../sailfishos/qml/common/wizard/Account.qml" line="+2"/>
         <source>Only ignore SSL errors when you really know what you are doing. Ignoring SSL errors is a big security risk.</source>
-        <translation type="unfinished"/>
+        <translation>Ignorer kun SSL-fejl, hvis du ved hvad du laver. Du løber en stor sikkerhedsrisiko.</translation>
     </message>
     <message id="id-settings">
         <location filename="../sailfishos/qml/common/pages/Settings.qml" line="-8"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+72"/>
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+75"/>
+        <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="+103"/>
         <location filename="../sailfishos/qml/tablet/pages/MainPage.qml" line="+39"/>
         <source>Settings</source>
         <translation>Indstillinger</translation>
@@ -86,7 +85,7 @@
         <location filename="../sailfishos/qml/common/parts/AccountItem.qml" line="+75"/>
         <source>Your account is not or improperly configured. Click here to configure your account.</source>
         <oldsource>You account is not or improperly configured. Click here to configure your account.</oldsource>
-        <translation type="unfinished"/>
+        <translation>Din konto er forkert, eller slet ikke indstillet. Tryk her for at indstille din konto.</translation>
     </message>
     <message id="id-settings-version">
         <location line="+67"/>
@@ -125,7 +124,7 @@
         <translation>For at skifte sprog, skal du genstarte programmet.</translation>
     </message>
     <message id="fuoten-add-feed">
-        <location filename="../sailfishos/qml/common/dialogs/CreateFeedDialog.qml" line="+54"/>
+        <location filename="../sailfishos/qml/common/dialogs/CreateFeedDialog.qml" line="+68"/>
         <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+45"/>
         <source>Add feed</source>
         <translation>Tilføj feed</translation>
@@ -133,22 +132,22 @@
     <message id="fuoten-feed-address">
         <location line="+7"/>
         <source>Feed address</source>
-        <translation type="unfinished"/>
+        <translation>Feedadresse</translation>
     </message>
     <message id="fuoten-mainview-settings">
         <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+20"/>
         <source>Main view settings</source>
-        <translation type="unfinished"/>
+        <translation>Layout af hovedvisning</translation>
     </message>
     <message id="id-main-content-choser-label">
         <location filename="../sailfishos/qml/common/pages/Settings.qml" line="+21"/>
         <source>Main view content</source>
-        <translation type="unfinished"/>
+        <translation>Indhold af hovedvisning</translation>
     </message>
     <message id="id-main-content-choser-desc">
         <location line="+2"/>
         <source>Choose the content to display on the first application page.</source>
-        <translation type="unfinished"/>
+        <translation>Vælg det indhold der skal vises på den første programside.</translation>
     </message>
     <message id="id-feeds">
         <location line="+4"/>
@@ -162,8 +161,7 @@
     </message>
     <message id="id-about">
         <location filename="../sailfishos/qml/common/pages/About.qml" line="+29"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="-7"/>
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="-7"/>
+        <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="-7"/>
         <location filename="../sailfishos/qml/tablet/pages/MainPage.qml" line="-5"/>
         <source>About</source>
         <translation>Information</translation>
@@ -196,7 +194,7 @@
     <message id="btsfoscmops-desc">
         <location line="+2"/>
         <source>BT SFOS Components are a set of QML components for Sailfish OS.</source>
-        <translation type="unfinished"/>
+        <translation>BT SFOS Components er et sæt QML-komponenter til SailfishOS.</translation>
     </message>
     <message id="fuoten-author-role">
         <location filename="../sailfishos/qml/common/models/ContributorsModel.qml" line="+56"/>
@@ -207,12 +205,12 @@
     <message id="fuoten-author-section">
         <location line="+2"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Udvikler</translation>
     </message>
     <message id="fuoten-eson-role">
         <location line="+3"/>
         <source>Swedish translation</source>
-        <translation type="unfinished"/>
+        <translation>Svensk oversættelse</translation>
     </message>
     <message id="fuoten-flywheeldk-role">
         <location line="+5"/>
@@ -233,7 +231,7 @@
     <message id="fuoten-privacy-1">
         <location line="+2"/>
         <source>In order to log in to your ownCloud/Nextcloud server, Fuoten collects the server address, your user name and your password. These information is only saved on your device and is not given to the author of Fuoten or other third parties.</source>
-        <translation type="unfinished"/>
+        <translation>For at logge ind på din ownCloud / Nextcloud server, indsamler Fuoten serveradressen, dit brugernavn og din adgangskode. Disse oplysninger er kun gemt på din enhed og bliver ikke givet til udvikleren af ​​Fuoten eller tredjepart.</translation>
     </message>
     <message id="fuoten-privacy-2">
         <location line="+2"/>
@@ -243,7 +241,7 @@
     <message id="fuoten-privacy-3">
         <location line="+2"/>
         <source>Fuoten needs your log in data to connect to your ownCloud/Nextcloud server. Your login data is used to grant Fuoten access to the News App API to perform the tasks of synchronizing your ownCloud/Nextcloud News App data with your device.</source>
-        <translation type="unfinished"/>
+        <translation>Fuoten har brug for din login-data til at oprette forbindelse til din ownCloud / Nextcloud server. Din login-data bliver brugt til at give Fuoten adgang til News App API for at ajourføre dine ownCloud / Nextcloud News App data med enheden.</translation>
     </message>
     <message id="fuoten-privacy-4">
         <location line="+2"/>
@@ -258,12 +256,12 @@
     <message id="fuoten-privacy-6">
         <location line="+2"/>
         <source>Third party links</source>
-        <translation type="unfinished"/>
+        <translation>Tredjepartsreferancer</translation>
     </message>
     <message id="fuoten-privacy-7">
         <location line="+2"/>
         <source>Fuoten is a cloud based RSS/Atom feed reader. The links to websites directly included in the application have been checked for legality. Showing feed content and/or opening feed link addresses is in the user&apos;s responsibility. For questions concerning the privacy of the used feed content and/or website content you have to contact the feed provider.</source>
-        <translation type="unfinished"/>
+        <translation>Fuoten er en cloudbaseret RSS / Atom-feed nyhedslæser. De hjemmesidereferancer der er inkluderet i selve programmet er kontrolleret af udvikleren. Visning af feedindhold og/eller åbning af hjemmesidereferancer fra feeds, er brugerens eget ansvar. For spørgsmål vedrørende privatlivspolitik i forbindelse med feedindhold, skal du kontakte feedudbyderen. </translation>
     </message>
     <message id="fuoten-privacy-8">
         <location line="+2"/>
@@ -295,7 +293,7 @@
     <message id="fuoten-wizard-finish">
         <location line="+22"/>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>Afslut</translation>
     </message>
     <message id="fuoten-welcome">
         <location filename="../sailfishos/qml/common/wizard/Welcome.qml" line="-29"/>
@@ -305,43 +303,37 @@
     <message id="fuoten-welcome-privacy-consent">
         <location line="+15"/>
         <source>By using Fuoten, you consent to the following privacy policy.</source>
-        <translation type="unfinished"/>
+        <translation>Ved at bruge Fuoten, accepterer du følgende privatlivspolitik.</translation>
     </message>
     <message id="fuoten-mark-all-read">
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+106"/>
+        <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="+33"/>
         <source>Mark all as read</source>
         <translation>Markér alle som læst</translation>
     </message>
     <message id="fuoten-marking-all-read">
         <location line="+2"/>
         <source>Marking all read</source>
-        <translation type="unfinished"/>
+        <translation>Markér alle som læste</translation>
     </message>
     <message id="fuoten-hide-search">
         <location line="+6"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+24"/>
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+15"/>
         <source>Hide search</source>
         <translation>Skjul søgelinie</translation>
     </message>
     <message id="fuoten-show-search">
         <location line="+2"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+2"/>
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+2"/>
         <source>Show search</source>
-        <translation>Vis søgning</translation>
+        <translation>Vis søgelinie</translation>
     </message>
     <message id="fuoten-synchronize">
         <location line="+6"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+6"/>
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+6"/>
         <location filename="../sailfishos/qml/tablet/pages/MainPage.qml" line="+10"/>
         <source>Synchronize</source>
-        <translation type="unfinished"/>
+        <translation>Ajourfør</translation>
     </message>
     <message id="fuoten-mark-item-as-read">
         <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+59"/>
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+216"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+244"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+65"/>
         <source>Mark as read</source>
         <translation>Markér som læst</translation>
@@ -351,13 +343,13 @@
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+2"/>
         <source>Mark as unread</source>
-        <translation type="unfinished"/>
+        <translation>Markér som ulæste</translation>
     </message>
     <message id="fuoten-copy-url">
         <location line="+6"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+7"/>
         <source>Copy URL</source>
-        <translation type="unfinished"/>
+        <translation>Kopiér webadresse</translation>
     </message>
     <message id="fuoten-open-in-browser">
         <location line="+6"/>
@@ -369,59 +361,57 @@
     <message id="fuoten-scroll-to-top">
         <location line="-5"/>
         <source>Scroll to top</source>
-        <translation type="unfinished"/>
+        <translation>Rul til toppen</translation>
     </message>
     <message id="fuoten-remove-from-favorites">
         <location line="-32"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+6"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="-25"/>
         <source>Remove from favorites</source>
-        <translation type="unfinished"/>
+        <translation>Fjern fra favoritter</translation>
     </message>
     <message id="fuoten-add-to-favorites">
         <location line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+2"/>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Tilføj til favoritter</translation>
     </message>
     <message id="fuoten-no-articles-found">
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+23"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-220"/>
         <source>No articles found</source>
         <translation>Ingen artikler fundet</translation>
     </message>
     <message id="fuoten-no-content-found-hint">
-        <location line="+2"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+76"/>
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+163"/>
+        <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="+44"/>
         <source>Synchronize your data or check your filter settings.</source>
-        <translation type="unfinished"/>
+        <translation>Ajourfør din data eller kontrollér dine filterindstillinger.</translation>
     </message>
     <message id="fuoten-feeds-count" numerus="yes">
         <location filename="../sailfishos/qml/common/parts/ListPageHeader.qml" line="+56"/>
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="-80"/>
+        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+102"/>
         <source>%n feed(s)</source>
         <oldsource>%n Feed(s)</oldsource>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n feed</numerusform><numerusform>%n feeds</numerusform></translation>
     </message>
     <message id="fuoten-unread-articles-with-count" numerus="yes">
         <location line="-3"/>
         <location line="+6"/>
         <source>%n unread article(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n ulæst artikel</numerusform><numerusform>%n ulæste artikler</numerusform></translation>
     </message>
     <message id="fuoten-all-articles">
         <location line="+42"/>
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-317"/>
-        <location line="+86"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+14"/>
+        <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="-130"/>
         <source>All articles</source>
         <translation>Alle artikler</translation>
     </message>
     <message id="fuoten-mark-feed-read">
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-44"/>
+        <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="+61"/>
         <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="+108"/>
         <source>Mark feed read</source>
-        <translation type="unfinished"/>
+        <translation>Markér feed som læst</translation>
     </message>
     <message id="fuoten-deleting">
         <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="-14"/>
@@ -435,63 +425,61 @@
         <translation>Fjern feed</translation>
     </message>
     <message id="fuoten-marking-read">
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-6"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="-90"/>
+        <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="-6"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+5"/>
         <source>Marking %1 read</source>
-        <translation type="unfinished"/>
+        <translation>Markér %1 læst</translation>
     </message>
     <message id="fuoten-mark-folder-read">
         <location line="-3"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="-3"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+14"/>
         <source>Mark folder read</source>
         <translation>Markér mappe som læst</translation>
     </message>
     <message id="fuoten-synchronizing">
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="-116"/>
+        <location filename="../sailfishos/qml/phone/cover/CoverPage.qml" line="+83"/>
+        <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="+42"/>
         <source>Synchronizing</source>
-        <translation type="unfinished"/>
+        <translation>Ajourfører</translation>
     </message>
     <message id="fuoten-last-sync-time">
-        <location line="+3"/>
-        <source>Last synchronization: %1 ago</source>
-        <extracomment>%1 will contain something like &quot;11 minutes&quot;</extracomment>
+        <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="+3"/>
+        <source>Last synchronization: %1</source>
+        <oldsource>Last synchronization: %1 ago</oldsource>
+        <extracomment>%1 will contain something like &quot;11 minutes ago&quot;</extracomment>
         <translation type="unfinished"/>
     </message>
     <message id="fuoten-delete-folder">
-        <location line="+120"/>
+        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+7"/>
         <source>Delete folder</source>
         <translation>Sletter mapper</translation>
     </message>
     <message id="fuoten-invalid-account">
-        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+81"/>
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+20"/>
+        <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="+23"/>
         <source>Invalid account configuration</source>
-        <translation type="unfinished"/>
+        <translation>Ugyldige kontoindstillinger</translation>
     </message>
     <message id="fuoten-invalid-account-hint">
         <location line="+2"/>
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+2"/>
         <source>Open the settings to configure your account</source>
         <translation>Åben kontoindstillinger</translation>
     </message>
     <message id="fuoten-no-feeds-found">
-        <location line="+8"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedsListView.qml" line="+35"/>
         <source>No feeds found</source>
         <translation>Ingen feeds fundet</translation>
     </message>
     <message id="fuoten-no-folders-found">
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+8"/>
+        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="-116"/>
         <source>No folders found</source>
         <translation>Ingen mapper fundet</translation>
     </message>
     <message id="fuoten-starred-articles">
         <location filename="../sailfishos/qml/common/parts/ListPageHeader.qml" line="+33"/>
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-31"/>
-        <location line="+87"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+3"/>
+        <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="-120"/>
         <source>Starred articles</source>
-        <translation type="unfinished"/>
+        <translation>Favoritartikler</translation>
     </message>
     <message id="fuoten-hide-read-label">
         <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+127"/>
@@ -501,7 +489,7 @@
     <message id="fuoten-hide-read-desc">
         <location line="+2"/>
         <source>Depending on the context, feeds or folders with zero unread articles or unread articles itself will be hidden.</source>
-        <translation type="unfinished"/>
+        <translation>Afhængigt af kontekst, vil feeds eller mapper uden ulæste artikler eller ulæste artikler selv blive skjult.</translation>
     </message>
     <message id="fuoten-sort-by-label">
         <location line="-108"/>
@@ -516,12 +504,12 @@
     <message id="fuoten-articles-list-settings">
         <location line="+2"/>
         <source>Articles list settings</source>
-        <translation type="unfinished"/>
+        <translation>Indstillinger for artikelliste</translation>
     </message>
     <message id="fuoten-sort-by-desc">
         <location line="+18"/>
         <source>Choose the role you want to sort the content by.</source>
-        <translation type="unfinished"/>
+        <translation>Vælg den metode du vil sortere indhold efter.</translation>
     </message>
     <message id="fuoten-sort-database-id">
         <location line="+4"/>
@@ -536,7 +524,7 @@
     <message id="fuoten-sort-time">
         <location line="+5"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Tid</translation>
     </message>
     <message id="fuoten-sort-unread-count">
         <location line="+6"/>
@@ -546,77 +534,125 @@
     <message id="fuoten-sort-feed-count">
         <location line="+5"/>
         <source>Feed count</source>
-        <translation type="unfinished"/>
+        <translation>Antal feeds</translation>
     </message>
     <message id="fuoten-open-in-label">
         <location line="+21"/>
         <source>Open articles</source>
         <oldsource>Open articles in</oldsource>
-        <translation type="unfinished"/>
+        <translation>Åben artikler</translation>
     </message>
     <message id="fuoten-open-in-desc">
         <location line="+2"/>
         <source>Choose the way you want to open articles.</source>
-        <translation type="unfinished"/>
+        <translation>Vælg hvordan du vil have åbnet artiklerne.</translation>
     </message>
     <message id="fuoten-open-article-internal">
         <location line="+4"/>
         <source>Internal</source>
-        <translation type="unfinished"/>
+        <translation>Intern</translation>
     </message>
     <message id="fuoten-open-article-webview">
         <location line="+5"/>
         <source>Internal web view</source>
-        <translation type="unfinished"/>
+        <translation>Intern netlæser</translation>
     </message>
     <message id="fuoten-open-article-external">
         <location line="+5"/>
         <source>External browser</source>
-        <translation type="unfinished"/>
+        <translation>Ekstern netlæser</translation>
     </message>
     <message id="fuoten-sort-descending-label">
         <location line="+19"/>
         <source>Sort descending</source>
-        <translation type="unfinished"/>
+        <translation>Sorter faldende</translation>
     </message>
     <message id="fuoten-sort-descending-desc">
         <location line="+2"/>
         <source>If enabled, depending on the context, the feeds, folders or articles will be sorted in descending order.</source>
-        <translation type="unfinished"/>
+        <translation>Hvis aktiveret, afhængigt af sammenhængen, vil feeds, mapper eller artikler blive sorteret i faldende rækkefølge.</translation>
     </message>
     <message id="fuoten-sortbyfolder-label">
         <location line="+39"/>
         <source>Sort by folder</source>
-        <translation type="unfinished"/>
+        <translation>Sortér efter mappe</translation>
     </message>
     <message id="fuoten-sortbyfolder-desc">
         <location line="+2"/>
         <source>Sort the feeds in the list by their folder.</source>
-        <translation type="unfinished"/>
+        <translation>Sortér feeds i listen efter deres folder.</translation>
     </message>
     <message id="fuoten-respect-pinned-label">
         <location line="+16"/>
         <source>Respect pinned</source>
-        <translation type="unfinished"/>
+        <translation>Anvend klæbrig</translation>
     </message>
     <message id="fuoten-respect-pinned-desc">
         <location line="+2"/>
         <source>Use the pinned status of feeds to show pinned feeds before not pinned feeds.</source>
-        <translation type="unfinished"/>
+        <translation>Brug klæbrig feedstatus til at vise klæbrige feeds først.</translation>
     </message>
     <message id="fuoten-show-excerpt-label">
         <location line="+16"/>
         <source>Show excerpt</source>
-        <translation type="unfinished"/>
+        <translation>Vis uddrag</translation>
     </message>
     <message id="fuoten-show-excerpt-desc">
         <location line="+2"/>
         <source>Shows some lines of the article content in the article list.</source>
-        <translation type="unfinished"/>
+        <translation>Vis et par linier af artikelindholdet i artikellisten.</translation>
+    </message>
+    <message id="fuoten-articles-cleanup">
+        <location line="+21"/>
+        <source>Articles cleanup</source>
+        <translation>Ryd op i artikler</translation>
+    </message>
+    <message id="fuoten-articles-no-cleanup-desc">
+        <location line="+3"/>
+        <source>Articles will never be cleaned up.</source>
+        <translation>Artikler vil aldrig blive ryddet op.</translation>
+    </message>
+    <message id="fuoten-articles-cleanup-time-desc" numerus="yes">
+        <location line="+3"/>
+        <source>Articles will be deleted if they have been published more than %n days ago. Set the number of days in the next input field.</source>
+        <oldsource>Articles will be deleted if they have been published more than n days ago. Set the number of days in the next input field.</oldsource>
+        <translation><numerusform>Artikler der er blevet publiceret for mere end %n dage siden, vil blive slettet. Sæt antal dage i det næste indtastningsfelt.</numerusform><numerusform>Artikler der er blevet publiceret for mere end %n dage siden, vil blive slettet. Sæt antal dage i det næste indtastningsfelt.</numerusform></translation>
+    </message>
+    <message id="fuoten-articles-cleanup-count-desc" numerus="yes">
+        <location line="+2"/>
+        <source>Articles will be deleted if there are more than %n articles in the local storage. Set the number in the next input field.</source>
+        <oldsource>Articles will be deleted if there are more than the defined number of articles in the local storage. Set the number in the next input field.</oldsource>
+        <translation><numerusform>Artikler vil blive slettet, hvis der er gemt mere end %n artikler i det lokale lager. Indstil antallet i næste indtastningsfelt.</numerusform><numerusform>Artikler vil blive slettet, hvis der er gemt mere end %n artikler i det lokale lager. Indstil antallet i næste indtastningsfelt.</numerusform></translation>
+    </message>
+    <message id="fuoten-articles-no-cleanup">
+        <location line="+4"/>
+        <source>No cleanup</source>
+        <translation>Ingen oprydning</translation>
+    </message>
+    <message id="fuoten-articles-cleanup-time">
+        <location line="+5"/>
+        <source>By time</source>
+        <translation>Eftet tid</translation>
+    </message>
+    <message id="fuoten-articles-cleanup-count">
+        <location line="+5"/>
+        <source>By count</source>
+        <translation>Efter antal</translation>
+    </message>
+    <message id="fuoten-articles-cleanup-days">
+        <location line="+21"/>
+        <source>Days old</source>
+        <oldsource>Days ago</oldsource>
+        <translation>Dage gammel</translation>
+    </message>
+    <message id="fuoten-articles-cleanup-number">
+        <location line="+2"/>
+        <source>Count to keep</source>
+        <translation>Antal der beholdes</translation>
     </message>
     <message id="fuoten-create-folder">
         <location filename="../sailfishos/qml/common/dialogs/CreateFolderDialog.qml" line="+54"/>
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-208"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-274"/>
         <source>Create folder</source>
         <translation>Opret folder</translation>
     </message>
@@ -628,7 +664,7 @@
     </message>
     <message id="fuoten-rename-folder">
         <location filename="../sailfishos/qml/common/dialogs/RenameFolderDialog.qml" line="-15"/>
-        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="-43"/>
+        <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+103"/>
         <source>Rename folder</source>
         <translation>Omdøb mappe</translation>
     </message>
@@ -652,7 +688,7 @@
         <location filename="../sailfishos/qml/common/dialogs/MoveFeedDialog.qml" line="+64"/>
         <location filename="../sailfishos/qml/common/parts/FoldersComboBox.qml" line="+5"/>
         <source>-- No folder --</source>
-        <translation type="unfinished"/>
+        <translation>-- Ingen mappe --</translation>
     </message>
     <message id="fuoten-move-feed">
         <location line="-17"/>
@@ -663,36 +699,46 @@
     <message id="fuoten-current-folder-label">
         <location line="+14"/>
         <source>Current folder: %1</source>
-        <translation type="unfinished"/>
+        <translation>Nuværende mappe: %1</translation>
     </message>
     <message id="fuoten-target-folder">
         <location line="+11"/>
         <source>Target folder</source>
-        <translation type="unfinished"/>
+        <translation>Målmappe</translation>
     </message>
     <message id="fuoten-back">
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+29"/>
         <source>Back</source>
         <translation>Tilbage</translation>
     </message>
-    <message id="fuoten-seconds" numerus="yes">
-        <location filename="../common/configuration.cpp" line="+434"/>
-        <source>%n second(s)</source>
+    <message id="fuoten-unread-articles">
+        <location filename="../sailfishos/qml/phone/cover/CoverPage.qml" line="-28"/>
+        <source>Unread articles</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-just-now">
+        <location filename="../common/configuration.cpp" line="+446"/>
+        <source>just now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-seconds-ago" numerus="yes">
+        <location line="+3"/>
+        <source>%n second(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
-    <message id="fuoten-minutes" numerus="yes">
+    <message id="fuoten-minutes-ago" numerus="yes">
         <location line="+4"/>
-        <source>%n minute(s)</source>
+        <source>%n minute(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
-    <message id="fuoten-hours" numerus="yes">
+    <message id="fuoten-hours-ago" numerus="yes">
         <location line="+4"/>
-        <source>%n hour(s)</source>
+        <source>%n hour(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
-    <message id="fuoten-days" numerus="yes">
+    <message id="fuoten-days-ago" numerus="yes">
         <location line="+4"/>
-        <source>%n day(s)</source>
+        <source>%n day(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
