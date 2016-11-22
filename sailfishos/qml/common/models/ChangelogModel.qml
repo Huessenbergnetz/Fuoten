@@ -31,6 +31,19 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.5.0"
+        date: 1479826664000
+        entries: [
+            ListElement { type: 3; issue: ""; description: "fifth preview release" },
+            ListElement { type: 0; issue: "22"; description: "cover information and cover action" },
+            ListElement { type: 0; issue: "26"; description: "per feed storage cleanup" },
+            ListElement { type: 0; issue: "28"; description: "notification and progress area" },
+            ListElement { type: 1; issue: "33"; description: "feed icon" },
+            ListElement { type: 1; issue: "29"; description: "request items after adding feed" }
+        ]
+    }
+
+    ListElement {
         version: "0.4.0"
         date: 1478792919000
         entries: [

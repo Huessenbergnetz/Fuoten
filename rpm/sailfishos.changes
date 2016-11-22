@@ -8,6 +8,14 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Tue Nov 22 2016 Matthias Fehring <kontakt@buschmann23.de> 0.5.0-1
+- info: fifth preview release
+- new: cover information and cover action (#22)
+- new: per feed storage cleanup (#26)
+- new: notification and progress area (#28)
+- improved: feed icon (#33)
+- improved: request items after adding feed (#29)
+
 * Thu Nov 10 2016 Matthias Fehring <kontakt@buschmann23.de> 0.4.0-1
 - info: fourth preview release
 - new: show last sync time in pull down menu (#24)
