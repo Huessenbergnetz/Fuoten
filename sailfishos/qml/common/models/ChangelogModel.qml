@@ -39,7 +39,8 @@ ListModel {
             ListElement { type: 0; issue: "26"; description: "per feed storage cleanup" },
             ListElement { type: 0; issue: "28"; description: "notification and progress area" },
             ListElement { type: 1; issue: "33"; description: "feed icon" },
-            ListElement { type: 1; issue: "29"; description: "request items after adding feed" }
+            ListElement { type: 1; issue: "29"; description: "request items after adding feed" },
+            ListElement { type: 1; issue: ""; description: "translation updates" }
         ]
     }
 
