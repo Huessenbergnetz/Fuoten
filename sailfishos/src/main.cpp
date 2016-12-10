@@ -67,7 +67,9 @@
 #include "../../common/contextconfig.h"
 #include "../../common/imagecache.h"
 
+#ifndef CLAZY
 #include "fuoteniconprovider.h"
+#endif
 
 #ifdef QT_DEBUG
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
