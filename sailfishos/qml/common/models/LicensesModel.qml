@@ -27,7 +27,7 @@ ListModel {
     ListElement {
         name: "libfuoten"
         author: "Buschtrommel/Matthias Fehring"
-        version: "0.4.1"
+        version: "0.5.1"
         license: "GNU Lesser General Public License, Version 3"
         licenseFile: "LGPLv3.qml"
         website: "https://github.com/Buschtrommel/libfuoten"
@@ -37,7 +37,7 @@ ListModel {
     ListElement {
         name: "BT SFOS Components"
         author: "Buschtrommel/Matthias Fehring"
-        version: "1.0.4"
+        version: "1.0.5"
         license: "Modified BSD License"
         licenseFile: "BSD-3.qml"
         website: "https://github.com/Buschtrommel/BT_SFOS_Components"

@@ -31,6 +31,16 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.5.1"
+        date: 1485686712000
+        entries: [
+            ListElement { type: 3; issue: ""; description: "maintenance update for fifth preview release" },
+            ListElement { type: 2; issue: "34"; description: "clicking a link in an articles does nothing" },
+            ListElement { type: 1; issue: ""; description: "translation updates" }
+        ]
+    }
+
+    ListElement {
         version: "0.5.0"
         date: 1479845385000
         entries: [

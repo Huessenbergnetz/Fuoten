@@ -8,6 +8,11 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sun Jan 29 2017 Matthias Fehring <kontakt@buschmann23.de> 0.5.1-1
+- info: maintenance for fifth preview release
+- fixed: links not working on article page (#34)
+- improved: translation updates
+
 * Tue Nov 22 2016 Matthias Fehring <kontakt@buschmann23.de> 0.5.0-1
 - info: fifth preview release
 - new: cover information and cover action (#22)
