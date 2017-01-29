@@ -181,6 +181,7 @@ Page {
             anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin; top: headerCol.bottom }
             color: Theme.primaryColor
             Component.onCompleted: text = localstorage.getArticleBody(article.id)
+            onLinkActivated: Qt.openUrlExternally(link)
         }
     }
 }
