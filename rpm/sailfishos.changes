@@ -8,6 +8,11 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sun Mar 19 2017 Matthias Fehring <kontakt@buschmann23.de> 0.5.2-1
+- info: maintenance for fifth preview release
+- new: Dutch translation by Nathan Follens
+- fixed: scroll to top does not work on article view (#35)
+
 * Sun Jan 29 2017 Matthias Fehring <kontakt@buschmann23.de> 0.5.1-1
 - info: maintenance for fifth preview release
 - fixed: links not working on article page (#34)
