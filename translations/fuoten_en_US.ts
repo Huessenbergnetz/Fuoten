@@ -197,7 +197,7 @@
         <translation type="unfinished"/>
     </message>
     <message id="fuoten-author-role">
-        <location filename="../sailfishos/qml/common/models/ContributorsModel.qml" line="+56"/>
+        <location filename="../sailfishos/qml/common/models/ContributorsModel.qml" line="+62"/>
         <source>Main developer, Fuoten creator</source>
         <oldsource>Main developer, Gibrievida creator</oldsource>
         <translation type="unfinished"/>
@@ -212,14 +212,24 @@
         <source>Swedish translation</source>
         <translation type="unfinished"/>
     </message>
-    <message id="fuoten-flywheeldk-role">
+    <message id="fuoten-nathanfollens-role">
         <location line="+5"/>
+        <source>Dutch translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-nathanfollens-section">
+        <location line="+2"/>
+        <source>Thanks to</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-flywheeldk-role">
+        <location line="+3"/>
         <source>Danish translation</source>
         <translation type="unfinished"/>
     </message>
     <message id="fuotn-thanks-to-section">
-        <location line="-3"/>
-        <location line="+5"/>
+        <location line="-8"/>
+        <location line="+10"/>
         <source>Thanks to</source>
         <translation type="unfinished"/>
     </message>
@@ -353,13 +363,13 @@
     </message>
     <message id="fuoten-open-in-browser">
         <location line="+6"/>
-        <location line="+14"/>
+        <location line="+15"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+7"/>
         <source>Open in browser</source>
         <translation type="unfinished"/>
     </message>
     <message id="fuoten-scroll-to-top">
-        <location line="-5"/>
+        <location line="-6"/>
         <source>Scroll to top</source>
         <translation type="unfinished"/>
     </message>
@@ -437,7 +447,7 @@
         <translation type="unfinished"/>
     </message>
     <message id="fuoten-synchronizing">
-        <location filename="../sailfishos/qml/phone/cover/CoverPage.qml" line="+83"/>
+        <location filename="../sailfishos/qml/phone/cover/CoverPage.qml" line="+80"/>
         <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="+42"/>
         <source>Synchronizing</source>
         <translation type="unfinished"/>

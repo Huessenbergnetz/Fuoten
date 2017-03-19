@@ -197,7 +197,7 @@
         <translation>BT SFOS Components zijn een verzameling QML-onderdelen voor Sailfish OS.</translation>
     </message>
     <message id="fuoten-author-role">
-        <location filename="../sailfishos/qml/common/models/ContributorsModel.qml" line="+56"/>
+        <location filename="../sailfishos/qml/common/models/ContributorsModel.qml" line="+62"/>
         <source>Main developer, Fuoten creator</source>
         <oldsource>Main developer, Gibrievida creator</oldsource>
         <translation>Hoofdontwikkelaar, maker van Fuoten</translation>
@@ -212,14 +212,24 @@
         <source>Swedish translation</source>
         <translation>Zweedse vertaling</translation>
     </message>
-    <message id="fuoten-flywheeldk-role">
+    <message id="fuoten-nathanfollens-role">
         <location line="+5"/>
+        <source>Dutch translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-nathanfollens-section">
+        <location line="+2"/>
+        <source>Thanks to</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-flywheeldk-role">
+        <location line="+3"/>
         <source>Danish translation</source>
         <translation>Deense vertaling</translation>
     </message>
     <message id="fuotn-thanks-to-section">
-        <location line="-3"/>
-        <location line="+5"/>
+        <location line="-8"/>
+        <location line="+10"/>
         <source>Thanks to</source>
         <translation>Met dank aan</translation>
     </message>
@@ -353,13 +363,13 @@
     </message>
     <message id="fuoten-open-in-browser">
         <location line="+6"/>
-        <location line="+14"/>
+        <location line="+15"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+7"/>
         <source>Open in browser</source>
         <translation>Openen in browser</translation>
     </message>
     <message id="fuoten-scroll-to-top">
-        <location line="-5"/>
+        <location line="-6"/>
         <source>Scroll to top</source>
         <translation>Scroll naar boven</translation>
     </message>
