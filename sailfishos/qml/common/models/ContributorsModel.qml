@@ -41,6 +41,12 @@ ListModel {
     }
 
     ListElement {
+        name: "Nathan Follens"
+        role: ""
+        section: ""
+    }
+
+    ListElement {
         name: "Peter Jespersen (Flywheeldk)"
         role: ""
         section: ""
@@ -62,10 +68,15 @@ ListModel {
         //% "Thanks to"
         contModel.get(1).section = qsTrId("fuotn-thanks-to-section")
 
-        //% "Danish translation"
-        contModel.get(2).role = qsTrId("fuoten-flywheeldk-role")
+        //% "Dutch translation"
+        contModel.get(2).role = qsTrId("fuoten-nathanfollens-role")
         //% "Thanks to"
-        contModel.get(2).section = qsTrId("fuotn-thanks-to-section")
+        contModel.get(2).section = qsTrId("fuoten-nathanfollens-section")
+
+        //% "Danish translation"
+        contModel.get(3).role = qsTrId("fuoten-flywheeldk-role")
+        //% "Thanks to"
+        contModel.get(3).section = qsTrId("fuotn-thanks-to-section")
     }
 }
 
