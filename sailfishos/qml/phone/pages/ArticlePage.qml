@@ -81,6 +81,7 @@ Page {
                 //% "Scroll to top"
                 text: qsTrId("fuoten-scroll-to-top")
                 visible: articleFlick.contentHeight > articleFlick.height
+                onClicked: articleFlick.scrollToTop()
             }
             MenuItem {
                 //% "Open in browser"
