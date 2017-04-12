@@ -215,12 +215,12 @@
     <message id="fuoten-nathanfollens-role">
         <location line="+5"/>
         <source>Dutch translation</source>
-        <translation type="unfinished"/>
+        <translation>Hollandsk oversættelse</translation>
     </message>
     <message id="fuoten-nathanfollens-section">
         <location line="+2"/>
         <source>Thanks to</source>
-        <translation type="unfinished"/>
+        <translation>Tak til</translation>
     </message>
     <message id="fuoten-flywheeldk-role">
         <location line="+3"/>
