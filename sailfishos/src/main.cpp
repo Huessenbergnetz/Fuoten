@@ -154,17 +154,17 @@ int main(int argc, char *argv[])
 #ifndef CLAZY
     const QString l10nDir = SailfishApp::pathTo(QStringLiteral("l10n")).toString(QUrl::RemoveScheme);
     QTranslator *appTrans = new QTranslator(app.data());
-    if (appTrans->load(QLocale(), QStringLiteral("fuoten"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm"))) {
+    if (Q_LIKELY(appTrans->load(QLocale(), QStringLiteral("fuoten"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm")))) {
         app->installTranslator(appTrans);
     }
 
     QTranslator *libTrans = new QTranslator(app.data());
-    if (libTrans->load(QLocale(), QStringLiteral("libfuoten"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm"))) {
+    if (Q_LIKELY(libTrans->load(QLocale(), QStringLiteral("libfuoten"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm")))) {
         app->installTranslator(libTrans);
     }
 
     QTranslator *btscTrans = new QTranslator(app.data());
-    if (btscTrans->load(QLocale(), QStringLiteral("btsc"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm"))) {
+    if (Q_LIKELY(btscTrans->load(QLocale(), QStringLiteral("btsc"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm")))) {
         app->installTranslator(btscTrans);
     }
 #endif
@@ -172,13 +172,13 @@ int main(int argc, char *argv[])
     QDir dataDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
     QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
 
-    if (!dataDir.exists()) {
+    if (Q_UNLIKELY(!dataDir.exists())) {
         if (!dataDir.mkpath(dataDir.absolutePath())) {
             qFatal("Failed to create data directory.");
         }
     }
 
-    if (!cacheDir.exists()) {
+    if (Q_UNLIKELY(!cacheDir.exists())) {
         if (!cacheDir.mkpath(cacheDir.absolutePath())) {
             qFatal("Failed to create cache directory.");
         }
