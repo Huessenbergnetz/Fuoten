@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en_GB" sourcelanguage="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="el" sourcelanguage="en" version="2.1">
 <context>
     <name/>
     <message id="id-user-account">
@@ -407,13 +407,13 @@
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+102"/>
         <source>%n feed(s)</source>
         <oldsource>%n Feed(s)</oldsource>
-        <translation><numerusform>%n feed</numerusform><numerusform>%n feeds</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message id="fuoten-unread-articles-with-count" numerus="yes">
         <location line="-3"/>
         <location line="+6"/>
         <source>%n unread article(s)</source>
-        <translation><numerusform>%n unread article</numerusform><numerusform>%n unread articles</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message id="fuoten-all-articles">
         <location line="+42"/>
@@ -631,13 +631,13 @@
         <location line="+3"/>
         <source>Articles will be deleted if they have been published more than %n days ago. Set the number of days in the next input field.</source>
         <oldsource>Articles will be deleted if they have been published more than n days ago. Set the number of days in the next input field.</oldsource>
-        <translation><numerusform>Articles will be deleted if they have been published more than %n day ago. Set the number of days in the next input field.</numerusform><numerusform>Articles will be deleted if they have been published more than %n days ago. Set the number of days in the next input field.</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message id="fuoten-articles-cleanup-count-desc" numerus="yes">
         <location line="+2"/>
         <source>Articles will be deleted if there are more than %n articles in the local storage. Set the number in the next input field.</source>
         <oldsource>Articles will be deleted if there are more than the defined number of articles in the local storage. Set the number in the next input field.</oldsource>
-        <translation><numerusform>Articles will be deleted if there is more than %n article in the local storage. Set the number in the next input field.</numerusform><numerusform>Articles will be deleted if there are more than %n articles in the local storage. Set the number in the next input field.</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message id="fuoten-articles-no-cleanup">
         <location line="+4"/>
@@ -739,22 +739,22 @@
     <message id="fuoten-seconds-ago" numerus="yes">
         <location line="+3"/>
         <source>%n second(s) ago</source>
-        <translation><numerusform>%n second ago</numerusform><numerusform>%n seconds ago</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message id="fuoten-minutes-ago" numerus="yes">
         <location line="+4"/>
         <source>%n minute(s) ago</source>
-        <translation><numerusform>%n minute ago</numerusform><numerusform>%n minutes ago</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message id="fuoten-hours-ago" numerus="yes">
         <location line="+4"/>
         <source>%n hour(s) ago</source>
-        <translation><numerusform>%n hour ago</numerusform><numerusform>%n hours ago</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message id="fuoten-days-ago" numerus="yes">
         <location line="+4"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n day ago</numerusform><numerusform>%n days ago</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message id="fuoten-share-link">
         <location filename="../sailfishos/qml/common/pages/Sharing.qml" line="+51"/>

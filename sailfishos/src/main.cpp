@@ -70,6 +70,7 @@
 #ifndef CLAZY
 #include "fuoteniconprovider.h"
 #endif
+#include "sharing/sharingmethodsmodel.h"
 
 #ifdef QT_DEBUG
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
@@ -143,32 +144,6 @@ int main(int argc, char *argv[])
     qInstallMessageHandler(fuotenMessageHandler);
 #endif
 
-    QScopedPointer<Configuration> config(new Configuration);
-
-    if (!config->language().isEmpty()) {
-        QLocale::setDefault(QLocale(config->language()));
-    } else {
-        QLocale::setDefault(QLocale::system());
-    }
-
-#ifndef CLAZY
-    const QString l10nDir = SailfishApp::pathTo(QStringLiteral("l10n")).toString(QUrl::RemoveScheme);
-    QTranslator *appTrans = new QTranslator(app.data());
-    if (Q_LIKELY(appTrans->load(QLocale(), QStringLiteral("fuoten"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm")))) {
-        app->installTranslator(appTrans);
-    }
-
-    QTranslator *libTrans = new QTranslator(app.data());
-    if (Q_LIKELY(libTrans->load(QLocale(), QStringLiteral("libfuoten"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm")))) {
-        app->installTranslator(libTrans);
-    }
-
-    QTranslator *btscTrans = new QTranslator(app.data());
-    if (Q_LIKELY(btscTrans->load(QLocale(), QStringLiteral("btsc"), QStringLiteral("_"), l10nDir, QStringLiteral(".qm")))) {
-        app->installTranslator(btscTrans);
-    }
-#endif
-
     QDir dataDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
     QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
 
@@ -182,6 +157,42 @@ int main(int argc, char *argv[])
         if (!cacheDir.mkpath(cacheDir.absolutePath())) {
             qFatal("Failed to create cache directory.");
         }
+    }
+
+    QScopedPointer<Configuration> config(new Configuration);
+
+    if (!config->language().isEmpty()) {
+        QLocale::setDefault(QLocale(config->language()));
+    } else {
+        QLocale::setDefault(QLocale::system());
+    }
+
+#ifndef CLAZY
+    const QString l10nDir = SailfishApp::pathTo(QStringLiteral("l10n")).toString(QUrl::RemoveScheme);
+#else
+    const QString l10nDir;
+#endif
+    auto locale = new QLocale;
+    for (const QString &name : {QStringLiteral("fuoten"), QStringLiteral("libfuoten"), QStringLiteral("btsc")}) {
+        auto trans = new QTranslator(app.data());
+        if (Q_LIKELY(trans->load(*locale, name, QStringLiteral("_"), l10nDir, QStringLiteral(".qm")))) {
+            app->installTranslator(trans);
+        }
+    }
+
+    QTranslator *tfeTrans = new QTranslator(app.data());
+    if (locale->language() == QLocale::C) {
+
+        if (Q_LIKELY(tfeTrans->load(QStringLiteral("sailfish_transferengine_plugins_eng_en"), QStringLiteral("/usr/share/translations")))) {
+            app->installTranslator(tfeTrans);
+        }
+
+    } else {
+
+        if (Q_LIKELY(tfeTrans->load(QLocale(), QStringLiteral("sailfish_transferengine_plugins"), QStringLiteral("-"), QStringLiteral("/usr/share/translations"), QStringLiteral(".qm")))) {
+            app->installTranslator(tfeTrans);
+        }
+
     }
 
     QScopedPointer<Fuoten::SQLiteStorage> sqliteStorage(new Fuoten::SQLiteStorage(dataDir.absoluteFilePath(QStringLiteral("database.sqlite"))));
@@ -218,6 +229,7 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<FuotenAppEnums>("harbour.fuoten", 1, 0, "FuotenApp", QStringLiteral("You can not create a FuotenApp object."));
     qmlRegisterType<ContextConfig>("harbour.fuoten", 1, 0, "ContextConfig");
     qmlRegisterType<ImageCache>("harbour.fuoten", 1, 0, "ImageCache");
+    qmlRegisterType<SharingMethodsModel>("harbour.fuoten", 1, 0, "SharingMethodsModel");
 
 #ifndef CLAZY
     QScopedPointer<QQuickView> view(SailfishApp::createView());

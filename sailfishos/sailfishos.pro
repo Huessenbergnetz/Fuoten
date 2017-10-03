@@ -3,7 +3,7 @@ TARGET = harbour-fuoten
 CONFIG += sailfishapp
 CONFIG += c++11
 
-QT += sql network
+QT += sql network dbus
 
 VER_MAJ = 0
 VER_MIN = 5
@@ -19,7 +19,9 @@ LIBS += -L$$OUT_PWD/../libfuoten -lfuoten
 INCLUDEPATH += $$PWD/../libfuoten
 
 SOURCES += \
-    src/main.cpp
+    src/main.cpp \
+    src/sharing/sharingmethod.cpp \
+    src/sharing/sharingmethodsmodel.cpp
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
@@ -75,8 +77,12 @@ DISTFILES += \
     qml/phone/pages/ArticlePage.qml \
     qml/phone/pages/WebViewPage.qml \
     qml/phone/pages/BaseListView.qml \
-    qml/common/parts/SyncPanel.qml
+    qml/common/parts/SyncPanel.qml \
+    qml/common/pages/Sharing.qml
 
 HEADERS += \
-    src/fuoteniconprovider.h
+    src/fuoteniconprovider.h \
+    src/sharing/sharingmethod.h \
+    src/sharing/sharingmethod_p.h \
+    src/sharing/sharingmethodsmodel.h
 

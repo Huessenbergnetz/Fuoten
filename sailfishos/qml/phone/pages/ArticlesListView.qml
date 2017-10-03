@@ -239,6 +239,10 @@ BaseListView {
             id: itemContextMenu
             ContextMenu {
                 MenuItem {
+                    text: qsTrId("fuoten-share")
+                    onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": display.url.toString(), "shareTitle": display.title })
+                }
+                MenuItem {
                     text: display.unread
                             //% "Mark as read"
                           ? qsTrId("fuoten-mark-item-as-read")

@@ -345,7 +345,7 @@
     </message>
     <message id="fuoten-mark-item-as-read">
         <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+59"/>
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+244"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+248"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+65"/>
         <source>Mark as read</source>
         <translation type="unfinished"></translation>
@@ -357,14 +357,19 @@
         <source>Mark as unread</source>
         <translation type="unfinished"></translation>
     </message>
-    <message id="fuoten-copy-url">
+    <message id="fuoten-share">
         <location line="+6"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-8"/>
+        <source>Share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-copy-url">
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+7"/>
         <source>Copy URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-open-in-browser">
-        <location line="+6"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+6"/>
         <location line="+15"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+7"/>
         <source>Open in browser</source>
@@ -377,7 +382,7 @@
     </message>
     <message id="fuoten-remove-from-favorites">
         <location line="-32"/>
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+6"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+14"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="-25"/>
         <source>Remove from favorites</source>
         <translation type="unfinished"></translation>
@@ -390,7 +395,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-no-articles-found">
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-220"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-224"/>
         <source>No articles found</source>
         <translation type="unfinished"></translation>
     </message>
@@ -776,6 +781,16 @@
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
+    </message>
+    <message id="fuoten-share-link">
+        <location filename="../sailfishos/qml/common/pages/Sharing.qml" line="+51"/>
+        <source>Share link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-clipboad-sharing">
+        <location filename="../sailfishos/src/sharing/sharingmethodsmodel.cpp" line="+135"/>
+        <source>Clipboard</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
