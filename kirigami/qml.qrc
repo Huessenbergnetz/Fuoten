@@ -8,6 +8,5 @@
         <file>qml/FoldersPage.qml</file>
         <file>qml/CountBubble.qml</file>
         <file>qml/FeedsPage.qml</file>
-        <file>qml/CachedImage.qml</file>
     </qresource>
 </RCC>

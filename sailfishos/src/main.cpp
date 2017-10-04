@@ -36,6 +36,7 @@
 #include <QTranslator>
 #include <QDir>
 #include <QStandardPaths>
+#include <QNetworkDiskCache>
 
 #ifndef CLAZY
 #include <sailfishapp.h>
@@ -66,12 +67,12 @@
 #include "../../common/languagemodel.h"
 #include "../../common/enums.h"
 #include "../../common/contextconfig.h"
-#include "../../common/imagecache.h"
 
 #ifndef CLAZY
 #include "fuoteniconprovider.h"
 #endif
 #include "sharing/sharingmethodsmodel.h"
+#include "namfactory.h"
 
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -145,28 +146,52 @@ int main(int argc, char *argv[])
     app->setApplicationVersion(QStringLiteral(VERSION_STRING));
 
 #ifdef QT_DEBUG
-    QFile::remove(QDir::homePath().append(QStringLiteral("/fuoten.log")));
+    QFile::remove(QDir::home().absoluteFilePath(QStringLiteral("fuoten.log")));
 #endif
     qInstallMessageHandler(fuotenMessageHandler);
 
-    QDir dataDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
-    QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
+    auto dataDir = new QDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+    auto cacheDir = new QDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
+    auto qmlCacheDir = new QDir(cacheDir->absoluteFilePath(QStringLiteral("qmlcache")));
 
-    if (Q_UNLIKELY(!dataDir.exists())) {
-        if (!dataDir.mkpath(dataDir.absolutePath())) {
+    if (Q_UNLIKELY(!dataDir->exists())) {
+        if (!dataDir->mkpath(dataDir->absolutePath())) {
+            delete dataDir;
+            delete cacheDir;
+            delete qmlCacheDir;
             qFatal("Failed to create data directory.");
         }
     }
 
-    if (Q_UNLIKELY(!cacheDir.exists())) {
-        if (!cacheDir.mkpath(cacheDir.absolutePath())) {
+    if (Q_UNLIKELY(!cacheDir->exists())) {
+        if (!cacheDir->mkpath(cacheDir->absolutePath())) {
+            delete dataDir;
+            delete cacheDir;
+            delete qmlCacheDir;
             qFatal("Failed to create cache directory.");
         }
     }
 
-    QScopedPointer<Configuration> config(new Configuration);
+    if (Q_UNLIKELY(!qmlCacheDir->exists())) {
+        if (!qmlCacheDir->mkpath(qmlCacheDir->absolutePath())) {
+            delete dataDir;
+            delete cacheDir;
+            delete qmlCacheDir;
+            qFatal("Failed to create qml cache directory.");
+        }
+    }
 
-    Fuoten::Component::setDefaultConfiguration(config.data());
+    delete cacheDir;
+
+    auto qmlDiskCache = new QNetworkDiskCache(app.data());
+    qmlDiskCache->setCacheDirectory(qmlCacheDir->absolutePath());
+    delete qmlCacheDir;
+
+    QScopedPointer<NamFactory> namFactory(new NamFactory(qmlDiskCache));
+
+    auto config = new Configuration(app.data());
+
+    Fuoten::Component::setDefaultConfiguration(config);
 
     if (!config->language().isEmpty()) {
         QLocale::setDefault(QLocale(config->language()));
@@ -202,15 +227,16 @@ int main(int argc, char *argv[])
 
     }
 
-    QScopedPointer<Fuoten::SQLiteStorage> sqliteStorage(new Fuoten::SQLiteStorage(dataDir.absoluteFilePath(QStringLiteral("database.sqlite"))));
-    sqliteStorage->setConfiguration(config.data());
+    auto sqliteStorage = new Fuoten::SQLiteStorage(dataDir->absoluteFilePath(QStringLiteral("database.sqlite")), app.data());
+    sqliteStorage->setConfiguration(config);
     sqliteStorage->init();
+    delete dataDir;
 
-    Fuoten::Component::setDefaultStorage(sqliteStorage.data());
+    Fuoten::Component::setDefaultStorage(sqliteStorage);
 
-    QScopedPointer<Fuoten::Synchronizer> synchronizer(new Fuoten::Synchronizer);
-    synchronizer->setConfiguration(config.data());
-    synchronizer->setStorage(sqliteStorage.data());
+    auto synchronizer = new Fuoten::Synchronizer(app.data());
+    synchronizer->setConfiguration(config);
+    synchronizer->setStorage(sqliteStorage);
 
     qmlRegisterUncreatableType<Fuoten::FuotenEnums>("harbour.fuoten", 1, 0, "Fuoten", QStringLiteral("You can not create a Fuoten object"));
     qmlRegisterUncreatableType<Fuoten::AbstractConfiguration>("harbour.fuoten", 1, 0, "FuotenConfiguration", QStringLiteral("You can not create a FuotenConfiguration object."));
@@ -237,20 +263,20 @@ int main(int argc, char *argv[])
 
     qmlRegisterUncreatableType<FuotenAppEnums>("harbour.fuoten", 1, 0, "FuotenApp", QStringLiteral("You can not create a FuotenApp object."));
     qmlRegisterType<ContextConfig>("harbour.fuoten", 1, 0, "ContextConfig");
-    qmlRegisterType<ImageCache>("harbour.fuoten", 1, 0, "ImageCache");
     qmlRegisterType<SharingMethodsModel>("harbour.fuoten", 1, 0, "SharingMethodsModel");
 
 #ifndef CLAZY
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     QScopedPointer<FuotenIconProvider> fip(new FuotenIconProvider);
     view->engine()->addImageProvider(QStringLiteral("fuoten"), fip.data());
+    view->engine()->setNetworkAccessManagerFactory(namFactory.data());
 #else
-    QQuickView *view = new QQuickView();
+    QScopedPointer<QQuickView> view(new QQuickView);
 #endif
 
-    view->rootContext()->setContextProperty(QStringLiteral("config"), config.data());
-    view->rootContext()->setContextProperty(QStringLiteral("localstorage"), sqliteStorage.data());
-    view->rootContext()->setContextProperty(QStringLiteral("synchronizer"), synchronizer.data());
+    view->rootContext()->setContextProperty(QStringLiteral("config"), config);
+    view->rootContext()->setContextProperty(QStringLiteral("localstorage"), sqliteStorage);
+    view->rootContext()->setContextProperty(QStringLiteral("synchronizer"), synchronizer);
 
 #ifndef CLAZY
     view->setSource(SailfishApp::pathTo(QStringLiteral("qml/harbour-fuoten.qml")));

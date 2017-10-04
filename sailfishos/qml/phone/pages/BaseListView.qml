@@ -173,7 +173,7 @@ SilicaListView {
 
     ViewPlaceholder {
         id: invalidAccountPlaceHolder
-        flickable: feedListView
+        flickable: baseListView
         enabled: baseListView.count === 0 && !config.isAccountValid && !baseListView.inOperation
         //% "Invalid account configuration"
         text: qsTrId("fuoten-invalid-account")

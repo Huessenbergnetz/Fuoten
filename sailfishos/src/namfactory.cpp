@@ -1,9 +1,9 @@
 /* Fuoten - ownCloud/Nextcloud News App Client
- * Copyright (C) 2016 Buschtrommel/Matthias Fehring
+ * Copyright (C) 2016-2017 Buschtrommel/Matthias Fehring
  * https://www.buschmann23.de/entwicklung/anwendungen/fuoten/
  * https://github.com/Buschtrommel/Fuoten
  *
- * sailfishos/qml/phone/pages/MainPage.qml
+ * common/namfactory.cpp
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,15 +19,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.2
-import harbour.fuoten 1.0
+#include "namfactory.h"
+#include <QNetworkAccessManager>
+#include <QAbstractNetworkCache>
+#include <QCoreApplication>
 
-Image {
-    property alias sourceUrl: iconImgCache.sourceUrl
-    property alias defaultImageUrl: iconImgCache.defaultImageUrl
+NamFactory::NamFactory(QAbstractNetworkCache *cache) : m_cache(cache)
+{
 
-    source: iconImgCache.cacheUrl
-    ImageCache {
-        id: iconImgCache
+}
+
+
+QNetworkAccessManager *NamFactory::create(QObject *parent)
+{
+    QNetworkAccessManager *nam = new QNetworkAccessManager(parent);
+    if (m_cache) {
+        nam->setCache(m_cache);
+        m_cache->setParent(qApp);
     }
+    return nam;
 }

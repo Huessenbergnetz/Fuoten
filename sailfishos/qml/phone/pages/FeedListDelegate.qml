@@ -55,12 +55,17 @@ ListItem {
                 Layout.preferredHeight: !folderView ? Theme.iconSizeSmall : Theme.iconSizeMedium
                 Layout.preferredWidth: !folderView ? Theme.iconSizeSmall : Theme.iconSizeMedium
 
-                CachedImage {
-                    sourceUrl: display.faviconLink
+                Image {
+                    source: display.faviconLink.toString() !== "" ? display.faviconLink : "image://fuoten/icon-s-feed?" + (feedListItem.highlighted ? Theme.highlightColor : Theme.primaryColor)
                     sourceSize.width: !folderView ? Theme.iconSizeSmall : Theme.iconSizeMedium - (20 * Theme.pixelRatio)
                     sourceSize.height: !folderView ? Theme.iconSizeSmall : Theme.iconSizeMedium - (20 * Theme.pixelRatio)
                     anchors.centerIn: !folderView ? undefined : parent
                     anchors.fill: !folderView ? parent : undefined
+                    onStatusChanged: {
+                        if (status === Image.Error) {
+                            source = "image://fuoten/icon-s-feed?" + (feedListItem.highlighted ? Theme.highlightColor : Theme.primaryColor)
+                        }
+                    }
                 }
             }
 

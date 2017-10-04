@@ -96,10 +96,15 @@ Kirigami.ScrollablePage {
             RowLayout {
                 anchors { left: parent.left; leftMargin: Kirigami.Units.largeSpacing; right: parent.right; rightMargin: Kirigami.Units.largeSpacing * 1.5 }
 
-                CachedImage {
+                Image {
                     Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
                     sourceSize.height: Kirigami.Units.iconSizes.smallMedium
-                    sourceUrl: model.display.faviconLink
+                    source: model.display.faviconLink.toString() !== "" ? model.display.faviconLink : "image://fuoten/icon-s-feed"
+                    onStatusChanged: {
+                        if (status === Image.Error) {
+                            source = "image://fuoten/icon-s-feed?" + (feedListItem.highlighted ? Theme.highlightColor : Theme.primaryColor)
+                        }
+                    }
                 }
 
                 Kirigami.Heading {

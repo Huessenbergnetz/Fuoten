@@ -25,7 +25,8 @@ INCLUDEPATH += $$PWD/../libfuoten
 SOURCES += \
     src/main.cpp \
     src/sharing/sharingmethod.cpp \
-    src/sharing/sharingmethodsmodel.cpp
+    src/sharing/sharingmethodsmodel.cpp \
+    src/namfactory.cpp
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
@@ -74,7 +75,6 @@ DISTFILES += \
     qml/common/dialogs/CreateFeedDialog.qml \
     qml/common/dialogs/MoveFeedDialog.qml \
     qml/phone/pages/FeedListDelegate.qml \
-    qml/common/parts/CachedImage.qml \
     qml/phone/pages/ArticlesListView.qml \
     qml/phone/pages/ArticlesListPage.qml \
     qml/common/parts/RescalingRichText.qml \
@@ -88,5 +88,6 @@ HEADERS += \
     src/fuoteniconprovider.h \
     src/sharing/sharingmethod.h \
     src/sharing/sharingmethod_p.h \
-    src/sharing/sharingmethodsmodel.h
+    src/sharing/sharingmethodsmodel.h \
+    src/namfactory.h
 

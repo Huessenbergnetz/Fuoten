@@ -58,7 +58,6 @@
 #include "../../common/languagemodel.h"
 #include "../../common/enums.h"
 #include "../../common/contextconfig.h"
-#include "../../common/imagecache.h"
 
 #ifdef QT_DEBUG
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
@@ -205,7 +204,6 @@ int main(int argc, char *argv[])
 
     qmlRegisterUncreatableType<FuotenAppEnums>("buschtrommel.fuoten", 1, 0, "FuotenApp", QStringLiteral("You can not crate an FuotenApp object."));
     qmlRegisterType<ContextConfig>("buschtrommel.fuoten", 1, 0, "ContextConfig");
-    qmlRegisterType<ImageCache>("buschtrommel.fuoten", 1, 0, "ImageCache");
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty(QStringLiteral("config"), &config);
