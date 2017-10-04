@@ -49,6 +49,7 @@
 #include <Fuoten/Storage/SQLiteStorage>
 #include <Fuoten/Storage/AbstractStorage>
 #include <Fuoten/Models/FolderListFilterModel>
+#include <Fuoten/API/Component>
 #include <Fuoten/API/CreateFolder>
 #include <Fuoten/Folder>
 #include <Fuoten/Feed>
@@ -72,37 +73,38 @@
 #endif
 #include "sharing/sharingmethodsmodel.h"
 
-#ifdef QT_DEBUG
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
-    QString t;
+    QChar t;
     switch (type) {
     case QtDebugMsg:
-        t = QStringLiteral("D");
+        t = QLatin1Char('D');
         break;
 #if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
     case QtInfoMsg:
-        t = QStringLiteral("I");
+        t = QLatin1Char('I');
         break;
 #endif
     case QtWarningMsg:
-        t = QStringLiteral("W");
+        t = QLatin1Char('W');
         break;
     case QtCriticalMsg:
-        t = QStringLiteral("C");
+        t = QLatin1Char('C');
         break;
     case QtFatalMsg:
-        t = QStringLiteral("F");
+        t = QLatin1Char('F');
         break;
     }
 
-    QRegularExpression re(QStringLiteral("([\\w:]+)\\("));
 
+#ifdef QT_DEBUG
     QString txt;
 
     if (context.function) {
 
-        txt = QStringLiteral("[%1] %2: %3:%4 - %5").arg(t,
+        QRegularExpression re(QStringLiteral("([\\w:]+)\\("));
+
+        txt = QStringLiteral("[%1] %2: %3:%4 - %5").arg(QString(t),
                                                         QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz")),
                                                         re.match(QString(context.function)).captured(1),
                                                         QString::number(context.line),
@@ -118,12 +120,15 @@ void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, con
     logFile.open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream ts(&logFile);
     ts << txt << endl;
+#else
+    Q_UNUSED(context)
+    fprintf(stderr, "[%c] %s: %s", t.toLatin1(), QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz")).toLocal8Bit().constData(), msg.toLocal8Bit().constData());
+#endif
 
     if (type == QtFatalMsg) {
         abort();
     }
 }
-#endif
 
 
 
@@ -141,8 +146,8 @@ int main(int argc, char *argv[])
 
 #ifdef QT_DEBUG
     QFile::remove(QDir::homePath().append(QStringLiteral("/fuoten.log")));
-    qInstallMessageHandler(fuotenMessageHandler);
 #endif
+    qInstallMessageHandler(fuotenMessageHandler);
 
     QDir dataDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
     QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
@@ -160,6 +165,8 @@ int main(int argc, char *argv[])
     }
 
     QScopedPointer<Configuration> config(new Configuration);
+
+    Fuoten::Component::setDefaultConfiguration(config.data());
 
     if (!config->language().isEmpty()) {
         QLocale::setDefault(QLocale(config->language()));
@@ -198,6 +205,8 @@ int main(int argc, char *argv[])
     QScopedPointer<Fuoten::SQLiteStorage> sqliteStorage(new Fuoten::SQLiteStorage(dataDir.absoluteFilePath(QStringLiteral("database.sqlite"))));
     sqliteStorage->setConfiguration(config.data());
     sqliteStorage->init();
+
+    Fuoten::Component::setDefaultStorage(sqliteStorage.data());
 
     QScopedPointer<Fuoten::Synchronizer> synchronizer(new Fuoten::Synchronizer);
     synchronizer->setConfiguration(config.data());

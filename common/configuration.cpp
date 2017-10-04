@@ -25,9 +25,8 @@
 #include <QDir>
 #include <QStandardPaths>
 #include <math.h>
-#ifdef QT_DEBUG
-#include <QtDebug>
-#endif
+#include <QMetaEnum>
+
 
 #define DEFAULT_AVATAR "image://theme/icon-l-people"
 
@@ -80,9 +79,7 @@ void Configuration::setUsername(const QString &username)
 {
     if (username != m_username) {
         m_username = username;
-#ifdef QT_DEBUG
-        qDebug() << "Changed username to" << m_username;
-#endif
+        qDebug("Changed username to %s.", qUtf8Printable(m_username));
         setValue(QStringLiteral("account/user"), m_username);
         checkAccountValidity();
         emit usernameChanged(getUsername());
@@ -98,9 +95,7 @@ void Configuration::setPassword(const QString &password)
 {
     if (password != m_password) {
         m_password = password;
-#ifdef QT_DEBUG
-        qDebug() << "Changed password to" << m_password;
-#endif
+        qDebug("Changed password to %s.", qUtf8Printable(m_password));
         setValue(QStringLiteral("account/password"), m_password);
         checkAccountValidity();
         emit passwordChanged(getPassword());
@@ -116,9 +111,7 @@ void Configuration::setUseSSL(bool useSSL)
 {
     if (useSSL != m_useSSL) {
         m_useSSL = useSSL;
-#ifdef QT_DEBUG
-        qDebug() << "Changed useSSL to" << m_useSSL;
-#endif
+        qDebug("Changed useSSL to %s.", m_useSSL ? "true" : "false");
         setValue(QStringLiteral("account/usessl"), m_useSSL);
         emit useSSLChanged(getUseSSL());
     }
@@ -136,9 +129,7 @@ void Configuration::setHost(const QString &host)
     _h.remove(QRegularExpression(QStringLiteral("/$")));
     if (_h != m_host) {
         m_host = _h;
-#ifdef QT_DEBUG
-        qDebug() << "Changed host to" << m_host;
-#endif
+        qDebug("Changed host to %s.", qUtf8Printable(m_host));
         setValue(QStringLiteral("account/host"), m_host);
         checkAccountValidity();
         emit hostChanged(getHost());
@@ -161,9 +152,7 @@ void Configuration::setInstallPath(const QString &installPath)
     }
     if (_ip != m_installPath) {
         m_installPath = _ip;
-#ifdef QT_DEBUG
-        qDebug() << "Changed installPath to" << m_installPath;
-#endif
+        qDebug("Changed installPath to %s.", qUtf8Printable(m_installPath));
         setValue(QStringLiteral("account/installpath"), m_installPath);
         emit installPathChanged(getInstallPath());
     }
@@ -178,9 +167,7 @@ void Configuration::setDisplayName(const QString &nDisplayName)
 {
     if (nDisplayName != m_displayName) {
         m_displayName = nDisplayName;
-#ifdef QT_DEBUG
-        qDebug() << "Changed displayName to" << m_displayName;
-#endif
+        qDebug("Changed displayName to %s.", qUtf8Printable(m_displayName));
         setValue(QStringLiteral("account/displayname"), m_displayName);
         emit displayNameChanged(displayName());
     }
@@ -195,9 +182,7 @@ void Configuration::setImproperlyConfiguredCron(bool nImproperlyConfiguredCron)
 {
     if (nImproperlyConfiguredCron != m_improperlyConfiguredCron) {
         m_improperlyConfiguredCron = nImproperlyConfiguredCron;
-#ifdef QT_DEBUG
-        qDebug() << "Changed improperlyConfiguredCron to" << m_improperlyConfiguredCron;
-#endif
+        qDebug("Changed improperlyConfiguredCron to %s.", m_improperlyConfiguredCron ? "true" : "false");
         setValue(QStringLiteral("warnings/improperlyConfiguredCron"), m_improperlyConfiguredCron);
         emit improperlyConfiguredCronChanged(improperlyConfiguredCron());
     }
@@ -228,9 +213,7 @@ void Configuration::setIsAccountValid(bool nIsAccountValid)
 {
     if (nIsAccountValid != m_isAccountValid) {
         m_isAccountValid = nIsAccountValid;
-#ifdef QT_DEBUG
-        qDebug() << "Changed isAccountValid to" << m_isAccountValid;
-#endif
+        qDebug("Changed isAccountValid to %s.", m_isAccountValid ? "true" : "false");
         emit isAccountValidChanged(isAccountValid());
     }
 }
@@ -248,9 +231,7 @@ void Configuration::setServerPort(int serverPort)
 {
     if (serverPort != m_serverPort) {
         m_serverPort = serverPort;
-#ifdef QT_DEBUG
-        qDebug() << "Changed serverPort to" << m_serverPort;
-#endif
+        qDebug("Changed serverPort to %i.", m_serverPort);
         setValue(QStringLiteral("account/serverport"), m_serverPort);
         emit serverPortChanged(getServerPort());
     }
@@ -264,9 +245,7 @@ void Configuration::setIgnoreSSLErrors(bool ignoreSSLErrors)
 {
     if (ignoreSSLErrors != m_ignoreSSLErrors) {
         m_ignoreSSLErrors = ignoreSSLErrors;
-#ifdef QT_DEBUG
-        qDebug() << "Changed ignoreSSLErrors to" << m_ignoreSSLErrors;
-#endif
+        qDebug("Changed ignoreSSLErrors to %s.", m_ignoreSSLErrors ? "true" : "false");
         setValue(QStringLiteral("account/ignoresslerrors"), m_ignoreSSLErrors);
         emit ignoreSSLErrorsChanged(getIgnoreSSLErrors());
     }
@@ -358,9 +337,7 @@ void Configuration::setLanguage(const QString &nLanguage)
 {
     if (nLanguage != m_language) {
         m_language = nLanguage;
-#ifdef QT_DEBUG
-        qDebug() << "Changed language to" << m_language;
-#endif
+        qDebug("Changed language to %s.", qUtf8Printable(m_language));
         setValue(QStringLiteral("display/language"), m_language);
         emit languageChanged(language());
     }
@@ -375,9 +352,7 @@ void Configuration::setMainViewType(Fuoten::FuotenEnums::Type nMainViewType)
 {
     if (nMainViewType != m_mainViewType) {
         m_mainViewType = nMainViewType;
-#ifdef QT_DEBUG
-        qDebug() << "Changed mainViewType to" << m_mainViewType;
-#endif
+        qDebug("Changed mainViewType to %s.", Fuoten::FuotenEnums::staticMetaObject.enumerator(Fuoten::FuotenEnums::staticMetaObject.indexOfEnumerator("Type")).valueToKey(m_mainViewType));
         setValue(QStringLiteral("display/mainViewType"), m_mainViewType);
         emit mainViewTypeChanged(mainViewType());
     }
@@ -391,9 +366,7 @@ void Configuration::setLastSync(const QDateTime &lastSync)
 {
     if (lastSync != m_lastSync) {
         m_lastSync = lastSync;
-#ifdef QT_DEBUG
-        qDebug() << "Changed lastSync to" << m_lastSync;
-#endif
+        qDebug("Changed lastSync to %s.", qUtf8Printable(m_lastSync.toString(Qt::ISODate)));
         setValue(QStringLiteral("system/lastsync"), lastSync.toTime_t());
         Q_EMIT lastSyncChanged(getLastSync());
     }

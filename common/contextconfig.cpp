@@ -1,7 +1,5 @@
 #include "contextconfig.h"
-#ifdef QT_DEBUG
-#include <QtDebug>
-#endif
+#include <QMetaEnum>
 
 /*!
  * \brief Constructs a new ContextConfig object.
@@ -51,15 +49,11 @@ void ContextConfig::setContextType(FuotenAppEnums::Context nContextType)
 {
     if (nContextType != m_contextType) {
         m_contextType = nContextType;
-#ifdef QT_DEBUG
-        qDebug() << "Changed contextType to" << m_contextType;
-#endif
+        qDebug("Changed contextType to %s.", FuotenAppEnums::staticMetaObject.enumerator(FuotenAppEnums::staticMetaObject.indexOfEnumerator("Context")).valueToKey(m_contextType));
         emit contextTypeChanged(contextType());
         load();
     }
 }
-
-
 
 
 qint64 ContextConfig::contextId() const { return m_contextId; }
@@ -68,15 +62,11 @@ void ContextConfig::setContextId(qint64 nId)
 {
     if (nId != m_contextId) {
         m_contextId = nId;
-#ifdef QT_DEBUG
-        qDebug() << "Changed id to" << m_contextId;
-#endif
+        qDebug("Changed id to %lli.", m_contextId);
         emit contextIdChanged(contextId());
         load();
     }
 }
-
-
 
 
 Fuoten::FuotenEnums::SortingRole ContextConfig::sorting() const { return m_sorting; }
@@ -85,15 +75,11 @@ void ContextConfig::setSorting(Fuoten::FuotenEnums::SortingRole nSorting)
 {
     if (nSorting != m_sorting) {
         m_sorting = nSorting;
-#ifdef QT_DEBUG
-        qDebug() << "Changed sorting to" << m_sorting;
-#endif
+        qDebug("Changed sorting to %s.", Fuoten::FuotenEnums::staticMetaObject.enumerator(Fuoten::FuotenEnums::staticMetaObject.indexOfEnumerator("SortingRole")).valueToKey(m_sorting));
         setValue(path(QStringLiteral("sorting")), m_sorting);
         emit sortingChanged(sorting());
     }
 }
-
-
 
 
 bool ContextConfig::hideRead() const { return m_hideRead; }
@@ -102,15 +88,11 @@ void ContextConfig::setHideRead(bool nHideRead)
 {
     if (nHideRead != m_hideRead) {
         m_hideRead = nHideRead;
-#ifdef QT_DEBUG
-        qDebug() << "Changed hideRead to" << m_hideRead;
-#endif
+        qDebug("Changed hideRead to %s.", m_hideRead ? "true" : "false");
         setValue(path(QStringLiteral("hideRead")), m_hideRead);
         emit hideReadChanged(hideRead());
     }
 }
-
-
 
 
 Qt::SortOrder ContextConfig::sortOrder() const { return m_sortOrder; }
@@ -119,16 +101,11 @@ void ContextConfig::setSortOrder(Qt::SortOrder nSortOrder)
 {
     if (nSortOrder != m_sortOrder) {
         m_sortOrder = nSortOrder;
-#ifdef QT_DEBUG
-        qDebug() << "Changed sortOrder to" << m_sortOrder;
-#endif
+        qDebug("Changed sortOrder to %i.", m_sortOrder);
         setValue(path(QStringLiteral("sortOrder")), m_sortOrder);
         emit sortOrderChanged(sortOrder());
     }
 }
-
-
-
 
 bool ContextConfig::showFolderSections() const { return m_showFolderSections; }
 
@@ -136,9 +113,7 @@ void ContextConfig::setShowFolderSections(bool nShowFolderSections)
 {
     if (nShowFolderSections != m_showFolderSections) {
         m_showFolderSections = nShowFolderSections;
-#ifdef QT_DEBUG
-        qDebug() << "Changed showFolderSections to" << m_showFolderSections;
-#endif
+        qDebug("Changed showFolderSections to %s.", m_showFolderSections ? "true" : "false");
         setValue(path(QStringLiteral("showFolderSections")), m_showFolderSections);
         emit showFolderSectionsChanged(showFolderSections());
     }
@@ -150,9 +125,7 @@ void ContextConfig::setRespectPinned(bool nRespectPinned)
 {
     if (nRespectPinned != m_respectPinned) {
         m_respectPinned = nRespectPinned;
-#ifdef QT_DEBUG
-        qDebug() << "Changed respectPinned to" << m_respectPinned;
-#endif
+        qDebug("Changed respectPinned to %s.", m_respectPinned ? "true" : "false");
         setValue(path(QStringLiteral("respectPinned")), m_respectPinned);
         emit respectPinnedChanged(respectPinned());
     }
@@ -165,9 +138,7 @@ void ContextConfig::setShowExcerpt(bool nShowExcerpt)
 {
     if (nShowExcerpt != m_showExcerpt) {
         m_showExcerpt = nShowExcerpt;
-#ifdef QT_DEBUG
-        qDebug() << "Changed showExcerpt to" << m_showExcerpt;
-#endif
+        qDebug("Changed showExcerpt to %s.", m_showExcerpt ? "true" : "false");
         setValue(path(QStringLiteral("showExcerpt")), m_showExcerpt);
         Q_EMIT showExcerptChanged(showExcerpt());
     }
@@ -180,14 +151,11 @@ void ContextConfig::setOpenArticles(FuotenAppEnums::OpenIn nOpenArticles)
 {
     if (nOpenArticles != m_openArticles) {
         m_openArticles = nOpenArticles;
-#ifdef QT_DEBUG
-        qDebug() << "Changed openArticles to" << m_openArticles;
-#endif
+        qDebug("Changed openArticles to %s.", FuotenAppEnums::staticMetaObject.enumerator(FuotenAppEnums::staticMetaObject.indexOfEnumerator("OpenIn")).valueToKey(m_openArticles));
         setValue(path(QStringLiteral("openArticles")), m_openArticles);
         Q_EMIT openArticlesChanged(openArticles());
     }
 }
-
 
 
 Fuoten::FuotenEnums::ItemDeletionStrategy ContextConfig::deletionStrategy() const { return m_deletionStrategy; }
@@ -196,15 +164,11 @@ void ContextConfig::setDeletionStrategy(Fuoten::FuotenEnums::ItemDeletionStrateg
 {
     if (nDeletionStrategy != m_deletionStrategy) {
         m_deletionStrategy = nDeletionStrategy;
-#ifdef QT_DEBUG
-        qDebug() << "Changed deletionStrategy to" << m_deletionStrategy;
-#endif
+        qDebug("Changed deletionStrategy to %s.", Fuoten::FuotenEnums::staticMetaObject.enumerator(Fuoten::FuotenEnums::staticMetaObject.indexOfEnumerator("ItemDeletionStrategy")).valueToKey(m_deletionStrategy));
         setValue(path(QStringLiteral("deletionStrategy")), m_deletionStrategy);
         Q_EMIT deletionStrategyChanged(deletionStrategy());
     }
 }
-
-
 
 
 quint16 ContextConfig::deletionValue() const { return m_deletionValue; }
@@ -213,17 +177,11 @@ void ContextConfig::setDeletionValue(quint16 nDeletionValue)
 {
     if (nDeletionValue != m_deletionValue) {
         m_deletionValue = nDeletionValue;
-#ifdef QT_DEBUG
-        qDebug() << "Changed deletionValue to" << m_deletionValue;
-#endif
+        qDebug("Changed deletion value to %i.", m_deletionValue);
         setValue(path(QStringLiteral("deletionValue")), m_deletionValue);
         Q_EMIT deletionValueChanged(deletionValue());
     }
 }
-
-
-
-
 
 
 QString ContextConfig::path(const QString &key) const

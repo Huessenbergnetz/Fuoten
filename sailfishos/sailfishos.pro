@@ -13,6 +13,10 @@ VERSION = $${VER_MAJ}.$${VER_MIN}.$${VER_PAT}
 
 DEFINES += VERSION_STRING=\"\\\"$${VERSION}\\\"\"
 
+CONFIG(release, debug|release) {
+    DEFINES += QT_NO_DEBUG_OUTPUT
+}
+
 include(../common/common.pri)
 
 LIBS += -L$$OUT_PWD/../libfuoten -lfuoten
