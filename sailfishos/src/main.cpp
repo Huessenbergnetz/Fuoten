@@ -266,9 +266,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<SharingMethodsModel>("harbour.fuoten", 1, 0, "SharingMethodsModel");
 
 #ifndef CLAZY
-    QScopedPointer<QQuickView> view(SailfishApp::createView());
-    QScopedPointer<FuotenIconProvider> fip(new FuotenIconProvider);
-    view->engine()->addImageProvider(QStringLiteral("fuoten"), fip.data());
+    auto view = SailfishApp::createView();
+    view->engine()->addImageProvider(QStringLiteral("fuoten"), new FuotenIconProvider);
     view->engine()->setNetworkAccessManagerFactory(namFactory.data());
 #else
     QScopedPointer<QQuickView> view(new QQuickView);
