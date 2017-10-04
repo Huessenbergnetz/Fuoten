@@ -239,10 +239,6 @@ BaseListView {
             id: itemContextMenu
             ContextMenu {
                 MenuItem {
-                    text: qsTrId("fuoten-share")
-                    onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": display.url.toString(), "shareTitle": display.title })
-                }
-                MenuItem {
                     text: display.unread
                             //% "Mark as read"
                           ? qsTrId("fuoten-mark-item-as-read")
@@ -257,6 +253,10 @@ BaseListView {
                             //% "Add to favorites"
                           : qsTrId("fuoten-add-to-favorites")
                     onClicked: display.star(!display.starred, config, localstorage, true)
+                }
+                MenuItem {
+                    text: qsTrId("fuoten-share")
+                    onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": display.url.toString(), "shareTitle": display.title })
                 }
             }
         }

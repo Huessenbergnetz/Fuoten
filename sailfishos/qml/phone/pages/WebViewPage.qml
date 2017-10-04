@@ -70,10 +70,10 @@ Page {
                 }
 
                 MenuItem {
-                    //% "Copy URL"
-                    text: qsTrId("fuoten-copy-url")
+                    //% "Share"
+                    text: qsTrId("fuoten-share")
                     enabled: article
-                    onClicked: Clipboard.text = article.url.toString()
+                    onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": article.url.toString(), "shareTitle": article.title })
                 }
 
                 MenuItem {
