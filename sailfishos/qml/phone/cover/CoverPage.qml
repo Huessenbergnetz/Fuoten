@@ -25,6 +25,16 @@ import Sailfish.Silica 1.0
 CoverBackground {
     id: cov
 
+    onStatusChanged: {
+        if (status === Cover.Active) {
+            if (config.isUpdatePossible()) {
+                if (!synchronizer.inOperation) {
+                    synchronizer.sync()
+                }
+            }
+        }
+    }
+
     Timer {
         interval: 60000
         repeat: true

@@ -151,7 +151,16 @@ Page {
                             MenuItem { text: model.name; readonly property int value: model.interval }
                         }
                     }
-                    onCurrentIndexChanged: if (currentItem) { config.updateInterval = currentItem.value }
+                    onCurrentIndexChanged: {
+                        if (currentItem) {
+                            config.updateInterval = currentItem.value
+                            if (config.isUpdatePossible()) {
+                                if (!synchronizer.inOperation) {
+                                    synchronizer.sync()
+                                }
+                            }
+                        }
+                    }
                     currentIndex: updateIntModel.findIndex(config.updateInterval)
                 }
             }
