@@ -123,7 +123,7 @@ void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, con
     ts << txt << endl;
 #else
     Q_UNUSED(context)
-    fprintf(stderr, "[%c] %s: %s", t.toLatin1(), QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz")).toLocal8Bit().constData(), msg.toLocal8Bit().constData());
+    fprintf(stderr, "[%c] %s: %s\n", t.toLatin1(), QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz")).toLocal8Bit().constData(), msg.toLocal8Bit().constData());
 #endif
 
     if (type == QtFatalMsg) {
