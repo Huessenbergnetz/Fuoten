@@ -444,6 +444,7 @@ void Configuration::setUpdateInterval(quint32 updateInterval)
 {
     if (m_updateInterval != updateInterval) {
         m_updateInterval = updateInterval;
+        setValue(QStringLiteral(CONF_KEY_UPDATE_INTERVAL), m_updateInterval);
         qDebug("Changed update interval to %u seconds.", m_updateInterval);
         emit updateIntervalChanged(m_updateInterval);
     }
