@@ -161,6 +161,21 @@
         <source>Folders</source>
         <translation type="unfinished"></translation>
     </message>
+    <message id="fuoten-settings-behavior-section">
+        <location line="+11"/>
+        <source>Behavior</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-settings-update-interval">
+        <location line="+14"/>
+        <source>Update interval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-settings-update-interval-sailfish-desc">
+        <location line="+2"/>
+        <source>Fuoten can perform pseudo backgrund updates by simply reacting to status changes of the user interface. Be aware that this approach will not perform real background updates while your device is sleeping.</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message id="id-about">
         <location filename="../sailfishos/qml/common/pages/About.qml" line="+29"/>
         <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="-7"/>
@@ -345,7 +360,7 @@
     </message>
     <message id="fuoten-mark-item-as-read">
         <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+59"/>
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+248"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+252"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+65"/>
         <source>Mark as read</source>
         <translation type="unfinished"></translation>
@@ -359,17 +374,13 @@
     </message>
     <message id="fuoten-share">
         <location line="+6"/>
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-8"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+12"/>
+        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+7"/>
         <source>Share</source>
         <translation type="unfinished"></translation>
     </message>
-    <message id="fuoten-copy-url">
-        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+7"/>
-        <source>Copy URL</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message id="fuoten-open-in-browser">
-        <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+6"/>
+        <location line="+6"/>
         <location line="+15"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+7"/>
         <source>Open in browser</source>
@@ -382,7 +393,7 @@
     </message>
     <message id="fuoten-remove-from-favorites">
         <location line="-32"/>
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+14"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-6"/>
         <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="-25"/>
         <source>Remove from favorites</source>
         <translation type="unfinished"></translation>
@@ -395,7 +406,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-no-articles-found">
-        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-224"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="-228"/>
         <source>No articles found</source>
         <translation type="unfinished"></translation>
     </message>
@@ -432,7 +443,7 @@
     </message>
     <message id="fuoten-mark-feed-read">
         <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="+61"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="+108"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="+113"/>
         <source>Mark feed read</source>
         <translation type="unfinished"></translation>
     </message>
@@ -746,7 +757,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-just-now">
-        <location filename="../common/configuration.cpp" line="+446"/>
+        <location filename="../common/configuration.cpp" line="+421"/>
         <source>just now</source>
         <translation type="unfinished"></translation>
     </message>
@@ -790,6 +801,46 @@
     <message id="fuoten-clipboad-sharing">
         <location filename="../sailfishos/src/sharing/sharingmethodsmodel.cpp" line="+135"/>
         <source>Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-update-interval-disabled">
+        <location filename="../common/updateintervalmodel.cpp" line="+92"/>
+        <source>Disabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-update-interval-quarter-hour">
+        <location line="+3"/>
+        <source>15 Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-update-interval-half-hour">
+        <location line="+3"/>
+        <source>30 Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-update-interval-one-hour">
+        <location line="+3"/>
+        <source>1 Hour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-update-interval-two-hours">
+        <location line="+3"/>
+        <source>2 Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-update-interval-six-hours">
+        <location line="+3"/>
+        <source>6 Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-update-interval-half-day">
+        <location line="+3"/>
+        <source>12 Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-update-interval-one-day">
+        <location line="+3"/>
+        <source>1 Day</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

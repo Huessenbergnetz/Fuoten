@@ -126,6 +126,35 @@ Page {
                 }
             }
 
+            SectionHeader {
+                //% "Behavior"
+                text: qsTrId("fuoten-settings-behavior-section")
+                Layout.columnSpan: settingsGrid.columns
+                Layout.preferredWidth: settingsGrid.width - Theme.horizontalPageMargin
+            }
+
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: intervalChoser.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
+                ComboBox {
+                    id: intervalChoser
+                    //% "Update interval"
+                    label: qsTrId("fuoten-settings-update-interval")
+                    //% "Fuoten can perform pseudo backgrund updates by simply reacting to status changes of the user interface. Be aware that this approach will not perform real background updates while your device is sleeping."
+                    description: qsTrId("fuoten-settings-update-interval-sailfish-desc")
+                    menu: ContextMenu {
+                        Repeater {
+                            model: UpdateIntervalModel { id: updateIntModel }
+                            MenuItem { text: model.name; readonly property int value: model.interval }
+                        }
+                    }
+                    onCurrentIndexChanged: if (currentItem) { config.updateInterval = currentItem.value }
+                    currentIndex: updateIntModel.findIndex(config.updateInterval)
+                }
+            }
         }
     }
 }
