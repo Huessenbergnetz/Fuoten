@@ -28,7 +28,7 @@ import "../../common/parts"
 BaseListView {
     id: articlesListView
 
-    inOperation: articlesModel.inOperation
+    inOperation: ((page.status === PageStatus.Activating) && !articlesModel.loaded) || articlesModel.inOperation
 
     //% "No articles found"
     noContentText: qsTrId("fuoten-no-articles-found")
@@ -53,6 +53,15 @@ BaseListView {
         }
     }
 
+    Connections {
+        target: articlesListView.page
+        onStatusChanged: {
+            if ((status === PageStatus.Active) && !articlesModel.inOperation && !articlesModel.loaded) {
+                articlesModel.load()
+            }
+        }
+    }
+
     model: ArticleListFilterModel {
         id: articlesModel
         storage: localstorage
@@ -70,9 +79,8 @@ BaseListView {
             } else if (contextType === FuotenApp.StarredItems) {
                 parentIdType = Fuoten.Starred
             }
-            load()
         }
-        onBodyLimitChanged: bodyLimitChangedTimer.start()
+        onBodyLimitChanged: {if (articlesModel.loaded) {bodyLimitChangedTimer.start()}}
     }
 
     Timer {
