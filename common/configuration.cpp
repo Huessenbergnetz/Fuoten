@@ -29,6 +29,7 @@
 
 
 #define DEFAULT_AVATAR "image://theme/icon-l-people"
+#define CONF_KEY_UPDATE_INTERVAL "behavior/updateInterval"
 
 /*!
  * \brief Constructs a new Configuration object.
@@ -57,6 +58,7 @@ Configuration::Configuration(QObject *parent) :
     m_avatar = value(QStringLiteral("account/avatar"), QStringLiteral(DEFAULT_AVATAR)).toUrl();
     m_language = value(QStringLiteral("display/language")).toString();
     m_mainViewType = (Fuoten::FuotenEnums::Type)value(QStringLiteral("display/mainViewType"), Fuoten::FuotenEnums::Folder).toInt();
+    m_updateInterval = value(QStringLiteral(CONF_KEY_UPDATE_INTERVAL), 0).value<quint32>();
 
     uint lsts = value(QStringLiteral("system/lastsync"), 0).toUInt();
     if (lsts > 0) {
@@ -433,4 +435,21 @@ QString Configuration::getHumanLastSync() const
         //% "%n day(s) ago"
         return qtTrId("fuoten-days-ago", rtd);
     }
+}
+
+
+quint32 Configuration::updateInterval() const { return m_updateInterval; }
+
+void Configuration::setUpdateInterval(quint32 updateInterval)
+{
+    if (m_updateInterval != updateInterval) {
+        m_updateInterval = updateInterval;
+        qDebug("Changed update interval to %u seconds.", m_updateInterval);
+        emit updateIntervalChanged(m_updateInterval);
+    }
+}
+
+bool Configuration::isUpdatePossible() const
+{
+    return ((m_updateInterval > 0) && (m_lastSync.secsTo(QDateTime::currentDateTimeUtc()) > static_cast<qint64>(m_updateInterval)));
 }

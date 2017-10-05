@@ -175,6 +175,19 @@ class Configuration : public Fuoten::AbstractConfiguration
      * <TABLE><TR><TD>void</TD><TD>lastSyncChanged(const QDateTime &lastSync)</TD></TR></TABLE>
      */
     Q_PROPERTY(QDateTime lastSync READ getLastSync WRITE setLastSync NOTIFY lastSyncChanged)
+    /*!
+     * \brief This property holds the automatic update interval in seconds.
+     *
+     * Set it to \c 0 to disable automatic updates.
+     *
+     * \par Access functions:
+     * quint32 updateInterval() const
+     * void setUpdateInerval(quint32 interval)
+     *
+     * \par Notifier signal:
+     * void updateIntervalChanged(quint32 interval)
+     */
+    Q_PROPERTY(quint32 updateInterval READ updateInterval WRITE setUpdateInterval NOTIFY updateIntervalChanged)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
     Q_ENUM(Fuoten::FuotenEnums::Type)
 #else
@@ -205,6 +218,12 @@ public:
     quint16 getPerFeedDeletionValue(qint64 feedId) const override;
 
     /*!
+     * \brief Getter function for the \link Configuration::updateInterval updateInterval \endlink property.
+     * \sa setUpdateInterval(), updateIntervalChanged()
+     */
+    quint32 updateInterval() const;
+
+    /*!
      * \brief Returns a human readable relative last sync time.
      */
     Q_INVOKABLE QString getHumanLastSync() const;
@@ -225,6 +244,12 @@ public:
     void setLastSync(const QDateTime &lastSync) override;
 
     /*!
+     * \brief Setter function for the \link Configuration::updateInterval updateInterval \endlink property.
+     * \sa setUpdateInterval(), updateIntervalChanged()
+     */
+    void setUpdateInterval(quint32 updateInterval);
+
+    /*!
      * \brief Returns true if Fuoten has been updated.
      *
      * Compares the current version with the last saved version.
@@ -242,6 +267,15 @@ public:
      * \brief Saves the current application version in the settings file.
      */
     Q_INVOKABLE void setCurrentVersion();
+
+    /*!
+     * \brief Returns \c true if an update/synchronization is possible.
+     *
+     * An update is possible if the \link Configuration::updateInterval updateInterval \endlink
+     * is not disabled (greater than \c 0) and if the time between now and the last update
+     * is greater than the update interval inseconds.
+     */
+    Q_INVOKABLE bool isUpdatePossible() const;
 
 protected:
     void setIsAccountValid(bool nIsAccountValid) override;
@@ -263,6 +297,12 @@ signals:
     void mainViewTypeChanged(Fuoten::FuotenEnums::Type mainViewType);
     void lastSyncChanged(const QDateTime &lastSync);
 
+    /*!
+     * \brief Notifier signal for the \link Configuration::updateInterval updateInterval \endlink property.
+     * \sa updateInterval(), updateIntervalChanged()
+     */
+    void updateIntervalChanged(quint32 interval);
+
 private:
     Q_DISABLE_COPY(Configuration)
     QString m_username;
@@ -281,6 +321,7 @@ private:
     QString m_language;
     Fuoten::FuotenEnums::Type m_mainViewType;
     QDateTime m_lastSync;
+    quint32 m_updateInterval = 0;
 };
 
 #endif // CONFIGURATION_H
