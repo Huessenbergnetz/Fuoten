@@ -67,6 +67,7 @@
 #include "../../common/languagemodel.h"
 #include "../../common/enums.h"
 #include "../../common/contextconfig.h"
+#include "../../common/updateintervalmodel.h"
 
 #ifndef CLAZY
 #include "fuoteniconprovider.h"
@@ -260,6 +261,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<LanguageModel>("harbour.fuoten", 1, 0, "LanguageModel");
     qmlRegisterUncreatableType<Configuration>("harbour.fuoten", 1, 0, "Configuration", QStringLiteral("You can not create a Configuration object"));
+    qmlRegisterType<UpdateIntervalModel>("harbour.fuoten", 1, 0, "UpdateIntervalModel");
 
     qmlRegisterUncreatableType<FuotenAppEnums>("harbour.fuoten", 1, 0, "FuotenApp", QStringLiteral("You can not create a FuotenApp object."));
     qmlRegisterType<ContextConfig>("harbour.fuoten", 1, 0, "ContextConfig");

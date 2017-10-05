@@ -5,12 +5,14 @@ HEADERS += \
     $$PWD/configuration.h \
     $$PWD/languagemodel.h \
     $$PWD/enums.h \
-    $$PWD/contextconfig.h
+    $$PWD/contextconfig.h \
+    $$PWD/updateintervalmodel.h
 
 SOURCES += \
     $$PWD/configuration.cpp \
     $$PWD/languagemodel.cpp \
-    $$PWD/contextconfig.cpp
+    $$PWD/contextconfig.cpp \
+    $$PWD/updateintervalmodel.cpp
 
 DISTFILES += \
     $$PWD/qml/common/models/PrivacyPolicyModel.qml
