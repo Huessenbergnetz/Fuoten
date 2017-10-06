@@ -239,6 +239,8 @@ int main(int argc, char *argv[])
     synchronizer->setConfiguration(config);
     synchronizer->setStorage(sqliteStorage);
 
+    QObject::connect(config, &Configuration::updatePossible, synchronizer, &Fuoten::Synchronizer::start);
+
     qmlRegisterUncreatableType<Fuoten::FuotenEnums>("harbour.fuoten", 1, 0, "Fuoten", QStringLiteral("You can not create a Fuoten object"));
     qmlRegisterUncreatableType<Fuoten::AbstractConfiguration>("harbour.fuoten", 1, 0, "FuotenConfiguration", QStringLiteral("You can not create a FuotenConfiguration object."));
     qmlRegisterType<Fuoten::Error>("harbour.fuoten", 1, 0, "FuotenError");

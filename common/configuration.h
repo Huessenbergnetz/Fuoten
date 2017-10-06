@@ -25,6 +25,7 @@
 #include <QObject>
 #include <QUrl>
 #include <QDateTime>
+#include <QTimer>
 #include <Fuoten/Helpers/AbstractConfiguration>
 #include <Fuoten/FuotenEnums>
 #if QT_VERSION < QT_VERSION_CHECK(5, 6, 0)
@@ -181,13 +182,25 @@ class Configuration : public Fuoten::AbstractConfiguration
      * Set it to \c 0 to disable automatic updates.
      *
      * \par Access functions:
-     * quint32 updateInterval() const
-     * void setUpdateInerval(quint32 interval)
+     * \li quint32 updateInterval() const
+     * \li void setUpdateInerval(quint32 interval)
      *
      * \par Notifier signal:
-     * void updateIntervalChanged(quint32 interval)
+     * \li void updateIntervalChanged(quint32 interval)
      */
     Q_PROPERTY(quint32 updateInterval READ updateInterval WRITE setUpdateInterval NOTIFY updateIntervalChanged)
+    /*!
+     * \brief This property holds a human readable relative last synchronization time.
+     *
+     * The string will be something like "10 minutes ago".
+     *
+     * \par Access functions:
+     * \li QString humanLastSync() const
+     *
+     * \par Notifier signal:
+     * \li void humanLastSyncChanged(const QString &humanLastSync)
+     */
+    Q_PROPERTY(QString humanLastSync READ humanLastSync NOTIFY humanLastSyncChanged)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
     Q_ENUM(Fuoten::FuotenEnums::Type)
 #else
@@ -222,6 +235,12 @@ public:
      * \sa setUpdateInterval(), updateIntervalChanged()
      */
     quint32 updateInterval() const;
+
+    /*!
+     * \brief Getter function for the \link Configuration::humanLastSync humanLastSync \endlink property.
+     * \sa setHumanLastSync(), humanLastSyncChanged()
+     */
+    QString humanLastSync() const;
 
     /*!
      * \brief Returns a human readable relative last sync time.
@@ -277,6 +296,15 @@ public:
      */
     Q_INVOKABLE bool isUpdatePossible() const;
 
+    /*!
+     * \brief Checks if an update/synchrinization should be performed.
+     *
+     * Starts a 5000ms timer that will use isUpdatePossible() after timeout. If that returns
+     * \c true, the updatePossible() signal will be emitted. Will also set the
+     * \link Configuration::humanLastSync humanLastSync \endlink property.
+     */
+    Q_INVOKABLE void checkUpdate();
+
 protected:
     void setIsAccountValid(bool nIsAccountValid) override;
 
@@ -303,6 +331,17 @@ signals:
      */
     void updateIntervalChanged(quint32 interval);
 
+    /*!
+     * \brief Notifier signal for the \link Configuration::humanLastSync humanLastSync \endlink property.
+     * \sa setHumanLastSync(), humanLastSync()
+     */
+    void humanLastSyncChanged(const QString &humanLastSync);
+
+    /*!
+     * \brief This signal will be emitted by the checkUpdate() method.
+     */
+    void updatePossible();
+
 private:
     Q_DISABLE_COPY(Configuration)
     QString m_username;
@@ -322,6 +361,14 @@ private:
     Fuoten::FuotenEnums::Type m_mainViewType;
     QDateTime m_lastSync;
     quint32 m_updateInterval = 0;
+    QString m_humanLastSync;
+    QTimer *m_checkUpdateTimer = nullptr;
+
+    /*!
+     * \brief Setter function for the \link Configuration::humanLastSync humanLastSync \endlink property.
+     * \sa humanLastSync(), humanLastSyncChanged()
+     */
+    void setHumanLastSync(const QString &humanLastSync);
 };
 
 #endif // CONFIGURATION_H

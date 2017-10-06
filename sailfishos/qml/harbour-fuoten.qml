@@ -35,21 +35,13 @@ ApplicationWindow
     allowedOrientations: Orientation.All
     _defaultPageOrientations: Orientation.All
 
-    Timer {
-        id: checkUpdateTimer
-        interval: 5000
-        onTriggered:  {
-            if (config.isUpdatePossible()) {
-                if (!synchronizer.inOperation) {
-                    synchronizer.sync()
-                }
-            }
-        }
-    }
-
     Connections {
         target: pageStack
-        onCurrentPageChanged: checkUpdateTimer.restart()
+        onCurrentPageChanged: {
+            if (!synchronizer.inOperation) {
+                config.checkUpdate();
+            }
+        }
     }
 }
 

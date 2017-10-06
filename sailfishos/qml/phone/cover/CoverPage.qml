@@ -27,20 +27,10 @@ CoverBackground {
 
     onStatusChanged: {
         if (status === Cover.Active) {
-            if (config.isUpdatePossible()) {
-                if (!synchronizer.inOperation) {
-                    synchronizer.sync()
-                }
+            if (!synchronizer.inOperation) {
+                config.checkUpdate();
             }
         }
-    }
-
-    Timer {
-        interval: 60000
-        repeat: true
-        triggeredOnStart: true
-        running: !synchronizer.inOperation && cov.status === Cover.Active
-        onTriggered: lastUpdText.text = config.getHumanLastSync()
     }
 
     Column {
@@ -75,7 +65,7 @@ CoverBackground {
         color: Theme.highlightColor
         anchors { top: countCol.bottom; left: parent.left; right: parent.right; topMargin: Theme.paddingLarge * 1.5; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
         font.pixelSize: Theme.fontSizeLarge
-        text: config.getHumanLastSync()
+        text: config.humanLastSync
         width: parent.width
         textFormat: Text.PlainText
         visible: !synchronizer.inOperation

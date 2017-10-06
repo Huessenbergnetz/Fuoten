@@ -62,8 +62,10 @@ Configuration::Configuration(QObject *parent) :
 
     uint lsts = value(QStringLiteral("system/lastsync"), 0).toUInt();
     if (lsts > 0) {
-        m_lastSync = QDateTime::fromTime_t(lsts);
+        m_lastSync = QDateTime::fromTime_t(lsts).toUTC();
     }
+
+    m_humanLastSync = getHumanLastSync();
 }
 
 
@@ -371,6 +373,7 @@ void Configuration::setLastSync(const QDateTime &lastSync)
         qDebug("Changed lastSync to %s.", qUtf8Printable(m_lastSync.toString(Qt::ISODate)));
         setValue(QStringLiteral("system/lastsync"), lastSync.toTime_t());
         Q_EMIT lastSyncChanged(getLastSync());
+        setHumanLastSync(getHumanLastSync());
     }
 }
 
@@ -414,27 +417,35 @@ void Configuration::setCurrentVersion()
 
 QString Configuration::getHumanLastSync() const
 {
-    qreal td = (qreal)getLastSync().secsTo(QDateTime::currentDateTimeUtc());
+    //% "never"
+    QString ret = qtTrId("fuoten-sync-never");
 
-    if (td <= 10) {
-        //% "just now"
-        return qtTrId("fuoten-just-now");
-    } else if (td < 60.0) {
-        //% "%n second(s) ago"
-        return qtTrId("fuoten-seconds-ago", td);
-    } else if (td < 7200.0) {
-        long int rtd = lround(td/60.0);
-        //% "%n minute(s) ago"
-        return qtTrId("fuoten-minutes-ago", rtd);
-    } else if (td < 172800.0) {
-        long int rtd = lround(td/3600.0);
-        //% "%n hour(s) ago"
-        return qtTrId("fuoten-hours-ago", rtd);
-    } else  {
-        long int rtd = lround(td/86400.0);
-        //% "%n day(s) ago"
-        return qtTrId("fuoten-days-ago", rtd);
+    if (m_lastSync.toMSecsSinceEpoch() > 0) {
+
+        qreal td = (qreal)getLastSync().secsTo(QDateTime::currentDateTimeUtc());
+
+        if (td <= 10) {
+            //% "just now"
+            ret = qtTrId("fuoten-just-now");
+        } else if (td < 60.0) {
+            //% "%n second(s) ago"
+            ret = qtTrId("fuoten-seconds-ago", td);
+        } else if (td < 7200.0) {
+            long int rtd = lround(td/60.0);
+            //% "%n minute(s) ago"
+            ret = qtTrId("fuoten-minutes-ago", rtd);
+        } else if (td < 172800.0) {
+            long int rtd = lround(td/3600.0);
+            //% "%n hour(s) ago"
+            ret = qtTrId("fuoten-hours-ago", rtd);
+        } else  {
+            long int rtd = lround(td/86400.0);
+            //% "%n day(s) ago"
+            ret = qtTrId("fuoten-days-ago", rtd);
+        }
     }
+
+    return ret;
 }
 
 
@@ -450,7 +461,37 @@ void Configuration::setUpdateInterval(quint32 updateInterval)
     }
 }
 
+QString Configuration::humanLastSync() const { return m_humanLastSync; }
+
+void Configuration::setHumanLastSync(const QString &humanLastSync)
+{
+    if (m_humanLastSync != humanLastSync) {
+        m_humanLastSync = humanLastSync;
+        qDebug("Changed humanLastSync to \"%s\".", qUtf8Printable(m_humanLastSync));
+        emit humanLastSyncChanged(m_humanLastSync);
+    }
+}
+
 bool Configuration::isUpdatePossible() const
 {
+    qDebug("%s", "Checking for update.");
     return ((m_updateInterval > 0) && (m_lastSync.secsTo(QDateTime::currentDateTimeUtc()) > static_cast<qint64>(m_updateInterval)));
+}
+
+
+void Configuration::checkUpdate()
+{
+    if (!m_checkUpdateTimer) {
+        m_checkUpdateTimer = new QTimer(this);
+        m_checkUpdateTimer->setTimerType(Qt::VeryCoarseTimer);
+        m_checkUpdateTimer->setSingleShot(true);
+        connect(m_checkUpdateTimer, &QTimer::timeout, [this] () {
+            setHumanLastSync(getHumanLastSync());
+            if (isUpdatePossible()) {
+                emit updatePossible();
+            }
+        });
+        m_checkUpdateTimer->setInterval(5000);
+    }
+    m_checkUpdateTimer->start();
 }
