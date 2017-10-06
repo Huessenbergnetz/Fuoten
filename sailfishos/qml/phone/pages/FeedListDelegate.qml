@@ -29,6 +29,7 @@ ListItem {
 
         property string searchString
         property bool folderView: false
+        property Page page
 
         contentHeight: Theme.itemSizeSmall
 
@@ -56,14 +57,14 @@ ListItem {
                 Layout.preferredWidth: !folderView ? Theme.iconSizeSmall : Theme.iconSizeMedium
 
                 Image {
-                    source: display.faviconLink.toString() !== "" ? display.faviconLink : "image://fuoten/icon-s-feed?" + (feedListItem.highlighted ? Theme.highlightColor : Theme.primaryColor)
+                    source: display.faviconLink.toString() !== "" ? display.faviconLink : (!folderView ? "image://fuoten/icon-s-feed?" : "image://fuoten/icon-m-feed?") + (feedListItem.highlighted ? Theme.highlightColor : Theme.primaryColor)
                     sourceSize.width: !folderView ? Theme.iconSizeSmall : Theme.iconSizeMedium - (20 * Theme.pixelRatio)
                     sourceSize.height: !folderView ? Theme.iconSizeSmall : Theme.iconSizeMedium - (20 * Theme.pixelRatio)
                     anchors.centerIn: !folderView ? undefined : parent
                     anchors.fill: !folderView ? parent : undefined
                     onStatusChanged: {
                         if (status === Image.Error) {
-                            source = "image://fuoten/icon-s-feed?" + (feedListItem.highlighted ? Theme.highlightColor : Theme.primaryColor)
+                            source = (!folderView ? "image://fuoten/icon-s-feed?" : "image://fuoten/icon-m-feed?") + (feedListItem.highlighted ? Theme.highlightColor : Theme.primaryColor)
                         }
                     }
                 }
@@ -92,11 +93,17 @@ ListItem {
             }
         }
 
-        RemorseItem { id: feedListItemRemorse }
+//        RemorseItem { id: feedListItemRemorse }
 
         function deleteFeed() {
-            //% "Deleting %1"
-            feedListItemRemorse.execute(feedListItem, qsTrId("fuoten-deleting").arg(model.display.title), function() {model.display.remove(config, localstorage)})
+            if (feedListItem.folderView) {
+                //% "Deleting %1"
+                Remorse.popupAction(feedListItem.page, qsTrId("fuoten-deleting").arg(model.display.title), function() {model.display.remove(config, localstorage)})
+            } else {
+                Remorse.itemAction(feedListItem, qsTrId("fuoten-deleting"), function() {model.display.remove(config, localstorage)})
+            }
+
+//            feedListItemRemorse.execute(feedListItem, qsTrId("fuoten-deleting").arg(model.display.title), function() {model.display.remove(config, localstorage)})
         }
 
         Component {

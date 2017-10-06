@@ -37,7 +37,7 @@ BaseListView {
         id: folderListHeader
         page: folderListView.page
         searchVisible: folderListView.searchVisible
-        feedListDelegate: FeedListDelegate { folderView: true }
+        feedListDelegate: FeedListDelegate { folderView: true; page: folderListView.page }
         onSearchTextChanged: folderListView.searchString = searchText
         onAllArticlesClicked: startPage ? pageStack.push(Qt.resolvedUrl("ArticlesListPage.qml"), {context: FuotenApp.AllItems}) : ""
         onStarredItemsClicked: pageStack.push(Qt.resolvedUrl("ArticlesListPage.qml"), {context: FuotenApp.StarredItems})
