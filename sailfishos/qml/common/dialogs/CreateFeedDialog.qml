@@ -93,8 +93,8 @@ Page {
 
             BusyIndicator {
                 size: BusyIndicatorSize.Large
-                visible: createFeed.inOperation
-                running: createFeed.inOperation
+                visible: createFeed.inOperation || getItems.inOperation
+                running: createFeed.inOperation || getItems.inOperation
                 anchors.horizontalCenter: parent.horizontalCenter
             }
         }
