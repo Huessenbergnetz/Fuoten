@@ -28,11 +28,7 @@
 #include <QTimer>
 #include <Fuoten/Helpers/AbstractConfiguration>
 #include <Fuoten/FuotenEnums>
-#if QT_VERSION < QT_VERSION_CHECK(5, 6, 0)
-#include <Fuoten/Helpers/VersionNumber>
-#else
 #include <QVersionNumber>
-#endif
 
 /*!
  * \brief Provides the configuration interface for Fuoten.
@@ -212,11 +208,7 @@ class Configuration : public Fuoten::AbstractConfiguration
      * \li void wlanOnlyUpdateChanged(bool wlanOnlyUpdate)
      */
     Q_PROPERTY(bool wlanOnlyUpdate READ wlanOnlyUpdate WRITE setWlanOnlyUpdate NOTIFY wlanOnlyUpdateChanged)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
     Q_ENUM(Fuoten::FuotenEnums::Type)
-#else
-    Q_ENUMS(Fuoten::FuotenEnums::Type)
-#endif
 public:
     explicit Configuration(QObject *parent = nullptr);
     ~Configuration();

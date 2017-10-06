@@ -82,11 +82,9 @@ void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, con
     case QtDebugMsg:
         t = QLatin1Char('D');
         break;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
     case QtInfoMsg:
         t = QLatin1Char('I');
         break;
-#endif
     case QtWarningMsg:
         t = QLatin1Char('W');
         break;

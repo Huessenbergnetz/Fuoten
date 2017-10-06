@@ -111,11 +111,6 @@ class ContextConfig : public QSettings
      * <TABLE><TR><TD>void</TD><TD>deletionValueChanged(quint16 deletionValue)</TD></TR></TABLE>
      */
     Q_PROPERTY(quint16 deletionValue READ deletionValue WRITE setDeletionValue NOTIFY deletionValueChanged)
-#if QT_VERSION < QT_VERSION_CHECK(5, 5, 0)
-    Q_ENUMS(FuotenAppEnums::Context)
-    Q_ENUMS(Fuoten::FuotenEnums::SortingRole)
-    Q_ENUMS(Fuoten::FuotenEnums::ItemDeletionStrategy)
-#endif
 public:
     explicit ContextConfig(QObject *parent = nullptr);
     ~ContextConfig();

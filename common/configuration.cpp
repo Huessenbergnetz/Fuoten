@@ -45,13 +45,8 @@ Configuration::Configuration(QObject *parent) :
     m_host = value(QStringLiteral("account/host")).toString();
     m_installPath = value(QStringLiteral("account/installpath")).toString();
     m_displayName = value(QStringLiteral("account/displayname")).toString();
-#if QT_VERSION < QT_VERSION_CHECK(5, 6 ,0)
-    m_serverVersion = Fuoten::VersionNumber(value(QStringLiteral("account/serverversion")).toString());
-    m_savedAppVersion = Fuoten::VersionNumber(value(QStringLiteral("system/appVersion")).toString());
-#else
     m_serverVersion = QVersionNumber::fromString(value(QStringLiteral("account/serverversion")).toString());
     m_savedAppVersion = QVersionNumber::fromString(value(QStringLiteral("system/appVersion")).toString());
-#endif
     m_serverPort = value(QStringLiteral("account/serverport"), 0).toInt();
     m_improperlyConfiguredCron = value(QStringLiteral("warnings/improperlyConfiguredCron"), false).toBool();
     m_isAccountValid = false;
@@ -202,11 +197,7 @@ QString Configuration::serverVersion() const { return m_serverVersion.toString()
 
 void Configuration::setServerVersion(const QString &nServerVersion)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     m_serverVersion = QVersionNumber::fromString(nServerVersion);
-#else
-    m_serverVersion.loadFromString(nServerVersion);
-#endif
     setValue(QStringLiteral("account/serverversion"), m_serverVersion.toString());
     checkAccountValidity();
     emit serverVersionChanged(serverVersion());
@@ -397,11 +388,7 @@ quint16 Configuration::getPerFeedDeletionValue(qint64 feedId) const
 
 bool Configuration::checkForUpdate() const
 {
-#if QT_VERSION < QT_VERSION_CHECK(5, 6 ,0)
-    return m_savedAppVersion < QVersionNumber(QStringLiteral(VERSION_STRING));
-#else
     return m_savedAppVersion < QVersionNumber::fromString(QStringLiteral(VERSION_STRING));
-#endif
 }
 
 
