@@ -139,7 +139,7 @@ int main(int argc, char *argv[])
 #ifndef CLAZY
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
 #else
-    QGuiApplication* app = new QGuiApplication(argc, argv);
+    QScopedPointer<QGuiApplication> app(new QGuiApplication(argc, argv));
 #endif
 
     app->setApplicationName(QStringLiteral("harbour-fuoten"));

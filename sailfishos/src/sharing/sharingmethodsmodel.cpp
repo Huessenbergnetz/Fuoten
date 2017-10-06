@@ -113,7 +113,7 @@ void SharingMethodsModel::loadMethods()
             for (int i = 0; i < _methods.size(); ++i) {
                 const SharingMethod m = _methods.at(i);
                 const QStringList caps = m.capabilites();
-                if (caps.contains(QStringLiteral("text/*")) || caps.contains(QStringLiteral("text/x-url")) || caps.contains("*")) {
+                if (caps.contains(QStringLiteral("text/*")) || caps.contains(QStringLiteral("text/x-url")) || caps.contains(QStringLiteral("*"))) {
                     _filteredMethods.push_back(m);
                 }
             }

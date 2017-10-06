@@ -29,11 +29,11 @@ class QAbstractNetworkCache;
 
 class NamFactory : public QQmlNetworkAccessManagerFactory
 {
+    Q_DISABLE_COPY(NamFactory)
 public:
     explicit NamFactory(QAbstractNetworkCache *cache);
 
     virtual QNetworkAccessManager *create(QObject *parent = nullptr) override;
-
 
 private:
     QAbstractNetworkCache *m_cache = nullptr;
