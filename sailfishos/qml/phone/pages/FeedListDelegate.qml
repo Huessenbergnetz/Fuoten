@@ -93,8 +93,6 @@ ListItem {
             }
         }
 
-//        RemorseItem { id: feedListItemRemorse }
-
         function deleteFeed() {
             if (feedListItem.folderView) {
                 //% "Deleting %1"
@@ -102,8 +100,6 @@ ListItem {
             } else {
                 Remorse.itemAction(feedListItem, qsTrId("fuoten-deleting"), function() {model.display.remove(config, localstorage)})
             }
-
-//            feedListItemRemorse.execute(feedListItem, qsTrId("fuoten-deleting").arg(model.display.title), function() {model.display.remove(config, localstorage)})
         }
 
         Component {
