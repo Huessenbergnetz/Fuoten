@@ -369,9 +369,9 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-mark-item-as-read">
-        <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+59"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+69"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+252"/>
-        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+65"/>
+        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+85"/>
         <source>Mark as read</source>
         <translation type="unfinished"></translation>
     </message>
@@ -453,18 +453,19 @@
     </message>
     <message id="fuoten-mark-feed-read">
         <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="+61"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="+113"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="+116"/>
         <source>Mark feed read</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-deleting">
-        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="-14"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="-17"/>
+        <location line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+22"/>
         <source>Deleting %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-delete-feed">
-        <location line="+26"/>
+        <location line="+27"/>
         <source>Delete feed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -767,7 +768,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-sync-never">
-        <location filename="../common/configuration.cpp" line="+424"/>
+        <location filename="../common/configuration.cpp" line="+411"/>
         <source>never</source>
         <translation type="unfinished"></translation>
     </message>

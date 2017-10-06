@@ -175,14 +175,14 @@
         <translation>Fuoten kan utföra pseudobakgrundsuppdateringar genom att helt enkelt reagera på statusändringar i användargränssnittet. Observera att detta tillvägagångssätt inte kommer att medföra riktiga bakgrundsuppdateringar medan enheten är i viloläge.</translation>
     </message>
     <message id="fuoten-settings-wlan-only-updates">
-        <location line="+25"/>
+        <location line="+30"/>
         <source>Automatic synchronization only on WLAN</source>
-        <translation type="unfinished"/>
+        <translation>Automatisk synkronisering endast över WLAN</translation>
     </message>
     <message id="fuoten-settings-wlan-only-updates-desc">
         <location line="+2"/>
         <source>If enabled, automatic pseudo background updates will only be performed if the device is connected to a WLAN.</source>
-        <translation type="unfinished"/>
+        <translation>Vid aktivering kommer automatisk pseudobakgrundsuppdatering att utföras, endast om enheten är ansluten till WLAN.</translation>
     </message>
     <message id="id-about">
         <location filename="../sailfishos/qml/common/pages/About.qml" line="+29"/>
@@ -368,9 +368,9 @@
         <translation>Synkronisera</translation>
     </message>
     <message id="fuoten-mark-item-as-read">
-        <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+59"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+69"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+252"/>
-        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+65"/>
+        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+85"/>
         <source>Mark as read</source>
         <translation>Märk som läst</translation>
     </message>
@@ -446,18 +446,19 @@
     </message>
     <message id="fuoten-mark-feed-read">
         <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="+61"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="+113"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="+116"/>
         <source>Mark feed read</source>
         <translation>Märk flödet som läst</translation>
     </message>
     <message id="fuoten-deleting">
-        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="-14"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="-17"/>
+        <location line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+22"/>
         <source>Deleting %1</source>
         <translation>Tar bort %1</translation>
     </message>
     <message id="fuoten-delete-feed">
-        <location line="+26"/>
+        <location line="+27"/>
         <source>Delete feed</source>
         <translation>Ta bort flöde</translation>
     </message>
@@ -754,9 +755,9 @@
         <translation>Olästa artiklar</translation>
     </message>
     <message id="fuoten-sync-never">
-        <location filename="../common/configuration.cpp" line="+424"/>
+        <location filename="../common/configuration.cpp" line="+411"/>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>aldrig</translation>
     </message>
     <message id="fuoten-just-now">
         <location line="+8"/>
