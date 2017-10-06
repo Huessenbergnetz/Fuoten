@@ -535,3 +535,5 @@ void Configuration::checkUpdate()
     }
     m_checkUpdateTimer->start();
 }
+
+#include "moc_configuration.cpp"

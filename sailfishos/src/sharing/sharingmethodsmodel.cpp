@@ -137,3 +137,5 @@ void SharingMethodsModel::loadMethods()
     m_methods.push_back(clipboard);
     endInsertRows();
 }
+
+#include "moc_sharingmethodsmodel.cpp"

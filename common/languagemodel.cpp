@@ -166,3 +166,5 @@ int LanguageModel::findIndex(const QString &langCode) const
 
     return idx;
 }
+
+#include "moc_languagemodel.cpp"

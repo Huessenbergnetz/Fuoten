@@ -141,3 +141,5 @@ int UpdateIntervalModel::findIndex(quint32 interval)
 
     return idx;
 }
+
+#include "moc_updateintervalmodel.cpp"

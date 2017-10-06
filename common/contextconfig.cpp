@@ -211,3 +211,5 @@ QString ContextConfig::path(const QString &key) const
         return key;
     }
 }
+
+#include "moc_contextconfig.cpp"
