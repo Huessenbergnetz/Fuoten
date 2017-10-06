@@ -74,6 +74,7 @@
 #endif
 #include "sharing/sharingmethodsmodel.h"
 #include "namfactory.h"
+#include "coverconnector.h"
 
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -278,6 +279,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty(QStringLiteral("config"), config);
     view->rootContext()->setContextProperty(QStringLiteral("localstorage"), sqliteStorage);
     view->rootContext()->setContextProperty(QStringLiteral("synchronizer"), synchronizer);
+    view->rootContext()->setContextProperty(QStringLiteral("cc"), new CoverConnector(app.data()));
 
 #ifndef CLAZY
     view->setSource(SailfishApp::pathTo(QStringLiteral("qml/harbour-fuoten.qml")));

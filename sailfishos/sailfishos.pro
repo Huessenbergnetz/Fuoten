@@ -35,7 +35,8 @@ SOURCES += \
     src/main.cpp \
     src/sharing/sharingmethod.cpp \
     src/sharing/sharingmethodsmodel.cpp \
-    src/namfactory.cpp
+    src/namfactory.cpp \
+    src/coverconnector.cpp
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
@@ -98,5 +99,6 @@ HEADERS += \
     src/sharing/sharingmethod.h \
     src/sharing/sharingmethod_p.h \
     src/sharing/sharingmethodsmodel.h \
-    src/namfactory.h
+    src/namfactory.h \
+    src/coverconnector.h
 

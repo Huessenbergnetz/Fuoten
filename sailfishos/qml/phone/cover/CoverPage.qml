@@ -36,7 +36,7 @@ CoverBackground {
     Column {
         id: countCol
         anchors { top: parent.top; left: parent.left; right: parent.right; topMargin: Theme.paddingLarge; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
-        visible: !synchronizer.inOperation
+        visible: !synchronizer.inOperation && !cc.article
 
         Text {
             id: count
@@ -68,7 +68,7 @@ CoverBackground {
         text: config.humanLastSync
         width: parent.width
         textFormat: Text.PlainText
-        visible: !synchronizer.inOperation
+        visible: !synchronizer.inOperation && !cc.article
         wrapMode: Text.WordWrap
         lineHeight: 0.7
     }
@@ -99,6 +99,49 @@ CoverBackground {
                 parent.color = Theme.rgba(Theme.highlightColor, opacity)
                 angle = (angle + 10) % 360;
             }
+        }
+    }
+
+    Column {
+        anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingMedium; rightMargin: Theme.paddingMedium; top: parent.top; topMargin: Theme.paddingSmall }
+        visible: !synchronizer.inOperation && cc.article
+
+        Label {
+            width: parent.width
+            truncationMode: TruncationMode.Fade
+            font.pixelSize: Theme.fontSizeExtraSmall
+            color: Theme.secondaryColor
+            maximumLineCount: 1
+            text: cc.article ? cc.article.feedTitle : ""
+        }
+
+        Separator {
+            width: parent.width
+            color: Theme.secondaryColor
+        }
+
+        Item {
+            width: parent.width
+            height: Theme.paddingSmall
+        }
+
+        Label {
+            width: parent.width
+            color: Theme.primaryColor
+            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+            elide: Text.ElideRight
+            font.pixelSize: Theme.fontSizeSmall
+            maximumLineCount: 6
+            text: cc.article ? cc.article.title : ""
+        }
+
+        Label {
+            width: parent.width
+            truncationMode: TruncationMode.Fade
+            font.pixelSize: Theme.fontSizeExtraSmall
+            color: Theme.secondaryColor
+            maximumLineCount: 1
+            text: cc.article ? (cc.article.humanPubDate + " | " + cc.article.humanPubTime) : ""
         }
     }
 

@@ -25,11 +25,31 @@ Page {
     id: articleWebView
 
     property Article article: null
+    property bool isAttached: false
+    property bool loaded: false
+
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            if (!loaded && article) {
+                webViewLoader.sourceComponent = webViewComponent
+                loaded = true
+            }
+        }
+    }
+
+    Component.onCompleted: {
+        cc.article = article
+    }
+
+    Component.onDestruction: {
+        if (!isAttached) {
+            cc.article = null
+        }
+    }
 
     Loader {
         id: webViewLoader
         anchors.fill: parent
-        sourceComponent: ((articleWebView.status === PageStatus.Active) && article) ? webViewComponent : undefined
     }
 
     Component {
