@@ -55,57 +55,97 @@ Page {
     Component {
         id: webViewComponent
 
-        SilicaWebView {
-            id: webView
+        Item {
             anchors.fill: parent
 
-            url: article.url
+            SilicaWebView {
+                id: webView
+                anchors { left: parent.left; right: parent.right; bottom: navBar.top; top: parent.top }
 
-            Component.onCompleted: {
-                experimental.userAgent = "Mozilla/5.0 (Maemo; Linux; Jolla; Sailfish; Mobile) AppleWebKit/534.13 (KHTML, like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13";
-                experimental.preferences.defaultFontSize = Theme.fontSizeSmall
-                experimental.preferences.minimumFontSize = Theme.fontSizeExtraSmall
-                experimental.preferences.pluginsEnabled = true
-                experimental.preferences.javascriptEnabled = true
+                url: article.url
+
+                Component.onCompleted: {
+                    experimental.userAgent = "Mozilla/5.0 (Maemo; Linux; Jolla; Sailfish; Mobile) AppleWebKit/534.13 (KHTML, like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13";
+                    experimental.preferences.defaultFontSize = Theme.fontSizeSmall
+                    experimental.preferences.minimumFontSize = Theme.fontSizeExtraSmall
+                    experimental.preferences.pluginsEnabled = true
+                    experimental.preferences.javascriptEnabled = true
+                }
+
+                PullDownMenu {
+                    MenuItem {
+                        text: article && article.starred
+                                //% "Remove from favorites"
+                              ? qsTrId("fuoten-remove-from-favorites")
+                                //% "Add to favorites"
+                              : qsTrId("fuoten-add-to-favorites")
+                        onClicked: article.star(!article.starred, config, localstorage, true)
+                        enabled: !article.inOperation
+                    }
+                    MenuItem {
+                        text: article && article.unread
+                                //% "Mark as read"
+                              ? qsTrId("fuoten-mark-item-as-read")
+                                //% "Mark as unread"
+                              : qsTrId("fuoten-mark-item-as-unread")
+                        onClicked: article.mark(!article.unread, config, localstorage, true)
+                        enabled: !article.inOperation
+                    }
+
+                    MenuItem {
+                        //% "Share"
+                        text: qsTrId("fuoten-share")
+                        enabled: article
+                        onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": article.url.toString(), "shareTitle": article.title })
+                    }
+
+                    MenuItem {
+                        //% "Open in browser"
+                        text: qsTrId("fuoten-open-in-browser")
+                        onClicked: Qt.openUrlExternally(article.url)
+                    }
+
+                    MenuItem {
+                        //% "Back"
+                        text: qsTrId("fuoten-back")
+                        onClicked: pageStack.navigateBack(PageStackAction.Animated)
+                    }
+                }
             }
 
-            PullDownMenu {
-                MenuItem {
-                    text: article && article.starred
-                            //% "Remove from favorites"
-                          ? qsTrId("fuoten-remove-from-favorites")
-                            //% "Add to favorites"
-                          : qsTrId("fuoten-add-to-favorites")
-                    onClicked: article.star(!article.starred, config, localstorage, true)
-                    enabled: !article.inOperation
-                }
-                MenuItem {
-                    text: article && article.unread
-                            //% "Mark as read"
-                          ? qsTrId("fuoten-mark-item-as-read")
-                            //% "Mark as unread"
-                          : qsTrId("fuoten-mark-item-as-unread")
-                    onClicked: article.mark(!article.unread, config, localstorage, true)
-                    enabled: !article.inOperation
+            Item {
+                id: navBar
+                anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
+                height: Theme.itemSizeSmall
+
+                Rectangle {
+                    height: parent.height
+                    anchors.left: parent.left
+                    width: webView.loadProgress < 100 ? (parent.width * (webView.loadProgress/100)) : 0
+                    color: Theme.rgba(Theme.highlightColor, 0.3)
                 }
 
-                MenuItem {
-                    //% "Share"
-                    text: qsTrId("fuoten-share")
-                    enabled: article
-                    onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": article.url.toString(), "shareTitle": article.title })
+                IconButton {
+                    width: Theme.itemSizeMedium; height: Theme.itemSizeMedium
+                    icon.source: "image://theme/icon-m-back"
+                    enabled: webView.canGoBack
+                    anchors { left: parent.left; leftMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
+                    onClicked: webView.goBack()
                 }
 
-                MenuItem {
-                    //% "Open in browser"
-                    text: qsTrId("fuoten-open-in-browser")
-                    onClicked: Qt.openUrlExternally(article.url)
+                IconButton {
+                    width: Theme.itemSizeMedium; height: Theme.itemSizeMedium
+                    icon.source: webView.loading ? "image://theme/icon-m-reset" : "image://theme/icon-m-refresh"
+                    anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
+                    onClicked: webView.loading ? webView.stop() : webView.reload()
                 }
 
-                MenuItem {
-                    //% "Back"
-                    text: qsTrId("fuoten-back")
-                    onClicked: pageStack.navigateBack(PageStackAction.Animated)
+                IconButton {
+                    width: Theme.itemSizeMedium; height: Theme.itemSizeMedium
+                    icon.source: "image://theme/icon-m-forward"
+                    enabled: webView.canGoForward
+                    anchors { right: parent.right; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
+                    onClicked: webView.goForward()
                 }
             }
         }
