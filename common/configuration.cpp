@@ -26,10 +26,12 @@
 #include <QStandardPaths>
 #include <math.h>
 #include <QMetaEnum>
-
+#include <QNetworkConfiguration>
+#include <QNetworkConfigurationManager>
 
 #define DEFAULT_AVATAR "image://theme/icon-l-people"
 #define CONF_KEY_UPDATE_INTERVAL "behavior/updateInterval"
+#define CONF_KEY_UPDATE_WLAN_ONLY "behavior/updateWlanOnly"
 
 /*!
  * \brief Constructs a new Configuration object.
@@ -59,6 +61,7 @@ Configuration::Configuration(QObject *parent) :
     m_language = value(QStringLiteral("display/language")).toString();
     m_mainViewType = (Fuoten::FuotenEnums::Type)value(QStringLiteral("display/mainViewType"), Fuoten::FuotenEnums::Folder).toInt();
     m_updateInterval = value(QStringLiteral(CONF_KEY_UPDATE_INTERVAL), 0).value<quint32>();
+    m_wlanOnlyUpdate = value(QStringLiteral(CONF_KEY_UPDATE_WLAN_ONLY), true).toBool();
 
     uint lsts = value(QStringLiteral("system/lastsync"), 0).toUInt();
     if (lsts > 0) {
@@ -472,10 +475,60 @@ void Configuration::setHumanLastSync(const QString &humanLastSync)
     }
 }
 
+bool Configuration::wlanOnlyUpdate() const { return m_wlanOnlyUpdate; }
+
+void Configuration::setWlanOnlyUpdate(bool wlanOnlyUpdate)
+{
+    if (m_wlanOnlyUpdate != wlanOnlyUpdate) {
+        m_wlanOnlyUpdate = wlanOnlyUpdate;
+        setValue(QStringLiteral(CONF_KEY_UPDATE_WLAN_ONLY), m_wlanOnlyUpdate);
+        qDebug("Changed wlanOnlyUpdate to %s.", m_wlanOnlyUpdate ? "true" : "false");
+        emit wlanOnlyUpdateChanged(m_wlanOnlyUpdate);
+    }
+}
+
 bool Configuration::isUpdatePossible() const
 {
-    qDebug("%s", "Checking for update.");
-    return ((m_updateInterval > 0) && (m_lastSync.secsTo(QDateTime::currentDateTimeUtc()) > static_cast<qint64>(m_updateInterval)));
+    qDebug("%s", "Checking for update possibility.");
+    if ((m_updateInterval > 0) && (m_lastSync.secsTo(QDateTime::currentDateTimeUtc()) > static_cast<qint64>(m_updateInterval))) {
+
+        QNetworkConfigurationManager netConfManager;
+        const QList<QNetworkConfiguration> netConfs = netConfManager.allConfigurations(QNetworkConfiguration::Discovered);
+
+        if (!netConfs.empty()) {
+            if (m_wlanOnlyUpdate) {
+                for (const QNetworkConfiguration &conf : netConfs) {
+                    switch(conf.bearerType()) {
+                    case QNetworkConfiguration::BearerWLAN:
+                    case QNetworkConfiguration::BearerEthernet:
+                        return true;
+                    default:
+                        qDebug("%s", "Update will not be performed. No WLAN connection available.");
+                        return false;
+                    }
+                }
+
+            } else {
+                for (const QNetworkConfiguration &conf : netConfs) {
+                    switch(conf.bearerTypeFamily()) {
+                    case QNetworkConfiguration::BearerWLAN:
+                    case QNetworkConfiguration::BearerEthernet:
+                    case QNetworkConfiguration::Bearer2G:
+                    case QNetworkConfiguration::Bearer3G:
+                    case QNetworkConfiguration::Bearer4G:
+                        return true;
+                    default:
+                        qDebug("%s", "Update will not be performed. No network connection available.");
+                        return false;
+                    }
+                }
+            }
+        }
+    }
+
+    qDebug("Update will not be performed. Last update is not %u seconds ago.", m_updateInterval);
+
+    return false;
 }
 
 

@@ -162,16 +162,26 @@
     <message id="fuoten-settings-behavior-section">
         <location line="+11"/>
         <source>Behavior</source>
-        <translation type="unfinished"/>
+        <translation>Beteende</translation>
     </message>
     <message id="fuoten-settings-update-interval">
         <location line="+14"/>
         <source>Update interval</source>
-        <translation type="unfinished"/>
+        <translation>Uppdateringsintervall</translation>
     </message>
     <message id="fuoten-settings-update-interval-sailfish-desc">
         <location line="+2"/>
         <source>Fuoten can perform pseudo backgrund updates by simply reacting to status changes of the user interface. Be aware that this approach will not perform real background updates while your device is sleeping.</source>
+        <translation>Fuoten kan utföra pseudobakgrundsuppdateringar genom att helt enkelt reagera på statusändringar i användargränssnittet. Observera att detta tillvägagångssätt inte kommer att medföra riktiga bakgrundsuppdateringar medan enheten är i viloläge.</translation>
+    </message>
+    <message id="fuoten-settings-wlan-only-updates">
+        <location line="+25"/>
+        <source>Automatic synchronization only on WLAN</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-settings-wlan-only-updates-desc">
+        <location line="+2"/>
+        <source>If enabled, automatic pseudo background updates will only be performed if the device is connected to a WLAN.</source>
         <translation type="unfinished"/>
     </message>
     <message id="id-about">
@@ -743,8 +753,13 @@
         <source>Unread articles</source>
         <translation>Olästa artiklar</translation>
     </message>
+    <message id="fuoten-sync-never">
+        <location filename="../common/configuration.cpp" line="+424"/>
+        <source>never</source>
+        <translation type="unfinished"/>
+    </message>
     <message id="fuoten-just-now">
-        <location filename="../common/configuration.cpp" line="+421"/>
+        <location line="+8"/>
         <source>just now</source>
         <translation>Just nu</translation>
     </message>
@@ -781,42 +796,42 @@
     <message id="fuoten-update-interval-disabled">
         <location filename="../common/updateintervalmodel.cpp" line="+92"/>
         <source>Disabled</source>
-        <translation type="unfinished"/>
+        <translation>Inaktiverat</translation>
     </message>
     <message id="fuoten-update-interval-quarter-hour">
         <location line="+3"/>
         <source>15 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>15 minuter</translation>
     </message>
     <message id="fuoten-update-interval-half-hour">
         <location line="+3"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>30 minuter</translation>
     </message>
     <message id="fuoten-update-interval-one-hour">
         <location line="+3"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 timma</translation>
     </message>
     <message id="fuoten-update-interval-two-hours">
         <location line="+3"/>
         <source>2 Hours</source>
-        <translation type="unfinished"/>
+        <translation>2 timmar</translation>
     </message>
     <message id="fuoten-update-interval-six-hours">
         <location line="+3"/>
         <source>6 Hours</source>
-        <translation type="unfinished"/>
+        <translation>6 timmar</translation>
     </message>
     <message id="fuoten-update-interval-half-day">
         <location line="+3"/>
         <source>12 Hours</source>
-        <translation type="unfinished"/>
+        <translation>12 timmar</translation>
     </message>
     <message id="fuoten-update-interval-one-day">
         <location line="+3"/>
         <source>1 Day</source>
-        <translation type="unfinished"/>
+        <translation>1 dag</translation>
     </message>
 </context>
 </TS>

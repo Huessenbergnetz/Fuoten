@@ -201,6 +201,17 @@ class Configuration : public Fuoten::AbstractConfiguration
      * \li void humanLastSyncChanged(const QString &humanLastSync)
      */
     Q_PROPERTY(QString humanLastSync READ humanLastSync NOTIFY humanLastSyncChanged)
+    /*!
+     * \brief This property holds \c true if automatic updates should only be done on WLAN connections.
+     *
+     * \par Access functions:
+     * \li bool wlanOnlyUpdate() const
+     * \li void setWlanOnlyUpdate(bool wlanOnlyUpdate)
+     *
+     * \par Notifier signal:
+     * \li void wlanOnlyUpdateChanged(bool wlanOnlyUpdate)
+     */
+    Q_PROPERTY(bool wlanOnlyUpdate READ wlanOnlyUpdate WRITE setWlanOnlyUpdate NOTIFY wlanOnlyUpdateChanged)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
     Q_ENUM(Fuoten::FuotenEnums::Type)
 #else
@@ -243,6 +254,12 @@ public:
     QString humanLastSync() const;
 
     /*!
+     * \brief Getter function for the \link Configuration::wlanOnlyUpdate wlanOnlyUpdate \endlink property.
+     * \sa setWlanOnlyUpdate(), wlanOnlyUpdateChanged()
+     */
+    bool wlanOnlyUpdate() const;
+
+    /*!
      * \brief Returns a human readable relative last sync time.
      */
     Q_INVOKABLE QString getHumanLastSync() const;
@@ -267,6 +284,12 @@ public:
      * \sa setUpdateInterval(), updateIntervalChanged()
      */
     void setUpdateInterval(quint32 updateInterval);
+
+    /*!
+     * \brief Setter function for the \link Configuration::wlanOnlyUpdate wlanOnlyUpdate \endlink property.
+     * \sa wlanOnlyUpdate(), wlanOnlyUpdateChanged()
+     */
+    void setWlanOnlyUpdate(bool wlanOnlyUpdate);
 
     /*!
      * \brief Returns true if Fuoten has been updated.
@@ -338,6 +361,12 @@ signals:
     void humanLastSyncChanged(const QString &humanLastSync);
 
     /*!
+     * \brief Notifier signal for the \link Configuration::wlanOnlyUpdate wlanOnlyUpdate \endlink property.
+     * \sa setWlanOnlyUpdate(), wlanOnlyUpdate()
+     */
+    void wlanOnlyUpdateChanged(bool wlanOnlyUpdate);
+
+    /*!
      * \brief This signal will be emitted by the checkUpdate() method.
      */
     void updatePossible();
@@ -362,6 +391,7 @@ private:
     QDateTime m_lastSync;
     quint32 m_updateInterval = 0;
     QString m_humanLastSync;
+    bool m_wlanOnlyUpdate = true;
     QTimer *m_checkUpdateTimer = nullptr;
 
     /*!

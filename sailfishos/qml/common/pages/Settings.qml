@@ -154,14 +154,35 @@ Page {
                     onCurrentIndexChanged: {
                         if (currentItem) {
                             config.updateInterval = currentItem.value
-                            if (config.isUpdatePossible()) {
-                                if (!synchronizer.inOperation) {
-                                    synchronizer.sync()
-                                }
+                            if (!synchronizer.inOperation) {
+                                config.checkUpdate()
                             }
                         }
                     }
                     currentIndex: updateIntModel.findIndex(config.updateInterval)
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: updateOnWlanOnlySwitch.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
+                TextSwitch {
+                    id: updateOnWlanOnlySwitch
+                    enabled: config.updateInterval > 0
+                    automaticCheck: false
+                    checked: config.wlanOnlyUpdate
+                    //% "Automatic synchronization only on WLAN"
+                    text: qsTrId("fuoten-settings-wlan-only-updates")
+                    //% "If enabled, automatic pseudo background updates will only be performed if the device is connected to a WLAN."
+                    description: qsTrId("fuoten-settings-wlan-only-updates-desc")
+                    onClicked: {
+                        config.wlanOnlyUpdate = !config.wlanOnlyUpdate
+                        if (!synchronizer.inOperation) {
+                            config.checkUpdate()
+                        }
+                    }
                 }
             }
         }

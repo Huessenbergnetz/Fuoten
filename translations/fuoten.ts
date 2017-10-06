@@ -176,6 +176,16 @@
         <source>Fuoten can perform pseudo backgrund updates by simply reacting to status changes of the user interface. Be aware that this approach will not perform real background updates while your device is sleeping.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message id="fuoten-settings-wlan-only-updates">
+        <location line="+30"/>
+        <source>Automatic synchronization only on WLAN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-settings-wlan-only-updates-desc">
+        <location line="+2"/>
+        <source>If enabled, automatic pseudo background updates will only be performed if the device is connected to a WLAN.</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message id="id-about">
         <location filename="../sailfishos/qml/common/pages/About.qml" line="+29"/>
         <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="-7"/>
@@ -756,8 +766,13 @@
         <source>Unread articles</source>
         <translation type="unfinished"></translation>
     </message>
+    <message id="fuoten-sync-never">
+        <location filename="../common/configuration.cpp" line="+424"/>
+        <source>never</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message id="fuoten-just-now">
-        <location filename="../common/configuration.cpp" line="+421"/>
+        <location line="+8"/>
         <source>just now</source>
         <translation type="unfinished"></translation>
     </message>
