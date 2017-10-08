@@ -111,6 +111,28 @@ class ContextConfig : public QSettings
      * <TABLE><TR><TD>void</TD><TD>deletionValueChanged(quint16 deletionValue)</TD></TR></TABLE>
      */
     Q_PROPERTY(quint16 deletionValue READ deletionValue WRITE setDeletionValue NOTIFY deletionValueChanged)
+    /*!
+     * \brief Holds the model index of the currently selected user agent.
+     *
+     * \par Access functions:
+     * \li quint8 userAgentIdx() const
+     * \li void setUserAgentIdx(quint8 nUserAgentIdx)
+     *
+     * \par Notifier signal:
+     * \li void userAgentIdxChanged(quint8 userAgentIdx)
+     */
+    Q_PROPERTY(quint8 userAgentIdx READ userAgentIdx WRITE setUserAgentIdx NOTIFY userAgentIdxChanged)
+    /*!
+     * \brief Holds the currently used user agent string.
+     *
+     * \par Access functions:
+     * \li QString userAgent() const
+     * \li void setUserAgent(const QString &nUserAgent)
+     *
+     * \par Notifier signal:
+     * \li void userAgentChanged(const QString &userAgent)
+     */
+    Q_PROPERTY(QString userAgent READ userAgent WRITE setUserAgent NOTIFY userAgentChanged)
 public:
     explicit ContextConfig(QObject *parent = nullptr);
     ~ContextConfig();
@@ -138,6 +160,16 @@ public:
      * \sa ContextConfig::setDeletionValue(), ContextConfig::deletionValueChanged()
      */
     quint16 deletionValue() const;
+    /*!
+     * \brief Getter function for the \link ContextConfig::userAgentIdx userAgentIdx \endlink property.
+     * \sa setUserAgentIdx(), userAgentIdxChanged()
+     */
+    quint8 userAgentIdx() const;
+    /*!
+     * \brief Getter function for the \link ContextConfig::userAgent userAgent \endlink property.
+     * \sa setUserAgent(), userAgentChanged()
+     */
+    QString userAgent() const;
 
 
     void setContextType(FuotenAppEnums::Context nContextType);
@@ -166,6 +198,16 @@ public:
      * \sa ContextConfig::deletionValue(), ContextConfig::deletionValueChanged()
      */
     void setDeletionValue(quint16 nDeletionValue);
+    /*!
+     * \brief Setter function for the \link ContextConfig::userAgentIdx userAgentIdx \endlink property.
+     * \sa userAgentIdx(), userAgentIdxChanged()
+     */
+    void setUserAgentIdx(quint8 nUserAgentIdx);
+    /*!
+     * \brief Setter function for the \link ContextConfig::userAgent userAgent \endlink property.
+     * \sa userAgent(), userAgentChanged()
+     */
+    void setUserAgent(const QString &nUserAgent);
 
 
 signals:
@@ -192,6 +234,16 @@ signals:
      * \sa ContextConfig::deletionValue(), ContextConfig::setDeletionValue()
      */
     void deletionValueChanged(quint16 deletionValue);
+    /*!
+     * \brief Notifier signal for the \link ContextConfig::userAgentIdx userAgentIdx \endlink property.
+     * \sa userAgentIdx(), setUserAgentIdx()
+     */
+    void userAgentIdxChanged(quint8 userAgentIdx);
+    /*!
+     * \brief Notifier signal for the \link ContextConfig::userAgent userAgent \endlink property.
+     * \sa setUserAgent(), userAgent()
+     */
+    void userAgentChanged(const QString &userAgent);
 
 private:
     Q_DISABLE_COPY(ContextConfig)
@@ -206,6 +258,8 @@ private:
     FuotenAppEnums::OpenIn m_openArticles;
     Fuoten::FuotenEnums::ItemDeletionStrategy m_deletionStrategy;
     quint16 m_deletionValue;
+    quint8 m_userAgentIdx = 0;
+    QString m_userAgent = QStringLiteral("Mozilla/5.0 (Maemo; Linux; U; Jolla; Sailfish; like Android) AppleWebKit/538.1 (KHTML, like Gecko) Version/5.1 Chrome/30.0.0.0 Mobile Safari/538.1 (compatible)");
 
     QString path(const QString &key) const;
 

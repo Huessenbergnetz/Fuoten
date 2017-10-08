@@ -368,9 +368,9 @@
         <translation>Synkronisera</translation>
     </message>
     <message id="fuoten-mark-item-as-read">
-        <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+69"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+70"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+252"/>
-        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+85"/>
+        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+93"/>
         <source>Mark as read</source>
         <translation>Märk som läst</translation>
     </message>
@@ -520,7 +520,7 @@
         <translation>Stjärnmärkta artiklar</translation>
     </message>
     <message id="fuoten-hide-read-label">
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+127"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+151"/>
         <source>Hide read</source>
         <translation>Dölj lästa</translation>
     </message>
@@ -530,7 +530,7 @@
         <translation>Beroende på kontext, kommer flöden och mappar med noll olästa artiklar, eller enskilda lästa artiklar, att döljas.</translation>
     </message>
     <message id="fuoten-sort-by-label">
-        <location line="-108"/>
+        <location line="-132"/>
         <source>Sort by</source>
         <translation>Sortera efter</translation>
     </message>
@@ -600,8 +600,18 @@
         <source>External browser</source>
         <translation>Extern webbläsare</translation>
     </message>
+    <message id="fuoten-user-agent">
+        <location line="+20"/>
+        <source>User agent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-user-agent-desc">
+        <location line="+2"/>
+        <source>The user agent used for the internal web view.</source>
+        <translation type="unfinished"/>
+    </message>
     <message id="fuoten-sort-descending-label">
-        <location line="+19"/>
+        <location line="+21"/>
         <source>Sort descending</source>
         <translation>Sortera fallande</translation>
     </message>
@@ -690,7 +700,7 @@
     </message>
     <message id="fuoten-create-folder">
         <location filename="../sailfishos/qml/common/dialogs/CreateFolderDialog.qml" line="+54"/>
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-274"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-298"/>
         <source>Create folder</source>
         <translation>Skapa mapp</translation>
     </message>
@@ -833,6 +843,16 @@
         <location line="+3"/>
         <source>1 Day</source>
         <translation>1 dag</translation>
+    </message>
+    <message id="fuoten-default-jolla-webkit-useragent">
+        <location filename="../sailfishos/src/useragentmodel.cpp" line="+107"/>
+        <source>Default Jolla Webkit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-alternative-jolla-webkit-useragent">
+        <location line="+3"/>
+        <source>Alternative Jolla Webkit</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

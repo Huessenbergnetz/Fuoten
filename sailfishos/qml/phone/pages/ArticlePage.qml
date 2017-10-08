@@ -28,21 +28,22 @@ Page {
     id: articlePage
 
     property Article article: null
+    property ContextConfig cc: null
 
     onStatusChanged: {
         if (status === PageStatus.Active) {
             if (!articlePage.canNavigateForward) {
-                pageStack.pushAttached(Qt.resolvedUrl("WebViewPage.qml"), {article: article, isAttached: true})
+                pageStack.pushAttached(Qt.resolvedUrl("WebViewPage.qml"), {article: article, isAttached: true, })
             }
         }
     }
 
     Component.onCompleted: {
-        cc.article = article
+        covercon.article = article
     }
 
     Component.onDestruction: {
-        cc.article = null;
+        covercon.article = null;
     }
 
     SilicaFlickable {

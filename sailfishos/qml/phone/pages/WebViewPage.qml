@@ -19,12 +19,14 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
+import harbour.fuoten 1.0
 import harbour.fuoten.items 1.0
 
 Page {
     id: articleWebView
 
     property Article article: null
+    property ContextConfig cc: null
     property bool isAttached: false
     property bool loaded: false
 
@@ -38,12 +40,12 @@ Page {
     }
 
     Component.onCompleted: {
-        cc.article = article
+        covercon.article = article
     }
 
     Component.onDestruction: {
         if (!isAttached) {
-            cc.article = null
+            covercon.article = null
         }
     }
 
@@ -62,14 +64,17 @@ Page {
                 id: webView
                 anchors { left: parent.left; right: parent.right; bottom: navBar.top; top: parent.top }
 
-                url: article.url
+//                url: article.url
 
                 Component.onCompleted: {
-                    experimental.userAgent = "Mozilla/5.0 (Maemo; Linux; Jolla; Sailfish; Mobile) AppleWebKit/534.13 (KHTML, like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13";
+//                    experimental.userAgent = "Mozilla/5.0 (Maemo; Linux; Jolla; Sailfish; Mobile) AppleWebKit/534.13 (KHTML, like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13";
+//                    experimental.userAgent = "Mozilla/5.0 (Maemo; Linux; U; Jolla; Sailfish; like Android) AppleWebKit/538.1 (KHTML, like Gecko) Version/5.1 Chrome/30.0.0.0 Mobile Safari/538.1 (compatible)"
+                    experimental.userAgent = cc ? cc.userAgent : "Mozilla/5.0 (Maemo; Linux; U; Jolla; Sailfish; like Android) AppleWebKit/538.1 (KHTML, like Gecko) Version/5.1 Chrome/30.0.0.0 Mobile Safari/538.1 (compatible)"
                     experimental.preferences.defaultFontSize = Theme.fontSizeSmall
                     experimental.preferences.minimumFontSize = Theme.fontSizeExtraSmall
                     experimental.preferences.pluginsEnabled = true
                     experimental.preferences.javascriptEnabled = true
+                    url = article.url
                 }
 
                 PullDownMenu {

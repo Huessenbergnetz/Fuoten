@@ -1,6 +1,9 @@
 #include "contextconfig.h"
 #include <QMetaEnum>
 
+#define CONF_KEY_USERAGENTIDX "userAgentIdx"
+#define CONF_KEY_USERAGENT "userAgent"
+
 /*!
  * \brief Constructs a new ContextConfig object.
  */
@@ -17,7 +20,9 @@ ContextConfig::ContextConfig(QObject *parent) :
     m_showExcerpt = value(path(QStringLiteral("showExcerpt")), false).toBool();
     m_openArticles = (FuotenAppEnums::OpenIn)value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenInternal).toInt();
     m_deletionStrategy = (Fuoten::FuotenEnums::ItemDeletionStrategy)value(path(QStringLiteral("deletionStrategy")), Fuoten::FuotenEnums::DeleteItemsByTime).toInt();
-    m_deletionValue = value(path(QStringLiteral("deletionValue")), 14).toUInt();
+    m_deletionValue = value(path(QStringLiteral("deletionValue")), 14).value<quint16>();
+    m_userAgentIdx = value(path(QStringLiteral(CONF_KEY_USERAGENTIDX)), m_userAgentIdx).value<quint8>();
+    m_userAgent = value(path(QStringLiteral(CONF_KEY_USERAGENT)), m_userAgent).toString();
 }
 
 
@@ -39,7 +44,9 @@ void ContextConfig::load()
     setShowExcerpt(value(path(QStringLiteral("showExcerpt")), false).toBool());
     setOpenArticles((FuotenAppEnums::OpenIn)value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenInternal).toInt());
     setDeletionStrategy((Fuoten::FuotenEnums::ItemDeletionStrategy)value(path(QStringLiteral("deletionStrategy")), Fuoten::FuotenEnums::DeleteItemsByTime).toInt());
-    setDeletionValue(value(path(QStringLiteral("deletionValue")), 14).toUInt());
+    setDeletionValue(value(path(QStringLiteral("deletionValue")), 14).value<quint16>());
+    setUserAgentIdx(value(path(QStringLiteral(CONF_KEY_USERAGENTIDX)), 0).value<quint8>());
+    setUserAgent(value(path(QStringLiteral(CONF_KEY_USERAGENT)), m_userAgent).toString());
 }
 
 
@@ -180,6 +187,32 @@ void ContextConfig::setDeletionValue(quint16 nDeletionValue)
         qDebug("Changed deletion value to %i.", m_deletionValue);
         setValue(path(QStringLiteral("deletionValue")), m_deletionValue);
         Q_EMIT deletionValueChanged(deletionValue());
+    }
+}
+
+
+quint8 ContextConfig::userAgentIdx() const { return m_userAgentIdx; }
+
+void ContextConfig::setUserAgentIdx(quint8 nUserAgentIdx)
+{
+    if (nUserAgentIdx != m_userAgentIdx) {
+        m_userAgentIdx = nUserAgentIdx;
+        qDebug("Changed userAgentIdx to %u.", m_userAgentIdx);
+        setValue(path(QStringLiteral(CONF_KEY_USERAGENTIDX)), m_userAgentIdx);
+        Q_EMIT userAgentIdxChanged(m_userAgentIdx);
+    }
+}
+
+
+QString ContextConfig::userAgent() const { return m_userAgent; }
+
+void ContextConfig::setUserAgent(const QString &nUserAgent)
+{
+    if (nUserAgent != m_userAgent) {
+        m_userAgent = nUserAgent;
+        qDebug("Changed userAgent to \"%s\".", qUtf8Printable(m_userAgent));
+        setValue(path(QStringLiteral(CONF_KEY_USERAGENT)), m_userAgent);
+        Q_EMIT userAgentChanged(m_userAgent);
     }
 }
 

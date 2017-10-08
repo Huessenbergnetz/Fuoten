@@ -175,7 +175,7 @@
         <translation type="unfinished"/>
     </message>
     <message id="fuoten-settings-wlan-only-updates">
-        <location line="+25"/>
+        <location line="+30"/>
         <source>Automatic synchronization only on WLAN</source>
         <translation type="unfinished"/>
     </message>
@@ -367,9 +367,9 @@
         <translation>Ajourfør</translation>
     </message>
     <message id="fuoten-mark-item-as-read">
-        <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+59"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+70"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+252"/>
-        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+65"/>
+        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+93"/>
         <source>Mark as read</source>
         <translation>Markér som læst</translation>
     </message>
@@ -445,18 +445,19 @@
     </message>
     <message id="fuoten-mark-feed-read">
         <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="+61"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="+113"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="+116"/>
         <source>Mark feed read</source>
         <translation>Markér feed som læst</translation>
     </message>
     <message id="fuoten-deleting">
-        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="-14"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="-17"/>
+        <location line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+22"/>
         <source>Deleting %1</source>
         <translation>Sletter %1</translation>
     </message>
     <message id="fuoten-delete-feed">
-        <location line="+26"/>
+        <location line="+27"/>
         <source>Delete feed</source>
         <translation>Fjern feed</translation>
     </message>
@@ -518,7 +519,7 @@
         <translation>Favoritartikler</translation>
     </message>
     <message id="fuoten-hide-read-label">
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+127"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+151"/>
         <source>Hide read</source>
         <translation>Skjul læste</translation>
     </message>
@@ -528,7 +529,7 @@
         <translation>Afhængigt af kontekst, vil feeds eller mapper uden ulæste artikler eller ulæste artikler selv blive skjult.</translation>
     </message>
     <message id="fuoten-sort-by-label">
-        <location line="-108"/>
+        <location line="-132"/>
         <source>Sort by</source>
         <translation>Sortér efter</translation>
     </message>
@@ -598,8 +599,18 @@
         <source>External browser</source>
         <translation>Ekstern netlæser</translation>
     </message>
+    <message id="fuoten-user-agent">
+        <location line="+20"/>
+        <source>User agent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-user-agent-desc">
+        <location line="+2"/>
+        <source>The user agent used for the internal web view.</source>
+        <translation type="unfinished"/>
+    </message>
     <message id="fuoten-sort-descending-label">
-        <location line="+19"/>
+        <location line="+21"/>
         <source>Sort descending</source>
         <translation>Sorter faldende</translation>
     </message>
@@ -688,7 +699,7 @@
     </message>
     <message id="fuoten-create-folder">
         <location filename="../sailfishos/qml/common/dialogs/CreateFolderDialog.qml" line="+54"/>
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-274"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-298"/>
         <source>Create folder</source>
         <translation>Opret folder</translation>
     </message>
@@ -753,7 +764,7 @@
         <translation>Ulæste artikler</translation>
     </message>
     <message id="fuoten-sync-never">
-        <location filename="../common/configuration.cpp" line="+424"/>
+        <location filename="../common/configuration.cpp" line="+411"/>
         <source>never</source>
         <translation type="unfinished"/>
     </message>
@@ -830,6 +841,16 @@
     <message id="fuoten-update-interval-one-day">
         <location line="+3"/>
         <source>1 Day</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-default-jolla-webkit-useragent">
+        <location filename="../sailfishos/src/useragentmodel.cpp" line="+107"/>
+        <source>Default Jolla Webkit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-alternative-jolla-webkit-useragent">
+        <location line="+3"/>
+        <source>Alternative Jolla Webkit</source>
         <translation type="unfinished"/>
     </message>
 </context>

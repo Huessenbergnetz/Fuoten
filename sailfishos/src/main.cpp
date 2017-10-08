@@ -75,6 +75,7 @@
 #include "sharing/sharingmethodsmodel.h"
 #include "namfactory.h"
 #include "coverconnector.h"
+#include "useragentmodel.h"
 
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -267,6 +268,7 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<FuotenAppEnums>("harbour.fuoten", 1, 0, "FuotenApp", QStringLiteral("You can not create a FuotenApp object."));
     qmlRegisterType<ContextConfig>("harbour.fuoten", 1, 0, "ContextConfig");
     qmlRegisterType<SharingMethodsModel>("harbour.fuoten", 1, 0, "SharingMethodsModel");
+    qmlRegisterType<UserAgentModel>("harbour.fuoten", 1, 0, "UserAgentModel");
 
 #ifndef CLAZY
     auto view = SailfishApp::createView();
@@ -279,7 +281,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty(QStringLiteral("config"), config);
     view->rootContext()->setContextProperty(QStringLiteral("localstorage"), sqliteStorage);
     view->rootContext()->setContextProperty(QStringLiteral("synchronizer"), synchronizer);
-    view->rootContext()->setContextProperty(QStringLiteral("cc"), new CoverConnector(app.data()));
+    view->rootContext()->setContextProperty(QStringLiteral("covercon"), new CoverConnector(app.data()));
 
 #ifndef CLAZY
     view->setSource(SailfishApp::pathTo(QStringLiteral("qml/harbour-fuoten.qml")));

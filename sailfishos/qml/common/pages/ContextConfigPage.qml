@@ -159,6 +159,30 @@ Page {
 
             Item {
                 Layout.fillWidth: true
+                Layout.preferredHeight: userAgentChoser.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                Layout.columnSpan: contextConfigGrid.columns
+                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles === FuotenApp.OpenWebView)
+
+                ComboBox {
+                    id: userAgentChoser
+                    //% "User agent"
+                    label: qsTrId("fuoten-user-agent")
+                    //% "The user agent used for the internal web view."
+                    description: qsTrId("fuoten-user-agent-desc")
+                    menu: ContextMenu {
+                        Repeater {
+                            model: UserAgentModel { id: userAgentModel }
+                            MenuItem { text: model.title; readonly property string value: model.agent }
+                        }
+                    }
+                    currentIndex: cc.userAgentIdx
+                    onCurrentIndexChanged: if (currentItem) { cc.userAgent = currentItem.value; cc.userAgentIdx = currentIndex }
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
                 Layout.preferredHeight: sortOrderSwitch.implicitHeight
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
 

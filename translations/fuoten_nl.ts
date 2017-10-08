@@ -162,27 +162,27 @@
     <message id="fuoten-settings-behavior-section">
         <location line="+11"/>
         <source>Behavior</source>
-        <translation type="unfinished"/>
+        <translation>Gedrag</translation>
     </message>
     <message id="fuoten-settings-update-interval">
         <location line="+14"/>
         <source>Update interval</source>
-        <translation type="unfinished"/>
+        <translation>Update-interval</translation>
     </message>
     <message id="fuoten-settings-update-interval-sailfish-desc">
         <location line="+2"/>
         <source>Fuoten can perform pseudo backgrund updates by simply reacting to status changes of the user interface. Be aware that this approach will not perform real background updates while your device is sleeping.</source>
-        <translation type="unfinished"/>
+        <translation>Fuoten kan pseudo-achtergrondupdates uitvoeren door te reageren op statuswijzigingen in de gebruikersinterface. Let op: deze aanpak voert geen echte achtergrondupdates uit terwijl je apparaat slaapt.</translation>
     </message>
     <message id="fuoten-settings-wlan-only-updates">
-        <location line="+25"/>
+        <location line="+30"/>
         <source>Automatic synchronization only on WLAN</source>
-        <translation type="unfinished"/>
+        <translation>Enkel automatisch synchroniseren op WLAN</translation>
     </message>
     <message id="fuoten-settings-wlan-only-updates-desc">
         <location line="+2"/>
         <source>If enabled, automatic pseudo background updates will only be performed if the device is connected to a WLAN.</source>
-        <translation type="unfinished"/>
+        <translation>Indien ingeschakeld zullen automatische pseudo-achtergrondupdates enkel uitgevoerd worden als het apparaat verbonden is met WLAN.</translation>
     </message>
     <message id="id-about">
         <location filename="../sailfishos/qml/common/pages/About.qml" line="+29"/>
@@ -367,9 +367,9 @@
         <translation>Synchroniseren</translation>
     </message>
     <message id="fuoten-mark-item-as-read">
-        <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+59"/>
+        <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+70"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+252"/>
-        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+65"/>
+        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+93"/>
         <source>Mark as read</source>
         <translation>Markeren als gelezen</translation>
     </message>
@@ -445,18 +445,19 @@
     </message>
     <message id="fuoten-mark-feed-read">
         <location filename="../sailfishos/qml/phone/pages/BaseListView.qml" line="+61"/>
-        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="+113"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="+116"/>
         <source>Mark feed read</source>
         <translation>Feed markeren als gelezen</translation>
     </message>
     <message id="fuoten-deleting">
-        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="-14"/>
+        <location filename="../sailfishos/qml/phone/pages/FeedListDelegate.qml" line="-17"/>
+        <location line="+2"/>
         <location filename="../sailfishos/qml/phone/pages/FolderListView.qml" line="+22"/>
         <source>Deleting %1</source>
         <translation>%1 wordt verwijderd</translation>
     </message>
     <message id="fuoten-delete-feed">
-        <location line="+26"/>
+        <location line="+27"/>
         <source>Delete feed</source>
         <translation>Feed verwijderen</translation>
     </message>
@@ -518,7 +519,7 @@
         <translation>Favoriete artikels</translation>
     </message>
     <message id="fuoten-hide-read-label">
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+127"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+151"/>
         <source>Hide read</source>
         <translation>Gelezen verbergen</translation>
     </message>
@@ -528,7 +529,7 @@
         <translation>Afhankelijk van de context zullen feeds of mappen met nul ongelezen artikels, of ongelezen artikels zelf, verborgen worden.</translation>
     </message>
     <message id="fuoten-sort-by-label">
-        <location line="-108"/>
+        <location line="-132"/>
         <source>Sort by</source>
         <translation>Sorteren op</translation>
     </message>
@@ -598,8 +599,18 @@
         <source>External browser</source>
         <translation>Externe browser</translation>
     </message>
+    <message id="fuoten-user-agent">
+        <location line="+20"/>
+        <source>User agent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-user-agent-desc">
+        <location line="+2"/>
+        <source>The user agent used for the internal web view.</source>
+        <translation type="unfinished"/>
+    </message>
     <message id="fuoten-sort-descending-label">
-        <location line="+19"/>
+        <location line="+21"/>
         <source>Sort descending</source>
         <translation>Aflopend sorteren</translation>
     </message>
@@ -688,7 +699,7 @@
     </message>
     <message id="fuoten-create-folder">
         <location filename="../sailfishos/qml/common/dialogs/CreateFolderDialog.qml" line="+54"/>
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-274"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-298"/>
         <source>Create folder</source>
         <translation>Map aanmaken</translation>
     </message>
@@ -753,9 +764,9 @@
         <translation>Ongelezen artikels</translation>
     </message>
     <message id="fuoten-sync-never">
-        <location filename="../common/configuration.cpp" line="+424"/>
+        <location filename="../common/configuration.cpp" line="+411"/>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>nooit</translation>
     </message>
     <message id="fuoten-just-now">
         <location line="+8"/>
@@ -795,41 +806,51 @@
     <message id="fuoten-update-interval-disabled">
         <location filename="../common/updateintervalmodel.cpp" line="+92"/>
         <source>Disabled</source>
-        <translation type="unfinished"/>
+        <translation>Uitgeschakeld</translation>
     </message>
     <message id="fuoten-update-interval-quarter-hour">
         <location line="+3"/>
         <source>15 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>15 minuten</translation>
     </message>
     <message id="fuoten-update-interval-half-hour">
         <location line="+3"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>30 minuten</translation>
     </message>
     <message id="fuoten-update-interval-one-hour">
         <location line="+3"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 uur</translation>
     </message>
     <message id="fuoten-update-interval-two-hours">
         <location line="+3"/>
         <source>2 Hours</source>
-        <translation type="unfinished"/>
+        <translation>2 uur</translation>
     </message>
     <message id="fuoten-update-interval-six-hours">
         <location line="+3"/>
         <source>6 Hours</source>
-        <translation type="unfinished"/>
+        <translation>6 uur</translation>
     </message>
     <message id="fuoten-update-interval-half-day">
         <location line="+3"/>
         <source>12 Hours</source>
-        <translation type="unfinished"/>
+        <translation>12 uur</translation>
     </message>
     <message id="fuoten-update-interval-one-day">
         <location line="+3"/>
         <source>1 Day</source>
+        <translation>1 dag</translation>
+    </message>
+    <message id="fuoten-default-jolla-webkit-useragent">
+        <location filename="../sailfishos/src/useragentmodel.cpp" line="+107"/>
+        <source>Default Jolla Webkit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-alternative-jolla-webkit-useragent">
+        <location line="+3"/>
+        <source>Alternative Jolla Webkit</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -36,7 +36,7 @@ CoverBackground {
     Column {
         id: countCol
         anchors { top: parent.top; left: parent.left; right: parent.right; topMargin: Theme.paddingLarge; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
-        visible: !synchronizer.inOperation && !cc.article
+        visible: !synchronizer.inOperation && !covercon.article
 
         Text {
             id: count
@@ -68,7 +68,7 @@ CoverBackground {
         text: config.humanLastSync
         width: parent.width
         textFormat: Text.PlainText
-        visible: !synchronizer.inOperation && !cc.article
+        visible: !synchronizer.inOperation && !covercon.article
         wrapMode: Text.WordWrap
         lineHeight: 0.7
     }
@@ -104,7 +104,7 @@ CoverBackground {
 
     Column {
         anchors { left: parent.left; right: parent.right; leftMargin: Theme.paddingMedium; rightMargin: Theme.paddingMedium; top: parent.top; topMargin: Theme.paddingSmall }
-        visible: !synchronizer.inOperation && cc.article
+        visible: !synchronizer.inOperation && covercon.article
 
         Label {
             width: parent.width
@@ -112,7 +112,7 @@ CoverBackground {
             font.pixelSize: Theme.fontSizeExtraSmall
             color: Theme.secondaryColor
             maximumLineCount: 1
-            text: cc.article ? cc.article.feedTitle : ""
+            text: covercon.article ? covercon.article.feedTitle : ""
         }
 
         Separator {
@@ -132,7 +132,7 @@ CoverBackground {
             elide: Text.ElideRight
             font.pixelSize: Theme.fontSizeSmall
             maximumLineCount: 6
-            text: cc.article ? cc.article.title : ""
+            text: covercon.article ? covercon.article.title : ""
         }
 
         Label {
@@ -141,7 +141,7 @@ CoverBackground {
             font.pixelSize: Theme.fontSizeExtraSmall
             color: Theme.secondaryColor
             maximumLineCount: 1
-            text: cc.article ? (cc.article.humanPubDate + " | " + cc.article.humanPubTime) : ""
+            text: covercon.article ? (covercon.article.humanPubDate + " | " + covercon.article.humanPubTime) : ""
         }
     }
 
