@@ -480,7 +480,7 @@ bool Configuration::isUpdatePossible() const
     if ((m_updateInterval > 0) && (m_lastSync.secsTo(QDateTime::currentDateTimeUtc()) > static_cast<qint64>(m_updateInterval))) {
 
         QNetworkConfigurationManager netConfManager;
-        const QList<QNetworkConfiguration> netConfs = netConfManager.allConfigurations(QNetworkConfiguration::Discovered);
+        const QList<QNetworkConfiguration> netConfs = netConfManager.allConfigurations(QNetworkConfiguration::Active);
 
         if (!netConfs.empty()) {
             if (m_wlanOnlyUpdate) {
@@ -521,12 +521,12 @@ bool Configuration::isUpdatePossible() const
 
 void Configuration::checkUpdate()
 {
+    setHumanLastSync(getHumanLastSync());
     if (!m_checkUpdateTimer) {
         m_checkUpdateTimer = new QTimer(this);
         m_checkUpdateTimer->setTimerType(Qt::VeryCoarseTimer);
         m_checkUpdateTimer->setSingleShot(true);
         connect(m_checkUpdateTimer, &QTimer::timeout, [this] () {
-            setHumanLastSync(getHumanLastSync());
             if (isUpdatePossible()) {
                 emit updatePossible();
             }
