@@ -97,7 +97,7 @@ BaseListView {
         id: articleListItem
 
         contentHeight: display && display.error ? errorItem.height + Theme.paddingSmall : Math.max(textCol.height, iconCol.height) + Theme.paddingSmall
-        contentWidth: parent.width
+        contentWidth: parent ? parent.width : Screen.width
 
         ListView.onAdd: AddAnimation { target: articleListItem }
         ListView.onRemove: RemoveAnimation { target: articleListItem }
