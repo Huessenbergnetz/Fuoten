@@ -230,6 +230,9 @@ int main(int argc, char *argv[])
 
     auto sqliteStorage = new Fuoten::SQLiteStorage(dataDir->absoluteFilePath(QStringLiteral("database.sqlite")), app.data());
     sqliteStorage->setConfiguration(config);
+    QThread storageThread;
+    sqliteStorage->moveToThread(&storageThread);
+    storageThread.start();
     sqliteStorage->init();
     delete dataDir;
 
