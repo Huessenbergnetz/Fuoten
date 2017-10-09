@@ -26,7 +26,7 @@ ListModel {
 
     ListElement {
         name: "libfuoten"
-        author: "Buschtrommel/Matthias Fehring"
+        author: "Matthias Fehring"
         version: "0.5.2"
         license: "GNU Lesser General Public License, Version 3"
         licenseFile: "LGPLv3.qml"
@@ -36,8 +36,8 @@ ListModel {
 
     ListElement {
         name: "BT SFOS Components"
-        author: "Buschtrommel/Matthias Fehring"
-        version: "1.0.6"
+        author: "Matthias Fehring"
+        version: "1.1.1"
         license: "Modified BSD License"
         licenseFile: "BSD-3.qml"
         website: "https://github.com/Buschtrommel/BT_SFOS_Components"
@@ -55,9 +55,33 @@ ListModel {
     ListElement {
         name: "Rescaling Richtext QML"
         author: "Martin Grimme"
-        license: "GNU Lesser General Public License, Version 2"
+        license: "GNU General Public License, Version 2"
         licenseFile: "GPLv2.qml"
         website: "https://github.com/pycage/tidings"
+    }
+
+    ListElement {
+        name: "Qt"
+        author: "The Qt Company"
+        license: "GNU Lesser General Public License, Version 3"
+        licenseFile: "LGPLv3.qml"
+        website: "https://www.qt.io/"
+    }
+
+    ListElement {
+        name: "libsailfishapp"
+        author: "Jolla Ltd."
+        license: "GNU Lesser General Public License, Version 2.1"
+        licenseFile: "LGPLv2_1.qml"
+        website: "https://sailfishos.org/develop/docs/libsailfishapp/"
+    }
+
+    ListElement {
+        name: "Sailfish Silica UI"
+        author: "Jolla Ltd."
+        license: "Modified BSD License"
+        licenseFile: "BSD-3.qml"
+        website: "https://sailfishos.org/develop/docs/silica/"
     }
 
     Component.onCompleted: {

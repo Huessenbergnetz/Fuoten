@@ -31,9 +31,9 @@ AboutPage {
     appTitle: "Fuoten"
     //% "Client for the ownCloud/Nextcloud News App."
     appDescription: qsTrId("about-desc")
-    appHomepage: "https://www.buschmann23.de/entwicklung/anwendungen/gibrievida/"
-    appCopyrightYear: "2016"
-    appCopyrightHolder: "Buschtrommel / Matthias Fehring"
+    appHomepage: "https://github.com/Buschtrommel/Fuoten"
+    appCopyrightYear: "2016-2017"
+    appCopyrightHolder: "Matthias Fehring"
     appLicense: "GNU General Public License, Version 3"
     appLicenseFile: "GPLv3.qml"
 
@@ -44,17 +44,16 @@ AboutPage {
     contributorsAvatarBasePath: "/usr/share/harbour-fuoten/images/contributors"
     contributorsPlaceholderPath: "/usr/share/harbour-fuoten/images/contributors/placeholder.png"
 
-    contactCompany: "Buschtrommel"
+    contactCompany: "Hüssenbergnetz"
     contactName: "Matthias Fehring"
-    contactStreet: "Engelhardstraße"
-    contactHouseNo: "32"
-    contactZIP: "81369"
-    //% "Munich"
-    contactCity: qsTrId("id-munich")
+    contactStreet: "Zum Südholz"
+    contactHouseNo: "8"
+    contactZIP: "34439"
+    contactCity: "Willebadessen-Eissen"
     //% "Germany"
     contactCountry: qsTrId("id-germany")
-    contactEmail: "kontakt@buschmann23.de"
-    contactWebsite: "www.buschmann23.de"
+    contactEmail: cccmmm
+    contactWebsite: "www.huessenbergnetz.de"
 
     bugUrl: "https://github.com/Buschtrommel/Fuoten/issues"
     translateUrl: "https://www.transifex.com/buschtrommel/fuoten"
