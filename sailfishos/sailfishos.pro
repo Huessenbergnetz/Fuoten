@@ -17,6 +17,11 @@ CONFIG(release, debug|release) {
     DEFINES += QT_NO_DEBUG_OUTPUT
 }
 
+isEmpty(AES256_KEY) {
+    error("You need to define a 32 byte AES256 encryption key with AES256_KEY")
+}
+DEFINES += AES256_KEY=\"\\\"$${AES256_KEY}\\\"\"
+
 contains(CONFIG, clazy) {
     DEFINES+=CLAZY
     QMAKE_CXXFLAGS += "-Xclang -load -Xclang ClangLazy.so -Xclang -add-plugin -Xclang clang-lazy"
@@ -39,7 +44,8 @@ SOURCES += \
     src/sharing/sharingmethodsmodel.cpp \
     src/namfactory.cpp \
     src/coverconnector.cpp \
-    src/useragentmodel.cpp
+    src/useragentmodel.cpp \
+    src/sfosconfig.cpp
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
@@ -104,5 +110,6 @@ HEADERS += \
     src/sharing/sharingmethodsmodel.h \
     src/namfactory.h \
     src/coverconnector.h \
-    src/useragentmodel.h
+    src/useragentmodel.h \
+    src/sfosconfig.h
 

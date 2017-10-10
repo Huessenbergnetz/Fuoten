@@ -63,7 +63,6 @@
 #include <Fuoten/Models/ArticleListModel>
 #include <Fuoten/Models/ArticleListFilterModel>
 
-#include "../../common/configuration.h"
 #include "../../common/languagemodel.h"
 #include "../../common/enums.h"
 #include "../../common/contextconfig.h"
@@ -76,6 +75,7 @@
 #include "namfactory.h"
 #include "coverconnector.h"
 #include "useragentmodel.h"
+#include "sfosconfig.h"
 
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -190,7 +190,7 @@ int main(int argc, char *argv[])
 
     QScopedPointer<NamFactory> namFactory(new NamFactory(qmlDiskCache));
 
-    auto config = new Configuration(app.data());
+    auto config = new SfosConfig(app.data());
 
     Fuoten::Component::setDefaultConfiguration(config);
 
