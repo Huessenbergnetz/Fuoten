@@ -159,13 +159,60 @@
         <source>Folders</source>
         <translation>Ordner</translation>
     </message>
+    <message id="fuoten-settings-article-font-size">
+        <location line="+18"/>
+        <source>Font size used for internal article view</source>
+        <translation>Schriftgröße für die interne Ansicht</translation>
+    </message>
+    <message id="fuoten-font-size-tiny">
+        <location filename="../sailfishos/qml/common/parts/FontSizeSlider.qml" line="+37"/>
+        <source>Tiny</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Winzig</translation>
+    </message>
+    <message id="fuoten-font-size-extra-small">
+        <location line="+5"/>
+        <source>Extra small</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Extraklein</translation>
+    </message>
+    <message id="fuoten-font-size-small">
+        <location line="+5"/>
+        <source>Small</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Klein</translation>
+    </message>
+    <message id="fuoten-font-size-medium">
+        <location line="+5"/>
+        <source>Medium</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Mittel</translation>
+    </message>
+    <message id="fuoten-font-size-large">
+        <location line="+5"/>
+        <source>Large</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Groß</translation>
+    </message>
+    <message id="fuoten-font-size-extra-large">
+        <location line="+5"/>
+        <source>Extra large</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Extragroß</translation>
+    </message>
+    <message id="fuoten-font-size-huge">
+        <location line="+5"/>
+        <source>Huge</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Riesig</translation>
+    </message>
     <message id="fuoten-settings-behavior-section">
-        <location line="+11"/>
+        <location filename="../sailfishos/qml/common/pages/Settings.qml" line="+8"/>
         <source>Behavior</source>
         <translation>Verhalten</translation>
     </message>
     <message id="fuoten-settings-update-interval">
-        <location line="+14"/>
+        <location line="+13"/>
         <source>Update interval</source>
         <translation>Aktualisierungsintervall</translation>
     </message>
@@ -370,7 +417,7 @@
     <message id="fuoten-mark-item-as-read">
         <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+70"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+252"/>
-        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+93"/>
+        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+90"/>
         <source>Mark as read</source>
         <translation>Als gelesen markieren</translation>
     </message>
@@ -520,7 +567,7 @@
         <translation>Markiert</translation>
     </message>
     <message id="fuoten-hide-read-label">
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+151"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+98"/>
         <source>Hide read</source>
         <translation>Gelesene ausblenden</translation>
     </message>
@@ -530,12 +577,12 @@
         <translation>Abhängig vom Kontext werden Ordner und Feeds ohne ungelesene Artikel oder ungelesene Artikel selbst ausgeblendet.</translation>
     </message>
     <message id="fuoten-sort-by-label">
-        <location line="-132"/>
+        <location line="-72"/>
         <source>Sort by</source>
         <translation>Sortiere nach</translation>
     </message>
     <message id="fuoten-folder-settings">
-        <location line="-18"/>
+        <location line="-25"/>
         <source>Folder settings</source>
         <translation>Ordnereinstellungen</translation>
     </message>
@@ -545,7 +592,7 @@
         <translation>Einstellungen Artikelliste</translation>
     </message>
     <message id="fuoten-sort-by-desc">
-        <location line="+18"/>
+        <location line="+25"/>
         <source>Choose the role you want to sort the content by.</source>
         <translation>Wählen Sie die Eigenschaft, nach der der Inhalt sortiert werden soll.</translation>
     </message>
@@ -575,7 +622,7 @@
         <translation>Feed-Anzahl</translation>
     </message>
     <message id="fuoten-open-in-label">
-        <location line="+21"/>
+        <location line="+123"/>
         <source>Open articles</source>
         <oldsource>Open articles in</oldsource>
         <translation>Artikel öffnen</translation>
@@ -611,12 +658,17 @@
         <translation>Der für die interne Web-Ansicht genutzte User Agent.</translation>
     </message>
     <message id="fuoten-sort-descending-label">
-        <location line="+21"/>
+        <location line="-141"/>
         <source>Sort descending</source>
         <translation>Absteigend sortieren</translation>
     </message>
+    <message id="fuoten-config-section-list-appearance">
+        <location line="-62"/>
+        <source>List appearance</source>
+        <translation>Listenansicht</translation>
+    </message>
     <message id="fuoten-sort-descending-desc">
-        <location line="+2"/>
+        <location line="+64"/>
         <source>If enabled, depending on the context, the feeds, folders or articles will be sorted in descending order.</source>
         <translation>Falls aktiviert, werden abhängig vom Kontext Feeds, Ordner oder Artikel absteigend sortiert.</translation>
     </message>
@@ -650,8 +702,28 @@
         <source>Shows some lines of the article content in the article list.</source>
         <translation>Zeigt einige Zeilen aus dem Artikelinhalt in der Artikelliste an.</translation>
     </message>
+    <message id="fuoten-config-section-article-view">
+        <location line="+8"/>
+        <source>Article view</source>
+        <translation>Artikelansicht</translation>
+    </message>
+    <message id="fuoten-contextconfig-minimum-font-size">
+        <location line="+77"/>
+        <source>Minimum font size for web view</source>
+        <translation>Minimale Schriftgröße für interne Web-Ansicht</translation>
+    </message>
+    <message id="fuoten-contextconfig-default-font-size">
+        <location line="+17"/>
+        <source>Default font size for web view</source>
+        <translation>Standardschriftgröße für interne Web-Ansicht</translation>
+    </message>
+    <message id="fuoten-config-section-maintenance">
+        <location line="+8"/>
+        <source>Maintenance</source>
+        <translation>Warting</translation>
+    </message>
     <message id="fuoten-articles-cleanup">
-        <location line="+21"/>
+        <location line="+15"/>
         <source>Articles cleanup</source>
         <translation>Artikel aufräumen</translation>
     </message>
@@ -700,7 +772,7 @@
     </message>
     <message id="fuoten-create-folder">
         <location filename="../sailfishos/qml/common/dialogs/CreateFolderDialog.qml" line="+54"/>
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-298"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-349"/>
         <source>Create folder</source>
         <translation>Ordner erstellen</translation>
     </message>
@@ -765,7 +837,7 @@
         <translation>Ungelesene Artikel</translation>
     </message>
     <message id="fuoten-sync-never">
-        <location filename="../common/configuration.cpp" line="+411"/>
+        <location filename="../common/configuration.cpp" line="+413"/>
         <source>never</source>
         <translation>nie</translation>
     </message>

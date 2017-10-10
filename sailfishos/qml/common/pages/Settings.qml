@@ -126,13 +126,27 @@ Page {
                 }
             }
 
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: articleFontSizeSlider.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
+                FontSizeSlider {
+                    id: articleFontSizeSlider
+                    width: parent.width
+                    //% "Font size used for internal article view"
+                    label: qsTrId("fuoten-settings-article-font-size")
+                    value: (config.articleFontSize > 0) ? config.articleFontSize : Theme.fontSizeSmall
+                    onChangeTriggered: config.articleFontSize = Math.floor(articleFontSizeSlider.sliderValue)
+                }
+            }
+
             SectionHeader {
                 //% "Behavior"
                 text: qsTrId("fuoten-settings-behavior-section")
                 Layout.columnSpan: settingsGrid.columns
                 Layout.preferredWidth: settingsGrid.width - Theme.horizontalPageMargin
             }
-
 
             Item {
                 Layout.fillWidth: true

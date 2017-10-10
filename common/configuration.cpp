@@ -32,6 +32,7 @@
 #define DEFAULT_AVATAR "image://theme/icon-l-people"
 #define CONF_KEY_UPDATE_INTERVAL "behavior/updateInterval"
 #define CONF_KEY_UPDATE_WLAN_ONLY "behavior/updateWlanOnly"
+#define CONF_KEY_ARTICLE_FONT_SIZE "display/articleFontSize"
 
 /*!
  * \brief Constructs a new Configuration object.
@@ -57,6 +58,7 @@ Configuration::Configuration(QObject *parent) :
     m_mainViewType = (Fuoten::FuotenEnums::Type)value(QStringLiteral("display/mainViewType"), Fuoten::FuotenEnums::Folder).toInt();
     m_updateInterval = value(QStringLiteral(CONF_KEY_UPDATE_INTERVAL), 0).value<quint32>();
     m_wlanOnlyUpdate = value(QStringLiteral(CONF_KEY_UPDATE_WLAN_ONLY), true).toBool();
+    m_articleFontSize = value(QStringLiteral(CONF_KEY_ARTICLE_FONT_SIZE), 0).toInt();
 
     uint lsts = value(QStringLiteral("system/lastsync"), 0).toUInt();
     if (lsts > 0) {
@@ -451,6 +453,7 @@ void Configuration::setUpdateInterval(quint32 updateInterval)
     }
 }
 
+
 QString Configuration::humanLastSync() const { return m_humanLastSync; }
 
 void Configuration::setHumanLastSync(const QString &humanLastSync)
@@ -461,6 +464,7 @@ void Configuration::setHumanLastSync(const QString &humanLastSync)
         emit humanLastSyncChanged(m_humanLastSync);
     }
 }
+
 
 bool Configuration::wlanOnlyUpdate() const { return m_wlanOnlyUpdate; }
 
@@ -473,6 +477,20 @@ void Configuration::setWlanOnlyUpdate(bool wlanOnlyUpdate)
         emit wlanOnlyUpdateChanged(m_wlanOnlyUpdate);
     }
 }
+
+
+int Configuration::articleFontSize() const { return m_articleFontSize; }
+
+void Configuration::setArticleFontSize(int articleFontSize)
+{
+    if (m_articleFontSize != articleFontSize) {
+        m_articleFontSize = articleFontSize;
+        setValue(QStringLiteral(CONF_KEY_ARTICLE_FONT_SIZE), m_articleFontSize);
+        qDebug("Changed articleFontSize to %i.", m_articleFontSize);
+        emit articleFontSizeChanged(m_articleFontSize);
+    }
+}
+
 
 bool Configuration::isUpdatePossible() const
 {

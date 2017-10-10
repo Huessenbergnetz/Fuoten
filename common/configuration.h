@@ -208,6 +208,17 @@ class Configuration : public Fuoten::AbstractConfiguration
      * \li void wlanOnlyUpdateChanged(bool wlanOnlyUpdate)
      */
     Q_PROPERTY(bool wlanOnlyUpdate READ wlanOnlyUpdate WRITE setWlanOnlyUpdate NOTIFY wlanOnlyUpdateChanged)
+    /*!
+     * \brief Holds the font size in px used for displaying article contentn internally.
+     *
+     * \par Access functions:
+     * \li int articleFontSize() const
+     * \li void setArticleFontSize(int articleFontSize)
+     *
+     * \par Notifier signal:
+     * \li void articleFontSizeChanged(int articleFontSize)
+     */
+    Q_PROPERTY(int articleFontSize READ articleFontSize WRITE setArticleFontSize NOTIFY articleFontSizeChanged)
     Q_ENUM(Fuoten::FuotenEnums::Type)
 public:
     explicit Configuration(QObject *parent = nullptr);
@@ -252,6 +263,12 @@ public:
     bool wlanOnlyUpdate() const;
 
     /*!
+     * \brief Getter function for the \link Configuration::articleFontSize articleFontSize \endlink property.
+     * \sa setArticleFontSize(), articleFontSizeChanged()
+     */
+    int articleFontSize() const;
+
+    /*!
      * \brief Returns a human readable relative last sync time.
      */
     Q_INVOKABLE QString getHumanLastSync() const;
@@ -282,6 +299,12 @@ public:
      * \sa wlanOnlyUpdate(), wlanOnlyUpdateChanged()
      */
     void setWlanOnlyUpdate(bool wlanOnlyUpdate);
+
+    /*!
+     * \brief Setter function for the \link Configuration::articleFontSize articleFontSize \endlink property.
+     * \sa articleFontSize(), articleFontSizeChanged()
+     */
+    void setArticleFontSize(int articleFontSize);
 
     /*!
      * \brief Returns true if Fuoten has been updated.
@@ -359,6 +382,12 @@ signals:
     void wlanOnlyUpdateChanged(bool wlanOnlyUpdate);
 
     /*!
+     * \brief Notifier signal for the \link Configuration::articleFontSize articleFontSize \endlink property.
+     * \sa setArticleFontSize(), articleFontSize()
+     */
+    void articleFontSizeChanged(int articleFontSize);
+
+    /*!
      * \brief This signal will be emitted by the checkUpdate() method.
      */
     void updatePossible();
@@ -385,6 +414,7 @@ private:
     QString m_humanLastSync;
     bool m_wlanOnlyUpdate = true;
     QTimer *m_checkUpdateTimer = nullptr;
+    int m_articleFontSize = 0;
 
     /*!
      * \brief Setter function for the \link Configuration::humanLastSync humanLastSync \endlink property.

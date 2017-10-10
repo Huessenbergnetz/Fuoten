@@ -161,13 +161,60 @@
         <source>Folders</source>
         <translation type="unfinished"></translation>
     </message>
+    <message id="fuoten-settings-article-font-size">
+        <location line="+18"/>
+        <source>Font size used for internal article view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-font-size-tiny">
+        <location filename="../sailfishos/qml/common/parts/FontSizeSlider.qml" line="+37"/>
+        <source>Tiny</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-font-size-extra-small">
+        <location line="+5"/>
+        <source>Extra small</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-font-size-small">
+        <location line="+5"/>
+        <source>Small</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-font-size-medium">
+        <location line="+5"/>
+        <source>Medium</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-font-size-large">
+        <location line="+5"/>
+        <source>Large</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-font-size-extra-large">
+        <location line="+5"/>
+        <source>Extra large</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-font-size-huge">
+        <location line="+5"/>
+        <source>Huge</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
     <message id="fuoten-settings-behavior-section">
-        <location line="+11"/>
+        <location filename="../sailfishos/qml/common/pages/Settings.qml" line="+8"/>
         <source>Behavior</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-settings-update-interval">
-        <location line="+14"/>
+        <location line="+13"/>
         <source>Update interval</source>
         <translation type="unfinished"></translation>
     </message>
@@ -372,7 +419,7 @@
     <message id="fuoten-mark-item-as-read">
         <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+70"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+252"/>
-        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+93"/>
+        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+90"/>
         <source>Mark as read</source>
         <translation type="unfinished"></translation>
     </message>
@@ -528,7 +575,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-hide-read-label">
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+151"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+98"/>
         <source>Hide read</source>
         <translation type="unfinished"></translation>
     </message>
@@ -538,12 +585,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-sort-by-label">
-        <location line="-132"/>
+        <location line="-72"/>
         <source>Sort by</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-folder-settings">
-        <location line="-18"/>
+        <location line="-25"/>
         <source>Folder settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -553,7 +600,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-sort-by-desc">
-        <location line="+18"/>
+        <location line="+25"/>
         <source>Choose the role you want to sort the content by.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -583,7 +630,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-open-in-label">
-        <location line="+21"/>
+        <location line="+123"/>
         <source>Open articles</source>
         <oldsource>Open articles in</oldsource>
         <translation type="unfinished"></translation>
@@ -619,12 +666,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-sort-descending-label">
-        <location line="+21"/>
+        <location line="-141"/>
         <source>Sort descending</source>
         <translation type="unfinished"></translation>
     </message>
+    <message id="fuoten-config-section-list-appearance">
+        <location line="-62"/>
+        <source>List appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message id="fuoten-sort-descending-desc">
-        <location line="+2"/>
+        <location line="+64"/>
         <source>If enabled, depending on the context, the feeds, folders or articles will be sorted in descending order.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -658,8 +710,28 @@
         <source>Shows some lines of the article content in the article list.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message id="fuoten-config-section-article-view">
+        <location line="+8"/>
+        <source>Article view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-contextconfig-minimum-font-size">
+        <location line="+77"/>
+        <source>Minimum font size for web view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-contextconfig-default-font-size">
+        <location line="+17"/>
+        <source>Default font size for web view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-config-section-maintenance">
+        <location line="+8"/>
+        <source>Maintenance</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message id="fuoten-articles-cleanup">
-        <location line="+21"/>
+        <location line="+15"/>
         <source>Articles cleanup</source>
         <translation type="unfinished"></translation>
     </message>
@@ -714,7 +786,7 @@
     </message>
     <message id="fuoten-create-folder">
         <location filename="../sailfishos/qml/common/dialogs/CreateFolderDialog.qml" line="+54"/>
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-298"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-349"/>
         <source>Create folder</source>
         <translation type="unfinished"></translation>
     </message>
@@ -779,7 +851,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-sync-never">
-        <location filename="../common/configuration.cpp" line="+411"/>
+        <location filename="../common/configuration.cpp" line="+413"/>
         <source>never</source>
         <translation type="unfinished"></translation>
     </message>

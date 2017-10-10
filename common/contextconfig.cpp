@@ -3,6 +3,8 @@
 
 #define CONF_KEY_USERAGENTIDX "userAgentIdx"
 #define CONF_KEY_USERAGENT "userAgent"
+#define CONF_KEY_MINFONTSIZE "minimumFontSize"
+#define CONF_KEY_DEFFONTSIZE "defaultFontSize"
 
 /*!
  * \brief Constructs a new ContextConfig object.
@@ -23,6 +25,8 @@ ContextConfig::ContextConfig(QObject *parent) :
     m_deletionValue = value(path(QStringLiteral("deletionValue")), 14).value<quint16>();
     m_userAgentIdx = value(path(QStringLiteral(CONF_KEY_USERAGENTIDX)), m_userAgentIdx).value<quint8>();
     m_userAgent = value(path(QStringLiteral(CONF_KEY_USERAGENT)), m_userAgent).toString();
+    m_minimumFontSize = value(path(QStringLiteral(CONF_KEY_MINFONTSIZE)), m_minimumFontSize).toInt();
+    m_defaultFontSize = value(path(QStringLiteral(CONF_KEY_DEFFONTSIZE)), m_defaultFontSize).toInt();
 }
 
 
@@ -47,6 +51,8 @@ void ContextConfig::load()
     setDeletionValue(value(path(QStringLiteral("deletionValue")), 14).value<quint16>());
     setUserAgentIdx(value(path(QStringLiteral(CONF_KEY_USERAGENTIDX)), 0).value<quint8>());
     setUserAgent(value(path(QStringLiteral(CONF_KEY_USERAGENT)), m_userAgent).toString());
+    setMinimumFontSize(value(path(QStringLiteral(CONF_KEY_MINFONTSIZE)), m_minimumFontSize).toInt());
+    setDefaultFontSize(value(path(QStringLiteral(CONF_KEY_DEFFONTSIZE)), m_defaultFontSize).toInt());
 }
 
 
@@ -213,6 +219,32 @@ void ContextConfig::setUserAgent(const QString &nUserAgent)
         qDebug("Changed userAgent to \"%s\".", qUtf8Printable(m_userAgent));
         setValue(path(QStringLiteral(CONF_KEY_USERAGENT)), m_userAgent);
         Q_EMIT userAgentChanged(m_userAgent);
+    }
+}
+
+
+int ContextConfig::minimumFontSize() const { return m_minimumFontSize; }
+
+void ContextConfig::setMinimumFontSize(int minimumFontSize)
+{
+    if (minimumFontSize != m_minimumFontSize) {
+        m_minimumFontSize = minimumFontSize;
+        qDebug("Changed minimumFontSize to %i.", m_minimumFontSize);
+        setValue(path(QStringLiteral(CONF_KEY_MINFONTSIZE)), m_minimumFontSize);
+        Q_EMIT minimumFontSizeChanged(m_minimumFontSize);
+    }
+}
+
+
+int ContextConfig::defaultFontSize() const { return m_defaultFontSize; }
+
+void ContextConfig::setDefaultFontSize(int defaultFontSize)
+{
+    if (defaultFontSize != m_defaultFontSize) {
+        m_defaultFontSize = defaultFontSize;
+        qDebug("Changed defaultFontSize to %i.", m_defaultFontSize);
+        setValue(path(QStringLiteral(CONF_KEY_DEFFONTSIZE)), m_defaultFontSize);
+        Q_EMIT defaultFontSizeChanged(m_defaultFontSize);
     }
 }
 

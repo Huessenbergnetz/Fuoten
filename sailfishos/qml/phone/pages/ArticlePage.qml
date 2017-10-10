@@ -194,6 +194,7 @@ Page {
             color: Theme.primaryColor
             Component.onCompleted: text = localstorage.getArticleBody(article.id)
             onLinkActivated: Qt.openUrlExternally(link)
+            fontSize: (config.articleFontSize > 0) ? config.articleFontSize : Theme.fontSizeSmall
         }
     }
 }

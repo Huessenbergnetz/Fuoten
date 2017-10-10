@@ -159,13 +159,60 @@
         <source>Folders</source>
         <translation>Mappar</translation>
     </message>
+    <message id="fuoten-settings-article-font-size">
+        <location line="+18"/>
+        <source>Font size used for internal article view</source>
+        <translation>Teckenstorlek för intern artikelvy</translation>
+    </message>
+    <message id="fuoten-font-size-tiny">
+        <location filename="../sailfishos/qml/common/parts/FontSizeSlider.qml" line="+37"/>
+        <source>Tiny</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Pytteliten</translation>
+    </message>
+    <message id="fuoten-font-size-extra-small">
+        <location line="+5"/>
+        <source>Extra small</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Extra liten</translation>
+    </message>
+    <message id="fuoten-font-size-small">
+        <location line="+5"/>
+        <source>Small</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Liten</translation>
+    </message>
+    <message id="fuoten-font-size-medium">
+        <location line="+5"/>
+        <source>Medium</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Medium</translation>
+    </message>
+    <message id="fuoten-font-size-large">
+        <location line="+5"/>
+        <source>Large</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Stor</translation>
+    </message>
+    <message id="fuoten-font-size-extra-large">
+        <location line="+5"/>
+        <source>Extra large</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Extra stor</translation>
+    </message>
+    <message id="fuoten-font-size-huge">
+        <location line="+5"/>
+        <source>Huge</source>
+        <extracomment>Name of a font size</extracomment>
+        <translation>Enorm</translation>
+    </message>
     <message id="fuoten-settings-behavior-section">
-        <location line="+11"/>
+        <location filename="../sailfishos/qml/common/pages/Settings.qml" line="+8"/>
         <source>Behavior</source>
         <translation>Beteende</translation>
     </message>
     <message id="fuoten-settings-update-interval">
-        <location line="+14"/>
+        <location line="+13"/>
         <source>Update interval</source>
         <translation>Uppdateringsintervall</translation>
     </message>
@@ -220,7 +267,7 @@
         <location line="+2"/>
         <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
         <oldsource>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming.</oldsource>
-        <translation type="unfinished"/>
+        <translation>ADVobfuscator är ett mörkläggningsbibliotek baserat på C++11/14 och metaprogrammering. Det används av Fuoten för att desorientera den interna AES-nyckeln som i sin tur används för att kryptera lagrade lösenord.</translation>
     </message>
     <message id="fuoten-author-role">
         <location filename="../sailfishos/qml/common/models/ContributorsModel.qml" line="+62"/>
@@ -371,7 +418,7 @@
     <message id="fuoten-mark-item-as-read">
         <location filename="../sailfishos/qml/phone/pages/ArticlePage.qml" line="+70"/>
         <location filename="../sailfishos/qml/phone/pages/ArticlesListView.qml" line="+252"/>
-        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+93"/>
+        <location filename="../sailfishos/qml/phone/pages/WebViewPage.qml" line="+90"/>
         <source>Mark as read</source>
         <translation>Märk som läst</translation>
     </message>
@@ -521,7 +568,7 @@
         <translation>Stjärnmärkta artiklar</translation>
     </message>
     <message id="fuoten-hide-read-label">
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+151"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="+98"/>
         <source>Hide read</source>
         <translation>Dölj lästa</translation>
     </message>
@@ -531,12 +578,12 @@
         <translation>Beroende på kontext, kommer flöden och mappar med noll olästa artiklar, eller enskilda lästa artiklar, att döljas.</translation>
     </message>
     <message id="fuoten-sort-by-label">
-        <location line="-132"/>
+        <location line="-72"/>
         <source>Sort by</source>
         <translation>Sortera efter</translation>
     </message>
     <message id="fuoten-folder-settings">
-        <location line="-18"/>
+        <location line="-25"/>
         <source>Folder settings</source>
         <translation>Mappinställningar</translation>
     </message>
@@ -546,7 +593,7 @@
         <translation>Inställningar för artikellista</translation>
     </message>
     <message id="fuoten-sort-by-desc">
-        <location line="+18"/>
+        <location line="+25"/>
         <source>Choose the role you want to sort the content by.</source>
         <translation>Välj hur du vill sortera innehållet.</translation>
     </message>
@@ -576,7 +623,7 @@
         <translation>Antal flöden</translation>
     </message>
     <message id="fuoten-open-in-label">
-        <location line="+21"/>
+        <location line="+123"/>
         <source>Open articles</source>
         <oldsource>Open articles in</oldsource>
         <translation>Öppna artiklar</translation>
@@ -612,12 +659,17 @@
         <translation>Användaragent för intern webbvy</translation>
     </message>
     <message id="fuoten-sort-descending-label">
-        <location line="+21"/>
+        <location line="-141"/>
         <source>Sort descending</source>
         <translation>Sortera fallande</translation>
     </message>
+    <message id="fuoten-config-section-list-appearance">
+        <location line="-62"/>
+        <source>List appearance</source>
+        <translation>Listutseende</translation>
+    </message>
     <message id="fuoten-sort-descending-desc">
-        <location line="+2"/>
+        <location line="+64"/>
         <source>If enabled, depending on the context, the feeds, folders or articles will be sorted in descending order.</source>
         <translation>Vid aktivering, beroende på kontext, kommer flöden, mappar eller artiklar att sorteras i fallande ordning.</translation>
     </message>
@@ -651,8 +703,28 @@
         <source>Shows some lines of the article content in the article list.</source>
         <translation>Visa några rader av artikelinnehållet, i artikellistan.</translation>
     </message>
+    <message id="fuoten-config-section-article-view">
+        <location line="+8"/>
+        <source>Article view</source>
+        <translation>Artikelvy</translation>
+    </message>
+    <message id="fuoten-contextconfig-minimum-font-size">
+        <location line="+77"/>
+        <source>Minimum font size for web view</source>
+        <translation>Minsta teckenstorlek för webbvyn</translation>
+    </message>
+    <message id="fuoten-contextconfig-default-font-size">
+        <location line="+17"/>
+        <source>Default font size for web view</source>
+        <translation>Standardteckenstorlek för webbvyn</translation>
+    </message>
+    <message id="fuoten-config-section-maintenance">
+        <location line="+8"/>
+        <source>Maintenance</source>
+        <translation>Underhåll</translation>
+    </message>
     <message id="fuoten-articles-cleanup">
-        <location line="+21"/>
+        <location line="+15"/>
         <source>Articles cleanup</source>
         <translation>Artikelrensning</translation>
     </message>
@@ -701,7 +773,7 @@
     </message>
     <message id="fuoten-create-folder">
         <location filename="../sailfishos/qml/common/dialogs/CreateFolderDialog.qml" line="+54"/>
-        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-298"/>
+        <location filename="../sailfishos/qml/common/pages/ContextConfigPage.qml" line="-349"/>
         <source>Create folder</source>
         <translation>Skapa mapp</translation>
     </message>
@@ -766,7 +838,7 @@
         <translation>Olästa artiklar</translation>
     </message>
     <message id="fuoten-sync-never">
-        <location filename="../common/configuration.cpp" line="+411"/>
+        <location filename="../common/configuration.cpp" line="+413"/>
         <source>never</source>
         <translation>aldrig</translation>
     </message>

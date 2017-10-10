@@ -103,7 +103,8 @@ DISTFILES += \
     qml/phone/pages/WebViewPage.qml \
     qml/phone/pages/BaseListView.qml \
     qml/common/parts/SyncPanel.qml \
-    qml/common/pages/Sharing.qml
+    qml/common/pages/Sharing.qml \
+    qml/common/parts/FontSizeSlider.qml
 
 HEADERS += \
     src/fuoteniconprovider.h \

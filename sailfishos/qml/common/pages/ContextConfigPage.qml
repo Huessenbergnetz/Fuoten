@@ -73,6 +73,13 @@ Page {
                 Layout.fillWidth: true
             }
 
+            SectionHeader {
+                //% "List appearance"
+                text: qsTrId("fuoten-config-section-list-appearance")
+                Layout.columnSpan: contextConfigGrid.columns
+                Layout.preferredWidth: contextConfigGrid.width - Theme.horizontalPageMargin
+            }
+
             Item {
                 Layout.fillWidth: true
                 Layout.preferredHeight: sortingChoser.height
@@ -118,66 +125,6 @@ Page {
 
                     onCurrentIndexChanged: if (currentItem) { cc.sorting = currentItem.value }
                     currentIndex: cc.sorting
-                }
-            }
-
-            Item {
-                Layout.fillWidth: true
-                Layout.preferredHeight: openInChoser.height
-                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                Layout.columnSpan: contextConfigGrid.columns
-                visible: cc.contextType > FuotenApp.Feeds
-
-                ComboBox {
-                    id: openInChoser
-                    //% "Open articles"
-                    label: qsTrId("fuoten-open-in-label")
-                    //% "Choose the way you want to open articles."
-                    description: qsTrId("fuoten-open-in-desc")
-                    menu: ContextMenu {
-                        MenuItem {
-                            //% "Internal"
-                            text: qsTrId("fuoten-open-article-internal")
-                            readonly property int value: FuotenApp.OpenInternal
-                        }
-                        MenuItem {
-                            //% "Internal web view"
-                            text: qsTrId("fuoten-open-article-webview")
-                            readonly property int value: FuotenApp.OpenWebView
-                        }
-                        MenuItem {
-                            //% "External browser"
-                            text: qsTrId("fuoten-open-article-external")
-                            readonly property int value: FuotenApp.OpenExternal
-                        }
-                    }
-
-                    onCurrentIndexChanged: if (currentItem) { cc.openArticles = currentItem.value }
-                    currentIndex: cc.openArticles
-                }
-            }
-
-            Item {
-                Layout.fillWidth: true
-                Layout.preferredHeight: userAgentChoser.height
-                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                Layout.columnSpan: contextConfigGrid.columns
-                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles === FuotenApp.OpenWebView)
-
-                ComboBox {
-                    id: userAgentChoser
-                    //% "User agent"
-                    label: qsTrId("fuoten-user-agent")
-                    //% "The user agent used for the internal web view."
-                    description: qsTrId("fuoten-user-agent-desc")
-                    menu: ContextMenu {
-                        Repeater {
-                            model: UserAgentModel { id: userAgentModel }
-                            MenuItem { text: model.title; readonly property string value: model.agent }
-                        }
-                    }
-                    currentIndex: cc.userAgentIdx
-                    onCurrentIndexChanged: if (currentItem) { cc.userAgent = currentItem.value; cc.userAgentIdx = currentIndex }
                 }
             }
 
@@ -275,10 +222,114 @@ Page {
                 }
             }
 
+            SectionHeader {
+                //% "Article view"
+                text: qsTrId("fuoten-config-section-article-view")
+                Layout.columnSpan: contextConfigGrid.columns
+                Layout.preferredWidth: contextConfigGrid.width - Theme.horizontalPageMargin
+                visible: cc.contextType > FuotenApp.Feeds
+            }
+
             Item {
                 Layout.fillWidth: true
-                Layout.preferredHeight: Theme.itemSizeSmall
-                visible: cc.contextType === FuotenApp.FeedItems && contextConfigGrid.columns > 1
+                Layout.preferredHeight: openInChoser.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                Layout.columnSpan: contextConfigGrid.columns
+                visible: cc.contextType > FuotenApp.Feeds
+
+                ComboBox {
+                    id: openInChoser
+                    //% "Open articles"
+                    label: qsTrId("fuoten-open-in-label")
+                    //% "Choose the way you want to open articles."
+                    description: qsTrId("fuoten-open-in-desc")
+                    menu: ContextMenu {
+                        MenuItem {
+                            //% "Internal"
+                            text: qsTrId("fuoten-open-article-internal")
+                            readonly property int value: FuotenApp.OpenInternal
+                        }
+                        MenuItem {
+                            //% "Internal web view"
+                            text: qsTrId("fuoten-open-article-webview")
+                            readonly property int value: FuotenApp.OpenWebView
+                        }
+                        MenuItem {
+                            //% "External browser"
+                            text: qsTrId("fuoten-open-article-external")
+                            readonly property int value: FuotenApp.OpenExternal
+                        }
+                    }
+
+                    onCurrentIndexChanged: if (currentItem) { cc.openArticles = currentItem.value }
+                    currentIndex: cc.openArticles
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: userAgentChoser.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                Layout.columnSpan: contextConfigGrid.columns
+                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles === FuotenApp.OpenWebView)
+
+                ComboBox {
+                    id: userAgentChoser
+                    //% "User agent"
+                    label: qsTrId("fuoten-user-agent")
+                    //% "The user agent used for the internal web view."
+                    description: qsTrId("fuoten-user-agent-desc")
+                    menu: ContextMenu {
+                        Repeater {
+                            model: UserAgentModel { id: userAgentModel }
+                            MenuItem { text: model.title; readonly property string value: model.agent }
+                        }
+                    }
+                    currentIndex: cc.userAgentIdx
+                    onCurrentIndexChanged: if (currentItem) { cc.userAgent = currentItem.value; cc.userAgentIdx = currentIndex }
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: minimumFontSizeSlider.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                Layout.columnSpan: contextConfigGrid.columns
+                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles === FuotenApp.OpenWebView)
+
+                FontSizeSlider {
+                    id: minimumFontSizeSlider
+                    width: parent.width
+                    //% "Minimum font size for web view"
+                    label: qsTrId("fuoten-contextconfig-minimum-font-size")
+                    value: (cc.minimumFontSize > 0) ? cc.minimumFontSize : Theme.fontSizeExtraSmall
+                    onChangeTriggered: cc.minimumFontSize = Math.floor(minimumFontSizeSlider.sliderValue)
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: defaultFontSizeSlider.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                Layout.columnSpan: contextConfigGrid.columns
+                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles === FuotenApp.OpenWebView)
+
+                FontSizeSlider {
+                    id: defaultFontSizeSlider
+                    width: parent.width
+                    //% "Default font size for web view"
+                    label: qsTrId("fuoten-contextconfig-default-font-size")
+                    value: (cc.defaultFontSize > 0) ? cc.defaultFontSize : Theme.fontSizeSmall
+                    onChangeTriggered: cc.defaultFontSize = Math.floor(defaultFontSizeSlider.sliderValue)
+                }
+            }
+
+            SectionHeader {
+                //% "Maintenance"
+                text: qsTrId("fuoten-config-section-maintenance")
+                Layout.columnSpan: contextConfigGrid.columns
+                Layout.preferredWidth: contextConfigGrid.width - Theme.horizontalPageMargin
+                visible: cc.contextType === FuotenApp.FeedItems
             }
 
             Item {

@@ -133,6 +133,28 @@ class ContextConfig : public QSettings
      * \li void userAgentChanged(const QString &userAgent)
      */
     Q_PROPERTY(QString userAgent READ userAgent WRITE setUserAgent NOTIFY userAgentChanged)
+    /*!
+     * \brief Holds the minimum font size for the internal web view.
+     *
+     * \par Access functions:
+     * \li int minimumFontSize() const
+     * \li void setMinimumFontSize(int minimumFontSize)
+     *
+     * \par Notifier signal:
+     * \li void minimumFontSizeChanged(int minimumFontSize)
+     */
+    Q_PROPERTY(int minimumFontSize READ minimumFontSize WRITE setMinimumFontSize NOTIFY minimumFontSizeChanged)
+    /*!
+     * \brief Holds the default font size for the internal web view.
+     *
+     * \par Access functions:
+     * \li int defaultFontSize() const
+     * \li void setDefaultFontSize(int defaultFontSize)
+     *
+     * \par Notifier signal:
+     * \li void defaultFontSizeChanged(int defaultFontSize)
+     */
+    Q_PROPERTY(int defaultFontSize READ defaultFontSize WRITE setDefaultFontSize NOTIFY defaultFontSizeChanged)
 public:
     explicit ContextConfig(QObject *parent = nullptr);
     ~ContextConfig();
@@ -170,6 +192,16 @@ public:
      * \sa setUserAgent(), userAgentChanged()
      */
     QString userAgent() const;
+    /*!
+     * \brief Getter function for the \link ContextConfig::minimumFontSize minimumFontSize \endlink property.
+     * \sa setMinimumFontSize(), minimumFontSizeChanged()
+     */
+    int minimumFontSize() const;
+    /*!
+     * \brief Getter function for the \link ContextConfig::defaultFontSize defaultFontSize \endlink property.
+     * \sa setDefaultFontSize(), defaultFontSizeChanged()
+     */
+    int defaultFontSize() const;
 
 
     void setContextType(FuotenAppEnums::Context nContextType);
@@ -208,6 +240,16 @@ public:
      * \sa userAgent(), userAgentChanged()
      */
     void setUserAgent(const QString &nUserAgent);
+    /*!
+     * \brief Setter function for the \link ContextConfig::minimumFontSize minimumFontSize \endlink property.
+     * \sa minimumFontSize(), minimumFontSizeChanged()
+     */
+    void setMinimumFontSize(int minimumFontSize);
+    /*!
+     * \brief Setter function for the \link ContextConfig::defaultFontSize defaultFontSize \endlink property.
+     * \sa defaultFontSize(), defaultFontSizeChanged()
+     */
+    void setDefaultFontSize(int defaultFontSize);
 
 
 signals:
@@ -244,6 +286,16 @@ signals:
      * \sa setUserAgent(), userAgent()
      */
     void userAgentChanged(const QString &userAgent);
+    /*!
+     * \brief Notifier signal for the \link ContextConfig::minimumFontSize minimumFontSize \endlink property.
+     * \sa setMinimumFontSize(), minimumFontSize()
+     */
+    void minimumFontSizeChanged(int minimumFontSize);
+    /*!
+     * \brief Notifier signal for the \link ContextConfig::defaultFontSize defaultFontSize \endlink property.
+     * \sa setDefaultFontSize(), defaultFontSize()
+     */
+    void defaultFontSizeChanged(int defaultFontSize);
 
 private:
     Q_DISABLE_COPY(ContextConfig)
@@ -260,6 +312,8 @@ private:
     quint16 m_deletionValue;
     quint8 m_userAgentIdx = 0;
     QString m_userAgent = QStringLiteral("Mozilla/5.0 (Maemo; Linux; U; Jolla; Sailfish; like Android) AppleWebKit/538.1 (KHTML, like Gecko) Version/5.1 Chrome/30.0.0.0 Mobile Safari/538.1 (compatible)");
+    int m_minimumFontSize = 0;
+    int m_defaultFontSize = 0;
 
     QString path(const QString &key) const;
 
