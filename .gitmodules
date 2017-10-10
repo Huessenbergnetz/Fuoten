@@ -4,3 +4,6 @@
 [submodule "BT_SFOS_Components"]
 	path = BT_SFOS_Components
 	url = https://github.com/Buschtrommel/BT_SFOS_Components.git
+[submodule "ADVobfuscator"]
+	path = ADVobfuscator
+	url = https://github.com/andrivet/ADVobfuscator.git
