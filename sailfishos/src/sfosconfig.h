@@ -35,6 +35,8 @@ public:
     QString getPassword() const override;
     void setPassword(const QString &password) override;
 
+    QString getUserAgent() const override;
+
 private:
     QString encPw(const QString &pw) const;
     QString decPw(const QString &pw) const;

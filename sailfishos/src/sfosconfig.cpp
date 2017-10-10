@@ -254,3 +254,11 @@ void SfosConfig::setPassword(const QString &password)
         Q_EMIT passwordChanged(getPassword());
     }
 }
+
+
+QString SfosConfig::getUserAgent() const
+{
+    return QStringLiteral("Fuoten %1 on SailfishOS, Qt %2").arg(QStringLiteral(VERSION_STRING), QString::fromLatin1(qVersion()));
+}
+
+#include "moc_sfosconfig.cpp"
