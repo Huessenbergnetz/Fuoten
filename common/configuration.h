@@ -257,7 +257,7 @@ public:
     Q_INVOKABLE QString getHumanLastSync() const;
 
     void setUsername(const QString &username);
-    void setPassword(const QString &password);
+    virtual void setPassword(const QString &password);
     void setUseSSL(bool useSSL);
     void setHost(const QString &host);
     void setInstallPath(const QString &installPath);
