@@ -38,6 +38,8 @@ include(../common/common.pri)
 LIBS += -L$$OUT_PWD/../libfuoten -lfuoten
 INCLUDEPATH += $$PWD/../libfuoten
 
+PKGCONFIG += openssl
+
 SOURCES += \
     src/main.cpp \
     src/sharing/sharingmethod.cpp \
@@ -111,5 +113,10 @@ HEADERS += \
     src/namfactory.h \
     src/coverconnector.h \
     src/useragentmodel.h \
-    src/sfosconfig.h
+    src/sfosconfig.h \
+    ../ADVobfuscator/Lib/Indexes.h \
+    ../ADVobfuscator/Lib/Inline.h \
+    ../ADVobfuscator/Lib/Log.h \
+    ../ADVobfuscator/Lib/MetaRandom.h \
+    ../ADVobfuscator/Lib/MetaString.h
 

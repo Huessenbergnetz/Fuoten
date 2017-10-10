@@ -31,6 +31,15 @@ public:
     explicit SfosConfig(QObject *parent = nullptr);
 
     ~SfosConfig();
+
+    QString getPassword() const override;
+    void setPassword(const QString &password) override;
+
+private:
+    QString encPw(const QString &pw) const;
+    QString decPw(const QString &pw) const;
+
+    QString m_password;
 };
 
 #endif // SFOSCONFIG_H
