@@ -196,13 +196,8 @@
         <source>Client for the ownCloud/Nextcloud News App.</source>
         <translation>Klient for ownCloud/NextCloud Nyhedsapp.</translation>
     </message>
-    <message id="id-munich">
-        <location line="+20"/>
-        <source>Munich</source>
-        <translation>München</translation>
-    </message>
     <message id="id-germany">
-        <location line="+2"/>
+        <location line="+21"/>
         <source>Germany</source>
         <translation>Tyskland</translation>
     </message>
@@ -212,7 +207,7 @@
         <translation>Standard</translation>
     </message>
     <message id="fuoten-libfuoten-desc">
-        <location filename="../sailfishos/qml/common/models/LicensesModel.qml" line="+65"/>
+        <location filename="../sailfishos/qml/common/models/LicensesModel.qml" line="+98"/>
         <source>Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API.</source>
         <translation>Libfuoten er et Qt-baseret bibliotek, der giver adgang til ownCloud/NextCloud Nyhedsapp API.</translation>
     </message>
@@ -220,6 +215,12 @@
         <location line="+2"/>
         <source>BT SFOS Components are a set of QML components for Sailfish OS.</source>
         <translation>BT SFOS Components er et sæt QML-komponenter til SailfishOS.</translation>
+    </message>
+    <message id="advobfuscator-desc">
+        <location line="+2"/>
+        <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
+        <oldsource>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming.</oldsource>
+        <translation type="unfinished"/>
     </message>
     <message id="fuoten-author-role">
         <location filename="../sailfishos/qml/common/models/ContributorsModel.qml" line="+62"/>

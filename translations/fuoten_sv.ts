@@ -196,13 +196,8 @@
         <source>Client for the ownCloud/Nextcloud News App.</source>
         <translation>Klient för ownCloud/Nextcloud nyhets-app.</translation>
     </message>
-    <message id="id-munich">
-        <location line="+20"/>
-        <source>Munich</source>
-        <translation>München</translation>
-    </message>
     <message id="id-germany">
-        <location line="+2"/>
+        <location line="+21"/>
         <source>Germany</source>
         <translation>Tyskland</translation>
     </message>
@@ -212,7 +207,7 @@
         <translation>Standard</translation>
     </message>
     <message id="fuoten-libfuoten-desc">
-        <location filename="../sailfishos/qml/common/models/LicensesModel.qml" line="+65"/>
+        <location filename="../sailfishos/qml/common/models/LicensesModel.qml" line="+98"/>
         <source>Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API.</source>
         <translation>Libfuoten är ett Qt baserat bibliotek som tillhandahåller åtkomst till en API för ownCloud/Nextcloud nyhets-app.</translation>
     </message>
@@ -220,6 +215,12 @@
         <location line="+2"/>
         <source>BT SFOS Components are a set of QML components for Sailfish OS.</source>
         <translation>BT SFOS Components är en uppsättning QML-komponenter för Sailfish OS.</translation>
+    </message>
+    <message id="advobfuscator-desc">
+        <location line="+2"/>
+        <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
+        <oldsource>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming.</oldsource>
+        <translation type="unfinished"/>
     </message>
     <message id="fuoten-author-role">
         <location filename="../sailfishos/qml/common/models/ContributorsModel.qml" line="+62"/>
@@ -603,12 +604,12 @@
     <message id="fuoten-user-agent">
         <location line="+20"/>
         <source>User agent</source>
-        <translation type="unfinished"/>
+        <translation>Användaragent</translation>
     </message>
     <message id="fuoten-user-agent-desc">
         <location line="+2"/>
         <source>The user agent used for the internal web view.</source>
-        <translation type="unfinished"/>
+        <translation>Användaragent för intern webbvy</translation>
     </message>
     <message id="fuoten-sort-descending-label">
         <location line="+21"/>
@@ -847,12 +848,12 @@
     <message id="fuoten-default-jolla-webkit-useragent">
         <location filename="../sailfishos/src/useragentmodel.cpp" line="+107"/>
         <source>Default Jolla Webkit</source>
-        <translation type="unfinished"/>
+        <translation>Standard Jolla Webkit</translation>
     </message>
     <message id="fuoten-alternative-jolla-webkit-useragent">
         <location line="+3"/>
         <source>Alternative Jolla Webkit</source>
-        <translation type="unfinished"/>
+        <translation>Alternativ Jolla Webkit</translation>
     </message>
 </context>
 </TS>
