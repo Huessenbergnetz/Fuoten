@@ -80,7 +80,7 @@
 
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
-    QString t;
+    QChar t;
     switch (type) {
     case QtDebugMsg:
         t = QLatin1Char('D');
@@ -107,7 +107,7 @@ void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, con
 
         QRegularExpression re(QStringLiteral("([\\w:]+)\\("));
 
-        txt = QStringLiteral("[%1] %2: %3:%4 - %5").arg(t,
+        txt = QStringLiteral("[%1] %2: %3:%4 - %5").arg(QString(t),
                                                         QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz")),
                                                         re.match(QString(context.function)).captured(1),
                                                         QString::number(context.line),
