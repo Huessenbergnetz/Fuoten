@@ -460,7 +460,7 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
             //% "%n new unread article(s)."
             previewBody = qtTrId("fuoten-notify-items-requested-prev-body", unreadCount);
             //: notification area body text
-            //%" Successfully requested articles from the server. There are %n new unread article(s)."
+            //% "Successfully requested articles from the server. There are %n new unread article(s)."
             body = qtTrId("fuoten-notify-items-requested-body", unreadCount);
             category = QStringLiteral("x-fuoten.items.requested");
             break;
