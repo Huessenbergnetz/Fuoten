@@ -76,10 +76,11 @@
 #include "coverconnector.h"
 #include "useragentmodel.h"
 #include "sfosconfig.h"
+#include "sfosnotificator.h"
 
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
-    QChar t;
+    QString t;
     switch (type) {
     case QtDebugMsg:
         t = QLatin1Char('D');
@@ -106,7 +107,7 @@ void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, con
 
         QRegularExpression re(QStringLiteral("([\\w:]+)\\("));
 
-        txt = QStringLiteral("[%1] %2: %3:%4 - %5").arg(QString(t),
+        txt = QStringLiteral("[%1] %2: %3:%4 - %5").arg(t,
                                                         QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz")),
                                                         re.match(QString(context.function)).captured(1),
                                                         QString::number(context.line),
@@ -151,48 +152,7 @@ int main(int argc, char *argv[])
 #endif
     qInstallMessageHandler(fuotenMessageHandler);
 
-    auto dataDir = new QDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
-    auto cacheDir = new QDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
-    auto qmlCacheDir = new QDir(cacheDir->absoluteFilePath(QStringLiteral("qmlcache")));
-
-    if (Q_UNLIKELY(!dataDir->exists())) {
-        if (!dataDir->mkpath(dataDir->absolutePath())) {
-            delete dataDir;
-            delete cacheDir;
-            delete qmlCacheDir;
-            qFatal("Failed to create data directory.");
-        }
-    }
-
-    if (Q_UNLIKELY(!cacheDir->exists())) {
-        if (!cacheDir->mkpath(cacheDir->absolutePath())) {
-            delete dataDir;
-            delete cacheDir;
-            delete qmlCacheDir;
-            qFatal("Failed to create cache directory.");
-        }
-    }
-
-    if (Q_UNLIKELY(!qmlCacheDir->exists())) {
-        if (!qmlCacheDir->mkpath(qmlCacheDir->absolutePath())) {
-            delete dataDir;
-            delete cacheDir;
-            delete qmlCacheDir;
-            qFatal("Failed to create qml cache directory.");
-        }
-    }
-
-    delete cacheDir;
-
-    auto qmlDiskCache = new QNetworkDiskCache(app.data());
-    qmlDiskCache->setCacheDirectory(qmlCacheDir->absolutePath());
-    delete qmlCacheDir;
-
-    QScopedPointer<NamFactory> namFactory(new NamFactory(qmlDiskCache));
-
     auto config = new SfosConfig(app.data());
-
-    Fuoten::Component::setDefaultConfiguration(config);
 
     if (!config->language().isEmpty()) {
         QLocale::setDefault(QLocale(config->language()));
@@ -200,44 +160,86 @@ int main(int argc, char *argv[])
         QLocale::setDefault(QLocale::system());
     }
 
+
+
+    {
 #ifndef CLAZY
-    const QString l10nDir = SailfishApp::pathTo(QStringLiteral("l10n")).toString(QUrl::RemoveScheme);
+        const QString l10nDir = SailfishApp::pathTo(QStringLiteral("l10n")).toString(QUrl::RemoveScheme);
 #else
-    const QString l10nDir;
+        const QString l10nDir;
 #endif
-    auto locale = new QLocale;
-    for (const QString &name : {QStringLiteral("fuoten"), QStringLiteral("libfuoten"), QStringLiteral("btsc")}) {
-        auto trans = new QTranslator(app.data());
-        if (Q_LIKELY(trans->load(*locale, name, QStringLiteral("_"), l10nDir, QStringLiteral(".qm")))) {
-            app->installTranslator(trans);
+        const QLocale locale;
+        for (const QString &name : {QStringLiteral("fuoten"), QStringLiteral("libfuoten"), QStringLiteral("btsc")}) {
+            auto trans = new QTranslator(app.data());
+            if (Q_LIKELY(trans->load(locale, name, QStringLiteral("_"), l10nDir, QStringLiteral(".qm")))) {
+                app->installTranslator(trans);
+            }
+        }
+
+        QTranslator *tfeTrans = new QTranslator(app.data());
+        if (locale.language() == QLocale::C) {
+
+            if (Q_LIKELY(tfeTrans->load(QStringLiteral("sailfish_transferengine_plugins_eng_en"), QStringLiteral("/usr/share/translations")))) {
+                app->installTranslator(tfeTrans);
+            }
+
+        } else {
+
+            if (Q_LIKELY(tfeTrans->load(locale, QStringLiteral("sailfish_transferengine_plugins"), QStringLiteral("-"), QStringLiteral("/usr/share/translations"), QStringLiteral(".qm")))) {
+                app->installTranslator(tfeTrans);
+            }
+
         }
     }
 
-    QTranslator *tfeTrans = new QTranslator(app.data());
-    if (locale->language() == QLocale::C) {
-
-        if (Q_LIKELY(tfeTrans->load(QStringLiteral("sailfish_transferengine_plugins_eng_en"), QStringLiteral("/usr/share/translations")))) {
-            app->installTranslator(tfeTrans);
-        }
-
-    } else {
-
-        if (Q_LIKELY(tfeTrans->load(QLocale(), QStringLiteral("sailfish_transferengine_plugins"), QStringLiteral("-"), QStringLiteral("/usr/share/translations"), QStringLiteral(".qm")))) {
-            app->installTranslator(tfeTrans);
-        }
-
-    }
-
-    auto sqliteStorage = new Fuoten::SQLiteStorage(dataDir->absoluteFilePath(QStringLiteral("database.sqlite")), app.data());
-    sqliteStorage->setConfiguration(config);
+    auto notificator = new SfosNotificator(config, app.data());
+    QNetworkDiskCache *qmlDiskCache = nullptr;
     QThread storageThread;
     QObject::connect(app.data(), &QCoreApplication::aboutToQuit, [&storageThread]() {storageThread.quit(); storageThread.wait();});
-    sqliteStorage->moveToThread(&storageThread);
-    storageThread.start();
-    sqliteStorage->init();
-    delete dataDir;
+    Fuoten::SQLiteStorage *sqliteStorage = nullptr;
+    {
+        QDir dataDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+        QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
+        QDir qmlCacheDir(cacheDir.absoluteFilePath(QStringLiteral("qmlcache")));
 
+        if (Q_UNLIKELY(!dataDir.exists())) {
+            if (!dataDir.mkpath(dataDir.absolutePath())) {
+                //% "Failed to create the data directory."
+                notificator->notify(Fuoten::AbstractNotificator::StorageError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-data-dir"));
+                qFatal("Failed to create data directory.");
+            }
+        }
+
+        if (Q_UNLIKELY(!cacheDir.exists())) {
+            if (!cacheDir.mkpath(cacheDir.absolutePath())) {
+                //% "Failed to create the cache directory."
+                notificator->notify(Fuoten::AbstractNotificator::StorageError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-cache-dir"));
+                qFatal("Failed to create cache directory.");
+            }
+        }
+
+        if (Q_UNLIKELY(!qmlCacheDir.exists())) {
+            if (!qmlCacheDir.mkpath(qmlCacheDir.absolutePath())) {
+                //% "Failed to create the qml cache directory."
+                notificator->notify(Fuoten::AbstractNotificator::StorageError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-qmlcache-dir"));
+                qFatal("Failed to create qml cache directory.");
+            }
+        }
+
+        qmlDiskCache = new QNetworkDiskCache(app.data());
+        qmlDiskCache->setCacheDirectory(qmlCacheDir.absolutePath());
+
+        sqliteStorage = new Fuoten::SQLiteStorage(dataDir.absoluteFilePath(QStringLiteral("database.sqlite")), app.data());
+        sqliteStorage->setConfiguration(config);
+        sqliteStorage->moveToThread(&storageThread);
+        storageThread.start();
+        sqliteStorage->init();
+    }
+    QScopedPointer<NamFactory> namFactory(new NamFactory(qmlDiskCache));
+
+    Fuoten::Component::setDefaultConfiguration(config);
     Fuoten::Component::setDefaultStorage(sqliteStorage);
+    Fuoten::Component::setDefaultNotificator(notificator);
 
     auto synchronizer = new Fuoten::Synchronizer(app.data());
     synchronizer->setConfiguration(config);

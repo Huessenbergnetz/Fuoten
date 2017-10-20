@@ -39,6 +39,7 @@ LIBS += -L$$OUT_PWD/../libfuoten -lfuoten
 INCLUDEPATH += $$PWD/../libfuoten
 
 PKGCONFIG += openssl
+PKGCONFIG += nemonotifications-qt5
 
 SOURCES += \
     src/main.cpp \
@@ -47,7 +48,8 @@ SOURCES += \
     src/namfactory.cpp \
     src/coverconnector.cpp \
     src/useragentmodel.cpp \
-    src/sfosconfig.cpp
+    src/sfosconfig.cpp \
+    src/sfosnotificator.cpp
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
@@ -119,5 +121,6 @@ HEADERS += \
     ../ADVobfuscator/Lib/Inline.h \
     ../ADVobfuscator/Lib/Log.h \
     ../ADVobfuscator/Lib/MetaRandom.h \
-    ../ADVobfuscator/Lib/MetaString.h
+    ../ADVobfuscator/Lib/MetaString.h \
+    src/sfosnotificator.h
 

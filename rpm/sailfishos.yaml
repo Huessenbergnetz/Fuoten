@@ -28,6 +28,7 @@ PkgConfigBR:
   - Qt5Quick
   - Qt5Sql
   - openssl
+  - nemonotifications-qt5
 
 # Build dependencies without a pkgconfig setup can be listed here
 # PkgBR:
