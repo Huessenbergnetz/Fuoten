@@ -193,6 +193,11 @@ int main(int argc, char *argv[])
     }
 
     auto notificator = new SfosNotificator(config, app.data());
+
+    QObject::connect(app.data(), &QGuiApplication::applicationStateChanged, [notificator](Qt::ApplicationState state) {
+        notificator->setEnabled(state != Qt::ApplicationActive);
+    });
+
     QNetworkDiskCache *qmlDiskCache = nullptr;
     QThread storageThread;
     QObject::connect(app.data(), &QCoreApplication::aboutToQuit, [&storageThread]() {storageThread.quit(); storageThread.wait();});
