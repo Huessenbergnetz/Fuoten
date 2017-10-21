@@ -2,6 +2,7 @@ TARGET = harbour-fuoten
 
 CONFIG += sailfishapp
 CONFIG += c++11
+CONFIG += link_pkgconfig
 
 QT += sql network dbus
 
@@ -39,7 +40,9 @@ LIBS += -L$$OUT_PWD/../libfuoten -lfuoten
 INCLUDEPATH += $$PWD/../libfuoten
 
 PKGCONFIG += openssl
-PKGCONFIG += nemonotifications-qt5
+!contains(CONFIG, clazy) {
+    PKGCONFIG += nemonotifications-qt5
+}
 
 SOURCES += \
     src/main.cpp \
