@@ -29,6 +29,7 @@ class SfosConfig;
 class SfosNotificator : public Fuoten::AbstractNotificator
 {
     Q_OBJECT
+    Q_DISABLE_COPY(SfosNotificator)
 public:
     explicit SfosNotificator(SfosConfig *config, QObject *parent = nullptr);
 

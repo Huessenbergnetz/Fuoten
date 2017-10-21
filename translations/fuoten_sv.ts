@@ -951,5 +951,15 @@
         <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of deleted folders</extracomment>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
+    <message id="fuoten-notify-synccomplete-body" numerus="yes">
+        <source>Synchronization succeeded in %n second(s).</source>
+        <extracomment>body notification message for both, notification popup and notification area</extracomment>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message id="fuoten-notify-authorization-error-summary">
+        <source>Authorization error</source>
+        <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
+        <translation type="unfinished"/>
+    </message>
 </context>
 </TS>

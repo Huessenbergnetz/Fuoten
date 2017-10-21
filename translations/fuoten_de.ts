@@ -828,7 +828,7 @@
     <message id="fuoten-notify-feeds-requested-summary">
         <source>Feeds requested</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation>Feeds abgefragt</translation>
+        <translation>Feeds abgerufen</translation>
     </message>
     <message id="fuoten-notify-feeds-requested-body-new" numerus="yes">
         <source>New feed(s): %1</source>
@@ -908,7 +908,7 @@
     <message id="fuoten-notify-items-requested-summary">
         <source>Articles requested</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation>Artikel abgefragt</translation>
+        <translation>Artikel abgerufen</translation>
     </message>
     <message id="fuoten-notify-items-requested-prev-body" numerus="yes">
         <source>%n new unread article(s).</source>
@@ -949,6 +949,16 @@
         <source>%n deleted</source>
         <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of deleted folders</extracomment>
         <translation><numerusform>%n gelöscht</numerusform><numerusform>%n gelöscht</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-synccomplete-body" numerus="yes">
+        <source>Synchronization succeeded in %n second(s).</source>
+        <extracomment>body notification message for both, notification popup and notification area</extracomment>
+        <translation><numerusform>Synchronisation innerhalb von %n Sekunde erfolgreich abgeschlossen.</numerusform><numerusform>Synchronisation innerhalb von %n Sekunden erfolgreich abgeschlossen.</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-authorization-error-summary">
+        <source>Authorization error</source>
+        <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
+        <translation>Authentifizierungsfehler</translation>
     </message>
 </context>
 </TS>

@@ -753,202 +753,212 @@
     <message id="fuoten-notify-storage-error-summary">
         <source>Storage error</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Opslagfout</translation>
     </message>
     <message id="fuoten-notify-synccomplete-summary">
         <source>Synchronization complete</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Synchronisatie voltooid</translation>
     </message>
     <message id="fuoten-notify-folders-requested-prev-summary">
         <source>Folders requested</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Mappen opgevraagd</translation>
     </message>
     <message id="fuoten-notify-folders-requested-body-new" numerus="yes">
         <source>New folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Nieuwe map: %1</numerusform><numerusform>Nieuwe mappen: %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-body-renamed" numerus="yes">
         <source>Renamed folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Hernoemde map: %1</numerusform><numerusform>Hernoemde mappen: %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-body-deleted" numerus="yes">
         <source>Deleted folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Verwijderde map: %1</numerusform><numerusform>Verwijderde mappen: %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-folder-created-summary">
         <source>Folder created</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Map aangemaakt</translation>
     </message>
     <message id="fuoten-notify-folder-created-body">
         <source>Folder “%1” successfully created.</source>
         <extracomment>notifaction area body text for a created folder, %1 will be replaced by the folder name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Map ‘%1’ aangemaakt.</translation>
     </message>
     <message id="fuoten-notify-folder-deleted-summary">
         <source>Folder deleted</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Map verwijderd</translation>
     </message>
     <message id="fuoten-notify-folder-deleted-body">
         <source>Folder “%1” successfully deleted.</source>
         <extracomment>notification area body text for a deleted folder, %1 will be replaced by the folder name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Map ‘%1’ verwijderd.</translation>
     </message>
     <message id="fuoten-notify-folder-renamed-summary">
         <source>Folder renamed</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Map hernoemd</translation>
     </message>
     <message id="fuoten-notify-folder-renamed-prev-body">
         <source>“%1” into “%2”</source>
         <extracomment>notification popup body text for a renamed folder, %1 will be replaced by the old name, %2 by the new name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Van ‘%1’ naar ‘%2’</translation>
     </message>
     <message id="fuoten-notify-folder-renamed-body">
         <source>Folder “%1” successfully renamed into “%2”.”</source>
         <extracomment>notification area body text for a renamed folder, %1 will be replaced by the old name, %2 by the new name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Map hernoemd van ‘%1’ naar ‘%2’.</translation>
     </message>
     <message id="fuoten-notify-folder-markedread-summary">
         <source>Folder marked as read</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Map gemarkeerd als gelezen</translation>
     </message>
     <message id="fuoten-notify-folder-markedread-body">
         <source>Folder “%1” successfully marked as read.</source>
         <extracomment>notification area body text for a folder marked as read, %1 will be replaced by the folder name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Map ‘%1’ gemarkeerd als gelezen.</translation>
     </message>
     <message id="fuoten-notify-feeds-requested-summary">
         <source>Feeds requested</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Feeds opgevraagd</translation>
     </message>
     <message id="fuoten-notify-feeds-requested-body-new" numerus="yes">
         <source>New feed(s): %1</source>
         <extracomment>part of the notification area body text for requested feeds, %1 will be replaced by a list of new feed titles</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Nieuwe feed: %1</numerusform><numerusform>Nieuwe feeds: %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-feeds-requested-body-updated" numerus="yes">
         <source>Updated feed(s): %1</source>
         <extracomment>part of the notification area body text for requested feeds, %1 will be replaced by a list of updated feed titles</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Bijgewerkte feed: %1</numerusform><numerusform>Bijgewerkte feeds: %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-feeds-requested-body-deleted" numerus="yes">
         <source>Deleted feed(s): %1</source>
         <extracomment>part of the notification area body text for requested feeds, %1 will be replaced by a list of deleted feed titles</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Verwijderde feed: %1</numerusform><numerusform>Verwijderde feeds: %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-feed-created-summary">
         <source>Feed added</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Feed toegevoegd</translation>
     </message>
     <message id="fuoten-notify-feed-created-body">
         <source>Feed “%1” successfully added.</source>
         <extracomment>notification area body text for a newly created feed, %1 will be replaced by the feed title</extracomment>
-        <translation type="unfinished"/>
+        <translation>Feed ‘%1’ toegevoegd.</translation>
     </message>
     <message id="fuoten-notify-feed-deleted-summary">
         <source>Feed deleted</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Feed verwijderd</translation>
     </message>
     <message id="fuoten-notify-feed-deleted-body">
         <source>Feed “%1” successfully deleted.</source>
         <extracomment>notification area body text for a deleted feed, %1 will be replaced by the feed title</extracomment>
-        <translation type="unfinished"/>
+        <translation>Feed ‘%1’ verwijderd.</translation>
     </message>
     <message id="fuoten-notify-feed-moved-summary">
         <source>Feed moved</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Feed verplaatst</translation>
     </message>
     <message id="fuoten-notify-feed-moved-prev-body">
         <source>From folder “%1” into “%2”.</source>
         <extracomment>notification popup body text for a moved feed, %1 will be replaced by the old folder name, %2 by the new folder name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Van map ‘%1’ naar ‘%2’.</translation>
     </message>
     <message id="fuoten-notify-feed-moved-body">
         <source>Feed “%1” successfully moved from folder “%2” into “%3”.</source>
         <extracomment>notification area body text for a moved feed, %1 will be replaced by the feed title, %2 will be replaced by the old folder name, %3 by the new folder name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Feed ‘%1’ verplaatst van map ‘%2’ naar ‘%3’.</translation>
     </message>
     <message id="fuoten-notify-feed-renamed-summary">
         <source>Feed renamed</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Feed hernoemd</translation>
     </message>
     <message id="fuoten-notify-feed-renamed-prev-body">
         <source>Fom “%1” into “%2”.</source>
         <extracomment>notification popup body text, %1 will be replaced by the old feed name, %2 by the new feed name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Van ‘%1’ naar ‘%2’.</translation>
     </message>
     <message id="fuoten-notify-feed-reanmed-body">
         <source>Feed “%1” successfully renamed into “%2”.</source>
         <extracomment>notification area body text, %1 will be replaced by the old feed name, %2 by the new feed name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Feed hernoemd van ‘%1’ naar ‘%2’.</translation>
     </message>
     <message id="fuoten-notify-feed-markedread-summary">
         <source>Feed marked read</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Feed gemarkeerd als gelezen</translation>
     </message>
     <message id="fuoten-notify-feed-markedread-body">
         <source>Feed “%1” successfully marked as read.</source>
         <extracomment>notification area body text, %1 will be replaced by the feed title</extracomment>
-        <translation type="unfinished"/>
+        <translation>Feed ‘%1’ gemarkeerd als gelezen.</translation>
     </message>
     <message id="fuoten-notify-items-requested-summary">
         <source>Articles requested</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Artikels opgevraagd</translation>
     </message>
     <message id="fuoten-notify-items-requested-prev-body" numerus="yes">
         <source>%n new unread article(s).</source>
         <extracomment>notification popup body text</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n nieuw ongelezen artikel</numerusform><numerusform>%n nieuwe ongelezen artikels</numerusform></translation>
     </message>
     <message id="fuoten-notify-items-requested-body" numerus="yes">
         <source>Successfully requested articles from the server. There are %n new unread article(s).</source>
         <extracomment>notification area body text</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Artikels opgevraagd van server. Er is %n nieuw ongelezen artikel.</numerusform><numerusform>Artikels opgevraagd van server. Er zijn %n nieuwe ongelezen artikels.</numerusform></translation>
     </message>
     <message id="fuoten-notify-feeds-requested-prev-body-new" numerus="yes">
         <source>%n new</source>
         <extracomment>part of the notification popup body text for requested feeds, %n will be replaced by the numer of new feeds</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n nieuw</numerusform><numerusform>%n nieuw</numerusform></translation>
     </message>
     <message id="fuoten-notify-feeds-requested-prev-body-updated" numerus="yes">
         <source>%n updated</source>
         <extracomment>part of the notification popup body text for requested feeds, %n will be replaced by the numer of updated feeds</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n bijgewerkt</numerusform><numerusform>%n bijgewerkt</numerusform></translation>
     </message>
     <message id="fuoten-notify-feeds-requested-prev-body-deleted" numerus="yes">
         <source>%n deleted</source>
         <extracomment>part of the notifitcation popup body text for requested feeds, %n will be replaced by the numer of deleted feeds</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n verwijderd</numerusform><numerusform>%n verwijderd</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-prev-body-new" numerus="yes">
         <source>%n new</source>
         <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of new folders</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n nieuw</numerusform><numerusform>%n nieuw</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-prev-body-renamed" numerus="yes">
         <source>%n renamed</source>
         <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of reanmed folders</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n hernoemd</numerusform><numerusform>%n hernoemd</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-prev-body-deleted" numerus="yes">
         <source>%n deleted</source>
         <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of deleted folders</extracomment>
+        <translation><numerusform>%n verwijderd</numerusform><numerusform>%n verwijderd</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-synccomplete-body" numerus="yes">
+        <source>Synchronization succeeded in %n second(s).</source>
+        <extracomment>body notification message for both, notification popup and notification area</extracomment>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message id="fuoten-notify-authorization-error-summary">
+        <source>Authorization error</source>
+        <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

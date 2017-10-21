@@ -24,7 +24,9 @@
 #include <QVariant>
 #include <QStringBuilder>
 #include <QLocale>
+#ifndef CLAZY
 #include <notification.h>
+#endif
 
 SfosNotificator::SfosNotificator(SfosConfig *config, QObject *parent) :
     Fuoten::AbstractNotificator(parent), m_config(config)
@@ -60,7 +62,9 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
         QString previewBody;
         QString summary;
         QString body;
+#ifndef CLAZY
         Notification::Urgency urgency = Notification::Low;
+#endif
         qint32 expireTimeout = -1;
         QString category;
         QString origin;
@@ -68,11 +72,15 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
 
         switch(severity) {
         case QtCriticalMsg:
+#ifndef CLAZY
             urgency = Notification::Normal;
+#endif
             icon = QStringLiteral("icon-lock-warning");
             break;
         case QtFatalMsg:
+#ifndef CLAZY
             urgency = Notification::Critical;
+#endif
             icon = QStringLiteral("icon-lock-warning");
             break;
         default:
@@ -180,7 +188,7 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
             Q_ASSERT(data.canConvert(QMetaType::QString));
             //: headline/summary for a notification, shown in the notification area and in the notification popup
             //% "Authorization error"
-            previewSummary = qtTrId("fuoten-notify-storage-error-summary");
+            previewSummary = qtTrId("fuoten-notify-authorization-error-summary");
             summary = previewSummary;
             previewBody = data.toString();
             body = previewBody;
@@ -196,7 +204,7 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
             summary = previewSummary;
             //: body notification message for both, notification popup and notification area
             //% "Synchronization succeeded in %n second(s)."
-            previewBody = qtTrId(("fuoten-notify-synccomplete-body"), data.toInt());
+            previewBody = qtTrId("fuoten-notify-synccomplete-body", data.toInt());
             body = previewBody;
             expireTimeout = 5000;
             category = QStringLiteral("x-fuoten.sync.complete");
@@ -333,7 +341,6 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
             //% "Feeds requested"
             previewSummary = qtTrId("fuoten-notify-feeds-requested-summary");
             summary = previewSummary;
-            //: notification popup body text, %1, %2 and %3 will be replaced by the count of affected feeds
             QStringList prevBodyParts;
             QLocale locale;
             if (!newFeeds.empty()) {
@@ -486,16 +493,21 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
             return;
         }
 
-        const QList<QObject*> currentNotifications = Notification::notificationsByCategory(category);
+#ifndef CLAZY
+        const QList<QObject*> currentNotifications = Notification::notifications();
+
         if (!currentNotifications.empty()) {
+            qDebug("Found %i previous notifications.", currentNotifications.size());
             for (QObject *o : currentNotifications) {
                 Notification *n = qobject_cast<Notification *>(o);
-                if (n) {
+                if (n && (n->category() == category)) {
+                    qDebug("Trying to close notification with ID %i.", n->replacesId());
                     n->close();
-                    delete n;
                 }
             }
         }
+
+        qDebug("Publishing new notification: %s", qUtf8Printable(previewSummary));
 
         Notification n;
         n.setAppIcon(appIcon());
@@ -509,5 +521,6 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
         n.setSummary(summary);
         n.setUrgency(urgency);
         n.publish();
+#endif
     }
 }
