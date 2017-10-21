@@ -705,50 +705,50 @@
     </message>
     <message id="fuoten-fatal-error-failed-data-dir">
         <source>Failed to create the data directory.</source>
-        <translation type="unfinished"/>
+        <translation>Aanmaken van gegevensmap mislukt.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-cache-dir">
         <source>Failed to create the cache directory.</source>
-        <translation type="unfinished"/>
+        <translation>Aanmaken van cachemap mislukt.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-qmlcache-dir">
         <source>Failed to create the qml cache directory.</source>
-        <translation type="unfinished"/>
+        <translation>Aanmaken van qml-cachemap mislukt.</translation>
     </message>
     <message id="fuoten-notify-general-error-summary">
         <source>General error</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Algemene fout</translation>
     </message>
     <message id="fuoten-notify-request-error-summary">
         <source>Request error</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Verzoekfout</translation>
     </message>
     <message id="fuoten-notify-parsing-error-summary">
         <source>Parsing error</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Verwerkingsfout</translation>
     </message>
     <message id="fuoten-notify-input-error-summary">
         <source>Input error</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Invoerfout</translation>
     </message>
     <message id="fuoten-notify-output-error-summary">
         <source>Output error</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Uitvoerfout</translation>
     </message>
     <message id="fuoten-notify-server-error-summary">
         <source>Server error</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Serverfout</translation>
     </message>
     <message id="fuoten-notify-application-error-summary">
         <source>Application error</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Appfout</translation>
     </message>
     <message id="fuoten-notify-storage-error-summary">
         <source>Storage error</source>
@@ -763,11 +763,6 @@
     <message id="fuoten-notify-folders-requested-prev-summary">
         <source>Folders requested</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
-    </message>
-    <message id="fuoten-notify-folders-requested-prev-body">
-        <source>%1 new, %2 deleted, %3 renamed</source>
-        <extracomment>notification popup body text, %1, %2 and %3 will be replaced by the number of affected folders</extracomment>
         <translation type="unfinished"/>
     </message>
     <message id="fuoten-notify-folders-requested-body-new" numerus="yes">
@@ -833,11 +828,6 @@
     <message id="fuoten-notify-feeds-requested-summary">
         <source>Feeds requested</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
-    </message>
-    <message id="fuoten-notify-feeds-requested-prev-body">
-        <source>%1 new, %2 deleted, %3 renamed</source>
-        <extracomment>notification popup body text, %1, %2 and %3 will be replaced by the count of affected feeds</extracomment>
         <translation type="unfinished"/>
     </message>
     <message id="fuoten-notify-feeds-requested-body-new" numerus="yes">
@@ -928,6 +918,36 @@
     <message id="fuoten-notify-items-requested-body" numerus="yes">
         <source>Successfully requested articles from the server. There are %n new unread article(s).</source>
         <extracomment>notification area body text</extracomment>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message id="fuoten-notify-feeds-requested-prev-body-new" numerus="yes">
+        <source>%n new</source>
+        <extracomment>part of the notification popup body text for requested feeds, %n will be replaced by the numer of new feeds</extracomment>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message id="fuoten-notify-feeds-requested-prev-body-updated" numerus="yes">
+        <source>%n updated</source>
+        <extracomment>part of the notification popup body text for requested feeds, %n will be replaced by the numer of updated feeds</extracomment>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message id="fuoten-notify-feeds-requested-prev-body-deleted" numerus="yes">
+        <source>%n deleted</source>
+        <extracomment>part of the notifitcation popup body text for requested feeds, %n will be replaced by the numer of deleted feeds</extracomment>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message id="fuoten-notify-folders-requested-prev-body-new" numerus="yes">
+        <source>%n new</source>
+        <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of new folders</extracomment>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message id="fuoten-notify-folders-requested-prev-body-renamed" numerus="yes">
+        <source>%n renamed</source>
+        <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of reanmed folders</extracomment>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message id="fuoten-notify-folders-requested-prev-body-deleted" numerus="yes">
+        <source>%n deleted</source>
+        <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of deleted folders</extracomment>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>

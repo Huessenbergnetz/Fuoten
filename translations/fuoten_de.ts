@@ -765,11 +765,6 @@
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
         <translation>Ordner abgerufen</translation>
     </message>
-    <message id="fuoten-notify-folders-requested-prev-body">
-        <source>%1 new, %2 deleted, %3 renamed</source>
-        <extracomment>notification popup body text, %1, %2 and %3 will be replaced by the number of affected folders</extracomment>
-        <translation>%1 neu, %2 gelöscht, %3 umebannt</translation>
-    </message>
     <message id="fuoten-notify-folders-requested-body-new" numerus="yes">
         <source>New folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
@@ -834,11 +829,6 @@
         <source>Feeds requested</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
         <translation>Feeds abgefragt</translation>
-    </message>
-    <message id="fuoten-notify-feeds-requested-prev-body">
-        <source>%1 new, %2 deleted, %3 renamed</source>
-        <extracomment>notification popup body text, %1, %2 and %3 will be replaced by the count of affected feeds</extracomment>
-        <translation>%1 new, %2 gelöscht, %3 umbenannt</translation>
     </message>
     <message id="fuoten-notify-feeds-requested-body-new" numerus="yes">
         <source>New feed(s): %1</source>
@@ -929,6 +919,36 @@
         <source>Successfully requested articles from the server. There are %n new unread article(s).</source>
         <extracomment>notification area body text</extracomment>
         <translation><numerusform>Artikel erfolgreich vom Server abgerufen. Es gibt %n neuen ungelesenen Artikel.</numerusform><numerusform>Artikel erfolgreich vom Server abgerufen. Es gibt %n neue ungelesene Artikel.</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-feeds-requested-prev-body-new" numerus="yes">
+        <source>%n new</source>
+        <extracomment>part of the notification popup body text for requested feeds, %n will be replaced by the numer of new feeds</extracomment>
+        <translation><numerusform>%n neuer</numerusform><numerusform>%n neue</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-feeds-requested-prev-body-updated" numerus="yes">
+        <source>%n updated</source>
+        <extracomment>part of the notification popup body text for requested feeds, %n will be replaced by the numer of updated feeds</extracomment>
+        <translation><numerusform>%n aktualisierter</numerusform><numerusform>%n aktualisierte</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-feeds-requested-prev-body-deleted" numerus="yes">
+        <source>%n deleted</source>
+        <extracomment>part of the notifitcation popup body text for requested feeds, %n will be replaced by the numer of deleted feeds</extracomment>
+        <translation><numerusform>%n gelöschter</numerusform><numerusform>%n gelöschte</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-folders-requested-prev-body-new" numerus="yes">
+        <source>%n new</source>
+        <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of new folders</extracomment>
+        <translation><numerusform>%n neu</numerusform><numerusform>%n neu</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-folders-requested-prev-body-renamed" numerus="yes">
+        <source>%n renamed</source>
+        <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of reanmed folders</extracomment>
+        <translation><numerusform>%n umbenannt</numerusform><numerusform>%n umbenannt</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-folders-requested-prev-body-deleted" numerus="yes">
+        <source>%n deleted</source>
+        <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of deleted folders</extracomment>
+        <translation><numerusform>%n gelöscht</numerusform><numerusform>%n gelöscht</numerusform></translation>
     </message>
 </context>
 </TS>

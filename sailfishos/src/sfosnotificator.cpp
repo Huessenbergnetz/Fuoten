@@ -212,17 +212,21 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
             //: headline/summary for a notification, shown in the notification area and in the notification popup
             //% "Folders requested"
             previewSummary = qtTrId("fuoten-notify-folders-requested-prev-summary");
-            //: notification popup body text, %1, %2 and %3 will be replaced by the number of affected folders
-            //% "%1 new, %2 deleted, %3 renamed"
-            previewBody = qtTrId("fuoten-notify-folders-requested-prev-body").arg(QString::number(newFolders.size()), QString::number(renamedFolders.size()), QString::number(deletedFolders.size()));
             summary = previewSummary;
+            QStringList prevBodyParts;
             QLocale locale;
             if (!newFolders.empty()) {
+                //: part of the notification popup body text for requested folders, %n will be replaced by the numer of new folders
+                //% "%n new"
+                prevBodyParts.push_back(qtTrId("fuoten-notify-folders-requested-prev-body-new", newFolders.size()));
                 //: part of the notification area body text, %1 will be replaced by a list of affected folder names
                 //% "New folder(s): %1"
                 body.append(qtTrId("fuoten-notify-folders-requested-body-new", newFolders.size()).arg(locale.createSeparatedList(newFolders)));
             }
             if (!renamedFolders.empty()) {
+                //: part of the notification popup body text for requested folders, %n will be replaced by the numer of reanmed folders
+                //% "%n renamed"
+                prevBodyParts.push_back(qtTrId("fuoten-notify-folders-requested-prev-body-renamed", renamedFolders.size()));
                 if (!body.isEmpty()) {
                     body.append(QChar(QChar::LineFeed));
                 }
@@ -231,6 +235,9 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
                 body.append(qtTrId("fuoten-notify-folders-requested-body-renamed", renamedFolders.size()).arg(locale.createSeparatedList(renamedFolders)));
             }
             if (!deletedFolders.empty()) {
+                //: part of the notification popup body text for requested folders, %n will be replaced by the numer of deleted folders
+                //% "%n deleted"
+                prevBodyParts.push_back(qtTrId("fuoten-notify-folders-requested-prev-body-deleted", deletedFolders.size()));
                 if (!body.isEmpty()) {
                     body.append(QChar(QChar::LineFeed));
                 }
@@ -238,6 +245,7 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
                 //% "Deleted folder(s): %1"
                 body.append(qtTrId("fuoten-notify-folders-requested-body-deleted", deletedFolders.size()).arg(locale.createSeparatedList(deletedFolders)));
             }
+            previewBody = locale.createSeparatedList(prevBodyParts);
             category = QStringLiteral("x-fuoten.folder.requested");
             break;
         }
@@ -326,15 +334,20 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
             previewSummary = qtTrId("fuoten-notify-feeds-requested-summary");
             summary = previewSummary;
             //: notification popup body text, %1, %2 and %3 will be replaced by the count of affected feeds
-            //% "%1 new, %2 deleted, %3 renamed"
-            previewBody = qtTrId("fuoten-notify-feeds-requested-prev-body").arg(QString::number(newFeeds.size()), QString::number(updatedFeeds.size()), QString::number(deletedFeeds.size()));
+            QStringList prevBodyParts;
             QLocale locale;
             if (!newFeeds.empty()) {
+                //: part of the notification popup body text for requested feeds, %n will be replaced by the numer of new feeds
+                //% "%n new"
+                prevBodyParts.push_back(qtTrId("fuoten-notify-feeds-requested-prev-body-new", newFeeds.size()));
                 //: part of the notification area body text for requested feeds, %1 will be replaced by a list of new feed titles
                 //% "New feed(s): %1"
                 body = qtTrId("fuoten-notify-feeds-requested-body-new", newFeeds.size()).arg(locale.createSeparatedList(newFeeds));
             }
             if (!updatedFeeds.empty()) {
+                //: part of the notification popup body text for requested feeds, %n will be replaced by the numer of updated feeds
+                //% "%n updated"
+                prevBodyParts.push_back(qtTrId("fuoten-notify-feeds-requested-prev-body-updated", updatedFeeds.size()));
                 if (!body.isEmpty()) {
                     body.append(QChar(QChar::LineFeed));
                 }
@@ -343,6 +356,9 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
                 body = qtTrId("fuoten-notify-feeds-requested-body-updated", updatedFeeds.size()).arg(locale.createSeparatedList(updatedFeeds));
             }
             if (!deletedFeeds.empty()) {
+                //: part of the notifitcation popup body text for requested feeds, %n will be replaced by the numer of deleted feeds
+                //% "%n deleted"
+                prevBodyParts.push_back(qtTrId("fuoten-notify-feeds-requested-prev-body-deleted", deletedFeeds.size()));
                 if (!body.isEmpty()) {
                     body.append(QChar(QChar::LineFeed));
                 }
@@ -350,6 +366,7 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
                 //% "Deleted feed(s): %1"
                 body = qtTrId("fuoten-notify-feeds-requested-body-deleted", deletedFeeds.size()).arg(locale.createSeparatedList(deletedFeeds));
             }
+            previewBody = locale.createSeparatedList(prevBodyParts);
             category = QStringLiteral("x-fuoten.feed.requested");
             break;
         }

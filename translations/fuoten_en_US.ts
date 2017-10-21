@@ -765,25 +765,20 @@
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
         <translation type="unfinished"/>
     </message>
-    <message id="fuoten-notify-folders-requested-prev-body">
-        <source>%1 new, %2 deleted, %3 renamed</source>
-        <extracomment>notification popup body text, %1, %2 and %3 will be replaced by the number of affected folders</extracomment>
-        <translation type="unfinished"/>
-    </message>
     <message id="fuoten-notify-folders-requested-body-new" numerus="yes">
         <source>New folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>New folder: %1</numerusform><numerusform>New folders: %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-body-renamed" numerus="yes">
         <source>Renamed folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Renamed folder: %1</numerusform><numerusform>Renamed folders: %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-body-deleted" numerus="yes">
         <source>Deleted folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Deleted folder: %1</numerusform><numerusform>Deleted folders: %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-folder-created-summary">
         <source>Folder created</source>
@@ -835,25 +830,20 @@
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
         <translation type="unfinished"/>
     </message>
-    <message id="fuoten-notify-feeds-requested-prev-body">
-        <source>%1 new, %2 deleted, %3 renamed</source>
-        <extracomment>notification popup body text, %1, %2 and %3 will be replaced by the count of affected feeds</extracomment>
-        <translation type="unfinished"/>
-    </message>
     <message id="fuoten-notify-feeds-requested-body-new" numerus="yes">
         <source>New feed(s): %1</source>
         <extracomment>part of the notification area body text for requested feeds, %1 will be replaced by a list of new feed titles</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>New feed: %1</numerusform><numerusform>New feeds: %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-feeds-requested-body-updated" numerus="yes">
         <source>Updated feed(s): %1</source>
         <extracomment>part of the notification area body text for requested feeds, %1 will be replaced by a list of updated feed titles</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Updated feed: %1</numerusform><numerusform>Updated feeds: %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-feeds-requested-body-deleted" numerus="yes">
         <source>Deleted feed(s): %1</source>
         <extracomment>part of the notification area body text for requested feeds, %1 will be replaced by a list of deleted feed titles</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Deleted feeds: %1</numerusform><numerusform>Deleted feeds: %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-feed-created-summary">
         <source>Feed added</source>
@@ -923,12 +913,42 @@
     <message id="fuoten-notify-items-requested-prev-body" numerus="yes">
         <source>%n new unread article(s).</source>
         <extracomment>notification popup body text</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n new unread article.</numerusform><numerusform>%n new unread articles.</numerusform></translation>
     </message>
     <message id="fuoten-notify-items-requested-body" numerus="yes">
         <source>Successfully requested articles from the server. There are %n new unread article(s).</source>
         <extracomment>notification area body text</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Successfully requested articles from the server. There is %n new unread article.</numerusform><numerusform>Successfully requested articles from the server. There are %n new unread articles.</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-feeds-requested-prev-body-new" numerus="yes">
+        <source>%n new</source>
+        <extracomment>part of the notification popup body text for requested feeds, %n will be replaced by the numer of new feeds</extracomment>
+        <translation><numerusform>%n new</numerusform><numerusform>%n new</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-feeds-requested-prev-body-updated" numerus="yes">
+        <source>%n updated</source>
+        <extracomment>part of the notification popup body text for requested feeds, %n will be replaced by the numer of updated feeds</extracomment>
+        <translation><numerusform>%n updated</numerusform><numerusform>%n updated</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-feeds-requested-prev-body-deleted" numerus="yes">
+        <source>%n deleted</source>
+        <extracomment>part of the notifitcation popup body text for requested feeds, %n will be replaced by the numer of deleted feeds</extracomment>
+        <translation><numerusform>%n deleted</numerusform><numerusform>%n deleted</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-folders-requested-prev-body-new" numerus="yes">
+        <source>%n new</source>
+        <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of new folders</extracomment>
+        <translation><numerusform>%n new</numerusform><numerusform>%n new</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-folders-requested-prev-body-renamed" numerus="yes">
+        <source>%n renamed</source>
+        <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of reanmed folders</extracomment>
+        <translation><numerusform>%n renamed</numerusform><numerusform>%n renamed</numerusform></translation>
+    </message>
+    <message id="fuoten-notify-folders-requested-prev-body-deleted" numerus="yes">
+        <source>%n deleted</source>
+        <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of deleted folders</extracomment>
+        <translation><numerusform>%n deleted</numerusform><numerusform>%n deleted</numerusform></translation>
     </message>
 </context>
 </TS>
