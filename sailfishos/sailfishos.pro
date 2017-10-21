@@ -2,7 +2,6 @@ TARGET = harbour-fuoten
 
 CONFIG += sailfishapp
 CONFIG += c++11
-CONFIG += link_pkgconfig
 
 QT += sql network dbus
 
@@ -27,6 +26,7 @@ contains(CONFIG, clazy) {
     DEFINES+=CLAZY
     QMAKE_CXXFLAGS += "-Xclang -load -Xclang ClangLazy.so -Xclang -add-plugin -Xclang clang-lazy"
     QT += qml quick
+    CONFIG += link_pkgconfig
 }
 
 contains(CONFIG, asan) {
