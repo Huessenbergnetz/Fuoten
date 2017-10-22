@@ -27,6 +27,7 @@ PkgConfigBR:
   - Qt5Qml
   - Qt5Quick
   - Qt5Sql
+  - Qt5Dbus
   - openssl
   - nemonotifications-qt5
 
