@@ -52,6 +52,8 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
     case FeedCreated:
         force = true;
         break;
+    case SyncComplete:
+        return;
     default:
         break;
     }
