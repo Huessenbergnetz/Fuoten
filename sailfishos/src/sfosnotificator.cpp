@@ -58,7 +58,7 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
         break;
     }
 
-    if (isEnabled() || force) {
+    if (isEnabled() || force || (severity == QtFatalMsg)) {
 
         QString previewSummary;
         QString previewBody;
