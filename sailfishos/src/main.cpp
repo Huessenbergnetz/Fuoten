@@ -40,6 +40,13 @@
 #include <QFile>
 #include <QTextStream>
 
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCall>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
+#include <QDBusError>
+
 #ifndef CLAZY
 #include <sailfishapp.h>
 #endif
@@ -231,6 +238,27 @@ int main(int argc, char *argv[])
             dbusOut << QStringLiteral("Exec=/usr/bin/invoker -s --type=silica-qt5 /usr/bin/harbour-fuoten");
             dbusOut.flush();
             dbusFile.close();
+
+            QDBusConnection dc = QDBusConnection::sessionBus();
+            if (!dc.isConnected()) {
+                //% "Failed to connect to D-Bus session bus."
+                notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-connection"));
+                qFatal("Failed to connect to D-Bus session bus.");
+            }
+            QDBusMessage m = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/"), QStringLiteral("org.freedesktop.DBus"), QStringLiteral("ReloadConfig"));
+            m.setAutoStartService(false);
+            QDBusPendingCall pc = dc.asyncCall(m, 3000);
+            auto pcw = new QDBusPendingCallWatcher(pc, app.data());
+            QObject::connect(pcw, &QDBusPendingCallWatcher::finished, [notificator](QDBusPendingCallWatcher *call){
+                QDBusPendingReply<void> reply = *call;
+                if (reply.isError()) {
+                    //% "Failed to reload D-Bus session bus configuration."
+                    notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-reload-config"));
+                    qCritical("D-Bus error: %s (%s)", qUtf8Printable(reply.error().message()), qUtf8Printable(reply.error().name()));
+                    qFatal("Failed to reload D-Bus session bus configuration.");
+                }
+                call->deleteLater();
+            });
         }
 
         if (Q_UNLIKELY(!dataDir.exists())) {
