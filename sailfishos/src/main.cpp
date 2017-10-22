@@ -37,6 +37,8 @@
 #include <QDir>
 #include <QStandardPaths>
 #include <QNetworkDiskCache>
+#include <QFile>
+#include <QTextStream>
 
 #ifndef CLAZY
 #include <sailfishapp.h>
@@ -203,9 +205,33 @@ int main(int argc, char *argv[])
     QObject::connect(app.data(), &QCoreApplication::aboutToQuit, [&storageThread]() {storageThread.quit(); storageThread.wait();});
     Fuoten::SQLiteStorage *sqliteStorage = nullptr;
     {
+        QDir dbusDir(QDir::homePath() + QStringLiteral("/.local/share/dbus-1/services"));
         QDir dataDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
         QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
         QDir qmlCacheDir(cacheDir.absoluteFilePath(QStringLiteral("qmlcache")));
+
+        if (Q_UNLIKELY(!dbusDir.exists())) {
+            if (!dbusDir.mkpath(dbusDir.absolutePath())) {
+                //% "Failed to create user D-BUS directory."
+                notificator->notify(Fuoten::AbstractNotificator::StorageError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-dir"));
+                qFatal("Failed to create D-BUS direcotry.");
+            }
+        }
+
+        QFile dbusFile(dbusDir.absoluteFilePath(QStringLiteral("org.harbour.fuoten.service")));
+        if (Q_UNLIKELY(!dbusFile.exists())) {
+            if (Q_UNLIKELY(!dbusFile.open(QIODevice::WriteOnly|QIODevice::Text))) {
+                //% "Failed to open D-BUS service file for writing."
+                notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-file"));
+                qFatal("Failed to open D-BUS service file for writing.");
+            }
+            QTextStream dbusOut(&dbusFile);
+            dbusOut << QStringLiteral("[D-BUS Service]\n");
+            dbusOut << QStringLiteral("Name=org.harbour.fuoten\n");
+            dbusOut << QStringLiteral("Exec=/usr/bin/invoker -s --type=silica-qt5 /usr/bin/harbour-fuoten");
+            dbusOut.flush();
+            dbusFile.close();
+        }
 
         if (Q_UNLIKELY(!dataDir.exists())) {
             if (!dataDir.mkpath(dataDir.absolutePath())) {
