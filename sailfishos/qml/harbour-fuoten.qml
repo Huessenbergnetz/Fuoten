@@ -24,6 +24,7 @@ import Sailfish.Silica 1.0
 
 ApplicationWindow
 {
+    id: fuoten
     initialPage: config.isFirstStart()
                  ? Qt.resolvedUrl("common/wizard/Welcome.qml")
                  : Screen.sizeCategory >= Screen.Large
@@ -40,6 +41,15 @@ ApplicationWindow
         onCurrentPageChanged: {
             if (!synchronizer.inOperation) {
                 config.checkUpdate();
+            }
+        }
+    }
+
+    Connections {
+        target: _fuotenDbusProxy
+        onDbusActivate: {
+            if (Qt.application.state !== Qt.ApplicationActive) {
+                fuoten.activate()
             }
         }
     }

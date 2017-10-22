@@ -52,7 +52,9 @@ SOURCES += \
     src/coverconnector.cpp \
     src/useragentmodel.cpp \
     src/sfosconfig.cpp \
-    src/sfosnotificator.cpp
+    src/sfosnotificator.cpp \
+    src/dbus/fuotendbusproxy.cpp \
+    src/dbus/fuotendbusadaptor.cpp
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
@@ -125,5 +127,7 @@ HEADERS += \
     ../ADVobfuscator/Lib/Log.h \
     ../ADVobfuscator/Lib/MetaRandom.h \
     ../ADVobfuscator/Lib/MetaString.h \
-    src/sfosnotificator.h
+    src/sfosnotificator.h \
+    src/dbus/fuotendbusproxy.h \
+    src/dbus/fuotendbusadaptor.h
 

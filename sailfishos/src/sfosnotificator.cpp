@@ -511,6 +511,14 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
 
         qDebug("Publishing new notification: %s", qUtf8Printable(previewSummary));
 
+        QVariantList actions;
+        actions.push_back(Notification::remoteAction(QStringLiteral("default"),
+                                                     QStringLiteral(""),
+                                                     QStringLiteral("org.harbour.fuoten"),
+                                                     QStringLiteral("/"),
+                                                     QStringLiteral("org.harbour.fuoten"),
+                                                     QStringLiteral("activate")));
+
         Notification n;
         n.setAppIcon(appIcon());
         n.setAppName(appName());
@@ -522,6 +530,7 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
         n.setPreviewSummary(previewSummary);
         n.setSummary(summary);
         n.setUrgency(urgency);
+        n.setRemoteActions(actions);
         n.publish();
 #endif
     }

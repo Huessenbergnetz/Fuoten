@@ -81,6 +81,8 @@
 #include "fuoteniconprovider.h"
 #endif
 #include "sharing/sharingmethodsmodel.h"
+#include "dbus/fuotendbusadaptor.h"
+#include "dbus/fuotendbusproxy.h"
 #include "namfactory.h"
 #include "coverconnector.h"
 #include "useragentmodel.h"
@@ -343,11 +345,30 @@ int main(int argc, char *argv[])
     QScopedPointer<QQuickView> view(new QQuickView);
 #endif
 
+    auto dbusproxy = new FuotenDbusProxy(app.data());
+    new FuotenDbusAdaptor(dbusproxy);
+    {
+        QDBusConnection con = QDBusConnection::sessionBus();
+        if (Q_UNLIKELY(!con.registerService(QStringLiteral("org.harbour.fuoten")))) {
+            //% "Failed to register D-Bus service."
+            notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-service-register"));
+            qFatal("Failed to register D-Bus service.");
+        }
+
+        if (Q_UNLIKELY(!con.registerObject(QStringLiteral("/"), dbusproxy))) {
+            //: %1 will be replaced by the class name of the D-Bus adaptor
+            //% "Failed to register D-Bus object “%1”."
+            notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-object-register").arg(QString::fromLatin1(dbusproxy->metaObject()->className())));
+            qFatal("Failed to register D-Bus object \"%s\".", dbusproxy->metaObject()->className());
+        }
+    }
+
     view->rootContext()->setContextProperty(QStringLiteral("config"), config);
     view->rootContext()->setContextProperty(QStringLiteral("localstorage"), sqliteStorage);
     view->rootContext()->setContextProperty(QStringLiteral("synchronizer"), synchronizer);
     view->rootContext()->setContextProperty(QStringLiteral("covercon"), new CoverConnector(app.data()));
     view->rootContext()->setContextProperty(QStringLiteral("cccmmm"), QString::fromUtf8(QByteArray::fromBase64(QByteArrayLiteral("a29udGFrdEBodWVzc2VuYmVyZ25ldHouZGU="))));
+    view->rootContext()->setContextProperty(QStringLiteral("_fuotenDbusProxy"), dbusproxy);
 
 #ifndef CLAZY
     view->setSource(SailfishApp::pathTo(QStringLiteral("qml/harbour-fuoten.qml")));
