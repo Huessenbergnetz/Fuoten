@@ -208,8 +208,8 @@ int main(int argc, char *argv[])
     });
 
     QNetworkDiskCache *qmlDiskCache = nullptr;
-    QThread storageThread;
-    QObject::connect(app.data(), &QCoreApplication::aboutToQuit, [&storageThread]() {storageThread.quit(); storageThread.wait();});
+//    QThread storageThread;
+//    QObject::connect(app.data(), &QCoreApplication::aboutToQuit, [&storageThread]() {storageThread.quit(); storageThread.wait();});
     Fuoten::SQLiteStorage *sqliteStorage = nullptr;
     {
         QDir dbusDir(QDir::homePath() + QStringLiteral("/.local/share/dbus-1/services"));
@@ -290,8 +290,8 @@ int main(int argc, char *argv[])
 
         sqliteStorage = new Fuoten::SQLiteStorage(dataDir.absoluteFilePath(QStringLiteral("database.sqlite")), app.data());
         sqliteStorage->setConfiguration(config);
-        sqliteStorage->moveToThread(&storageThread);
-        storageThread.start();
+//        sqliteStorage->moveToThread(&storageThread);
+//        storageThread.start();
         sqliteStorage->init();
     }
     QScopedPointer<NamFactory> namFactory(new NamFactory(qmlDiskCache));
