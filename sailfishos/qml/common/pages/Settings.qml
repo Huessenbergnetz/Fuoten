@@ -199,6 +199,25 @@ Page {
                     }
                 }
             }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: enableNotificationsSwitch.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
+                TextSwitch {
+                    id: enableNotificationsSwitch
+                    automaticCheck: false
+                    checked: config.notificationsEnabled
+                    //% "Enable notifications"
+                    text: qsTrId("fuoten-settings-enable-notifications")
+                    //% "If enabled, Fuoten will show notifications when specific operations succeed or if errors occure. Most of this notifications will only be generated if the application is not the active one."
+                    description: qsTrId("fuoten-settings-enable-notifications-desc")
+                    onClicked: {
+                        config.notificationsEnabled = !config.notificationsEnabled
+                    }
+                }
+            }
         }
     }
 }

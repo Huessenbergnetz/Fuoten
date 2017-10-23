@@ -219,6 +219,17 @@ class Configuration : public Fuoten::AbstractConfiguration
      * \li void articleFontSizeChanged(int articleFontSize)
      */
     Q_PROPERTY(int articleFontSize READ articleFontSize WRITE setArticleFontSize NOTIFY articleFontSizeChanged)
+    /*!
+     * \brief This property holds \c true if notifications are enabled.
+     *
+     * \par Access functions:
+     * \li bool notificationsEnabled() const
+     * \li void setNotificationsEnabled(bool notificationsEnabled)
+     *
+     * \par Notifier signal:
+     * \li void notificationsEnabledChanged(bool notificationsEnabled)
+     */
+    Q_PROPERTY(bool notificationsEnabled READ notificationsEnabled WRITE setNotificationsEnabled NOTIFY notificationsEnabledChanged)
     Q_ENUM(Fuoten::FuotenEnums::Type)
 public:
     explicit Configuration(QObject *parent = nullptr);
@@ -269,6 +280,12 @@ public:
     int articleFontSize() const;
 
     /*!
+     * \brief Getter function for the \link Configuration:: notificationsEnabled notificationsEnabled \endlink property.
+     * \sa setNotificationsEnabled(), notificationsEnabledChanged()
+     */
+    bool notificationsEnabled() const;
+
+    /*!
      * \brief Returns a human readable relative last sync time.
      */
     Q_INVOKABLE QString getHumanLastSync() const;
@@ -305,6 +322,12 @@ public:
      * \sa articleFontSize(), articleFontSizeChanged()
      */
     void setArticleFontSize(int articleFontSize);
+
+    /*!
+     * \brief Setter function for the \link Configuration:: notificationsEnabled notificationsEnabled \endlink property.
+     * \sa notificationsEnabled(), notificationsEnabledChanged()
+     */
+    void setNotificationsEnabled(bool notificationsEnabled);
 
     /*!
      * \brief Returns true if Fuoten has been updated.
@@ -388,6 +411,12 @@ signals:
     void articleFontSizeChanged(int articleFontSize);
 
     /*!
+     * \brief Notification signal for the \link Configuration:: notificationsEnabled notificationsEnabled \endlink property.
+     * \sa notificationsEnabled(), setNotificationsEnabled()
+     */
+    void notificationsEnabledChanged(bool notificationsEnabled);
+
+    /*!
      * \brief This signal will be emitted by the checkUpdate() method.
      */
     void updatePossible();
@@ -415,6 +444,7 @@ private:
     bool m_wlanOnlyUpdate = true;
     QTimer *m_checkUpdateTimer = nullptr;
     int m_articleFontSize = 0;
+    bool m_notificationsEnabled = true;
 
     /*!
      * \brief Setter function for the \link Configuration::humanLastSync humanLastSync \endlink property.

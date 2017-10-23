@@ -33,6 +33,7 @@
 #define CONF_KEY_UPDATE_INTERVAL "behavior/updateInterval"
 #define CONF_KEY_UPDATE_WLAN_ONLY "behavior/updateWlanOnly"
 #define CONF_KEY_ARTICLE_FONT_SIZE "display/articleFontSize"
+#define CONF_KEY_NOTIFICATIONS_ENABLED "behavior/notificationsEnabled"
 
 /*!
  * \brief Constructs a new Configuration object.
@@ -59,6 +60,7 @@ Configuration::Configuration(QObject *parent) :
     m_updateInterval = value(QStringLiteral(CONF_KEY_UPDATE_INTERVAL), 0).value<quint32>();
     m_wlanOnlyUpdate = value(QStringLiteral(CONF_KEY_UPDATE_WLAN_ONLY), true).toBool();
     m_articleFontSize = value(QStringLiteral(CONF_KEY_ARTICLE_FONT_SIZE), 0).toInt();
+    m_notificationsEnabled = value(QStringLiteral(CONF_KEY_NOTIFICATIONS_ENABLED), true).toBool();
 
     uint lsts = value(QStringLiteral("system/lastsync"), 0).toUInt();
     if (lsts > 0) {
@@ -488,6 +490,19 @@ void Configuration::setArticleFontSize(int articleFontSize)
         setValue(QStringLiteral(CONF_KEY_ARTICLE_FONT_SIZE), m_articleFontSize);
         qDebug("Changed articleFontSize to %i.", m_articleFontSize);
         emit articleFontSizeChanged(m_articleFontSize);
+    }
+}
+
+
+bool Configuration::notificationsEnabled() const { return m_notificationsEnabled; }
+
+void Configuration::setNotificationsEnabled(bool notificationsEnabled)
+{
+    if (m_notificationsEnabled != notificationsEnabled) {
+        m_notificationsEnabled = notificationsEnabled;
+        setValue(QStringLiteral(CONF_KEY_NOTIFICATIONS_ENABLED), m_notificationsEnabled);
+        qDebug("Changed notificationsEnabled to %s.", m_notificationsEnabled ? "true" : "false");
+        emit notificationsEnabledChanged(m_notificationsEnabled);
     }
 }
 

@@ -1031,5 +1031,38 @@
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message id="fuoten-settings-enable-notifications">
+        <source>Enable notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-settings-enable-notifications-desc">
+        <source>If enabled, Fuoten will show notifications when specific operations succeed or if errors occure. Most of this notifications will only be generated if the application is not the active one.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-fatal-error-failed-dbus-dir">
+        <source>Failed to create user D-BUS directory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-fatal-error-failed-dbus-file">
+        <source>Failed to open D-BUS service file for writing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-fatal-error-failed-dbus-connection">
+        <source>Failed to connect to D-Bus session bus.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-fatal-error-failed-dbus-reload-config">
+        <source>Failed to reload D-Bus session bus configuration.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-fatal-error-failed-dbus-service-register">
+        <source>Failed to register D-Bus service.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-fatal-error-failed-dbus-object-register">
+        <source>Failed to register D-Bus object “%1”.</source>
+        <extracomment>%1 will be replaced by the class name of the D-Bus adaptor</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
