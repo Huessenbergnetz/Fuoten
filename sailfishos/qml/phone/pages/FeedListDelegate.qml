@@ -70,20 +70,27 @@ ListItem {
                 }
             }
 
-            Label {
+            Item {
                 Layout.fillWidth: true
-                font.pixelSize: Theme.fontSizeMedium
-                text: Theme.highlightText(model.display ? model.display.title : "", feedListItem.searchString, Theme.highlightColor)
-                truncationMode: TruncationMode.Fade
-                color: feedListItem.highlighted ? (model.display.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (model.display.unreadCount ? Theme.primaryColor : Theme.secondaryColor)
-                textFormat: Text.StyledText
+                Layout.preferredHeight: feedTitleLabel.implicitHeight
+
+                Label {
+                    id: feedTitleLabel
+                    width: parent.width
+                    text: Theme.highlightText(model.display ? model.display.title : "", feedListItem.searchString, Theme.highlightColor)
+                    truncationMode: TruncationMode.Fade
+                    color: feedListItem.highlighted ? (model.display.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (model.display.unreadCount ? Theme.primaryColor : Theme.secondaryColor)
+                    textFormat: Text.StyledText
+                    maximumLineCount: 1
+                }
             }
 
-            Label {
+            Text {
                 text: model.display.unreadCount
                 color: model.display.unreadCount ? Theme.highlightColor : feedListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                 visible: model.display && !model.display.inOperation
                 font.pixelSize: Theme.fontSizeMedium
+                textFormat: Text.PlainText
             }
 
             BusyIndicator {

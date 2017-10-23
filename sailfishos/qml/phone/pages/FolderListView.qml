@@ -86,28 +86,38 @@ BaseListView {
             ColumnLayout {
                 spacing: Theme.paddingSmall/2
 
-                Label {
+                Item {
                     Layout.fillWidth: true
-                    font.pixelSize: Theme.fontSizeSmall
-                    text: Theme.highlightText(model.display ? model.display.name : "", folderListView.searchString, Theme.highlightColor)
-                    truncationMode: TruncationMode.Fade
-                    color: folderListItem.highlighted ? (model.display.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (model.display.unreadCount ? Theme.primaryColor : Theme.secondaryColor)
-                    textFormat: Text.StyledText
+                    Layout.preferredHeight: folderName.implicitHeight
+
+                    Label {
+                        id: folderName
+                        width: parent.width
+                        font.pixelSize: Theme.fontSizeSmall
+                        text: Theme.highlightText(model.display ? model.display.name : "", folderListView.searchString, Theme.highlightColor)
+                        truncationMode: TruncationMode.Fade
+                        color: folderListItem.highlighted ? (model.display.unreadCount ? Theme.highlightColor : Theme.secondaryHighlightColor) : (model.display.unreadCount ? Theme.primaryColor : Theme.secondaryColor)
+                        textFormat: Text.StyledText
+                        maximumLineCount: 1
+                    }
                 }
 
                 Text {
+                    Layout.fillWidth: true
                     font.pixelSize: Theme.fontSizeTiny
                     color: folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                     //% "%n feed(s)"
                     text: qsTrId("fuoten-feeds-count", model.display.feedCount)
+                    textFormat: Text.PlainText
                 }
             }
 
-            Label {
+            Text {
                 text: model.display.unreadCount
                 color: model.display.unreadCount ? Theme.highlightColor : folderListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
                 visible: !model.display.inOperation
                 font.pixelSize: Theme.fontSizeMedium
+                textFormat: Text.PlainText
             }
 
             BusyIndicator {
