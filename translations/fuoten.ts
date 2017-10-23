@@ -1040,11 +1040,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-dir">
-        <source>Failed to create user D-BUS directory.</source>
+        <source>Failed to create user D-Bus directory.</source>
+        <oldsource>Failed to create user D-BUS directory.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-file">
-        <source>Failed to open D-BUS service file for writing.</source>
+        <source>Failed to open D-Bus service file for writing.</source>
+        <oldsource>Failed to open D-BUS service file for writing.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-connection">

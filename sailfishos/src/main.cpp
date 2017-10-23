@@ -210,8 +210,6 @@ int main(int argc, char *argv[])
     });
 
     QNetworkDiskCache *qmlDiskCache = nullptr;
-//    QThread storageThread;
-//    QObject::connect(app.data(), &QCoreApplication::aboutToQuit, [&storageThread]() {storageThread.quit(); storageThread.wait();});
     Fuoten::SQLiteStorage *sqliteStorage = nullptr;
     {
         QDir dbusDir(QDir::homePath() + QStringLiteral("/.local/share/dbus-1/services"));
@@ -221,18 +219,18 @@ int main(int argc, char *argv[])
 
         if (Q_UNLIKELY(!dbusDir.exists())) {
             if (!dbusDir.mkpath(dbusDir.absolutePath())) {
-                //% "Failed to create user D-BUS directory."
+                //% "Failed to create user D-Bus directory."
                 notificator->notify(Fuoten::AbstractNotificator::StorageError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-dir"));
-                qFatal("Failed to create D-BUS direcotry.");
+                qFatal("Failed to create D-Bus direcotry.");
             }
         }
 
         QFile dbusFile(dbusDir.absoluteFilePath(QStringLiteral("org.harbour.fuoten.service")));
         if (Q_UNLIKELY(!dbusFile.exists())) {
             if (Q_UNLIKELY(!dbusFile.open(QIODevice::WriteOnly|QIODevice::Text))) {
-                //% "Failed to open D-BUS service file for writing."
+                //% "Failed to open D-Bus service file for writing."
                 notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-file"));
-                qFatal("Failed to open D-BUS service file for writing.");
+                qFatal("Failed to open D-Bus service file for writing.");
             }
             QTextStream dbusOut(&dbusFile);
             dbusOut << QStringLiteral("[D-BUS Service]\n");
@@ -292,8 +290,6 @@ int main(int argc, char *argv[])
 
         sqliteStorage = new Fuoten::SQLiteStorage(dataDir.absoluteFilePath(QStringLiteral("database.sqlite")), app.data());
         sqliteStorage->setConfiguration(config);
-//        sqliteStorage->moveToThread(&storageThread);
-//        storageThread.start();
         sqliteStorage->init();
     }
     QScopedPointer<NamFactory> namFactory(new NamFactory(qmlDiskCache));

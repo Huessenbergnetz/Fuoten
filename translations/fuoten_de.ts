@@ -969,12 +969,14 @@
         <translation>Falls aktiviert zeigt Fuoten bei bestimmten erfolgreichen Aktionen und bei auftretenden Fehlern eine Benachrichtigung an. Die meisten Benachrichtigungen werden nur dann erstellt, wenn die Anwendung nicht aktiv ist.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-dir">
-        <source>Failed to create user D-BUS directory.</source>
-        <translation>Konnte das D-BUS-Verzeichnis des Benutzers nicht erstellen.</translation>
+        <source>Failed to create user D-Bus directory.</source>
+        <oldsource>Failed to create user D-BUS directory.</oldsource>
+        <translation>Konnte das D-Bus-Verzeichnis des Benutzers nicht erstellen.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-file">
-        <source>Failed to open D-BUS service file for writing.</source>
-        <translation>Konnte die D-BUS-Service-Datei nicht zum Schreiben öffnen.</translation>
+        <source>Failed to open D-Bus service file for writing.</source>
+        <oldsource>Failed to open D-BUS service file for writing.</oldsource>
+        <translation>Konnte die D-Bus-Service-Datei nicht zum Schreiben öffnen.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-connection">
         <source>Failed to connect to D-Bus session bus.</source>
