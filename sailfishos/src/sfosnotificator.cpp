@@ -26,6 +26,7 @@
 #include <QLocale>
 #ifndef CLAZY
 #include <notification.h>
+#include <sailfishapp.h>
 #endif
 
 SfosNotificator::SfosNotificator(SfosConfig *config, QObject *parent) :
@@ -66,24 +67,24 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
         QString body;
 #ifndef CLAZY
         Notification::Urgency urgency = Notification::Low;
+        QString icon = SailfishApp::pathTo(QStringLiteral("images/icon-lock-fuoten-info.png")).toString(QUrl::RemoveScheme);
 #endif
         qint32 expireTimeout = -1;
         QString category;
         QString origin;
-        QString icon = QStringLiteral("icon-lock-information");
 
         switch(severity) {
         case QtCriticalMsg:
 #ifndef CLAZY
             urgency = Notification::Normal;
+            icon = SailfishApp::pathTo(QStringLiteral("images/icon-lock-fuoten-error.png")).toString(QUrl::RemoveScheme);
 #endif
-            icon = QStringLiteral("icon-lock-warning");
             break;
         case QtFatalMsg:
 #ifndef CLAZY
             urgency = Notification::Critical;
+            icon = SailfishApp::pathTo(QStringLiteral("images/icon-lock-fuoten-error.png")).toString();
 #endif
-            icon = QStringLiteral("icon-lock-warning");
             break;
         default:
             break;
@@ -535,3 +536,5 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
 #endif
     }
 }
+
+#include "moc_sfosnotificator.cpp"
