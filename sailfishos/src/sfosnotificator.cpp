@@ -83,7 +83,7 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
         case QtFatalMsg:
 #ifndef CLAZY
             urgency = Notification::Critical;
-            icon = SailfishApp::pathTo(QStringLiteral("images/icon-lock-fuoten-error.png")).toString();
+            icon = SailfishApp::pathTo(QStringLiteral("images/icon-lock-fuoten-error.png")).toString(QUrl::RemoveScheme);
 #endif
             break;
         default:
@@ -514,6 +514,12 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
 
         QVariantList actions;
         actions.push_back(Notification::remoteAction(QStringLiteral("default"),
+                                                     QStringLiteral(""),
+                                                     QStringLiteral("org.harbour.fuoten"),
+                                                     QStringLiteral("/"),
+                                                     QStringLiteral("org.harbour.fuoten"),
+                                                     QStringLiteral("activate")));
+        actions.push_back(Notification::remoteAction(QStringLiteral("app"),
                                                      QStringLiteral(""),
                                                      QStringLiteral("org.harbour.fuoten"),
                                                      QStringLiteral("/"),
