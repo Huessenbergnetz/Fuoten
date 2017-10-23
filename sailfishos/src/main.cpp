@@ -125,10 +125,10 @@ void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, con
                                                         msg);
 
     } else {
-        txt = QStringLiteral("[%1] %2: %3").arg(t, QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz")), msg);
+        txt = QStringLiteral("[%1] %2: %3").arg(QString(t), QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz")), msg);
     }
 
-    fprintf(stderr, "%s\n", txt.toLocal8Bit().constData());
+    fprintf(stderr, "%s\n", qUtf8Printable(txt));
 
     QFile logFile(QDir::homePath().append(QStringLiteral("/fuoten.log")));
     logFile.open(QIODevice::WriteOnly | QIODevice::Append);
@@ -136,7 +136,7 @@ void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, con
     ts << txt << endl;
 #else
     Q_UNUSED(context)
-    fprintf(stderr, "[%c] %s: %s\n", t.toLatin1(), QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz")).toLocal8Bit().constData(), msg.toLocal8Bit().constData());
+    fprintf(stderr, "[%c] %s: %s\n", t.toLatin1(), qUtf8Printable(QDateTime::currentDateTime().toString(QStringLiteral("HH:mm:ss:zzz"))), qUtf8Printable(msg));
 #endif
 
     if (type == QtFatalMsg) {
