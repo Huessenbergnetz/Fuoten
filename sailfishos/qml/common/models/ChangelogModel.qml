@@ -31,6 +31,24 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.6.0"
+        date: 1509057223000
+        entries: [
+            ListElement { type: 3; issue: ""; description: "sixth preview release" },
+            ListElement { type: 0; issue: "36"; description: "use notifications to notify about succeeded tasks and occuring errors" },
+            ListElement { type: 0; issue: "25"; description: "pseudo background updates that synchronize with the server activated by user interaction" },
+            ListElement { type: 0; issue: ""; description: "share links with the SailfishOS sharing mechanism" },
+            ListElement { type: 0; issue: ""; description: "settings for font sizes in internal view and internal web view" },
+            ListElement { type: 1; issue: ""; description: "store the ownCloud/Nextcloud password AES256 encrypted" },
+            ListElement { type: 1; issue: "21"; description: "navigation buttons for the internal web view" },
+            ListElement { type: 1; issue: "31"; description: "show information about current article on the cover" },
+            ListElement { type: 1; issue: ""; description: "user agent for the web view is now selectable of a per feed setting" },
+            ListElement { type: 2; issue: "30"; description: "remorse item on feed entry in folder view destroys the layout" },
+            ListElement { type: 2; issue: "37"; description: "long feed and folder names crash the application" }
+        ]
+    }
+
+    ListElement {
         version: "0.5.2"
         date: 1489940080000
         entries: [

@@ -8,6 +8,19 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Fir Oct 27 2017 Matthias Fehring <kontakt@buschmann23.de> 0.6.0-1
+- info: sixth preview release
+- new: use notifications to notify about succeeded tasks and occuring errors
+- new: pseudo background updates that synchronize with the server activated by user interaction
+- new: share links with the SailfishOS sharing mechanism
+- new: settings for font sizes in internal view and internal web view
+- improved: store the ownCloud/Nextcloud password AES256 encrypted
+- improved: navigation buttons for the internal web view
+- improved: show information about current article on the cover
+- improved: user agent for the web view is now selectable of a per feed setting
+- fixed: remorse item on feed entry in folder view destroys the layout
+- fixed: long feed and folder names crash the application
+
 * Sun Mar 19 2017 Matthias Fehring <kontakt@buschmann23.de> 0.5.2-1
 - info: maintenance for fifth preview release
 - new: Dutch translation by Nathan Follens
