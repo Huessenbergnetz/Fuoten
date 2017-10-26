@@ -54,6 +54,7 @@ AboutPage {
     contactCountry: qsTrId("id-germany")
     contactEmail: cccmmm
     contactWebsite: "www.huessenbergnetz.de"
+    contactWebsiteLink: "https://www.huessenbergnetz.de/?pk_campaign=Sailfish-App-Fuoten&pk_kwd=AboutPage"
 
     bugUrl: "https://github.com/Huessenbergnetz/Fuoten/issues"
     translateUrl: "https://www.transifex.com/buschtrommel/fuoten"
