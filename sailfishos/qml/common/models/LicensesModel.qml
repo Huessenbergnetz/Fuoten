@@ -27,7 +27,7 @@ ListModel {
     ListElement {
         name: "libfuoten"
         author: "Matthias Fehring"
-        version: "0.5.2"
+        version: "0.6.0"
         license: "GNU Lesser General Public License, Version 3"
         licenseFile: "LGPLv3.qml"
         website: "https://github.com/Buschtrommel/libfuoten"
