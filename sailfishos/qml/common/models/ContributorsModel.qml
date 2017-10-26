@@ -28,7 +28,7 @@ ListModel {
         role: ""
         section: ""
         image: "buschmann.png"
-        website: "http://www.buschmann23.de"
+        website: "https://www.buschmann23.de/?pk_campaign=Sailfish-App-Fuoten&pk_kwd=ContributorsList"
         twitter: "buschmann23"
         github: "buschmann23"
     }
@@ -71,7 +71,7 @@ ListModel {
         //% "Dutch translation"
         contModel.get(2).role = qsTrId("fuoten-nathanfollens-role")
         //% "Thanks to"
-        contModel.get(2).section = qsTrId("fuoten-nathanfollens-section")
+        contModel.get(2).section = qsTrId("fuotn-thanks-to-section")
 
         //% "Danish translation"
         contModel.get(3).role = qsTrId("fuoten-flywheeldk-role")
