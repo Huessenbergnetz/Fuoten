@@ -6,8 +6,8 @@ CONFIG += c++11
 QT += sql network dbus
 
 VER_MAJ = 0
-VER_MIN = 5
-VER_PAT = 2
+VER_MIN = 6
+VER_PAT = 0
 
 VERSION = $${VER_MAJ}.$${VER_MIN}.$${VER_PAT}
 
