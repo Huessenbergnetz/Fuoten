@@ -971,12 +971,12 @@
     <message id="fuoten-fatal-error-failed-dbus-dir">
         <source>Failed to create user D-Bus directory.</source>
         <oldsource>Failed to create user D-BUS directory.</oldsource>
-        <translation type="unfinished"/>
+        <translation>Aanmaken van gebruikers-D-Bus-map mislukt.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-file">
         <source>Failed to open D-Bus service file for writing.</source>
         <oldsource>Failed to open D-BUS service file for writing.</oldsource>
-        <translation type="unfinished"/>
+        <translation>Openen van D-Bus-dienstbestand voor schrijven mislukt.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-connection">
         <source>Failed to connect to D-Bus session bus.</source>
