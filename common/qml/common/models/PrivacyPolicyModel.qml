@@ -76,7 +76,7 @@ ListModel {
 
     ListElement {
         format: Text.StyledText
-        text: "<a href='https://www.buschmann23.de'>https://www.buschmann23.de</a>"
+        text: "<a href='https://www.buschmann23.de/?pk_campaign=Sailfish-App-Fuoten&pk_kwd=PrivacyPolicy'>https://www.buschmann23.de</a>"
     }
 
     Component.onCompleted: {
