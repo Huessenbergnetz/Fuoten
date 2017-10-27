@@ -95,7 +95,11 @@ Page {
                 onClicked: articleFlick.scrollToTop()
             }
             MenuItem {
-                //% "Open in browser"
+                text: qsTrId("fuoten-share")
+                enabled: article
+                onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": article.url.toString(), "shareTitle": article.title })
+            }
+            MenuItem {
                 text: qsTrId("fuoten-open-in-browser")
                 onClicked: Qt.openUrlExternally(article.url)
                 enabled: article
