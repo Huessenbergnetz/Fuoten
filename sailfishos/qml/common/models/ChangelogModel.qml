@@ -31,6 +31,15 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.6.1"
+        date: 1509098965000
+        entries: [
+            ListElement { type: 3; issue: ""; description: "maintenance update for sixth preview release" },
+            ListElement { type: 2; issue: "38"; description: "initial synchronization fails" }
+        ]
+    }
+
+    ListElement {
         version: "0.6.0"
         date: 1509057223000
         entries: [

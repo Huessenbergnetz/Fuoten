@@ -8,7 +8,11 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
-* Fir Oct 27 2017 Matthias Fehring <kontakt@buschmann23.de> 0.6.0-1
+* Fri Oct 27 2017 Matthias Fehring <kontakt@buschmann23.de> 0.6.1-1
+- info: maintenance for sixth preview release
+- fixed: initial synchronization fails (#38)
+
+* Fri Oct 27 2017 Matthias Fehring <kontakt@buschmann23.de> 0.6.0-1
 - info: sixth preview release
 - new: use notifications to notify about succeeded tasks and occuring errors
 - new: pseudo background updates that synchronize with the server activated by user interaction
