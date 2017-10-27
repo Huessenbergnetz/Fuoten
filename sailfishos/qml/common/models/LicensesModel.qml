@@ -93,6 +93,14 @@ ListModel {
         description: ""
     }
 
+    ListElement {
+        name: "nemonotifications"
+        author: "Jolla Ltd."
+        license: "Modified BSD License"
+        licenseFile: "BSD-3.qml"
+        website: "https://sailfishos.org/develop/docs/nemo-qml-plugin-notifications/notification.html/"
+    }
+
     Component.onCompleted: {
         //% "Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API."
         licensesModel.get(0).description = qsTrId("fuoten-libfuoten-desc")
