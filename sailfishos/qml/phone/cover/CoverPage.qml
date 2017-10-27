@@ -146,11 +146,20 @@ CoverBackground {
     }
 
     CoverActionList {
-        enabled: !synchronizer.inOperation
+        enabled: !synchronizer.inOperation && !covercon.article
 
         CoverAction {
             iconSource: "image://theme/icon-cover-sync"
             onTriggered: synchronizer.sync()
+        }
+    }
+
+    CoverActionList {
+        enabled: !synchronizer.inOperation && covercon.article
+
+        CoverAction {
+            iconSource: "image://theme/icon-s-clipboard"
+            onTriggered: Clipboard.text = covercon.article.url.toString()
         }
     }
 }
