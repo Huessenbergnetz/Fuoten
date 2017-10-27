@@ -35,7 +35,9 @@ ListModel {
         date: 1509098965000
         entries: [
             ListElement { type: 3; issue: ""; description: "maintenance update for sixth preview release" },
-            ListElement { type: 2; issue: "38"; description: "initial synchronization fails" }
+            ListElement { type: 2; issue: "38"; description: "initial synchronization fails" },
+            ListElement { type: 1; issue: ""; description: "add cover action to copy article link to clipboard" },
+            ListElement { type: 1; issue: ""; description: "add share entry to article page push up menu" }
         ]
     }
 

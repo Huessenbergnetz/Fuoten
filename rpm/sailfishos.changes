@@ -8,11 +8,13 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
-* Fri Oct 27 2017 Matthias Fehring <kontakt@buschmann23.de> 0.6.1-1
+* Fri Oct 27 2017 Matthias Fehring <> 0.6.1-1
 - info: maintenance for sixth preview release
 - fixed: initial synchronization fails (#38)
+- improved: add cover action to copy article link to clipboard
+- improved: add share entry to article page push up menu
 
-* Fri Oct 27 2017 Matthias Fehring <kontakt@buschmann23.de> 0.6.0-1
+* Fri Oct 27 2017 Matthias Fehring <> 0.6.0-1
 - info: sixth preview release
 - new: use notifications to notify about succeeded tasks and occuring errors
 - new: pseudo background updates that synchronize with the server activated by user interaction
@@ -25,17 +27,17 @@
 - fixed: remorse item on feed entry in folder view destroys the layout
 - fixed: long feed and folder names crash the application
 
-* Sun Mar 19 2017 Matthias Fehring <kontakt@buschmann23.de> 0.5.2-1
+* Sun Mar 19 2017 Matthias Fehring <> 0.5.2-1
 - info: maintenance for fifth preview release
 - new: Dutch translation by Nathan Follens
 - fixed: scroll to top does not work on article view (#35)
 
-* Sun Jan 29 2017 Matthias Fehring <kontakt@buschmann23.de> 0.5.1-1
+* Sun Jan 29 2017 Matthias Fehring <> 0.5.1-1
 - info: maintenance for fifth preview release
 - fixed: links not working on article page (#34)
 - improved: translation updates
 
-* Tue Nov 22 2016 Matthias Fehring <kontakt@buschmann23.de> 0.5.0-1
+* Tue Nov 22 2016 Matthias Fehring <> 0.5.0-1
 - info: fifth preview release
 - new: cover information and cover action (#22)
 - new: per feed storage cleanup (#26)
@@ -44,7 +46,7 @@
 - improved: request items after adding feed (#29)
 - improved: translation updates
 
-* Thu Nov 10 2016 Matthias Fehring <kontakt@buschmann23.de> 0.4.0-1
+* Thu Nov 10 2016 Matthias Fehring <> 0.4.0-1
 - info: fourth preview release
 - new: show last sync time in pull down menu (#24)
 - new: copy article url to clipboard menu entry (#23)
@@ -54,14 +56,14 @@
 - new: optional article excerpt in article list (#20)
 - new: Swedish translation by Åke Engelbrektson
 
-* Mon Nov  7 2016 Matthias Fehring <kontakt@buschmann23.de> 0.3.0-1
+* Mon Nov  7 2016 Matthias Fehring <> 0.3.0-1
 - info: third preview release
 - new: article list view
 - new: mark articles as read/unread
 - new: star/unstar articles
 - new: partly Danish translation by Peter Jespersen
 
-* Wed Nov  2 2016 Matthias Fehring <kontakt@buschmann23.de> 0.2.0-1
+* Wed Nov  2 2016 Matthias Fehring <> 0.2.0-1
 - info: second preview release
 - new: Feed object (#24)
 - new: abstract feed model (#12)
@@ -74,7 +76,7 @@
 - new: delete feed (#17)
 - new: rename feed (#19)
 
-* Fri Oct 28 2016 Matthias Fehring <kontakt@buschmann23.de> 0.1.0-1
+* Fri Oct 28 2016 Matthias Fehring <> 0.1.0-1
 - info: first preview release
 - new: folder list view
 - new: folder list sorting
