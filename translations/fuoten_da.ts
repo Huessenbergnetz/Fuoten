@@ -322,7 +322,7 @@
     </message>
     <message id="fuoten-mark-item-as-unread">
         <source>Mark as unread</source>
-        <translation>Markér som ulæste</translation>
+        <translation>Markér som ulæst</translation>
     </message>
     <message id="fuoten-share">
         <source>Share</source>
@@ -568,7 +568,7 @@
     </message>
     <message id="fuoten-articles-cleanup-time">
         <source>By time</source>
-        <translation>Eftet tid</translation>
+        <translation>Efter tid</translation>
     </message>
     <message id="fuoten-articles-cleanup-count">
         <source>By count</source>
