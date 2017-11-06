@@ -31,6 +31,15 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.6.2"
+        date: 1509958611000
+        entries: [
+            ListElement { type: 3; issue: ""; description: "maintenance update for sixth preview release" },
+            ListElement { type: 2; issue: "39"; description: "wrong association to startup wizard account page scroll decorator flickable property" }
+        ]
+    }
+
+    ListElement {
         version: "0.6.1"
         date: 1509098965000
         entries: [

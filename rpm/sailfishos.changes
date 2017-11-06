@@ -8,6 +8,10 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Mon Nov  6 2017 Matthias Fehring <> 0.6.2-1
+* info: maintenance for sixth preview release
+* fixed: wrong association to startup wizard account page scroll decorator flickable property
+
 * Fri Oct 27 2017 Matthias Fehring <> 0.6.1-1
 - info: maintenance for sixth preview release
 - fixed: initial synchronization fails (#38)
