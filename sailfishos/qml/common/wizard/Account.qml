@@ -46,7 +46,7 @@ Dialog {
         anchors.fill: parent
         contentHeight: (accountGrid.visible ? accountGrid.height : 0) + account.height + dHeader.height
 
-        VerticalScrollDecorator { flickable: welcomeAccountDialog; page: welcomeAccountDialog }
+        VerticalScrollDecorator { flickable: welcomeAccountFlick; page: welcomeAccountDialog }
 
         PullDownMenu {
             visible: !config.isAccountValid
