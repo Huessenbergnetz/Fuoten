@@ -7,7 +7,7 @@ class FuotenAppEnums {
     Q_GADGET
 public:
 
-    enum Context {
+    enum Context : quint8 {
         StartPage       = 0,
         Folders         = 1,
         Feeds           = 2,
@@ -19,7 +19,7 @@ public:
     };
     Q_ENUM(Context)
 
-    enum OpenIn {
+    enum OpenIn : quint8 {
         OpenInternal    = 0,
         OpenWebView     = 1,
         OpenExternal    = 2
