@@ -425,26 +425,26 @@ private:
     Q_DISABLE_COPY(Configuration)
     QString m_username;
     QString m_password;
-    bool m_useSSL;
     QString m_host;
     QString m_installPath;
     QString m_displayName;
-    bool m_improperlyConfiguredCron;
+    QString m_language;
+    QString m_humanLastSync;
+    QUrl m_avatar;
+    QDateTime m_lastSync;
+    QTimer *m_checkUpdateTimer = nullptr;
     QVersionNumber m_serverVersion;
     QVersionNumber m_savedAppVersion;
-    bool m_isAccountValid;
-    int m_serverPort;
-    bool m_ignoreSSLErrors;
-    QUrl m_avatar;
-    QString m_language;
-    Fuoten::FuotenEnums::Type m_mainViewType;
-    QDateTime m_lastSync;
     quint32 m_updateInterval = 0;
-    QString m_humanLastSync;
-    bool m_wlanOnlyUpdate = true;
-    QTimer *m_checkUpdateTimer = nullptr;
+    int m_serverPort;
     int m_articleFontSize = 0;
+    Fuoten::FuotenEnums::Type m_mainViewType;
     bool m_notificationsEnabled = true;
+    bool m_useSSL;
+    bool m_improperlyConfiguredCron;
+    bool m_isAccountValid;
+    bool m_ignoreSSLErrors;
+    bool m_wlanOnlyUpdate = true;
 
     /*!
      * \brief Setter function for the \link Configuration::humanLastSync humanLastSync \endlink property.

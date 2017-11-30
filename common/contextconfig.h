@@ -299,21 +299,21 @@ signals:
 
 private:
     Q_DISABLE_COPY(ContextConfig)
-    FuotenAppEnums::Context m_contextType;
     qint64 m_contextId;
-    Fuoten::FuotenEnums::SortingRole m_sorting;
-    bool m_hideRead;
-    Qt::SortOrder m_sortOrder;
-    bool m_showFolderSections;
-    bool m_respectPinned;
-    bool m_showExcerpt;
-    FuotenAppEnums::OpenIn m_openArticles;
-    Fuoten::FuotenEnums::ItemDeletionStrategy m_deletionStrategy;
-    quint16 m_deletionValue;
-    quint8 m_userAgentIdx = 0;
     QString m_userAgent = QStringLiteral("Mozilla/5.0 (Maemo; Linux; U; Jolla; Sailfish; like Android) AppleWebKit/538.1 (KHTML, like Gecko) Version/5.1 Chrome/30.0.0.0 Mobile Safari/538.1 (compatible)");
     int m_minimumFontSize = 0;
     int m_defaultFontSize = 0;
+    Qt::SortOrder m_sortOrder;
+    quint16 m_deletionValue;
+    quint8 m_userAgentIdx = 0;
+    Fuoten::FuotenEnums::ItemDeletionStrategy m_deletionStrategy;
+    Fuoten::FuotenEnums::SortingRole m_sorting;
+    FuotenAppEnums::OpenIn m_openArticles;
+    FuotenAppEnums::Context m_contextType;
+    bool m_hideRead;
+    bool m_showFolderSections;
+    bool m_respectPinned;
+    bool m_showExcerpt;
 
     QString path(const QString &key) const;
 
