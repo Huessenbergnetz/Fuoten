@@ -205,7 +205,7 @@ int main(int argc, char *argv[])
 
     auto notificator = new SfosNotificator(config, app.data());
 
-    QObject::connect(app.data(), &QGuiApplication::applicationStateChanged, [notificator](Qt::ApplicationState state) {
+    QObject::connect(app.data(), &QGuiApplication::applicationStateChanged, notificator, [notificator](Qt::ApplicationState state) {
         notificator->setEnabled(state != Qt::ApplicationActive);
     });
 
@@ -249,7 +249,7 @@ int main(int argc, char *argv[])
             m.setAutoStartService(false);
             QDBusPendingCall pc = dc.asyncCall(m, 3000);
             auto pcw = new QDBusPendingCallWatcher(pc, app.data());
-            QObject::connect(pcw, &QDBusPendingCallWatcher::finished, [notificator](QDBusPendingCallWatcher *call){
+            QObject::connect(pcw, &QDBusPendingCallWatcher::finished, notificator, [notificator](QDBusPendingCallWatcher *call){
                 QDBusPendingReply<void> reply = *call;
                 if (reply.isError()) {
                     //% "Failed to reload D-Bus session bus configuration."

@@ -559,7 +559,7 @@ void Configuration::checkUpdate()
         m_checkUpdateTimer = new QTimer(this);
         m_checkUpdateTimer->setTimerType(Qt::VeryCoarseTimer);
         m_checkUpdateTimer->setSingleShot(true);
-        connect(m_checkUpdateTimer, &QTimer::timeout, [this] () {
+        connect(m_checkUpdateTimer, &QTimer::timeout, this, [this] () {
             if (isUpdatePossible()) {
                 emit updatePossible();
             }
