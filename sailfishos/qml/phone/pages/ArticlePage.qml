@@ -87,25 +87,6 @@ Page {
             }
         }
 
-        PushUpMenu {
-            MenuItem {
-                //% "Scroll to top"
-                text: qsTrId("fuoten-scroll-to-top")
-                visible: articleFlick.contentHeight > articleFlick.height
-                onClicked: articleFlick.scrollToTop()
-            }
-            MenuItem {
-                text: qsTrId("fuoten-share")
-                enabled: article
-                onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": article.url.toString(), "shareTitle": article.title })
-            }
-            MenuItem {
-                text: qsTrId("fuoten-open-in-browser")
-                onClicked: Qt.openUrlExternally(article.url)
-                enabled: article
-            }
-        }
-
         ColumnLayout {
             id: headerCol
             spacing: Theme.paddingSmall
