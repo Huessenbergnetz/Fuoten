@@ -34,7 +34,7 @@ do
         inkscape -z -e $FNAME -w $SIZE  -h $SIZE $SVGFILE &> /dev/null
         if [ -x /usr/bin/zopflipng ]
         then
-            zopflipng -y --iterations=500 --filters=01234mepb --lossy_transparent $FNAME $FULLPATH
+            zopflipng -y --always_zopflify: --iterations=500 --filters=01234mepb --lossy_transparent $FNAME $FULLPATH
             rm $FNAME
         else
             mv $FNAME $FULLPATH
