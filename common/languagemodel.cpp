@@ -123,7 +123,7 @@ void LanguageModel::init()
     std::sort(m_langs.begin(), m_langs.end(), langLessThan);
 
     Language *defLang = new Language;
-    defLang->code = QStringLiteral("");
+    defLang->code = QString("");
     //% "Default"
     defLang->name = qtTrId("id-default-lang");
     m_langs.prepend(defLang);

@@ -82,9 +82,7 @@
 #include "../../common/contextconfig.h"
 #include "../../common/updateintervalmodel.h"
 
-#ifndef CLAZY
 #include "fuoteniconprovider.h"
-#endif
 #include "sharing/sharingmethodsmodel.h"
 #include "dbus/fuotendbusadaptor.h"
 #include "dbus/fuotendbusproxy.h"
@@ -367,7 +365,11 @@ int main(int argc, char *argv[])
     qmlRegisterType<SharingMethodsModel>("harbour.fuoten", 1, 0, "SharingMethodsModel");
     qmlRegisterType<UserAgentModel>("harbour.fuoten", 1, 0, "UserAgentModel");
 
-    auto view = SailfishApp::createView();
+#ifndef CLAZY
+    QScopedPointer<QQuickView> view(SailfishApp::createView());
+#else
+    QScopedPointer<QQuickView> view(new QQuickView);
+#endif
     view->engine()->addImageProvider(QStringLiteral("fuoten"), new FuotenIconProvider(iconsDir));
     view->engine()->setNetworkAccessManagerFactory(namFactory.data());
 

@@ -31,7 +31,7 @@ class SfosNotificator : public Fuoten::AbstractNotificator
     Q_OBJECT
     Q_DISABLE_COPY(SfosNotificator)
 public:
-    explicit SfosNotificator(SfosConfig *config, const QString iconsDir, QObject *parent = nullptr);
+    explicit SfosNotificator(SfosConfig *config, const QString &iconsDir, QObject *parent = nullptr);
 
     ~SfosNotificator();
 

@@ -28,7 +28,7 @@
 #include <notification.h>
 #endif
 
-SfosNotificator::SfosNotificator(SfosConfig *config, const QString iconsDir, QObject *parent) :
+SfosNotificator::SfosNotificator(SfosConfig *config, const QString &iconsDir, QObject *parent) :
     Fuoten::AbstractNotificator(parent), m_config(config)
 {
     setAppName(QStringLiteral("Fuoten"));
@@ -79,11 +79,15 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
 
             switch(severity) {
             case QtCriticalMsg:
+#ifndef CLAZY
                 urgency = Notification::Normal;
+#endif
                 icon = m_errorIcon;
                 break;
             case QtFatalMsg:
+#ifndef CLAZY
                 urgency = Notification::Critical;
+#endif
                 icon = m_errorIcon;
                 break;
             default:

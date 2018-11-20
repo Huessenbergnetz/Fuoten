@@ -40,7 +40,7 @@ public:
 
     }
 
-    QPixmap requestPixmap(const QString &id, QSize *size, const QSize &requestedSize)
+    QPixmap requestPixmap(const QString &id, QSize *size, const QSize &requestedSize) override
     {
         const QStringList parts = id.split('?', QString::SkipEmptyParts);
         const QString filePath = m_iconsDir % parts.at(0) % QStringLiteral(".png");
@@ -72,6 +72,7 @@ public:
 
 private:
     QString m_iconsDir;
+    Q_DISABLE_COPY(FuotenIconProvider)
 };
 
 #endif // FUOTENICONPROVIDER_H
