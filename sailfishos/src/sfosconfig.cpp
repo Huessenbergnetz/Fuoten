@@ -124,7 +124,9 @@ QString SfosConfig::encPw(const QString &pw) const
         }
 
         byte key[KEY_SIZE];
+
         const QByteArray keyBa(OBFUSCATED(AES256_KEY));
+        Q_ASSERT_X(keyBa.size() == KEY_SIZE, "encrypting password", "key size mismatch");
         for (unsigned int i = 0; i < KEY_SIZE; ++i) {
             key[i] = keyBa.at(i);
         }
@@ -187,6 +189,7 @@ QString SfosConfig::decPw(const QString &pw) const
 
                 byte key[KEY_SIZE];
                 const QByteArray keyBa(OBFUSCATED(AES256_KEY));
+                Q_ASSERT_X(keyBa.size() == KEY_SIZE, "decrypting password", "key size mismatch");
                 for (unsigned int i = 0; i < KEY_SIZE; ++i) {
                     key[i] = keyBa.at(i);
                 }
