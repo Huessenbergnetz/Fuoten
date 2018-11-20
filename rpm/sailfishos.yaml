@@ -30,6 +30,7 @@ PkgConfigBR:
   - Qt5DBus
   - openssl
   - nemonotifications-qt5
+  - sailfishsilica
 
 # Build dependencies without a pkgconfig setup can be listed here
 # PkgBR:

@@ -26,13 +26,14 @@
 #include <QLocale>
 #ifndef CLAZY
 #include <notification.h>
-#include <sailfishapp.h>
 #endif
 
-SfosNotificator::SfosNotificator(SfosConfig *config, QObject *parent) :
+SfosNotificator::SfosNotificator(SfosConfig *config, const QString iconsDir, QObject *parent) :
     Fuoten::AbstractNotificator(parent), m_config(config)
 {
     setAppName(QStringLiteral("Fuoten"));
+    m_infoIcon = iconsDir % QStringLiteral("icon-lock-fuoten-info.png");
+    m_errorIcon = iconsDir % QStringLiteral("icon-lock-fuoten-error.png");
     Q_ASSERT(m_config);
 }
 
@@ -70,24 +71,20 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
             QString body;
 #ifndef CLAZY
             Notification::Urgency urgency = Notification::Low;
-            QString icon = SailfishApp::pathTo(QStringLiteral("images/icon-lock-fuoten-info.png")).toString(QUrl::RemoveScheme);
 #endif
+            QString icon = m_infoIcon;
             qint32 expireTimeout = -1;
             QString category;
             QString origin;
 
             switch(severity) {
             case QtCriticalMsg:
-#ifndef CLAZY
                 urgency = Notification::Normal;
-                icon = SailfishApp::pathTo(QStringLiteral("images/icon-lock-fuoten-error.png")).toString(QUrl::RemoveScheme);
-#endif
+                icon = m_errorIcon;
                 break;
             case QtFatalMsg:
-#ifndef CLAZY
                 urgency = Notification::Critical;
-                icon = SailfishApp::pathTo(QStringLiteral("images/icon-lock-fuoten-error.png")).toString(QUrl::RemoveScheme);
-#endif
+                icon = m_errorIcon;
                 break;
             default:
                 break;

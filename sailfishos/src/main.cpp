@@ -29,6 +29,8 @@
 #include <QTextStream>
 #endif
 
+#include <cmath>
+
 #include <QtQml>
 #include <QGuiApplication>
 #include <QQuickView>
@@ -39,6 +41,7 @@
 #include <QNetworkDiskCache>
 #include <QFile>
 #include <QTextStream>
+#include <QStringBuilder>
 
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -49,6 +52,8 @@
 
 #ifndef CLAZY
 #include <sailfishapp.h>
+#include <silicatheme.h>
+#include <silicascreen.h>
 #endif
 
 #include <Fuoten/Error>
@@ -175,7 +180,7 @@ int main(int argc, char *argv[])
 
     {
 #ifndef CLAZY
-        const QString l10nDir = SailfishApp::pathTo(QStringLiteral("l10n")).toString(QUrl::RemoveScheme);
+        const QString l10nDir = SailfishApp::pathTo(QStringLiteral("translations")).toString(QUrl::RemoveScheme);
 #else
         const QString l10nDir;
 #endif
@@ -203,7 +208,36 @@ int main(int argc, char *argv[])
         }
     }
 
-    auto notificator = new SfosNotificator(config, app.data());
+    QString iconsDir;
+    {
+#ifndef CLAZY
+        const qreal pixelRatio = Silica::Theme::instance()->pixelRatio();
+//        const bool largeScreen = Silica::Screen::instance()->sizeCategory() >= Silica::Screen::Large;
+        const bool largeScreen = false;
+#else
+        const qreal pixelRatio = 1.0;
+        const bool largeScreen = false;
+#endif
+
+        qreal nearestScale = 1.0;
+        qreal lastDiff = 999.0;
+        for (const qreal currentScale : {1.0, 1.25, 1.5, 1.75, 2.0}) {
+            const qreal diff = std::abs(currentScale - pixelRatio);
+            if (diff < lastDiff) {
+                nearestScale = currentScale;
+                lastDiff = diff;
+            }
+            if (lastDiff == 0.0) {
+                break;
+            }
+        }
+#ifndef CLAZY
+        iconsDir = SailfishApp::pathTo(QStringLiteral("icons/z")).toString(QUrl::RemoveScheme|QUrl::StripTrailingSlash) % QString::number(nearestScale) % (largeScreen ? QStringLiteral("-large") : QStringLiteral("/"));
+#endif
+    }
+    qDebug("Loading icons from %s", qUtf8Printable(iconsDir));
+
+    auto notificator = new SfosNotificator(config, iconsDir, app.data());
 
     QObject::connect(app.data(), &QGuiApplication::applicationStateChanged, notificator, [notificator](Qt::ApplicationState state) {
         notificator->setEnabled(state != Qt::ApplicationActive);
@@ -333,13 +367,9 @@ int main(int argc, char *argv[])
     qmlRegisterType<SharingMethodsModel>("harbour.fuoten", 1, 0, "SharingMethodsModel");
     qmlRegisterType<UserAgentModel>("harbour.fuoten", 1, 0, "UserAgentModel");
 
-#ifndef CLAZY
     auto view = SailfishApp::createView();
-    view->engine()->addImageProvider(QStringLiteral("fuoten"), new FuotenIconProvider);
+    view->engine()->addImageProvider(QStringLiteral("fuoten"), new FuotenIconProvider(iconsDir));
     view->engine()->setNetworkAccessManagerFactory(namFactory.data());
-#else
-    QScopedPointer<QQuickView> view(new QQuickView);
-#endif
 
     auto dbusproxy = new FuotenDbusProxy(app.data());
     new FuotenDbusAdaptor(dbusproxy);

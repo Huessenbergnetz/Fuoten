@@ -22,44 +22,56 @@
 #ifndef FUOTENICONPROVIDER_H
 #define FUOTENICONPROVIDER_H
 
-#include <sailfishapp.h>
 #include <QQuickImageProvider>
 #include <QPainter>
 #include <QColor>
+#include <QStringBuilder>
 
 class FuotenIconProvider : public QQuickImageProvider
 {
 public:
-    FuotenIconProvider() : QQuickImageProvider(QQuickImageProvider::Pixmap)
+    FuotenIconProvider(const QString &iconsDir) : QQuickImageProvider(QQuickImageProvider::Pixmap)
     {
+        m_iconsDir = iconsDir;
+    }
+
+    ~FuotenIconProvider() override
+    {
+
     }
 
     QPixmap requestPixmap(const QString &id, QSize *size, const QSize &requestedSize)
     {
-        QStringList parts = id.split('?');
+        const QStringList parts = id.split('?', QString::SkipEmptyParts);
+        const QString filePath = m_iconsDir % parts.at(0) % QStringLiteral(".png");
 
-        QPixmap sourcePixmap(SailfishApp::pathTo("images/" + parts.at(0) + ".png").toString(QUrl::RemoveScheme));
+        qDebug("Loading image from %s", qUtf8Printable(filePath));
 
-        if (size) {
-            *size  = sourcePixmap.size();
-        }
+        QPixmap sourcePixmap(filePath, "png");
 
-        if (parts.length() > 1) {
-            if (QColor::isValidColor(parts.at(1)))
-            {
+        if (!sourcePixmap.isNull()) {
+
+            if (size) {
+                *size  = sourcePixmap.size();
+            }
+
+            if (parts.length() > 1 && QColor::isValidColor(parts.at(1))) {
                 QPainter painter(&sourcePixmap);
                 painter.setCompositionMode(QPainter::CompositionMode_SourceIn);
                 painter.fillRect(sourcePixmap.rect(), parts.at(1));
                 painter.end();
             }
+
+            if (!requestedSize.isEmpty()) {
+                return sourcePixmap.scaled(requestedSize);
+            }
         }
 
-        if (requestedSize.width() > 0 && requestedSize.height() > 0) {
-            return sourcePixmap.scaled(requestedSize.width(), requestedSize.height(), Qt::IgnoreAspectRatio);
-        } else {
-            return sourcePixmap;
-        }
+        return sourcePixmap;
     }
+
+private:
+    QString m_iconsDir;
 };
 
 #endif // FUOTENICONPROVIDER_H
