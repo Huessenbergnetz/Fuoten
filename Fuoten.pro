@@ -3,7 +3,7 @@ TEMPLATE = subdirs
 sfos {
 
 SUBDIRS += libfuoten
-SUBDIRS += sailfishos BT_SFOS_Components
+SUBDIRS += sailfishos
 
 sailfishos.depends = libfuoten
 

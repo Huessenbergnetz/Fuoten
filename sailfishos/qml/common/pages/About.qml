@@ -21,7 +21,7 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
-import harbour.fuoten.btsc 1.0
+import de.huessenbergnetz.btsc 1.0
 import "../models"
 
 AboutPage {
@@ -32,7 +32,7 @@ AboutPage {
     //% "Client for the ownCloud/Nextcloud News App."
     appDescription: qsTrId("about-desc")
     appHomepage: "https://github.com/Huessenbergnetz/Fuoten"
-    appCopyrightYear: "2016-2017"
+    appCopyrightYear: "2016-2018"
     appCopyrightHolder: "Matthias Fehring"
     appLicense: "GNU General Public License, Version 3"
     appLicenseFile: "GPLv3.qml"
@@ -42,7 +42,6 @@ AboutPage {
 
     contributorsModel: ContributorsModel {}
     contributorsAvatarBasePath: "/usr/share/harbour-fuoten/images/contributors"
-    contributorsPlaceholderPath: "/usr/share/harbour-fuoten/images/contributors/placeholder.png"
 
     contactCompany: "Hüssenbergnetz"
     contactName: "Matthias Fehring"
@@ -52,7 +51,8 @@ AboutPage {
     contactCity: "Willebadessen-Eissen"
     //% "Germany"
     contactCountry: qsTrId("id-germany")
-    contactEmail: cccmmm
+//    contactEmail: cccmmm
+    contactEmail: Qt.atob("a29udGFrdEBodWVzc2VuYmVyZ25ldHouZGU=")
     contactWebsite: "www.huessenbergnetz.de"
     contactWebsiteLink: "https://www.huessenbergnetz.de/?pk_campaign=Sailfish-App-Fuoten&pk_kwd=AboutPage"
 

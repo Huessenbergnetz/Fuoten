@@ -41,7 +41,7 @@ INCLUDEPATH += $$PWD/../libfuoten
 
 PKGCONFIG += openssl
 !contains(CONFIG, clazy) {
-    PKGCONFIG += nemonotifications-qt5
+    PKGCONFIG += nemonotifications-qt5 sailfishsilica
 }
 
 SOURCES += \
@@ -56,20 +56,20 @@ SOURCES += \
     src/dbus/fuotendbusproxy.cpp \
     src/dbus/fuotendbusadaptor.cpp
 
-SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
+SAILFISHAPP_ICONS = 86x86 108x108 128x128 150x150 172x172
 
-isEmpty(INSTALL_TRANSLATIONS_DIR): INSTALL_TRANSLATIONS_DIR = /usr/share/harbour-fuoten/l10n
+isEmpty(INSTALL_TRANSLATIONS_DIR): INSTALL_TRANSLATIONS_DIR = /usr/share/$$TARGET/translations
 
 langfiles.path = $$INSTALL_TRANSLATIONS_DIR
 langfiles.files = ../translations/*.qm
 INSTALLS += langfiles
 
-contimgs.path = /usr/share/harbour-fuoten/images/contributors
+contimgs.path = /usr/share/$$TARGET/images/contributors
 contimgs.files = images/contributors/*
 INSTALLS += contimgs
 
-icons.path = /usr/share/harbour-fuoten/images
-icons.files = images/*.png
+icons.path = /usr/share/$$TARGET/icons
+icons.files = icons/z*
 INSTALLS += icons
 
 DISTFILES += \
@@ -131,3 +131,4 @@ HEADERS += \
     src/dbus/fuotendbusproxy.h \
     src/dbus/fuotendbusadaptor.h
 
+include(../BT_SFOS_Components/BT_SFOS_Components.pri)

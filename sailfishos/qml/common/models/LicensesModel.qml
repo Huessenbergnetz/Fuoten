@@ -37,7 +37,7 @@ ListModel {
     ListElement {
         name: "BT SFOS Components"
         author: "Matthias Fehring"
-        version: "1.1.2"
+        version: "1.2.1"
         license: "Modified BSD License"
         licenseFile: "BSD-3.qml"
         website: "https://github.com/Buschtrommel/BT_SFOS_Components"
@@ -99,6 +99,13 @@ ListModel {
         license: "Modified BSD License"
         licenseFile: "BSD-3.qml"
         website: "https://sailfishos.org/develop/docs/nemo-qml-plugin-notifications/notification.html/"
+    }
+
+    ListElement {
+        name: "SQLite"
+        author: "SQLite Team"
+        license: "Public Domain"
+        website: "https://www.sqlite.org"
     }
 
     Component.onCompleted: {

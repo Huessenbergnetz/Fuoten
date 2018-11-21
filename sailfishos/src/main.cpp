@@ -83,6 +83,7 @@
 #include "../../common/updateintervalmodel.h"
 
 #include "fuoteniconprovider.h"
+#include "btsciconprovider.h"
 #include "sharing/sharingmethodsmodel.h"
 #include "dbus/fuotendbusadaptor.h"
 #include "dbus/fuotendbusproxy.h"
@@ -186,7 +187,11 @@ int main(int argc, char *argv[])
         for (const QString &name : {QStringLiteral("fuoten"), QStringLiteral("libfuoten"), QStringLiteral("btsc")}) {
             auto trans = new QTranslator(app.data());
             if (Q_LIKELY(trans->load(locale, name, QStringLiteral("_"), l10nDir, QStringLiteral(".qm")))) {
-                app->installTranslator(trans);
+                if (Q_UNLIKELY(!app->installTranslator(trans))) {
+                    qWarning("Can not install translator for component \"%s\" and locale \"%s\".", qUtf8Printable(name), qUtf8Printable(locale.name()));
+                }
+            } else {
+                qWarning("Can not load translations for component \"%s\" and locale \"%s\".", qUtf8Printable(name), qUtf8Printable(locale.name()));
             }
         }
 
@@ -194,15 +199,22 @@ int main(int argc, char *argv[])
         if (locale.language() == QLocale::C) {
 
             if (Q_LIKELY(tfeTrans->load(QStringLiteral("sailfish_transferengine_plugins_eng_en"), QStringLiteral("/usr/share/translations")))) {
-                app->installTranslator(tfeTrans);
+                if (Q_UNLIKELY(!app->installTranslator(tfeTrans))) {
+                    qWarning("%s", "Can not install English translator for sailfish transfer engine plugin.");
+                }
+            } else {
+                qWarning("%s", "Can not load English translations for sailfish transfer engine plugin.");
             }
 
         } else {
 
             if (Q_LIKELY(tfeTrans->load(locale, QStringLiteral("sailfish_transferengine_plugins"), QStringLiteral("-"), QStringLiteral("/usr/share/translations"), QStringLiteral(".qm")))) {
-                app->installTranslator(tfeTrans);
+                if (Q_UNLIKELY(!app->installTranslator(tfeTrans))) {
+                    qWarning("Can not install translator for sailfish transfer engine plugin and locale \"%s\".", qUtf8Printable(locale.name()));
+                }
+            } else {
+                qWarning("Can not load translation for sailfish transfer engine plugin and locale \"%s\".", qUtf8Printable(locale.name()));
             }
-
         }
     }
 
@@ -367,6 +379,7 @@ int main(int argc, char *argv[])
 
 #ifndef CLAZY
     QScopedPointer<QQuickView> view(SailfishApp::createView());
+    view->engine()->addImageProvider(QStringLiteral("btsc"), new BtscIconProvider({1.0, 1.25, 1.5, 1.75, 2.0}, Silica::Theme::instance()->pixelRatio(), false));
 #else
     QScopedPointer<QQuickView> view(new QQuickView);
 #endif
@@ -395,7 +408,6 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty(QStringLiteral("localstorage"), sqliteStorage);
     view->rootContext()->setContextProperty(QStringLiteral("synchronizer"), synchronizer);
     view->rootContext()->setContextProperty(QStringLiteral("covercon"), new CoverConnector(app.data()));
-    view->rootContext()->setContextProperty(QStringLiteral("cccmmm"), QString::fromUtf8(QByteArray::fromBase64(QByteArrayLiteral("a29udGFrdEBodWVzc2VuYmVyZ25ldHouZGU="))));
     view->rootContext()->setContextProperty(QStringLiteral("_fuotenDbusProxy"), dbusproxy);
 
 #ifndef CLAZY
