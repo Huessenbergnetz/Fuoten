@@ -25,18 +25,22 @@
 #include <QObject>
 #include <QAbstractListModel>
 #include <QStringList>
+#include <vector>
 
 /*!
  * \brief Contains information about supported UI language.
  */
 struct Language {
+    Language(const QString &_code, const QString _name) :
+        code(_code), name(_name)
+    {}
     QString code;   /**< Language code in form language_Country */
     QString name;   /**< Language display name */
 };
 
 /*!
  * \brief Model containing available UI languages.
- * \todo Move to BT_SFOS_Components and make the model suitable for every project.
+ * \todo Move to HBN_SFOS_Components and make the model suitable for every project.
  */
 class LanguageModel : public QAbstractListModel
 {
@@ -62,10 +66,10 @@ public:
         Name                        /**< Language display name */
     };
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override Q_DECL_FINAL;
-    QModelIndex index(int row, int column = 0, const QModelIndex &parent = QModelIndex()) const override Q_DECL_FINAL;
-    QHash<int, QByteArray> roleNames() const override Q_DECL_FINAL;
-    QVariant data(const QModelIndex &index, int role = Qt::UserRole) const override Q_DECL_FINAL;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override final;
+    QModelIndex index(int row, int column = 0, const QModelIndex &parent = QModelIndex()) const override final;
+    QHash<int, QByteArray> roleNames() const override final;
+    QVariant data(const QModelIndex &index, int role = Qt::UserRole) const override final;
 
     /*!
      * \brief Returns the index of the language identified by \a langCode.
@@ -73,7 +77,7 @@ public:
     Q_INVOKABLE int findIndex(const QString &langCode) const;
 
 private:
-    QList<Language*> m_langs;
+    std::vector<Language> m_langs;
 
     /*!
      * \brief Clears the model data and deletes any entry.

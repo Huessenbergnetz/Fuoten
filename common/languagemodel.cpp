@@ -21,10 +21,11 @@
 
 #include "languagemodel.h"
 #include <QLocale>
+#include <QStringBuilder>
 #include <algorithm>
 
 LanguageModel::LanguageModel(QObject *parent) :
-    QAbstractListModel(parent), m_supportedLangs({QStringLiteral("de"), QStringLiteral("da"), QStringLiteral("en"), QStringLiteral("nl"), QStringLiteral("sv")})
+    QAbstractListModel(parent), m_supportedLangs({QStringLiteral("de"), QStringLiteral("da"), QStringLiteral("en_GB"), QStringLiteral("en_US"), QStringLiteral("fr"), QStringLiteral("nl"), QStringLiteral("sv")})
 {
     init();
 }
@@ -33,8 +34,6 @@ LanguageModel::LanguageModel(QObject *parent) :
 
 LanguageModel::~LanguageModel()
 {
-    qDeleteAll(m_langs);
-    m_langs.clear();
 }
 
 
@@ -52,7 +51,7 @@ QHash<int, QByteArray> LanguageModel::roleNames() const
 int LanguageModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return m_langs.count();
+    return m_langs.size();
 }
 
 
@@ -78,13 +77,13 @@ QVariant LanguageModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    Language *l = m_langs.at(index.row());
+    const Language l = m_langs.at(index.row());
 
     switch(role) {
     case Code:
-        return QVariant::fromValue(l->code);
+        return QVariant::fromValue(l.code);
     case Name:
-        return QVariant::fromValue(l->name);
+        return QVariant::fromValue(l.name);
     default:
         return QVariant();
     }
@@ -92,9 +91,9 @@ QVariant LanguageModel::data(const QModelIndex &index, int role) const
 
 
 
-bool langLessThan(Language *a, Language *b)
+bool langLessThan(const Language &a, const Language &b)
 {
-    return (QString::localeAwareCompare(a->name, b->name) < 0);
+    return (QString::localeAwareCompare(a.name, b.name) < 0);
 }
 
 
@@ -107,26 +106,20 @@ void LanguageModel::init()
         return;
     }
 
-    beginInsertRows(QModelIndex(), 0, m_supportedLangs.count()-1);
+    beginInsertRows(QModelIndex(), 0, m_supportedLangs.size());
 
-    Q_FOREACH(const QString &lang, m_supportedLangs) {
+    m_langs.reserve(m_supportedLangs.size() + 1);
+    for (const QString &lang : m_supportedLangs) {
         QLocale locale(lang);
-        Language *l = new Language;
-        l->code = lang;
-        l->name = locale.nativeLanguageName();
-        l->name.append(QLatin1String(" ("));
-        l->name.append(QLocale::languageToString(locale.language()));
-        l->name.append(QLatin1String(")"));
-        m_langs.append(l);
+        const QString name = locale.nativeLanguageName() % QStringLiteral(" (") % QLocale::languageToString(locale.language()) % QLatin1Char(')');
+        m_langs.emplace_back(lang, name);
     }
 
     std::sort(m_langs.begin(), m_langs.end(), langLessThan);
 
-    Language *defLang = new Language;
-    defLang->code = QString("");
+    //: Means the default language of the system
     //% "Default"
-    defLang->name = qtTrId("id-default-lang");
-    m_langs.prepend(defLang);
+    m_langs.emplace(m_langs.begin(), QString(), qtTrId("id-default-lang"));
 
     endInsertRows();
 }
@@ -141,7 +134,6 @@ void LanguageModel::clear()
 
     beginRemoveRows(QModelIndex(), 0, rowCount()-1);
 
-    qDeleteAll(m_langs);
     m_langs.clear();
 
     endRemoveRows();
@@ -157,8 +149,8 @@ int LanguageModel::findIndex(const QString &langCode) const
 
     int idx = -1;
 
-    for (int i = 0; i < m_langs.count(); ++i) {
-        if (m_langs.at(i)->code == langCode) {
+    for (int i = 0; i < m_langs.size(); ++i) {
+        if (m_langs.at(i).code == langCode) {
             idx = i;
             break;
         }
