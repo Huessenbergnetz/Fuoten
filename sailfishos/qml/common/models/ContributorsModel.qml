@@ -41,6 +41,16 @@ ListModel {
     }
 
     ListElement {
+        name: "Antoine Vacher (Tigre-Bleu)"
+        role: ""
+        section: ""
+        image: "tigre-bleu.png"
+        website: "https://www.tigre-bleu.net/"
+        twitter: "tigre_bleu"
+        github: "tigre-bleu"
+    }
+
+    ListElement {
         name: "Nathan Follens"
         role: ""
         section: ""
@@ -68,14 +78,16 @@ ListModel {
         //% "Thanks to"
         contModel.get(1).section = qsTrId("fuotn-thanks-to-section")
 
-        //% "Dutch translation"
-        contModel.get(2).role = qsTrId("fuoten-nathanfollens-role")
-        //% "Thanks to"
+        //% "French translation"
+        contModel.get(2).role = qsTrId("fuoten-tigrebleu-role")
         contModel.get(2).section = qsTrId("fuotn-thanks-to-section")
+
+        //% "Dutch translation"
+        contModel.get(3).role = qsTrId("fuoten-nathanfollens-role")
+        contModel.get(3).section = qsTrId("fuotn-thanks-to-section")
 
         //% "Danish translation"
         contModel.get(3).role = qsTrId("fuoten-flywheeldk-role")
-        //% "Thanks to"
         contModel.get(3).section = qsTrId("fuotn-thanks-to-section")
     }
 }
