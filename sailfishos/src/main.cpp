@@ -83,7 +83,7 @@
 #include "../../common/updateintervalmodel.h"
 
 #include "fuoteniconprovider.h"
-#include "btsciconprovider.h"
+#include "hbnsciconprovider.h"
 #include "sharing/sharingmethodsmodel.h"
 #include "dbus/fuotendbusadaptor.h"
 #include "dbus/fuotendbusproxy.h"
@@ -184,7 +184,7 @@ int main(int argc, char *argv[])
         const QString l10nDir;
 #endif
         const QLocale locale;
-        for (const QString &name : {QStringLiteral("fuoten"), QStringLiteral("libfuoten"), QStringLiteral("btsc")}) {
+        for (const QString &name : {QStringLiteral("fuoten"), QStringLiteral("libfuoten"), QStringLiteral("hbnsc")}) {
             auto trans = new QTranslator(app.data());
             if (Q_LIKELY(trans->load(locale, name, QStringLiteral("_"), l10nDir, QStringLiteral(".qm")))) {
                 if (Q_UNLIKELY(!app->installTranslator(trans))) {
@@ -246,6 +246,9 @@ int main(int argc, char *argv[])
 #endif
     }
     qDebug("Loading icons from %s", qUtf8Printable(iconsDir));
+
+    qRegisterMetaType<Fuoten::IdList>("Fuoten::IdList");
+    qRegisterMetaType<Fuoten::ArticleList>("Fuoten::ArticleList");
 
     auto notificator = new SfosNotificator(config, iconsDir, app.data());
 
@@ -379,7 +382,7 @@ int main(int argc, char *argv[])
 
 #ifndef CLAZY
     QScopedPointer<QQuickView> view(SailfishApp::createView());
-    view->engine()->addImageProvider(QStringLiteral("btsc"), new BtscIconProvider({1.0, 1.25, 1.5, 1.75, 2.0}, Silica::Theme::instance()->pixelRatio(), false));
+    view->engine()->addImageProvider(QStringLiteral("hbnsc"), new HbnscIconProvider({1.0, 1.25, 1.5, 1.75, 2.0}, Silica::Theme::instance()->pixelRatio(), false));
 #else
     QScopedPointer<QQuickView> view(new QQuickView);
 #endif

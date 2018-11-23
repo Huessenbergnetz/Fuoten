@@ -37,7 +37,7 @@ ListModel {
     ListElement {
         name: "HBN SFOS Components"
         author: "Matthias Fehring"
-        version: "1.2.2"
+        version: "1.3.0"
         license: "Modified BSD License"
         licenseFile: "BSD-3.qml"
         website: "https://github.com/Huessenbergnetz/HBN_SFOS_Components"
@@ -105,7 +105,24 @@ ListModel {
         name: "SQLite"
         author: "SQLite Team"
         license: "Public Domain"
+        licenseFile: "SQLite.qml"
         website: "https://www.sqlite.org"
+    }
+
+    ListElement {
+        name: "OpenSSL"
+        author: "OpenSSL Development Team"
+        license: "OpenSSL License"
+        licenseFile: "OpenSSL.qml"
+        website: "https://www.openssl.org"
+    }
+
+    ListElement {
+        name: "zlib"
+        author: "Jean-loup Gailly and Mark Adler"
+        license: "zlib License"
+        licenseFile: "zlib.qml"
+        website: "http://zlib.net"
     }
 
     Component.onCompleted: {

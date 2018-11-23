@@ -21,7 +21,7 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
-import de.huessenbergnetz.btsc 1.0
+import de.huessenbergnetz.hbnsc 1.0
 import "../models"
 
 AboutPage {
@@ -51,13 +51,12 @@ AboutPage {
     contactCity: "Willebadessen-Eissen"
     //% "Germany"
     contactCountry: qsTrId("id-germany")
-//    contactEmail: cccmmm
     contactEmail: Qt.atob("a29udGFrdEBodWVzc2VuYmVyZ25ldHouZGU=")
     contactWebsite: "www.huessenbergnetz.de"
     contactWebsiteLink: "https://www.huessenbergnetz.de/?pk_campaign=Sailfish-App-Fuoten&pk_kwd=AboutPage"
 
     bugUrl: "https://github.com/Huessenbergnetz/Fuoten/issues"
-    translateUrl: "https://www.transifex.com/buschtrommel/fuoten"
+    translateUrl: "https://www.transifex.com/huessenbergnetz/fuoten"
 
     licensesModel: LicensesModel {}
 
