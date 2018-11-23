@@ -220,10 +220,6 @@
         <source>Dutch translation</source>
         <translation type="unfinished"/>
     </message>
-    <message id="fuoten-nathanfollens-section">
-        <source>Thanks to</source>
-        <translation type="unfinished"/>
-    </message>
     <message id="fuoten-flywheeldk-role">
         <source>Danish translation</source>
         <translation type="unfinished"/>

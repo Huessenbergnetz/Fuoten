@@ -190,6 +190,7 @@
     </message>
     <message id="id-default-lang">
         <source>Default</source>
+        <extracomment>Means the default language of the system</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-libfuoten-desc">
@@ -220,10 +221,6 @@
     </message>
     <message id="fuoten-nathanfollens-role">
         <source>Dutch translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message id="fuoten-nathanfollens-section">
-        <source>Thanks to</source>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-flywheeldk-role">
@@ -1064,6 +1061,10 @@
     <message id="fuoten-fatal-error-failed-dbus-object-register">
         <source>Failed to register D-Bus object “%1”.</source>
         <extracomment>%1 will be replaced by the class name of the D-Bus adaptor</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-tigrebleu-role">
+        <source>French translation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
