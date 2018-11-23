@@ -131,4 +131,4 @@ HEADERS += \
     src/dbus/fuotendbusproxy.h \
     src/dbus/fuotendbusadaptor.h
 
-include(../BT_SFOS_Components/BT_SFOS_Components.pri)
+include(../HBN_SFOS_Components/HBN_SFOS_Components.pri)
