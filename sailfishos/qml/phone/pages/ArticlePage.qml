@@ -54,6 +54,7 @@ Page {
         VerticalScrollDecorator { page: articlePage; flickable: articleFlick }
 
         PullDownMenu {
+            flickable: articleFlick
             busy: synchronizer.inOperation || (article && article.inOperation)
             MenuItem {
                 text: article && article.starred
@@ -88,6 +89,8 @@ Page {
         }
 
         PushUpMenu {
+            flickable: articleFlick
+            visible: config.pushUpOnArticle
             MenuItem {
                 //% "Scroll to top"
                 text: qsTrId("fuoten-scroll-to-top")

@@ -30,9 +30,10 @@
 
 using namespace andrivet::ADVobfuscator;
 
-
 static const unsigned int KEY_SIZE = 32;
 static const unsigned int BLOCK_SIZE = 16;
+
+#define CONF_KEY_PUSHUPONARTICLE "behavior/pushUpOnArticle"
 
 template <typename T>
 struct zallocator
@@ -101,6 +102,7 @@ SfosConfig::SfosConfig(QObject *parent) : Configuration(parent)
 {
     EVP_add_cipher(EVP_aes_256_cbc());
     m_password = value(QStringLiteral("account/password")).toString();
+    m_pushUpOnArticle = value(QStringLiteral(CONF_KEY_PUSHUPONARTICLE), false).toBool();
 }
 
 
@@ -255,6 +257,19 @@ void SfosConfig::setPassword(const QString &password)
         setValue(QStringLiteral("account/password"), m_password);
         qDebug("%s", "Password changed");
         Q_EMIT passwordChanged(getPassword());
+    }
+}
+
+
+bool SfosConfig::pushUpOnArticle() const { return m_pushUpOnArticle; }
+
+void SfosConfig::setPushUpOnArticle(bool pushUpOnArticle)
+{
+    if (m_pushUpOnArticle != pushUpOnArticle) {
+        m_pushUpOnArticle = pushUpOnArticle;
+        setValue(QStringLiteral(CONF_KEY_PUSHUPONARTICLE), m_pushUpOnArticle);
+        qDebug("Changed pushUpOnArticle to %s.", m_pushUpOnArticle ? "true" : "false");
+        emit pushUpOnArticleChanged(m_pushUpOnArticle);
     }
 }
 

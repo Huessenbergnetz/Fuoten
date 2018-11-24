@@ -27,6 +27,17 @@
 class SfosConfig : public Configuration
 {
     Q_OBJECT
+    /*!
+     * \brief This property holds \c true if a Push Up menu should be shown on article pages
+     *
+     * \par Access functions:
+     * \li bool pushUpOnArticle() const
+     * \li void setPushUpOnArticle(bool pushUpOnArticle)
+     *
+     * \par Notifier signal:
+     * \li void pushUpOnArticleChanged
+     */
+    Q_PROPERTY(bool pushUpOnArticle READ pushUpOnArticle WRITE setPushUpOnArticle NOTIFY pushUpOnArticleChanged)
 public:
     explicit SfosConfig(QObject *parent = nullptr);
 
@@ -35,13 +46,32 @@ public:
     QString getPassword() const override;
     void setPassword(const QString &password) override;
 
+    /*!
+     * \brief Getter function for the \link Configuration::pushUpOnArticle pushUpOnArticle \endlink property.
+     * \sa setPushUpOnArticle(), pushUpOnArticleChanged()
+     */
+    bool pushUpOnArticle() const;
+    /*!
+     * \brief Setter function for the \link Configuration::pushUpOnArticle pushUpOnArticle \endlink property.
+     * \sa pushUpOnArticle(), pushUpOnArticleChanged()
+     */
+    void setPushUpOnArticle(bool pushUpOnArticle);
+
     QString getUserAgent() const override;
+
+signals:
+    /*!
+     * \brief Notification signal for the \link Configuration::pushUpOnArticle pushUpOnArticle \endlink property.
+     * \sa pushUpOnArticle(), setPushUpOnArticle()
+     */
+    void pushUpOnArticleChanged(bool pushUpOnArticle);
 
 private:
     QString encPw(const QString &pw) const;
     QString decPw(const QString &pw) const;
 
     QString m_password;
+    bool m_pushUpOnArticle = false;
 };
 
 #endif // SFOSCONFIG_H

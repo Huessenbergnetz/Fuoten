@@ -1067,5 +1067,13 @@
         <source>French translation</source>
         <translation type="unfinished"></translation>
     </message>
+    <message id="fuoten-settings-pushuponarticle">
+        <source>Show push up menu on article page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-settings-pushuponarticle-desc">
+        <source>If enabled, article pages will have a push up menu on the end with the same content as the pull down menu for faster access after an article has been read.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

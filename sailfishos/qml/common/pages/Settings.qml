@@ -218,6 +218,25 @@ Page {
                     }
                 }
             }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: enablePushUpOnArticle.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
+                TextSwitch {
+                    id: enablePushUpOnArticle
+                    automaticCheck: false
+                    checked: config.pushUpOnArticle
+                    //% "Show push up menu on article page"
+                    text: qsTrId("fuoten-settings-pushuponarticle")
+                    //% "If enabled, article pages will have a push up menu on the end with the same content as the pull down menu for faster access after an article has been read."
+                    description: qsTrId("fuoten-settings-pushuponarticle-desc")
+                    onClicked: {
+                        config.pushUpOnArticle = !config.pushUpOnArticle
+                    }
+                }
+            }
         }
     }
 }
