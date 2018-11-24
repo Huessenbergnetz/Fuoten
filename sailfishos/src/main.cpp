@@ -227,6 +227,7 @@ int main(int argc, char *argv[])
 #else
         const qreal pixelRatio = 1.0;
         const bool largeScreen = false;
+        Q_UNUSED(largeScreen)
 #endif
 
         qreal nearestScale = 1.0;

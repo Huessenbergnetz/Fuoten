@@ -23,6 +23,7 @@
 #include <QLocale>
 #include <QStringBuilder>
 #include <algorithm>
+#include <limits>
 
 LanguageModel::LanguageModel(QObject *parent) :
     QAbstractListModel(parent), m_supportedLangs({QStringLiteral("de"), QStringLiteral("da"), QStringLiteral("en_GB"), QStringLiteral("en_US"), QStringLiteral("fr"), QStringLiteral("nl"), QStringLiteral("sv")})
@@ -51,6 +52,7 @@ QHash<int, QByteArray> LanguageModel::roleNames() const
 int LanguageModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
+    Q_ASSERT(m_langs.size() < std::numeric_limits<int>::max());
     return m_langs.size();
 }
 
@@ -148,8 +150,8 @@ int LanguageModel::findIndex(const QString &langCode) const
     }
 
     int idx = -1;
-
-    for (int i = 0; i < m_langs.size(); ++i) {
+    int size = static_cast<int>(m_langs.size());
+    for (int i = 0; i < size; ++i) {
         if (m_langs.at(i).code == langCode) {
             idx = i;
             break;
