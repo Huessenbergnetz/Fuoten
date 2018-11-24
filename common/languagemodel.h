@@ -31,7 +31,7 @@
  * \brief Contains information about supported UI language.
  */
 struct Language {
-    Language(const QString &_code, const QString _name) :
+    Language(const QString &_code, const QString &_name) :
         code(_code), name(_name)
     {}
     QString code;   /**< Language code in form language_Country */
