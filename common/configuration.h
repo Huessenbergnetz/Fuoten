@@ -280,7 +280,7 @@ public:
     int articleFontSize() const;
 
     /*!
-     * \brief Getter function for the \link Configuration:: notificationsEnabled notificationsEnabled \endlink property.
+     * \brief Getter function for the \link Configuration::notificationsEnabled notificationsEnabled \endlink property.
      * \sa setNotificationsEnabled(), notificationsEnabledChanged()
      */
     bool notificationsEnabled() const;
@@ -324,7 +324,7 @@ public:
     void setArticleFontSize(int articleFontSize);
 
     /*!
-     * \brief Setter function for the \link Configuration:: notificationsEnabled notificationsEnabled \endlink property.
+     * \brief Setter function for the \link Configuration::notificationsEnabled notificationsEnabled \endlink property.
      * \sa notificationsEnabled(), notificationsEnabledChanged()
      */
     void setNotificationsEnabled(bool notificationsEnabled);
@@ -411,7 +411,7 @@ signals:
     void articleFontSizeChanged(int articleFontSize);
 
     /*!
-     * \brief Notification signal for the \link Configuration:: notificationsEnabled notificationsEnabled \endlink property.
+     * \brief Notification signal for the \link Configuration::notificationsEnabled notificationsEnabled \endlink property.
      * \sa notificationsEnabled(), setNotificationsEnabled()
      */
     void notificationsEnabledChanged(bool notificationsEnabled);
