@@ -59,6 +59,7 @@ Dialog {
                 width: parent.width
                 //% "New folder name"
                 label: qsTrId("fuoten-new-folder-name"); placeholderText: label
+                text: folder ? folder.name : ""
                 EnterKey.enabled: renameFolderDialog.canAccept
                 EnterKey.iconSource: "image://theme/icon-m-enter-accept"
                 onTextChanged: renameFolderDialog.newName = text.trim()

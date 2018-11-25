@@ -68,24 +68,31 @@ ListModel {
     }
 
     Component.onCompleted: {
+        //: contributor role
         //% "Main developer, Fuoten creator"
         contModel.get(0).role = qsTrId("fuoten-author-role")
+        //: the section a contributor belongs to
         //% "Author"
         contModel.get(0).section = qsTrId("fuoten-author-section")
 
+        //: contributor role
         //% "Swedish translation"
         contModel.get(1).role = qsTrId("fuoten-eson-role")
+        //: the section a contributor belongs to
         //% "Thanks to"
         contModel.get(1).section = qsTrId("fuotn-thanks-to-section")
 
+        //: contributor role
         //% "French translation"
         contModel.get(2).role = qsTrId("fuoten-tigrebleu-role")
         contModel.get(2).section = qsTrId("fuotn-thanks-to-section")
 
+        //: contributor role
         //% "Dutch translation"
         contModel.get(3).role = qsTrId("fuoten-nathanfollens-role")
         contModel.get(3).section = qsTrId("fuotn-thanks-to-section")
 
+        //: contributor role
         //% "Danish translation"
         contModel.get(3).role = qsTrId("fuoten-flywheeldk-role")
         contModel.get(3).section = qsTrId("fuotn-thanks-to-section")

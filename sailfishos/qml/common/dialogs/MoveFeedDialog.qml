@@ -27,7 +27,7 @@ import "../parts"
 Dialog {
     id: moveFeedDialog
 
-    property var newFolderId: 0
+    property int newFolderId: 0
 
     property Feed feed: null
 

@@ -29,6 +29,7 @@ AboutPage {
     pageTitle: qsTrId("id-about")
 
     appTitle: "Fuoten"
+    //: Description on the about page
     //% "Client for the ownCloud/Nextcloud News App."
     appDescription: qsTrId("about-desc")
     appHomepage: "https://github.com/Huessenbergnetz/Fuoten"

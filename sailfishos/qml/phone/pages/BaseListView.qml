@@ -90,6 +90,7 @@ SilicaListView {
         busy: synchronizer.inOperation || (feed && feed.inOperation) || (folder && folder.inOperation) || localstorage.inOperation || baseListView.inOperation
         property string lastSyncString: config.getHumanLastSync()
         onActiveChanged: if(active) { lastSyncString = config.getHumanLastSync() }
+        flickable: baseListView
 
         MenuItem {
             //% "About"

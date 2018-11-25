@@ -50,6 +50,7 @@ Dialog {
 
         PullDownMenu {
             visible: !config.isAccountValid
+            flickable: welcomeAccountFlick
             MenuItem {
                 //% "Check account"
                 text: qsTrId("fuoten-check-account")
@@ -69,6 +70,7 @@ Dialog {
 
         PushUpMenu {
             visible: !config.isAccountValid
+            flickable: welcomeAccountFlick
             MenuItem {
                 //% "Check account"
                 text: qsTrId("fuoten-check-account")

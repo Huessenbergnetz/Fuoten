@@ -35,6 +35,7 @@ Page {
         contentHeight: contextConfigGrid.height
 
         PullDownMenu {
+            flickable: contextConfigFlick
             MenuItem {
                 //% "Create folder"
                 text: qsTrId("fuoten-create-folder")

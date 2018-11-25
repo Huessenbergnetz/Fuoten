@@ -126,10 +126,13 @@ ListModel {
     }
 
     Component.onCompleted: {
+        //: Description of a used 3rd party component
         //% "Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API."
         licensesModel.get(0).description = qsTrId("fuoten-libfuoten-desc")
-        //% "BT SFOS Components are a set of QML components for Sailfish OS."
-        licensesModel.get(1).description = qsTrId("btsfoscmops-desc")
+        //: Description of a used 3rd party component
+        //% "HBN SFOS Components are a set of QML components for Sailfish OS."
+        licensesModel.get(1).description = qsTrId("hbnsfoscmops-desc")
+        //: Description of a used 3rd party component
         //% "ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords."
         licensesModel.get(7).description = qsTrId("advobfuscator-desc")
     }

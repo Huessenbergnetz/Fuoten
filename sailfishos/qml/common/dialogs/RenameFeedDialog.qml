@@ -59,10 +59,10 @@ Dialog {
                 width: parent.width
                 //% "New feed name"
                 label: qsTrId("fuoten-new-feed-name"); placeholderText: label
+                text: feed ? feed.title : ""
                 EnterKey.enabled: renameFeedDialog.canAccept
                 EnterKey.iconSource: "image://theme/icon-m-enter-accept"
                 onTextChanged: renameFeedDialog.newName = text.trim()
-
             }
         }
     }

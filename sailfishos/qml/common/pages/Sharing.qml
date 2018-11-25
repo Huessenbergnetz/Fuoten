@@ -40,6 +40,8 @@ Page {
         sharingPage.content.type = "text/x-url"
     }
 
+    VerticalScrollDecorator { flickable: sharingList; page: sharingPage }
+
     SilicaListView {
         id: sharingList
         anchors.fill: parent
