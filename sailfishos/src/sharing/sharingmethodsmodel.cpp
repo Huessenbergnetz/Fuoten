@@ -131,6 +131,7 @@ void SharingMethodsModel::loadMethods()
     SharingMethod clipboard;
     clipboard.setAccountId(0);
     clipboard.setMethodId(QStringLiteral("clipboard"));
+    //: name for the pseudo sharing method to copy a link to the clipboard
     //% "Clipboard"
     clipboard.setDisplayName(qtTrId("fuoten-clipboad-sharing"));
     beginInsertRows(QModelIndex(), m_methods.size(), m_methods.size());

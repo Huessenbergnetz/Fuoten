@@ -88,27 +88,35 @@ void UpdateIntervalModel::init()
 
     beginInsertRows(QModelIndex(), 0, 7);
 
+    //: automatic update interval
     //% "Disabled"
     m_intervals.push_back(std::make_pair(static_cast<quint32>(0), qtTrId("fuoten-update-interval-disabled")));
 
+    //: automatic update interval
     //% "15 Minutes"
     m_intervals.push_back(std::make_pair(static_cast<quint32>(900), qtTrId("fuoten-update-interval-quarter-hour")));
 
+    //: automatic update interval
     //% "30 Minutes"
     m_intervals.push_back(std::make_pair(static_cast<quint32>(1800), qtTrId("fuoten-update-interval-half-hour")));
 
+    //: automatic update interval
     //% "1 Hour"
     m_intervals.push_back(std::make_pair(static_cast<quint32>(3600), qtTrId("fuoten-update-interval-one-hour")));
 
+    //: automatic update interval
     //% "2 Hours"
     m_intervals.push_back(std::make_pair(static_cast<quint32>(7200), qtTrId("fuoten-update-interval-two-hours")));
 
+    //: automatic update interval
     //% "6 Hours"
     m_intervals.push_back(std::make_pair(static_cast<quint32>(21600), qtTrId("fuoten-update-interval-six-hours")));
 
+    //: automatic update interval
     //% "12 Hours"
     m_intervals.push_back(std::make_pair(static_cast<quint32>(43200), qtTrId("fuoten-update-interval-half-day")));
 
+    //: automatic update interval
     //% "1 Day"
     m_intervals.push_back(std::make_pair(static_cast<quint32>(86400), qtTrId("fuoten-update-interval-one-day")));
 

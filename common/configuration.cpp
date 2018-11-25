@@ -411,6 +411,7 @@ void Configuration::setCurrentVersion()
 
 QString Configuration::getHumanLastSync() const
 {
+    //: relative time for last synchronisation
     //% "never"
     QString ret = qtTrId("fuoten-sync-never");
 
@@ -419,21 +420,26 @@ QString Configuration::getHumanLastSync() const
         qreal td = (qreal)getLastSync().secsTo(QDateTime::currentDateTimeUtc());
 
         if (td <= 10) {
+            //: relative time for last synchronisation
             //% "just now"
             ret = qtTrId("fuoten-just-now");
         } else if (td < 60.0) {
+            //: relative time for last synchronisation
             //% "%n second(s) ago"
             ret = qtTrId("fuoten-seconds-ago", td);
         } else if (td < 7200.0) {
             long int rtd = lround(td/60.0);
+            //: relative time for last synchronisation
             //% "%n minute(s) ago"
             ret = qtTrId("fuoten-minutes-ago", rtd);
         } else if (td < 172800.0) {
             long int rtd = lround(td/3600.0);
+            //: relative time for last synchronisation
             //% "%n hour(s) ago"
             ret = qtTrId("fuoten-hours-ago", rtd);
         } else  {
             long int rtd = lround(td/86400.0);
+            //: relative time for last synchronisation
             //% "%n day(s) ago"
             ret = qtTrId("fuoten-days-ago", rtd);
         }

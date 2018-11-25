@@ -103,9 +103,11 @@ void UserAgentModel::init()
 
     beginInsertRows(QModelIndex(), 0, 16);
 
+    //: name of a user agent for the internal web view
     //% "Default Jolla Webkit"
     m_agents.push_back(std::make_pair(qtTrId("fuoten-default-jolla-webkit-useragent"), QStringLiteral("Mozilla/5.0 (Maemo; Linux; U; Jolla; Sailfish; like Android) AppleWebKit/538.1 (KHTML, like Gecko) Version/5.1 Chrome/30.0.0.0 Mobile Safari/538.1 (compatible)")));
 
+    //: name of a user agent for the internal web view
     //% "Alternative Jolla Webkit"
     m_agents.push_back(std::make_pair(qtTrId("fuoten-alternative-jolla-webkit-useragent"), QStringLiteral("Mozilla/5.0 (Maemo; Android 4.4.2; U; Jolla; Sailfish; ; rv:38.0) Gecko/38.0 Firefox/38.0 SailfishBrowser/1.0 like Safari/538.1")));
 

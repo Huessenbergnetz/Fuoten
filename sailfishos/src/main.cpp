@@ -267,6 +267,7 @@ int main(int argc, char *argv[])
 
         if (Q_UNLIKELY(!dbusDir.exists())) {
             if (!dbusDir.mkpath(dbusDir.absolutePath())) {
+                //: error message
                 //% "Failed to create user D-Bus directory."
                 notificator->notify(Fuoten::AbstractNotificator::StorageError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-dir"));
                 qFatal("Failed to create D-Bus direcotry.");
@@ -289,6 +290,7 @@ int main(int argc, char *argv[])
 
             QDBusConnection dc = QDBusConnection::sessionBus();
             if (!dc.isConnected()) {
+                //: error message
                 //% "Failed to connect to D-Bus session bus."
                 notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-connection"));
                 qFatal("Failed to connect to D-Bus session bus.");
@@ -300,6 +302,7 @@ int main(int argc, char *argv[])
             QObject::connect(pcw, &QDBusPendingCallWatcher::finished, notificator, [notificator](QDBusPendingCallWatcher *call){
                 QDBusPendingReply<void> reply = *call;
                 if (reply.isError()) {
+                    //: error message
                     //% "Failed to reload D-Bus session bus configuration."
                     notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-reload-config"));
                     qCritical("D-Bus error: %s (%s)", qUtf8Printable(reply.error().message()), qUtf8Printable(reply.error().name()));
@@ -311,6 +314,7 @@ int main(int argc, char *argv[])
 
         if (Q_UNLIKELY(!dataDir.exists())) {
             if (!dataDir.mkpath(dataDir.absolutePath())) {
+                //: error message
                 //% "Failed to create the data directory."
                 notificator->notify(Fuoten::AbstractNotificator::StorageError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-data-dir"));
                 qFatal("Failed to create data directory.");
@@ -319,6 +323,7 @@ int main(int argc, char *argv[])
 
         if (Q_UNLIKELY(!cacheDir.exists())) {
             if (!cacheDir.mkpath(cacheDir.absolutePath())) {
+                //: error message
                 //% "Failed to create the cache directory."
                 notificator->notify(Fuoten::AbstractNotificator::StorageError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-cache-dir"));
                 qFatal("Failed to create cache directory.");
@@ -327,6 +332,7 @@ int main(int argc, char *argv[])
 
         if (Q_UNLIKELY(!qmlCacheDir.exists())) {
             if (!qmlCacheDir.mkpath(qmlCacheDir.absolutePath())) {
+                //: error message
                 //% "Failed to create the qml cache directory."
                 notificator->notify(Fuoten::AbstractNotificator::StorageError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-qmlcache-dir"));
                 qFatal("Failed to create qml cache directory.");
@@ -395,13 +401,14 @@ int main(int argc, char *argv[])
     {
         QDBusConnection con = QDBusConnection::sessionBus();
         if (Q_UNLIKELY(!con.registerService(QStringLiteral("org.harbour.fuoten")))) {
+            //: error message
             //% "Failed to register D-Bus service."
             notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-service-register"));
             qFatal("Failed to register D-Bus service.");
         }
 
         if (Q_UNLIKELY(!con.registerObject(QStringLiteral("/"), dbusproxy))) {
-            //: %1 will be replaced by the class name of the D-Bus adaptor
+            //: error message, %1 will be replaced by the class name of the D-Bus adaptor
             //% "Failed to register D-Bus object “%1”."
             notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-object-register").arg(QString::fromLatin1(dbusproxy->metaObject()->className())));
             qFatal("Failed to register D-Bus object \"%s\".", dbusproxy->metaObject()->className());
