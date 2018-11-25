@@ -29,7 +29,6 @@ Kirigami.ScrollablePage {
 
     objectName: "settingsPage"
 
-    //% "Settings"
     title: qsTrId("id-settings")
 
     GridLayout {
@@ -45,7 +44,6 @@ Kirigami.ScrollablePage {
         }
 
         Kirigami.Heading {
-            //% "User account"
             text: qsTrId("id-user-account")
             Layout.columnSpan: settingsGrid.columns
             level: 2
@@ -53,14 +51,12 @@ Kirigami.ScrollablePage {
 
         LabeledTextField {
             id: username
-            //% "User name"
             label: qsTrId("id-user-name"); placeholderText: label
             text: config.username
         }
 
         LabeledTextField {
             id: password
-            //% "Password"
             label: qsTrId("id-password"); placeholderText: label
             echoMode: TextInput.Password
             text: config.password
@@ -68,9 +64,7 @@ Kirigami.ScrollablePage {
 
         LabeledTextField {
             id: host
-            //% "Host"
             label: qsTrId("id-host")
-            //% "Host: e.g. cloud.example.com"
             placeholderText: qsTrId("id-host-placeholder")
             inputMethodHints: Qt.ImhUrlCharactersOnly
             text: config.host
@@ -78,7 +72,6 @@ Kirigami.ScrollablePage {
 
         LabeledTextField {
             id: installPath
-            //% "Installation path"
             label: qsTrId("id-server-path"); placeholderText: label
             inputMethodHints: Qt.ImhUrlCharactersOnly
             text: config.installPath
@@ -86,7 +79,6 @@ Kirigami.ScrollablePage {
 
         LabeledTextField {
             id: port
-            //% "Server port"
             label: qsTrId("id-server-port"); placeholderText: label
             inputMethodHints: Qt.ImhDigitsOnly
             validator: IntValidator { bottom: 0; top: 65536 }
@@ -101,9 +93,7 @@ Kirigami.ScrollablePage {
         TextSwitch {
             id: usessl
             Layout.fillWidth: true
-            //% "Use HTTPS (SSL/TLS) connection"
             label: qsTrId("id-use-ssl-text")
-            //% "Because the News App requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption."
             description: qsTrId("id-use-ssl-desc")
             checked: config.useSSL
         }
@@ -111,9 +101,7 @@ Kirigami.ScrollablePage {
         TextSwitch {
             id: ignoresslerrors
             Layout.fillWidth: true
-            //% "Ignore SSL errors"
             label: qsTrId("id-ignore-ssl-errs-text")
-            //% "Only ignore SSL errors when you really know what you are doing. Ignoring SSL errors is a big security risk."
             description: qsTrId("id-ignore-ssl-errs-desc")
             enabled: usessl.checked
             checked: config.ignoreSSLErrors

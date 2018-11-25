@@ -43,7 +43,6 @@ Dialog {
 
         DialogHeader {
             id: dHeader
-            //% "Move feed"
             acceptText: qsTrId("fuoten-move-feed")
             dialog: moveFeedDialog
             flickable: moveFeedDialogFlick
@@ -57,10 +56,10 @@ Dialog {
 
             Text {
                 anchors {left: parent.left; leftMargin: Theme.horizontalPageMargin; right: parent.right; rightMargin: Theme.horizontalPageMargin }
+                //: Text showing the current folder when moving a feed to a different folder
                 //% "Current folder: %1"
                 text: qsTrId("fuoten-current-folder-label").arg(feed.folderName
                                                                 ? feed.folderName
-                                                                //% "-- No folder --"
                                                                 : qsTrId("fuoten-no-folder")
                                                                 )
                 font.pixelSize: Theme.fontSizeMedium
@@ -68,6 +67,7 @@ Dialog {
             }
 
             FoldersComboBox {
+                //: Label for combo box to choose a folder a feed should be moved to
                 //% "Target folder"
                 label: qsTrId("fuoten-target-folder")
                 onCurrentIndexChanged: if (currentItem) { newFolderId = currentItem.folderId }

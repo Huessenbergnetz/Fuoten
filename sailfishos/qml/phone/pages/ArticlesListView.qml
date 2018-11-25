@@ -30,6 +30,7 @@ BaseListView {
 
     inOperation: ((page.status === PageStatus.Activating) && !articlesModel.loaded) || articlesModel.inOperation
 
+    //: Placeholder text on the article list view if no articles have been found
     //% "No articles found"
     noContentText: qsTrId("fuoten-no-articles-found")
 
@@ -248,17 +249,13 @@ BaseListView {
             ContextMenu {
                 MenuItem {
                     text: display.unread
-                            //% "Mark as read"
                           ? qsTrId("fuoten-mark-item-as-read")
-                            //% "Mark as unread"
                           : qsTrId("fuoten-mark-item-as-unread")
                     onClicked: display.mark(!display.unread, config, localstorage, true)
                 }
                 MenuItem {
                     text: display.starred
-                            //% "Remove from favorites"
                           ? qsTrId("fuoten-remove-from-favorites")
-                            //% "Add to favorites"
                           : qsTrId("fuoten-add-to-favorites")
                     onClicked: display.star(!display.starred, config, localstorage, true)
                 }

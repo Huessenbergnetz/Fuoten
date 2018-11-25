@@ -102,6 +102,7 @@ ListItem {
 
         function deleteFeed() {
             if (feedListItem.folderView) {
+                //: remorse popup description, %1 will be either the name of a feed or the name of a folder to delete
                 //% "Deleting %1"
                 Remorse.popupAction(feedListItem.page, qsTrId("fuoten-deleting").arg(model.display.title), function() {model.display.remove(config, localstorage)})
             } else {
@@ -113,24 +114,26 @@ ListItem {
             id: feedContextMenu
             ContextMenu {
                 MenuItem {
+                    //: Context menu entry and dialog header to rename a feed
                     //% "Rename feed"
                     text: qsTrId("fuoten-rename-feed")
                     enabled: !model.display.inOperation
                     onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/RenameFeedDialog.qml"), {feed: model.display})
                 }
                 MenuItem {
-                    //% "Mark feed read"
                     text: qsTrId("fuoten-mark-feed-read")
                     enabled: !model.display.inOpeartion
                     onClicked: model.display.markAsRead(config, localstorage, true)
                 }
                 MenuItem {
+                    //: Context menu entry and dialog header for moving a feed
                     //% "Move feed"
                     text: qsTrId("fuoten-move-feed")
                     enabled: !model.display.inOperation
                     onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/MoveFeedDialog.qml"), {feed: model.display})
                 }
                 MenuItem {
+                    //: Menu entry for deleting a feed
                     //% "Delete feed"
                     text: qsTrId("fuoten-delete-feed")
                     enabled: !model.display.inOperation

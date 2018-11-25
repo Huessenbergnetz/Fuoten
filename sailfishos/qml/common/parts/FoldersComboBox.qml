@@ -23,11 +23,13 @@ import harbour.fuoten.models 1.0
 
 ComboBox {
 
+    //: Label for the folder selection combo box
     //% "Folder"
     label: qsTrId("fuoten-folder")
 
     menu: ContextMenu {
         MenuItem {
+            //: Selectable entry in the folder selection combo box
             //% "-- No folder --"
             text: qsTrId("fuoten-no-folder")
             readonly property int folderId: 0

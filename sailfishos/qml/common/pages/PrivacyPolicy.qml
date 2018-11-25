@@ -41,6 +41,7 @@ Page {
 
             PageHeader {
                 page: privacyPolicy
+                //: Label and page header for the privacy policy
                 //% "Privacy policy"
                 title: qsTrId("fuoten-privacy-policy")
             }

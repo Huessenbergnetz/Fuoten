@@ -42,7 +42,6 @@ Dialog {
 
         DialogHeader {
             id: dHeader
-            //% "Rename feed"
             acceptText: qsTrId("fuoten-rename-feed")
             dialog: renameFeedDialog
             flickable: renameFeedDialogFlick
@@ -57,6 +56,7 @@ Dialog {
             TextField {
                 id: newNameField
                 width: parent.width
+                //: Label and placeholder text for a text input when renaming a feed
                 //% "New feed name"
                 label: qsTrId("fuoten-new-feed-name"); placeholderText: label
                 text: feed ? feed.title : ""

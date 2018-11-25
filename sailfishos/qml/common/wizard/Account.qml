@@ -52,6 +52,7 @@ Dialog {
             visible: !config.isAccountValid
             flickable: welcomeAccountFlick
             MenuItem {
+                //: Pull down/push up menu entry
                 //% "Check account"
                 text: qsTrId("fuoten-check-account")
                 enabled: username.text.length > 0 && password.text.length > 0 && host.text.length > 0
@@ -72,7 +73,6 @@ Dialog {
             visible: !config.isAccountValid
             flickable: welcomeAccountFlick
             MenuItem {
-                //% "Check account"
                 text: qsTrId("fuoten-check-account")
                 enabled: username.text.length > 0 && password.text.length > 0 && host.text.length > 0
                 onClicked: {
@@ -90,10 +90,10 @@ Dialog {
 
         DialogHeader {
             id: dHeader;
-            //% "User account"
             title: qsTrId("id-user-account");
             dialog: welcomeAccountDialog;
             flickable: welcomeAccountFlick
+            //: Text for finishing the first start configuration wizard
             //% "Finish"
             defaultAcceptText: qsTrId("fuoten-wizard-finish")
         }
@@ -134,6 +134,7 @@ Dialog {
             TextField {
                 id: username
                 Layout.fillWidth: true
+                //: Label and placeholder for a text input
                 //% "User name"
                 label: qsTrId("id-user-name"); placeholderText: label
                 inputMethodHints: Qt.ImhNoAutoUppercase | Qt.ImhNoPredictiveText
@@ -145,6 +146,7 @@ Dialog {
             TextField {
                 id: password
                 Layout.fillWidth: true
+                //: Label and placeholder for a text input
                 //% "Password"
                 label: qsTrId("id-password"); placeholderText: label
                 echoMode: TextInput.Password
@@ -156,8 +158,10 @@ Dialog {
             TextField {
                 id: host
                 Layout.fillWidth: true
+                //: Label for a text input
                 //% "Host"
                 label: qsTrId("id-host")
+                //: Placeholder for a text input
                 //% "Host: e.g. cloud.example.com"
                 placeholderText: qsTrId("id-host-placeholder")
                 inputMethodHints: Qt.ImhUrlCharactersOnly
@@ -169,6 +173,7 @@ Dialog {
             TextField {
                 id: installPath
                 Layout.fillWidth: true
+                //: Label and placeholder for a text input
                 //% "Installation path"
                 label: qsTrId("id-server-path"); placeholderText: label
                 inputMethodHints: Qt.ImhUrlCharactersOnly
@@ -179,6 +184,7 @@ Dialog {
             TextField {
                 id: port
                 Layout.fillWidth: true
+                //: Label and placeholder for a text input
                 //% "Server port"
                 label: qsTrId("id-server-port"); placeholderText: label
                 inputMethodHints: Qt.ImhDigitsOnly
@@ -202,8 +208,10 @@ Dialog {
 
                 TextSwitch {
                     id: usessl
+                    //: Label for a switch
                     //% "Use HTTPS (SSL/TLS) connection"
                     text: qsTrId("id-use-ssl-text")
+                    //: Description for a switch
                     //% "Because the News App requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption."
                     description: qsTrId("id-use-ssl-desc")
                     checked: true
@@ -217,8 +225,10 @@ Dialog {
 
                 TextSwitch {
                     id: ignoresslerrors
+                    //: Label for a switch
                     //% "Ignore SSL errors"
                     text: qsTrId("id-ignore-ssl-errs-text")
+                    //: Description for a switch
                     //% "Only ignore SSL errors when you really know what you are doing. Ignoring SSL errors is a big security risk."
                     description: qsTrId("id-ignore-ssl-errs-desc")
                     enabled: usessl.checked

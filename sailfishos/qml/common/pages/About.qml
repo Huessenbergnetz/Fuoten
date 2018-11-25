@@ -25,6 +25,7 @@ import de.huessenbergnetz.hbnsc 1.0
 import "../models"
 
 AboutPage {
+    //: title for the about page and used in pull down menus
     //% "About"
     pageTitle: qsTrId("id-about")
 

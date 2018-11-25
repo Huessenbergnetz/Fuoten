@@ -30,17 +30,14 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                //% "About"
                 text: qsTrId("id-about")
             }
 
             MenuItem {
-                //% "Settings"
                 text: qsTrId("id-settings")
                 onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Settings.qml"))
             }
             MenuItem {
-                //% "Synchronize"
                 text: qsTrId("fuoten-synchronize")
                 onClicked: synchronizer.sync()
             }

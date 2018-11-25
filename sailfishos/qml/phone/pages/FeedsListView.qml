@@ -31,6 +31,7 @@ BaseListView {
     contextType: !folder ? FuotenApp.StartPage : FuotenApp.Feeds
     inOperation: feedListModel.inOperation
 
+    //: Placeholder text on the article list view if no feeds have been found
     //% "No feeds found"
     noContentText: qsTrId("fuoten-no-feeds-found")
 

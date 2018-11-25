@@ -63,13 +63,11 @@ Kirigami.ApplicationWindow {
                 iconName: "list-add"
 
                 Kirigami.Action {
-                    //% "Create folder"
                     text: qsTrId("fuoten-create-folder")
                     iconName: "folder-new"
                 }
 
                 Kirigami.Action {
-                    //% "Add feed"
                     text: qsTrId("fuoten-add-feed")
                     iconName: "kt-add-feeds"
                 }
@@ -77,13 +75,11 @@ Kirigami.ApplicationWindow {
 
 
 //            Kirigami.Action {
-//                //% "Synchronize"
 //                text: qsTrId("fuoten-synchronize")
 //                iconName: "view-refresh"
 //            },
 
 //            Kirigami.Action {
-//                //% "Settings"
 //                text: qsTrId("id-settings")
 //                iconName: "configure"
 //                checked: fuotenWindow.pageStack.currentItem.objectName === "settingsPage"
@@ -103,7 +99,6 @@ Kirigami.ApplicationWindow {
 
             Kirigami.BasicListItem {
                 icon: "view-refresh"
-                //% "Synchronize"
                 label: qsTrId("fuoten-synchronize")
                 separatorVisible: false
                 onClicked: synchronizer.sync()
@@ -112,7 +107,6 @@ Kirigami.ApplicationWindow {
 
             Kirigami.BasicListItem {
                 icon: "configure"
-                //% "Settings"
                 label: qsTrId("id-settings")
                 separatorVisible: false
                 checked: fuotenWindow.pageStack.currentItem.objectName === "settingsPage"

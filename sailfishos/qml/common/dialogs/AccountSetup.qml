@@ -33,7 +33,6 @@ Dialog {
 
         DialogHeader {
             id: dHeader;
-            //% "User account"
             title: qsTrId("id-user-account");
             dialog: accountDialog;
             flickable: accountFlick
@@ -70,7 +69,6 @@ Dialog {
             TextField {
                 id: username
                 Layout.fillWidth: true
-                //% "User name"
                 label: qsTrId("id-user-name"); placeholderText: label
                 inputMethodHints: Qt.ImhNoAutoUppercase | Qt.ImhNoPredictiveText
                 EnterKey.enabled: text || inputMethodComposing
@@ -82,7 +80,6 @@ Dialog {
             TextField {
                 id: password
                 Layout.fillWidth: true
-                //% "Password"
                 label: qsTrId("id-password"); placeholderText: label
                 echoMode: TextInput.Password
                 EnterKey.enabled: text || inputMethodComposing
@@ -94,9 +91,7 @@ Dialog {
             TextField {
                 id: host
                 Layout.fillWidth: true
-                //% "Host"
                 label: qsTrId("id-host")
-                //% "Host: e.g. cloud.example.com"
                 placeholderText: qsTrId("id-host-placeholder")
                 inputMethodHints: Qt.ImhUrlCharactersOnly
                 EnterKey.enabled: text || inputMethodComposing
@@ -108,7 +103,6 @@ Dialog {
             TextField {
                 id: installPath
                 Layout.fillWidth: true
-                //% "Installation path"
                 label: qsTrId("id-server-path"); placeholderText: label
                 inputMethodHints: Qt.ImhUrlCharactersOnly
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
@@ -119,7 +113,6 @@ Dialog {
             TextField {
                 id: port
                 Layout.fillWidth: true
-                //% "Server port"
                 label: qsTrId("id-server-port"); placeholderText: label
                 inputMethodHints: Qt.ImhDigitsOnly
                 validator: IntValidator { bottom: 0; top: 65536 }
@@ -142,9 +135,7 @@ Dialog {
 
                 TextSwitch {
                     id: usessl
-                    //% "Use HTTPS (SSL/TLS) connection"
                     text: qsTrId("id-use-ssl-text")
-                    //% "Because the News App requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption."
                     description: qsTrId("id-use-ssl-desc")
                     checked: config.useSSL
                 }
@@ -157,9 +148,7 @@ Dialog {
 
                 TextSwitch {
                     id: ignoresslerrors
-                    //% "Ignore SSL errors"
                     text: qsTrId("id-ignore-ssl-errs-text")
-                    //% "Only ignore SSL errors when you really know what you are doing. Ignoring SSL errors is a big security risk."
                     description: qsTrId("id-ignore-ssl-errs-desc")
                     enabled: usessl.checked
                     checked: config.ignoreSSLErrors

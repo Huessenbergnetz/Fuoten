@@ -70,7 +70,6 @@ Kirigami.ScrollablePage {
             actions: [
                 Kirigami.Action {
                     iconName: "edit-delete"
-                    //% "Delete folder"
                     tooltip: qsTrId("fuoten-delete-folder")
                 }
 

@@ -40,6 +40,7 @@ Dialog {
 
         DialogHeader {
             id: dHeader;
+            //: Dialog header on the first start wizard
             //% "Welcome to Fuoten"
             title: qsTrId("fuoten-welcome");
             dialog: welcomeDialog;
@@ -55,6 +56,7 @@ Dialog {
                 anchors { left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }
                 color: Theme.primaryColor
                 font.pixelSize: Theme.fontSizeSmall
+                //: Note about acceptance of the privacy policy on the first start wizard
                 //% "By using Fuoten, you consent to the following privacy policy."
                 text: qsTrId("fuoten-welcome-privacy-consent")
                 wrapMode: Text.WordWrap

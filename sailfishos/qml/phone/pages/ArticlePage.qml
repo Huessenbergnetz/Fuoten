@@ -58,8 +58,10 @@ Page {
             busy: synchronizer.inOperation || (article && article.inOperation)
             MenuItem {
                 text: article && article.starred
+                        //: Menu entry for removing a single article from the favorites
                         //% "Remove from favorites"
                       ? qsTrId("fuoten-remove-from-favorites")
+                        //: Menu entry for adding a single article to the favorites
                         //% "Add to favorites"
                       : qsTrId("fuoten-add-to-favorites")
                 onClicked: article.star(!article.starred, config, localstorage, true)
@@ -67,20 +69,24 @@ Page {
             }
             MenuItem {
                 text: article && article.unread
+                        //: Menu entry for marking a single article as read
                         //% "Mark as read"
                       ? qsTrId("fuoten-mark-item-as-read")
+                        //: Menu entry for marking a single article as unread
                         //% "Mark as unread"
                       : qsTrId("fuoten-mark-item-as-unread")
                 onClicked: article.mark(!article.unread, config, localstorage, true)
                 enabled: !article.inOperation
             }
             MenuItem {
+                //: Menu entry to share the link of an article
                 //% "Share"
                 text: qsTrId("fuoten-share")
                 enabled: article
                 onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": article.url.toString(), "shareTitle": article.title })
             }
             MenuItem {
+                //: Menu entry to open a single article in external browser
                 //% "Open in browser"
                 text: qsTrId("fuoten-open-in-browser")
                 onClicked: Qt.openUrlExternally(article.url)
@@ -92,6 +98,7 @@ Page {
             flickable: articleFlick
             visible: config.pushUpOnArticle
             MenuItem {
+                //: Menu entry on the article page to scroll back to the top of the page
                 //% "Scroll to top"
                 text: qsTrId("fuoten-scroll-to-top")
                 visible: articleFlick.contentHeight > articleFlick.height

@@ -49,6 +49,7 @@ Page {
         model: SharingMethodsModel {}
 
         header: PageHeader {
+            //: Page header for sharing a link
             //% "Share link"
             title: qsTrId("fuoten-share-link")
             page: sharingPage

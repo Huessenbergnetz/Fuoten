@@ -76,6 +76,7 @@ CoverBackground {
     Label {
         id: updateRunning
         color: Theme.highlightColor
+        //: Text on cover and in the menu indicating that synchronization is running
         //% "Synchronizing"
         text: qsTrId("fuoten-synchronizing")
         anchors { verticalCenter: parent.verticalCenter; left: parent.left; right: parent.right; leftMargin: Theme.horizontalPageMargin; rightMargin: Theme.horizontalPageMargin }

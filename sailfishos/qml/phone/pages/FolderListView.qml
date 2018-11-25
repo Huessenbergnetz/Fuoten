@@ -30,6 +30,8 @@ BaseListView {
 
     contextType: startPage ? FuotenApp.StartPage : FuotenApp.Folders
     inOperation: folderListModel.inOperation
+
+    //: Placeholder text on the folder list view if no folders have been found
     //% "No folders found"
     noContentText: qsTrId("fuoten-no-folders-found")
 
@@ -130,12 +132,10 @@ BaseListView {
         RemorseItem { id: folderListItemRemorse }
 
         function deleteFolder() {
-            //% "Deleting %1"
             folderListItemRemorse.execute(folderListItem, qsTrId("fuoten-deleting").arg(model.display.name), function() {model.display.remove(config, localstorage)})
         }
 
         function markFolderRead() {
-            //% "Marking %1 read"
             folderListItemRemorse.execute(folderListItem, qsTrId("fuoten-marking-read").arg(model.display.name), function() {model.display.markAsRead(config, localstorage, true)})
         }
 
@@ -143,19 +143,21 @@ BaseListView {
             id: folderContextMenu
             ContextMenu {
                 MenuItem {
+                    //: Context menu entry and dialog header to rename a folder
                     //% "Rename folder"
                     text: qsTrId("fuoten-rename-folder")
                     enabled: !model.display.inOperation
                     onClicked: pageStack.push(Qt.resolvedUrl("../../common/dialogs/RenameFolderDialog.qml"), {folder: model.display})
                 }
                 MenuItem {
+                    //: Entry in context menus and pull down/push up menus
                     //% "Mark folder read"
                     text: qsTrId("fuoten-mark-folder-read")
                     enabled: !model.display.inOperation && model.display.unreadCount > 0
                     onClicked: folderListItem.markFolderRead()
                 }
-
                 MenuItem {
+                    //: Menu entry to delete a folder
                     //% "Delete folder"
                     text: qsTrId("fuoten-delete-folder")
                     enabled: !model.display.inOperation

@@ -64,13 +64,13 @@ Page {
             spacing: Theme.paddingMedium
 
             PageHeader {
-                //% "Add feed"
                 title: qsTrId("fuoten-add-feed")
                 page: createFeedDialog
             }
 
             TextField {
                 width: parent.width
+                //: Label for a text input to set the URL of a new feed to add
                 //% "Feed address"
                 label: qsTrId("fuoten-feed-address"); placeholderText: label
                 enabled: !createFeed.inOperation

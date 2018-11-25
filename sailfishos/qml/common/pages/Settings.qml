@@ -45,6 +45,7 @@ Page {
             columns: Screen.sizeCategory < Screen.Large ? (settingsPage.isLandscape ? 2 : 1) : (settingsPage.isLandscape ? 4 : 2)
 
             PageHeader {
+                //: Menu entry and page header
                 //% "Settings"
                 title: qsTrId("id-settings")
                 page: settingsPage
@@ -53,6 +54,7 @@ Page {
             }
 
             SectionHeader {
+                //: Used as dialog and section header for displaying and configuring the user account
                 //% "User account"
                 text: qsTrId("id-user-account")
                 Layout.columnSpan: settingsGrid.columns
@@ -68,6 +70,7 @@ Page {
 
 
             SectionHeader {
+                //: Section header on the settings page
                 //% "Appearance"
                 text: qsTrId("id-appearance")
                 Layout.columnSpan: settingsGrid.columns
@@ -82,8 +85,10 @@ Page {
 
                 ComboBox {
                     id: langChoser
+                    //: Label for a combo box on the settings page to choose the application language
                     //% "Language"
                     label: qsTrId("id-lang-choser-label")
+                    //: Description for a combo box on the settings page to choose the application language
                     //% "To change the language, you have to restart the application."
                     description: qsTrId("id-lang-choser-desc")
                     menu: ContextMenu {
@@ -105,19 +110,23 @@ Page {
 
                 ComboBox {
                     id: mainContentChoser
+                    //: Label for a combo box on the settings page to select the content of the first applicatin page
                     //% "Main view content"
                     label: qsTrId("id-main-content-choser-label")
+                    //: Description for a combo box on the settings page to select the content of the first applicatin page
                     //% "Choose the content to display on the first application page."
                     description: qsTrId("id-main-content-choser-desc")
                     menu: ContextMenu {
                         MenuItem {
+                            //: Selectable value in the combo box on the settings page to select the main view content
                             //% "Feeds"
-                            text: qsTrId("id-feeds")
+                            text: qsTrId("fuoten-main-content-feeds")
                             readonly property int value: Fuoten.Feed
                         }
                         MenuItem {
+                            //: Selectable value in the combo box on the settings page to select the main view content
                             //% "Folders"
-                            text: qsTrId("id-folders")
+                            text: qsTrId("fuoten-main-content-folders")
                             readonly property int value: Fuoten.Folder
                         }
                     }
@@ -134,6 +143,7 @@ Page {
                 FontSizeSlider {
                     id: articleFontSizeSlider
                     width: parent.width
+                    //: Label for a slider on the settings page to select the font size for the internal view
                     //% "Font size used for internal article view"
                     label: qsTrId("fuoten-settings-article-font-size")
                     value: (config.articleFontSize > 0) ? config.articleFontSize : Theme.fontSizeSmall
@@ -142,6 +152,7 @@ Page {
             }
 
             SectionHeader {
+                //: section header on the settings page
                 //% "Behavior"
                 text: qsTrId("fuoten-settings-behavior-section")
                 Layout.columnSpan: settingsGrid.columns
@@ -155,8 +166,10 @@ Page {
 
                 ComboBox {
                     id: intervalChoser
+                    //: Label for a combo box on the the settings page to select the automatic update interval
                     //% "Update interval"
                     label: qsTrId("fuoten-settings-update-interval")
+                    //: Description for a combo box on the the settings page to select the automatic update interval
                     //% "Fuoten can perform pseudo backgrund updates by simply reacting to status changes of the user interface. Be aware that this approach will not perform real background updates while your device is sleeping."
                     description: qsTrId("fuoten-settings-update-interval-sailfish-desc")
                     menu: ContextMenu {
@@ -187,8 +200,10 @@ Page {
                     enabled: config.updateInterval > 0
                     automaticCheck: false
                     checked: config.wlanOnlyUpdate
+                    //: Label for a swith on the settings page
                     //% "Automatic synchronization only on WLAN"
                     text: qsTrId("fuoten-settings-wlan-only-updates")
+                    //: Description for a swith on the settings page
                     //% "If enabled, automatic pseudo background updates will only be performed if the device is connected to a WLAN."
                     description: qsTrId("fuoten-settings-wlan-only-updates-desc")
                     onClicked: {
@@ -209,8 +224,10 @@ Page {
                     id: enableNotificationsSwitch
                     automaticCheck: false
                     checked: config.notificationsEnabled
+                    //: Label for a swith on the settings page
                     //% "Enable notifications"
                     text: qsTrId("fuoten-settings-enable-notifications")
+                    //: Description for a swith on the settings page
                     //% "If enabled, Fuoten will show notifications when specific operations succeed or if errors occure. Most of this notifications will only be generated if the application is not the active one."
                     description: qsTrId("fuoten-settings-enable-notifications-desc")
                     onClicked: {
@@ -228,8 +245,10 @@ Page {
                     id: enablePushUpOnArticle
                     automaticCheck: false
                     checked: config.pushUpOnArticle
+                    //: Label for a swith on the settings page
                     //% "Show push up menu on article page"
                     text: qsTrId("fuoten-settings-pushuponarticle")
+                    //: Description for a swith on the settings page
                     //% "If enabled, article pages will have a push up menu on the end with the same content as the pull down menu for faster access after an article has been read."
                     description: qsTrId("fuoten-settings-pushuponarticle-desc")
                     onClicked: {

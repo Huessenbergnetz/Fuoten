@@ -50,7 +50,6 @@ Page {
             spacing: Theme.paddingMedium
 
             PageHeader {
-                //% "Create folder"
                 title: qsTrId("fuoten-create-folder")
                 page: createFolderDialog
             }
@@ -58,6 +57,7 @@ Page {
             TextField {
                 id: folderNameField
                 width: parent.width
+                //: Label and placeholder text for a text input to set the name for a new folder or to rename an existing folder
                 //% "New folder name"
                 label: qsTrId("fuoten-new-folder-name"); placeholderText: label
                 enabled: !createFolder.inOperation

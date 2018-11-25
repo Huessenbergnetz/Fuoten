@@ -121,7 +121,6 @@ Kirigami.ScrollablePage {
             actions: [
                 Kirigami.Action {
                     iconName: "edit-delete"
-                    //% "Delete feed"
                     tooltip: qsTrId("fuoten-delete-feed")
                 }
 

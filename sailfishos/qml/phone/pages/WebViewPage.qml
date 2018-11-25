@@ -77,37 +77,32 @@ Page {
                 PullDownMenu {
                     MenuItem {
                         text: article && article.starred
-                                //% "Remove from favorites"
                               ? qsTrId("fuoten-remove-from-favorites")
-                                //% "Add to favorites"
                               : qsTrId("fuoten-add-to-favorites")
                         onClicked: article.star(!article.starred, config, localstorage, true)
                         enabled: !article.inOperation
                     }
                     MenuItem {
                         text: article && article.unread
-                                //% "Mark as read"
                               ? qsTrId("fuoten-mark-item-as-read")
-                                //% "Mark as unread"
                               : qsTrId("fuoten-mark-item-as-unread")
                         onClicked: article.mark(!article.unread, config, localstorage, true)
                         enabled: !article.inOperation
                     }
 
                     MenuItem {
-                        //% "Share"
                         text: qsTrId("fuoten-share")
                         enabled: article
                         onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": article.url.toString(), "shareTitle": article.title })
                     }
 
                     MenuItem {
-                        //% "Open in browser"
                         text: qsTrId("fuoten-open-in-browser")
                         onClicked: Qt.openUrlExternally(article.url)
                     }
 
                     MenuItem {
+                        //: Menu entry on the web view to go back to the previous appliction page
                         //% "Back"
                         text: qsTrId("fuoten-back")
                         onClicked: pageStack.navigateBack(PageStackAction.Animated)

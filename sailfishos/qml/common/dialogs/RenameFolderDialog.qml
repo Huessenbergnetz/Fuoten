@@ -42,7 +42,6 @@ Dialog {
 
         DialogHeader {
             id: dHeader
-            //% "Rename folder"
             acceptText: qsTrId("fuoten-rename-folder")
             dialog: renameFolderDialog
             flickable: renameFolderDialogFlick
@@ -57,7 +56,6 @@ Dialog {
             TextField {
                 id: newNameField
                 width: parent.width
-                //% "New folder name"
                 label: qsTrId("fuoten-new-folder-name"); placeholderText: label
                 text: folder ? folder.name : ""
                 EnterKey.enabled: renameFolderDialog.canAccept
