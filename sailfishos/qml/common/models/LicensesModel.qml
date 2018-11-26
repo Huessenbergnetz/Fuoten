@@ -51,7 +51,7 @@ ListModel {
         license: "Creative Commons Attribution 4.0 International Public License"
         licenseFile: "CC-BY-4_0.qml"
         licenseWebsite: "https://github.com/Huessenbergnetz/Fuoten/blob/master/LICENSE.translations"
-        website: "https://www.transifex.com/buschtrommel/fuoten"
+        website: "https://www.transifex.com/huessenbergnetz/fuoten"
     }
 
     ListElement {
