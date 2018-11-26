@@ -93,8 +93,8 @@ ListModel {
 
         //: contributor role
         //% "Danish translation"
-        contModel.get(3).role = qsTrId("fuoten-flywheeldk-role")
-        contModel.get(3).section = qsTrId("fuotn-thanks-to-section")
+        contModel.get(4).role = qsTrId("fuoten-flywheeldk-role")
+        contModel.get(4).section = qsTrId("fuotn-thanks-to-section")
     }
 }
 
