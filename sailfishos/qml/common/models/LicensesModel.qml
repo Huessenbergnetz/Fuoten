@@ -27,9 +27,10 @@ ListModel {
     ListElement {
         name: "libfuoten"
         author: "Matthias Fehring"
-        version: "0.6.1"
+        version: "0.7.1"
         license: "GNU Lesser General Public License, Version 3"
         licenseFile: "LGPLv3.qml"
+        licenseWebsite: "https://github.com/Huessenbergnetz/libfuoten/blob/master/LICENSE"
         website: "https://github.com/Huessenbergnetz/libfuoten"
         description: ""
     }
@@ -40,6 +41,7 @@ ListModel {
         version: "1.3.0"
         license: "Modified BSD License"
         licenseFile: "BSD-3.qml"
+        licenseWebsite: "https://github.com/Huessenbergnetz/HBN_SFOS_Components/blob/master/LICENSE"
         website: "https://github.com/Huessenbergnetz/HBN_SFOS_Components"
         description: ""
     }
@@ -49,6 +51,7 @@ ListModel {
         author: "Fuoten Translators"
         license: "Creative Commons Attribution 4.0 International Public License"
         licenseFile: "CC-BY-4_0.qml"
+        licenseWebsite: "https://github.com/Huessenbergnetz/Fuoten/blob/master/LICENSE.translations"
         website: "https://www.transifex.com/buschtrommel/fuoten"
     }
 
@@ -57,6 +60,7 @@ ListModel {
         author: "Martin Grimme"
         license: "GNU General Public License, Version 2"
         licenseFile: "GPLv2.qml"
+        licenseWebsite: "https://github.com/pycage/tidings/blob/master/LICENSE"
         website: "https://github.com/pycage/tidings"
     }
 
@@ -65,6 +69,7 @@ ListModel {
         author: "The Qt Company"
         license: "GNU Lesser General Public License, Version 3"
         licenseFile: "LGPLv3.qml"
+        licenseWebsite: "https://www.qt.io/licensing/"
         website: "https://www.qt.io/"
     }
 
