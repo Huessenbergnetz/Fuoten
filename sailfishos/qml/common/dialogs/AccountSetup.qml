@@ -1,9 +1,8 @@
 /* Fuoten - ownCloud/Nextcloud News App Client
- * Copyright (C) 2016 Buschtrommel/Matthias Fehring
- * https://www.buschmann23.de/entwicklung/anwendungen/fuoten/
- * https://github.com/Buschtrommel/Fuoten
+ * Copyright (C) 2016-2018 Huessenbergnetz/Matthias Fehring
+ * https://github.com/Huessenbergnetz/Fuoten
  *
- * sailfishos/qml/phone/pages/MainPage.qml
+ * sailfishos/qml/common/dialogs/AccountSetup.qml
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

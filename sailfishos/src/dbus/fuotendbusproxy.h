@@ -1,7 +1,6 @@
 /* Fuoten - ownCloud/Nextcloud News App Client
- * Copyright (C) 2017 Buschtrommel/Matthias Fehring
- * https://www.buschmann23.de/entwicklung/anwendungen/fuoten/
- * https://github.com/Buschtrommel/Fuoten
+ * Copyright (C) 2016-2018 Huessenbergnetz/Matthias Fehring
+ * https://github.com/Huessenbergnetz/Fuoten
  *
  * sailfishos/src/dbus/fuotendbusproxy.h
  *
