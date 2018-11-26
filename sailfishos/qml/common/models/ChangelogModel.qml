@@ -34,6 +34,7 @@ ListModel {
         date: 1543256057000
         entries: [
             ListElement { type: 3; issue: ""; description: "maintenance update for sixth preview release" },
+            ListElement { type: 0; issue: ""; description: "support compressed server responses (gzip and deflate)" },
             ListElement { type: 0; issue: ""; description: "French translation by Antoine Vacher" },
             ListElement { type: 1; issue: ""; description: "use icons fitting to the current screen pixel ratio" },
             ListElement { type: 1; issue: ""; description: "add an option to disable the push up menu on article page and hide it by default" },

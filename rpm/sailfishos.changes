@@ -8,9 +8,18 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Mon Nov 26 2018 Matthias Fehring <> 0.6.3-1
+- info: maintenance for sixth preview release
+- new: French translation by Antoine Vacher
+- new: support compresses server responses (gzip and deflate)
+- improved: use icons fitting to the current screen pixel ratio
+- improved: add an option to disable the push up menu on article page and hide it by default
+- improved: set default request timeout to 300 seconds to improve reliablitiy for long running remote actions like marking many articles as read
+- fixed: mark all items as read
+
 * Mon Nov  6 2017 Matthias Fehring <> 0.6.2-1
-* info: maintenance for sixth preview release
-* fixed: wrong association to startup wizard account page scroll decorator flickable property
+- info: maintenance for sixth preview release
+- fixed: wrong association to startup wizard account page scroll decorator flickable property
 
 * Fri Oct 27 2017 Matthias Fehring <> 0.6.1-1
 - info: maintenance for sixth preview release
