@@ -31,6 +31,19 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.6.3"
+        date: 1543256057000
+        entries: [
+            ListElement { type: 3; issue: ""; description: "maintenance update for sixth preview release" },
+            ListElement { type: 0; issue: ""; description: "French translation by Antoine Vacher" },
+            ListElement { type: 1; issue: ""; description: "use icons fitting to the current screen pixel ratio" },
+            ListElement { type: 1; issue: ""; description: "add an option to disable the push up menu on article page and hide it by default" },
+            ListElement { type: 1; issue: ""; description: "set default request timeout to 300 seconds to improve reliablitiy for long running remote actions like marking many articles as read" },
+            ListElement { type: 2; issue: "40"; description: "mark all items as read" }
+        ]
+    }
+
+    ListElement {
         version: "0.6.2"
         date: 1509958611000
         entries: [
