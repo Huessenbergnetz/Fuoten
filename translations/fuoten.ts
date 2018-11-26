@@ -799,6 +799,7 @@
     </message>
     <message id="fuoten-clipboad-sharing">
         <source>Clipboard</source>
+        <extracomment>name for the pseudo sharing method to copy a link to the clipboard</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-update-interval-disabled">
@@ -843,22 +844,27 @@
     </message>
     <message id="fuoten-default-jolla-webkit-useragent">
         <source>Default Jolla Webkit</source>
+        <extracomment>name of a user agent for the internal web view</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-alternative-jolla-webkit-useragent">
         <source>Alternative Jolla Webkit</source>
+        <extracomment>name of a user agent for the internal web view</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-fatal-error-failed-data-dir">
         <source>Failed to create the data directory.</source>
+        <extracomment>error message</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-fatal-error-failed-cache-dir">
         <source>Failed to create the cache directory.</source>
+        <extracomment>error message</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-fatal-error-failed-qmlcache-dir">
         <source>Failed to create the qml cache directory.</source>
+        <extracomment>error message</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-notify-general-error-summary">
@@ -1164,6 +1170,7 @@
     <message id="fuoten-fatal-error-failed-dbus-dir">
         <source>Failed to create user D-Bus directory.</source>
         <oldsource>Failed to create user D-BUS directory.</oldsource>
+        <extracomment>error message</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-file">
@@ -1173,19 +1180,22 @@
     </message>
     <message id="fuoten-fatal-error-failed-dbus-connection">
         <source>Failed to connect to D-Bus session bus.</source>
+        <extracomment>error message</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-reload-config">
         <source>Failed to reload D-Bus session bus configuration.</source>
+        <extracomment>error message</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-service-register">
         <source>Failed to register D-Bus service.</source>
+        <extracomment>error message</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-object-register">
         <source>Failed to register D-Bus object “%1”.</source>
-        <extracomment>%1 will be replaced by the class name of the D-Bus adaptor</extracomment>
+        <extracomment>error message, %1 will be replaced by the class name of the D-Bus adaptor</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-tigrebleu-role">
