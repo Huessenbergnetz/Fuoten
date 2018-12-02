@@ -20,6 +20,9 @@ a web based translation platform.
 If you do not want to use Transifex, you can also fork Fuoten and submit your translation view pull
 requests.
 
+When writing translations and your target language uses a [T–V distinction](https://en.wikipedia.org/wiki/T–V_distinction),
+like Sie and Du in German, please use formal/respectful variant.
+
 Translations for Fuoten are released under the terms of the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/).
 By creating translations for Fuoten you accept that your translation will be published under
 the terms of this license.
