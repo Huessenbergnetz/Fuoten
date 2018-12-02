@@ -3,12 +3,7 @@ ownCloud / Nextcloud News App client for [Sailfish OS](https://sailfishos.org/) 
 that uses [libfuoten](https://github.com/Huessenbergnetz/libfuoten).
 
 ## Contributing
-### Translations
-Translation is done on Transifex. If you want to help translating Fuoten, please consider also to help translating libfuoten and
-BT SFOS Components, as both are used by Fuoten.
-* [Fuoten](https://www.transifex.com/buschtrommel/fuoten)
-* [libfuoten](https://www.transifex.com/buschtrommel/libfuoten)
-* [BT SFOS Components](https://www.transifex.com/buschtrommel/bt-sfos-components)
+Thanks for your interest in contributing! There are many ways to contribute to this project. Get started [here](https://github.com/Huessenbergnetz/Fuoten/blob/master/CONTRIBUTINNG.md).
 
 ## Sailfish OS building instructions
 To build Fuoten for Sailfish OS, you need the [Sailfish OS Application SDK](https://sailfishos.org/wiki/Application_SDK).
@@ -20,7 +15,7 @@ At first you have to clone this repository including all submodules (libfuoten, 
 Now open the *Fuoten.pro* project file in the SDK and configure your build targets. For every build target
 you have to specify the following additional *qmake arguments* (can be done on the Projects page of the Qt Creator).
 
-    CONFIG+=sfos CONFIG+=no_install_dev_files INSTALL_LIB_DIR=/usr/share/harbour-fuoten/lib INSTALL_TRANSLATIONS_DIR=/usr/share/harbour-fuoten/l10n BTSC_APP_NAME=fuoten
+    CONFIG+=sfos CONFIG+=no_install_dev_files INSTALL_LIB_DIR=/usr/share/harbour-fuoten/lib INSTALL_TRANSLATIONS_DIR=/usr/share/harbour-fuoten/l10n
     
 To create the translations, run the following script inside the Fuoten repository base directory:
 
@@ -30,7 +25,7 @@ Now you are ready to build and run Fuoten on your Sailfish OS device or in the e
 
 ## License
 Fuoten - ownCloud/Nextcloud News App Client  
-Copyright (C) 2016-2017 Matthias Fehring  
+Copyright (C) 2016-2018 Hüssenbergnetz/Matthias Fehring
 https://github.com/Huessenbergnetz/Fuoten
 
 This program is free software: you can redistribute it and/or modify  
