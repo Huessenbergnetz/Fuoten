@@ -1,0 +1,104 @@
+Fuoten 0.6.3 - 2018-11-26
+- SailfishOS
+  * note: maintenance update for sixth preview release
+  * new: support compressed server responses (gzip and deflate)
+  * improved: use icons fitting the current screen pixel ratio
+  * improved: add an option to disable the push up menu on article page and hide it by default
+  * improved: set default request timeout to 300 seconds to improve reliability for long running
+    remote actions like marking articles as read
+  * fixed: mark all items as read (#40)
+- General
+  * new: French translation by Antoine Vacher
+
+Fuoten 0.6.2 - 2017-11-06
+- SailfishOS
+  * note: maintenance update for sixth preview release
+  * fixed: wrong association to startup wizard account page scroll decorator flickable property (#39)
+
+Fuoten 0.6.1 - 2017-10-27
+- SailfishOS
+  * note: maintenance update for sixth preview release
+  * improved: add cover action to copy article link to clipboard
+  * improved: add share entry to article push up menu
+  * fixed: initial synchronization fails (#38)
+
+Fuoten 0.6.0 - 2017-10-27
+- SailfishOS
+  * note: sixth preview release
+  * new: use notifications to notify about succeeded tasks and occuring errors (#36)
+  * new: pseudo background updates that synchronize with the server activated by user interaction (#25)
+  * new: share links with the SailfishOS sharing mechanism
+  * new: settings for font sizes in internal view and internal web view
+  * improved: store the ownCloud/Nextcloud password AES256 encrypted
+  * improved: navigation buttons for the internal web view (#21)
+  * improved: show information about current article on the cover (#31)
+  * improved: user agent for the web view is now selectable on a per feed setting
+  * fixed: remorse item on feed entry in folder fiew destroys the layout (#30)
+  * fixed: long feed and folder names crash the application (#37)  
+
+Fuoten 0.5.2 - 2017-03-19
+- SailfishOS
+  * note: maintenance update for fifth preview release
+  * fixed: scroll to top does not work on article view (#35)
+- General
+  * new: Dutch translation by Nathan Follens
+
+Fuoten 0.5.1 - 2017-01-29
+- SailfishOS
+  * note: maintenance update for fifth preview release
+  * fixed: clicking a link in an article does nothing (#34)
+- General
+  * improved: translation updates
+
+Fuoten 0.5.0 - 2016-11-22
+- SailfishOS
+  * note: fifth preview release
+  * new: cover information and cover action (#22)
+  * new: per feed storage cleanup (#26)
+  * new: notification and progress ares (#28)
+  * improved: feed icon (#33)
+  * improved: request items after adding feeds (#29)
+- General
+  * improved: translation updates
+
+Fuoten 0.4.0 - 2016-11-10
+- SailfishOS
+  * note: fourth preview release
+  * new: show last sync time in pull down menu (#24)
+  * new: copy article url to clipboard menu entry (#23)
+  * new: article content display (#15)
+  * new: context setting for article opening (#19)
+  * new: mark all articles as read (#18)
+  * new: optional article excerpt in the article list (#20)
+- General
+  * new: Swedish translation by Åke Engelbrektson
+
+Fuoten 0.3.0 - 2016-11-07
+- SailfishOS
+  * note: third preview release
+  * new: article list (#14)
+  * new: mark articles as read/unread (#16)
+  * new: star/unstar articles (#17)
+- General
+  * new: partly Danish translation by Peter Jespersen
+
+Fuoten 0.2.0 - 2016-11-02
+- SailfishOS
+  * note: second preview release
+  * new: feeds list view (#6)
+  * new: feeds list sorting (#8)
+  * new: mark feeds as read (#12)
+  * new: move feeds (#11)
+  * new: add feeds (#9)
+  * new: delete feeeds (#13)
+  * new: rename feeds (#10)
+
+Fuoten 0.1.0 - 2016-10-28
+- SailfishOS
+  * note: first preview release
+  * new: folder list view (#1)
+  * new: folder list sorting (#7)
+  * new: delete folders (#3)
+  * new: create folders (#2)
+  * new: rename folders (#4)
+  * new: mark folders as read (#5)
