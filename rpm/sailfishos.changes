@@ -8,6 +8,11 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Tue Dec 04 2018 Matthias Fehring <> 0.6.4-1
+- note: maintenance update for sixth preview release
+- fixed: text that is too long destroys the layout (#43)
+- fixed: renaming dialogs are not accepted on enter key (#45)
+
 * Mon Nov 26 2018 Matthias Fehring <> 0.6.3-1
 - info: maintenance for sixth preview release
 - new: French translation by Antoine Vacher
