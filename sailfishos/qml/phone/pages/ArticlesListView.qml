@@ -219,12 +219,20 @@ BaseListView {
                         visible: articlesListView.contextType !== FuotenApp.FeedItems
                     }
 
-                    Text {
-                        text: display.feedTitle
-                        textFormat: Text.PlainText
-                        color: Theme.secondaryHighlightColor
-                        font.pixelSize: Theme.fontSizeTiny
-                        visible: articlesListView.contextType !== FuotenApp.FeedItems
+                    Item {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: feedName.height
+                        Label {
+                            id: feedName
+                            width: parent.width
+                            text: display.feedTitle
+                            textFormat: Text.PlainText
+                            color: Theme.secondaryHighlightColor
+                            font.pixelSize: Theme.fontSizeTiny
+                            visible: articlesListView.contextType !== FuotenApp.FeedItems
+                            truncationMode: TruncationMode.Fade
+                            maximumLineCount: 1
+                        }
                     }
                 }
             }
