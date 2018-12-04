@@ -59,8 +59,8 @@ Dialog {
                 text: folder ? folder.name : ""
                 EnterKey.enabled: renameFolderDialog.canAccept
                 EnterKey.iconSource: "image://theme/icon-m-enter-accept"
+                EnterKey.onClicked: renameFolderDialog.accept()
                 onTextChanged: renameFolderDialog.newName = text.trim()
-
             }
         }
     }

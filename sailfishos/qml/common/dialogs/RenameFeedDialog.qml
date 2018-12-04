@@ -61,6 +61,7 @@ Dialog {
                 text: feed ? feed.title : ""
                 EnterKey.enabled: renameFeedDialog.canAccept
                 EnterKey.iconSource: "image://theme/icon-m-enter-accept"
+                EnterKey.onClicked: renameFeedDialog.accept()
                 onTextChanged: renameFeedDialog.newName = text.trim()
             }
         }
