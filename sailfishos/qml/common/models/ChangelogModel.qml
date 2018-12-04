@@ -30,6 +30,16 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.6.4"
+        date: 1543914907000
+        entries: [
+            ListElement { type: 3; issue: ""; description: "maintenance update for sixth preview release" },
+            ListElement { type: 2; issue: "43"; description: "text that is too long destroys the layout" },
+            ListElement { type: 2; issue: "45"; description: "renaming dialogs are not accepted on enter key" }
+        ]
+    }
+
+    ListElement {
         version: "0.6.3"
         date: 1543256057000
         entries: [
