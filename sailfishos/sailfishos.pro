@@ -114,7 +114,6 @@ DISTFILES += \
     qml/common/parts/FontSizeSlider.qml
 
 HEADERS += \
-    src/fuoteniconprovider.h \
     src/sharing/sharingmethod.h \
     src/sharing/sharingmethod_p.h \
     src/sharing/sharingmethodsmodel.h \

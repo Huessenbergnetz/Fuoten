@@ -81,7 +81,6 @@
 #include "../../common/contextconfig.h"
 #include "../../common/updateintervalmodel.h"
 
-#include "fuoteniconprovider.h"
 #include "hbnsciconprovider.h"
 #include "sharing/sharingmethodsmodel.h"
 #include "dbus/fuotendbusadaptor.h"
@@ -392,7 +391,7 @@ int main(int argc, char *argv[])
     QScopedPointer<QQuickView> view(new QQuickView);
 #endif
     QScopedPointer<Hbnsc::HbnscIconProvider> hbnscIconProvider(new Hbnsc::HbnscIconProvider(view->engine()));
-    view->engine()->addImageProvider(QStringLiteral("fuoten"), new FuotenIconProvider(iconsDir));
+    QScopedPointer<Hbnsc::BaseIconProvider> fuotenIconProvider(new Hbnsc::BaseIconProvider({1.0,1.25,1.5,1.75,2.0}, QString(), false, QStringLiteral("fuoten"), view->engine()));
     view->engine()->setNetworkAccessManagerFactory(namFactory.data());
 
     auto dbusproxy = new FuotenDbusProxy(app.data());
