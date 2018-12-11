@@ -216,40 +216,10 @@ int main(int argc, char *argv[])
         }
     }
 
-    QString iconsDir;
-    {
-#ifndef CLAZY
-        const qreal pixelRatio = Silica::Theme::instance()->pixelRatio();
-//        const bool largeScreen = Silica::Screen::instance()->sizeCategory() >= Silica::Screen::Large;
-        const bool largeScreen = false;
-#else
-        const qreal pixelRatio = 1.0;
-        const bool largeScreen = false;
-        Q_UNUSED(largeScreen)
-#endif
-
-        qreal nearestScale = 1.0;
-        qreal lastDiff = 999.0;
-        for (const qreal currentScale : {1.0, 1.25, 1.5, 1.75, 2.0}) {
-            const qreal diff = std::abs(currentScale - pixelRatio);
-            if (diff < lastDiff) {
-                nearestScale = currentScale;
-                lastDiff = diff;
-            }
-            if (lastDiff == 0.0) {
-                break;
-            }
-        }
-#ifndef CLAZY
-        iconsDir = SailfishApp::pathTo(QStringLiteral("icons/z")).toString(QUrl::RemoveScheme|QUrl::StripTrailingSlash) % QString::number(nearestScale) % (largeScreen ? QStringLiteral("-large") : QStringLiteral("/"));
-#endif
-    }
-    qDebug("Loading icons from %s", qUtf8Printable(iconsDir));
-
     qRegisterMetaType<Fuoten::IdList>("Fuoten::IdList");
     qRegisterMetaType<Fuoten::ArticleList>("Fuoten::ArticleList");
 
-    auto notificator = new SfosNotificator(config, iconsDir, app.data());
+    auto notificator = new SfosNotificator(config, app.data());
 
     QObject::connect(app.data(), &QGuiApplication::applicationStateChanged, notificator, [notificator](Qt::ApplicationState state) {
         notificator->setEnabled(state != Qt::ApplicationActive);
