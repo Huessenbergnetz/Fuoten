@@ -388,10 +388,10 @@ int main(int argc, char *argv[])
 
 #ifndef CLAZY
     QScopedPointer<QQuickView> view(SailfishApp::createView());
-    view->engine()->addImageProvider(QStringLiteral("hbnsc"), new HbnscIconProvider({1.0, 1.25, 1.5, 1.75, 2.0}, Silica::Theme::instance()->pixelRatio(), false));
 #else
     QScopedPointer<QQuickView> view(new QQuickView);
 #endif
+    QScopedPointer<Hbnsc::HbnscIconProvider> hbnscIconProvider(new Hbnsc::HbnscIconProvider(view->engine()));
     view->engine()->addImageProvider(QStringLiteral("fuoten"), new FuotenIconProvider(iconsDir));
     view->engine()->setNetworkAccessManagerFactory(namFactory.data());
 

@@ -33,7 +33,8 @@ AboutPage {
     //% "Client for the ownCloud/Nextcloud News App."
     appDescription: qsTrId("about-desc")
     appHomepage: "https://github.com/Huessenbergnetz/Fuoten"
-    appCopyrightYear: "2016-2018"
+    appCopyrightYearFrom: "2016"
+    appCopyrightYearTo: "2018"
     appCopyrightHolder: "Matthias Fehring"
     appLicense: "GNU General Public License, Version 3"
     appLicenseFile: "GPLv3.qml"
