@@ -190,7 +190,7 @@
     <message id="fuoten-settings-wlan-only-updates-desc">
         <source>If enabled, automatic pseudo background updates will only be performed if the device is connected to a WLAN.</source>
         <extracomment>Description for a swith on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Hvis aktiveret, vil automatiske pseudo baggrundsopdateringer kun blive udført når enheden er forbundet til et WLAN.</translation>
     </message>
     <message id="id-about">
         <source>About</source>
@@ -260,7 +260,7 @@
     <message id="fuoten-privacy-1">
         <source>To log in to your ownCloud/Nextcloud server, Fuoten requires your server address, username and password. This data will only be stored on your device and will not be passed on to the author of Fuoten or any other third party other than the operator of your server.</source>
         <oldsource>In order to log in to your ownCloud/Nextcloud server, Fuoten collects the server address, your user name and your password. These information is only saved on your device and is not given to the author of Fuoten or other third parties.</oldsource>
-        <translation type="unfinished"/>
+        <translation>For at logge ind på din egenCloud / Nextcloud server kræver Fuoten din serveradresse, brugernavn og adgangskode. Disse data gemmes kun på din enhed og vil ikke blive videregivet til udvikleren af ​​Fuoten eller nogen anden tredjepart end operatøren af ​​din server.</translation>
     </message>
     <message id="fuoten-privacy-2">
         <source>What does Fuoten use your information for?</source>
@@ -273,12 +273,12 @@
     <message id="fuoten-privacy-4">
         <source>Does Fuoten disclose any information to outside parties?</source>
         <oldsource>Does ocNews disclose any information to outside parties?</oldsource>
-        <translation type="unfinished"/>
+        <translation>Videregiver Fuoten nogen oplysninger videre til tredjepart?</translation>
     </message>
     <message id="fuoten-privacy-5">
         <source>Fuoten uses your data only for the login process on the server you have set in the settings. Fuoten does not send this data to the author of Fuoten or to other third parties - except to the operator of your server. Questions regarding data protection on the server side should be directed to the operator of your server.</source>
         <oldsource>Fuoten only uses your data for the login process into the server that you configure in the settings. Fuoten does not send these data to the author of Fuoten or other third parties. For questions concerning the privacy on the server side, you have to contact your ownCloud/Nextcloud service provider.</oldsource>
-        <translation type="unfinished"/>
+        <translation>Fuoten bruger kun din data til loginprocessen på den server, du har angivet i indstillingerne. Fuoten sender ikke din data til udvikleren af ​​Fuoten eller anden tredjepart - med undtagelse af operatøren af ​​din server. Spørgsmål vedrørende databeskyttelse på serversiden skal rettes til operatøren af ​​din server.</translation>
     </message>
     <message id="fuoten-privacy-6">
         <source>Third party links</source>
@@ -773,6 +773,7 @@
     </message>
     <message id="fuoten-clipboad-sharing">
         <source>Clipboard</source>
+        <extracomment>name for the pseudo sharing method to copy a link to the clipboard</extracomment>
         <translation>Udklipsholder</translation>
     </message>
     <message id="fuoten-update-interval-disabled">
@@ -817,23 +818,28 @@
     </message>
     <message id="fuoten-default-jolla-webkit-useragent">
         <source>Default Jolla Webkit</source>
+        <extracomment>name of a user agent for the internal web view</extracomment>
         <translation>Standard Jolla Webkit</translation>
     </message>
     <message id="fuoten-alternative-jolla-webkit-useragent">
         <source>Alternative Jolla Webkit</source>
+        <extracomment>name of a user agent for the internal web view</extracomment>
         <translation>Alternativt Jolla Webkit</translation>
     </message>
     <message id="fuoten-fatal-error-failed-data-dir">
         <source>Failed to create the data directory.</source>
-        <translation type="unfinished"/>
+        <extracomment>error message</extracomment>
+        <translation>Kan ikke oprette databiblioteket.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-cache-dir">
         <source>Failed to create the cache directory.</source>
-        <translation type="unfinished"/>
+        <extracomment>error message</extracomment>
+        <translation>Kan ikke oprette cachebiblioteket.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-qmlcache-dir">
         <source>Failed to create the qml cache directory.</source>
-        <translation type="unfinished"/>
+        <extracomment>error message</extracomment>
+        <translation>Kan ikke oprette qml cachebiblioteket.</translation>
     </message>
     <message id="fuoten-notify-general-error-summary">
         <source>General error</source>
@@ -853,12 +859,12 @@
     <message id="fuoten-notify-input-error-summary">
         <source>Input error</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Fejl i Inddata</translation>
     </message>
     <message id="fuoten-notify-output-error-summary">
         <source>Output error</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Fejl i Uddata</translation>
     </message>
     <message id="fuoten-notify-server-error-summary">
         <source>Server error</source>
@@ -888,12 +894,12 @@
     <message id="fuoten-notify-folders-requested-body-new" numerus="yes">
         <source>New folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Ny folder: %1</numerusform><numerusform>Nye foldere: %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-body-renamed" numerus="yes">
         <source>Renamed folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Omdøbt folder: %1</numerusform><numerusform>Omdøbte folder(e): %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-body-deleted" numerus="yes">
         <source>Deleted folder(s): %1</source>
@@ -1028,7 +1034,7 @@
     <message id="fuoten-notify-items-requested-summary">
         <source>Articles requested</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Henter artikler</translation>
     </message>
     <message id="fuoten-notify-items-requested-prev-body" numerus="yes">
         <source>%n new unread article(s).</source>
@@ -1038,7 +1044,7 @@
     <message id="fuoten-notify-items-requested-body" numerus="yes">
         <source>Successfully requested articles from the server. There are %n new unread article(s).</source>
         <extracomment>notification area body text</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Har hentet %n ny ulæst artikel fra serveren.</numerusform><numerusform>Har hentet %n nye ulæste artikler fra serveren.</numerusform></translation>
     </message>
     <message id="fuoten-notify-feeds-requested-prev-body-new" numerus="yes">
         <source>%n new</source>
@@ -1073,12 +1079,12 @@
     <message id="fuoten-notify-synccomplete-body" numerus="yes">
         <source>Synchronization succeeded in %n second(s).</source>
         <extracomment>body notification message for both, notification popup and notification area</extracomment>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Synkronisering udført på %n sekund(er)</numerusform><numerusform>Synkronisering udført på %n sekunder</numerusform></translation>
     </message>
     <message id="fuoten-notify-authorization-error-summary">
         <source>Authorization error</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Godkendelsesfejl</translation>
     </message>
     <message id="fuoten-settings-enable-notifications">
         <source>Enable notifications</source>
@@ -1088,64 +1094,68 @@
     <message id="fuoten-settings-enable-notifications-desc">
         <source>If enabled, Fuoten will show notifications when specific operations succeed or if errors occure. Most of this notifications will only be generated if the application is not the active one.</source>
         <extracomment>Description for a swith on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Hvis aktiveret, vil Fuoten vise meddelelser, når bestemte operationer lykkes eller hvis der opstår fejl. De fleste af disse meddelelser genereres kun, hvis Fuoten ikke er det aktive program..</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-dir">
         <source>Failed to create user D-Bus directory.</source>
         <oldsource>Failed to create user D-BUS directory.</oldsource>
-        <translation type="unfinished"/>
+        <extracomment>error message</extracomment>
+        <translation>Kunne ikke oprette D-Bus bibliotek.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-file">
         <source>Failed to open D-Bus service file for writing.</source>
         <oldsource>Failed to open D-BUS service file for writing.</oldsource>
-        <translation type="unfinished"/>
+        <translation>Kunne ikke skrive til D-Bus servicefil.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-connection">
         <source>Failed to connect to D-Bus session bus.</source>
-        <translation type="unfinished"/>
+        <extracomment>error message</extracomment>
+        <translation>Kan ikke forbinde til D-Bus sessionsbussen.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-reload-config">
         <source>Failed to reload D-Bus session bus configuration.</source>
-        <translation type="unfinished"/>
+        <extracomment>error message</extracomment>
+        <translation>Kan ikke genindlæse D-Bus indstillingerne.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-service-register">
         <source>Failed to register D-Bus service.</source>
+        <extracomment>error message</extracomment>
         <translation>Kan ikke registrere D-Bus tjeneste</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-object-register">
         <source>Failed to register D-Bus object “%1”.</source>
-        <extracomment>%1 will be replaced by the class name of the D-Bus adaptor</extracomment>
+        <extracomment>error message, %1 will be replaced by the class name of the D-Bus adaptor</extracomment>
         <translation>Kan ikke registrere D-Bus objekt “%1”.</translation>
     </message>
     <message id="fuoten-tigrebleu-role">
         <source>French translation</source>
         <extracomment>contributor role</extracomment>
-        <translation type="unfinished"/>
+        <translation>Fransk oversættelse</translation>
     </message>
     <message id="fuoten-settings-pushuponarticle">
         <source>Show push up menu on article page</source>
         <extracomment>Label for a swith on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Vis topmenu på artikelsiden</translation>
     </message>
     <message id="fuoten-settings-pushuponarticle-desc">
         <source>If enabled, article pages will have a push up menu on the end with the same content as the pull down menu for faster access after an article has been read.</source>
         <extracomment>Description for a swith on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Hvis aktiveret, vil artikelsiderne have en bundmenu, der indeholder de samme menupunkter som topmenuen.</translation>
     </message>
     <message id="hbnsfoscmops-desc">
         <source>HBN SFOS Components are a set of QML components for Sailfish OS.</source>
         <extracomment>Description of a used 3rd party component</extracomment>
-        <translation type="unfinished"/>
+        <translation>HBN SFOS Components er et sæt QML-komponenter til Sailfish OS.</translation>
     </message>
     <message id="fuoten-main-content-feeds">
         <source>Feeds</source>
         <extracomment>Selectable value in the combo box on the settings page to select the main view content</extracomment>
-        <translation type="unfinished"/>
+        <translation>Feeds</translation>
     </message>
     <message id="fuoten-main-content-folders">
         <source>Folders</source>
         <extracomment>Selectable value in the combo box on the settings page to select the main view content</extracomment>
-        <translation type="unfinished"/>
+        <translation>Mapper</translation>
     </message>
 </context>
 </TS>

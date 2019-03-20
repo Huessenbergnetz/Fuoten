@@ -260,7 +260,7 @@
     <message id="fuoten-privacy-1">
         <source>To log in to your ownCloud/Nextcloud server, Fuoten requires your server address, username and password. This data will only be stored on your device and will not be passed on to the author of Fuoten or any other third party other than the operator of your server.</source>
         <oldsource>In order to log in to your ownCloud/Nextcloud server, Fuoten collects the server address, your user name and your password. These information is only saved on your device and is not given to the author of Fuoten or other third parties.</oldsource>
-        <translation type="unfinished"/>
+        <translation>Om in te loggen bij je ownCloud/Nextcloud-server verzamelt Fuoten het serveradres, je gebruikersnaam en je wachtwoord. Deze informatie wordt enkel op je apparaat opgeslagen en wordt niet gedeeld met de auteur van Fuoten of andere derde partijen, behalve de uitbater van je server.</translation>
     </message>
     <message id="fuoten-privacy-2">
         <source>What does Fuoten use your information for?</source>
@@ -273,12 +273,12 @@
     <message id="fuoten-privacy-4">
         <source>Does Fuoten disclose any information to outside parties?</source>
         <oldsource>Does ocNews disclose any information to outside parties?</oldsource>
-        <translation type="unfinished"/>
+        <translation>Onthult ocNews informatie aan derde partijen?</translation>
     </message>
     <message id="fuoten-privacy-5">
         <source>Fuoten uses your data only for the login process on the server you have set in the settings. Fuoten does not send this data to the author of Fuoten or to other third parties - except to the operator of your server. Questions regarding data protection on the server side should be directed to the operator of your server.</source>
         <oldsource>Fuoten only uses your data for the login process into the server that you configure in the settings. Fuoten does not send these data to the author of Fuoten or other third parties. For questions concerning the privacy on the server side, you have to contact your ownCloud/Nextcloud service provider.</oldsource>
-        <translation type="unfinished"/>
+        <translation>Fuoten gebruikt je gegevens enkel voor het inloggen bij de server die je hebt ingesteld. Fuoten stuurt deze gegevens niet door naar de auteur van Fuoten of andere derde partijen. Voor vragen omtrent de privacy aan serverzijde dien je contact op te nemen met de dienstprovider van je server.</translation>
     </message>
     <message id="fuoten-privacy-6">
         <source>Third party links</source>
@@ -773,6 +773,7 @@
     </message>
     <message id="fuoten-clipboad-sharing">
         <source>Clipboard</source>
+        <extracomment>name for the pseudo sharing method to copy a link to the clipboard</extracomment>
         <translation>Klembord</translation>
     </message>
     <message id="fuoten-update-interval-disabled">
@@ -817,22 +818,27 @@
     </message>
     <message id="fuoten-default-jolla-webkit-useragent">
         <source>Default Jolla Webkit</source>
+        <extracomment>name of a user agent for the internal web view</extracomment>
         <translation>Standaard Jolla Webkit</translation>
     </message>
     <message id="fuoten-alternative-jolla-webkit-useragent">
         <source>Alternative Jolla Webkit</source>
+        <extracomment>name of a user agent for the internal web view</extracomment>
         <translation>Alternatieve Jolla Webkit</translation>
     </message>
     <message id="fuoten-fatal-error-failed-data-dir">
         <source>Failed to create the data directory.</source>
+        <extracomment>error message</extracomment>
         <translation>Aanmaken van gegevensmap mislukt.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-cache-dir">
         <source>Failed to create the cache directory.</source>
+        <extracomment>error message</extracomment>
         <translation>Aanmaken van cachemap mislukt.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-qmlcache-dir">
         <source>Failed to create the qml cache directory.</source>
+        <extracomment>error message</extracomment>
         <translation>Aanmaken van qml-cachemap mislukt.</translation>
     </message>
     <message id="fuoten-notify-general-error-summary">
@@ -1093,6 +1099,7 @@
     <message id="fuoten-fatal-error-failed-dbus-dir">
         <source>Failed to create user D-Bus directory.</source>
         <oldsource>Failed to create user D-BUS directory.</oldsource>
+        <extracomment>error message</extracomment>
         <translation>Aanmaken van gebruikers-D-Bus-map mislukt.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-file">
@@ -1102,50 +1109,53 @@
     </message>
     <message id="fuoten-fatal-error-failed-dbus-connection">
         <source>Failed to connect to D-Bus session bus.</source>
+        <extracomment>error message</extracomment>
         <translation>Verbinden met D-Bus-sessiebus mislukt.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-reload-config">
         <source>Failed to reload D-Bus session bus configuration.</source>
+        <extracomment>error message</extracomment>
         <translation>Herladen van D-Bus-sessiebusconfiguratie mislukt.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-service-register">
         <source>Failed to register D-Bus service.</source>
+        <extracomment>error message</extracomment>
         <translation>Registreren van D-Bus-dienst mislukt.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-object-register">
         <source>Failed to register D-Bus object “%1”.</source>
-        <extracomment>%1 will be replaced by the class name of the D-Bus adaptor</extracomment>
+        <extracomment>error message, %1 will be replaced by the class name of the D-Bus adaptor</extracomment>
         <translation>Registreren van D-Bus-object ‘%1’ mislukt.</translation>
     </message>
     <message id="fuoten-tigrebleu-role">
         <source>French translation</source>
         <extracomment>contributor role</extracomment>
-        <translation type="unfinished"/>
+        <translation>Franse vertaling</translation>
     </message>
     <message id="fuoten-settings-pushuponarticle">
         <source>Show push up menu on article page</source>
         <extracomment>Label for a swith on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Optrekmenu weergeven op artikelpagina</translation>
     </message>
     <message id="fuoten-settings-pushuponarticle-desc">
         <source>If enabled, article pages will have a push up menu on the end with the same content as the pull down menu for faster access after an article has been read.</source>
         <extracomment>Description for a swith on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Indien ingeschakeld krijgen artikelpagina’s een optrekmenu onderaan, met dezelfde inhoud als het uittrekmenu, voor snellere toegang nadat een artikel is gelezen.</translation>
     </message>
     <message id="hbnsfoscmops-desc">
         <source>HBN SFOS Components are a set of QML components for Sailfish OS.</source>
         <extracomment>Description of a used 3rd party component</extracomment>
-        <translation type="unfinished"/>
+        <translation>HBN SFOS-onderdelen zijn een verzameling QML-onderdelen voor Sailfish OS.</translation>
     </message>
     <message id="fuoten-main-content-feeds">
         <source>Feeds</source>
         <extracomment>Selectable value in the combo box on the settings page to select the main view content</extracomment>
-        <translation type="unfinished"/>
+        <translation>Feeds</translation>
     </message>
     <message id="fuoten-main-content-folders">
         <source>Folders</source>
         <extracomment>Selectable value in the combo box on the settings page to select the main view content</extracomment>
-        <translation type="unfinished"/>
+        <translation>Mappen</translation>
     </message>
 </context>
 </TS>

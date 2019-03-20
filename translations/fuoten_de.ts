@@ -773,6 +773,7 @@
     </message>
     <message id="fuoten-clipboad-sharing">
         <source>Clipboard</source>
+        <extracomment>name for the pseudo sharing method to copy a link to the clipboard</extracomment>
         <translation>Zwischenablage</translation>
     </message>
     <message id="fuoten-update-interval-disabled">
@@ -817,22 +818,27 @@
     </message>
     <message id="fuoten-default-jolla-webkit-useragent">
         <source>Default Jolla Webkit</source>
+        <extracomment>name of a user agent for the internal web view</extracomment>
         <translation>Standard Jolla Webkit</translation>
     </message>
     <message id="fuoten-alternative-jolla-webkit-useragent">
         <source>Alternative Jolla Webkit</source>
+        <extracomment>name of a user agent for the internal web view</extracomment>
         <translation>Alternativer Jolla Webkit</translation>
     </message>
     <message id="fuoten-fatal-error-failed-data-dir">
         <source>Failed to create the data directory.</source>
+        <extracomment>error message</extracomment>
         <translation>Das Verzeichnis zum Speichern der Daten konnte nicht erstellt werden.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-cache-dir">
         <source>Failed to create the cache directory.</source>
+        <extracomment>error message</extracomment>
         <translation>Das Verzeichnis für den Pufferspeicher konnte nicht erstellt werden.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-qmlcache-dir">
         <source>Failed to create the qml cache directory.</source>
+        <extracomment>error message</extracomment>
         <translation>Das Verzeichnis für den QML-Pufferspeicher konnte nicht erstellt werden.</translation>
     </message>
     <message id="fuoten-notify-general-error-summary">
@@ -1093,6 +1099,7 @@
     <message id="fuoten-fatal-error-failed-dbus-dir">
         <source>Failed to create user D-Bus directory.</source>
         <oldsource>Failed to create user D-BUS directory.</oldsource>
+        <extracomment>error message</extracomment>
         <translation>Konnte das D-Bus-Verzeichnis des Benutzers nicht erstellen.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-file">
@@ -1102,19 +1109,22 @@
     </message>
     <message id="fuoten-fatal-error-failed-dbus-connection">
         <source>Failed to connect to D-Bus session bus.</source>
+        <extracomment>error message</extracomment>
         <translation>Konnte keine Verbindung zum D-Bus der aktuellen Sitzung herstellen.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-reload-config">
         <source>Failed to reload D-Bus session bus configuration.</source>
+        <extracomment>error message</extracomment>
         <translation>Konnte die Konfiguration der aktuellen D-Bus-Sitzung nicht neu laden.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-service-register">
         <source>Failed to register D-Bus service.</source>
+        <extracomment>error message</extracomment>
         <translation>Konnte den Dienst nicht am D-Bus anmelden.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-object-register">
         <source>Failed to register D-Bus object “%1”.</source>
-        <extracomment>%1 will be replaced by the class name of the D-Bus adaptor</extracomment>
+        <extracomment>error message, %1 will be replaced by the class name of the D-Bus adaptor</extracomment>
         <translation>Konnte das Objekt „%1“ nicht am D-Bus anmelden.</translation>
     </message>
     <message id="fuoten-tigrebleu-role">
@@ -1125,7 +1135,7 @@
     <message id="fuoten-settings-pushuponarticle">
         <source>Show push up menu on article page</source>
         <extracomment>Label for a swith on the settings page</extracomment>
-        <translation>Hochziehmenü auf Aritkelseite anzeigen</translation>
+        <translation>Hochziehmenü auf Artikelseite anzeigen</translation>
     </message>
     <message id="fuoten-settings-pushuponarticle-desc">
         <source>If enabled, article pages will have a push up menu on the end with the same content as the pull down menu for faster access after an article has been read.</source>
