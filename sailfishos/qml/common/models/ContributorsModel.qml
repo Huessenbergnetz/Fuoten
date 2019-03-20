@@ -66,6 +66,12 @@ ListModel {
         bitbucket: "flywheel"
     }
 
+    ListElement {
+        name: "Rui Kon"
+        role: ""
+        section: ""
+    }
+
     Component.onCompleted: {
         //: contributor role
         //% "Main developer, Fuoten creator"
@@ -95,6 +101,11 @@ ListModel {
         //% "Danish translation"
         contModel.get(4).role = qsTrId("fuoten-flywheeldk-role")
         contModel.get(4).section = qsTrId("fuotn-thanks-to-section")
+
+        //: contributor role
+        //% "Chinese (China) translation"
+        contModel.get(5).role = qsTrId("fuoten-ruikon-role")
+        contModel.get(5).section = qsTrId("fuotn-thanks-to-section")
     }
 }
 
