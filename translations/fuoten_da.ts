@@ -180,7 +180,7 @@
     <message id="fuoten-settings-update-interval-sailfish-desc">
         <source>Fuoten can perform pseudo backgrund updates by simply reacting to status changes of the user interface. Be aware that this approach will not perform real background updates while your device is sleeping.</source>
         <extracomment>Description for a combo box on the the settings page to select the automatic update interval</extracomment>
-        <translation type="unfinished"/>
+        <translation>Fuoten kan udføre pseudo-opdateringer i baggrunden ved blot at reagere på statusændringer i brugergrænsefladen. Vær opmærksom på, at Fuoten i denne tilstand ikke kan udføre rigtige baggrundsopdateringer, mens din enhed sover.</translation>
     </message>
     <message id="fuoten-settings-wlan-only-updates">
         <source>Automatic synchronization only on WLAN</source>
@@ -220,7 +220,7 @@
         <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
         <oldsource>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming.</oldsource>
         <extracomment>Description of a used 3rd party component</extracomment>
-        <translation type="unfinished"/>
+        <translation>ADVobfuscator er et sikkerhedsbibliotek baseret på C 11/14 og metaprogrammering. Det bruges af Fuoten til at kryptere gemte adgangskoder.</translation>
     </message>
     <message id="fuoten-author-role">
         <source>Main developer, Fuoten creator</source>
