@@ -1,5 +1,5 @@
 /* Fuoten - ownCloud/Nextcloud News App Client
- * Copyright (C) 2016-2018 Huessenbergnetz/Matthias Fehring
+ * Copyright (C) 2016-2019 Huessenbergnetz/Matthias Fehring
  * https://github.com/Huessenbergnetz/Fuoten
  *
  * sailfishos/src/dbus/fuotendbusproxy.h
