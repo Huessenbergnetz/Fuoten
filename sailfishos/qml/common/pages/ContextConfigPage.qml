@@ -302,7 +302,7 @@ Page {
                 Layout.preferredHeight: userAgentChoser.height
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 Layout.columnSpan: contextConfigGrid.columns
-                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles === FuotenApp.OpenWebView)
+                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles !== FuotenApp.OpenExternal)
 
                 ComboBox {
                     id: userAgentChoser
@@ -328,7 +328,7 @@ Page {
                 Layout.preferredHeight: minimumFontSizeSlider.height
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 Layout.columnSpan: contextConfigGrid.columns
-                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles === FuotenApp.OpenWebView)
+                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles !== FuotenApp.OpenExternal)
 
                 FontSizeSlider {
                     id: minimumFontSizeSlider
@@ -346,7 +346,7 @@ Page {
                 Layout.preferredHeight: defaultFontSizeSlider.height
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 Layout.columnSpan: contextConfigGrid.columns
-                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles === FuotenApp.OpenWebView)
+                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles !== FuotenApp.OpenExternal)
 
                 FontSizeSlider {
                     id: defaultFontSizeSlider
