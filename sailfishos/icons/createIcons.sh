@@ -68,7 +68,7 @@ processSvg() {
         inkscape -z -e $TMPFILE -w $SIZE -h $SIZE $SVGFILE &> /dev/null
         if [ -x /usr/bin/zopflipng ]
         then
-            zopflipng -y --always_zopflify --iterations=500 --filters=01234mepb --lossy_transparent $TMPFILE $SCALEDIR/$FNAME
+            zopflipng -y --iterations=500 --filters=01234mepb --lossy_transparent $TMPFILE $SCALEDIR/$FNAME
             rm $TMPFILE
         else
             mv $TMPFILE $SCALEDIR/$FNAME
