@@ -1158,5 +1158,10 @@
         <extracomment>Selectable value in the combo box on the settings page to select the main view content</extracomment>
         <translation>文件夹</translation>
     </message>
+    <message id="fuoten-ruikon-role">
+        <source>Chinese (China) translation</source>
+        <extracomment>contributor role</extracomment>
+        <translation type="unfinished"/>
+    </message>
 </context>
 </TS>
