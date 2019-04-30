@@ -25,7 +25,14 @@
 #include <limits>
 
 LanguageModel::LanguageModel(QObject *parent) :
-    QAbstractListModel(parent), m_supportedLangs({QStringLiteral("de"), QStringLiteral("da"), QStringLiteral("en_GB"), QStringLiteral("en_US"), QStringLiteral("fr"), QStringLiteral("nl"), QStringLiteral("sv")})
+    QAbstractListModel(parent), m_supportedLangs({QStringLiteral("de"),
+                                                 QStringLiteral("da"),
+                                                 QStringLiteral("en_GB"),
+                                                 QStringLiteral("en_US"),
+                                                 QStringLiteral("fr"),
+                                                 QStringLiteral("nl"),
+                                                 QStringLiteral("sv"),
+                                                 QStringLiteral("zh_CN")})
 {
     init();
 }
