@@ -26,7 +26,7 @@ ListModel {
     ListElement {
         name: "libfuoten"
         author: "Matthias Fehring"
-        version: "0.7.3"
+        version: "0.7.4"
         license: "GNU Lesser General Public License, Version 3"
         licenseFile: "LGPLv3.qml"
         licenseWebsite: "https://github.com/Huessenbergnetz/libfuoten/blob/master/LICENSE"
@@ -119,14 +119,6 @@ ListModel {
         license: "OpenSSL License"
         licenseFile: "OpenSSL.qml"
         website: "https://www.openssl.org"
-    }
-
-    ListElement {
-        name: "zlib"
-        author: "Jean-loup Gailly and Mark Adler"
-        license: "zlib License"
-        licenseFile: "zlib.qml"
-        website: "http://zlib.net"
     }
 
     Component.onCompleted: {

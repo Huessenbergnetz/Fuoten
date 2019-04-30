@@ -1,3 +1,11 @@
+Fuoten 0.6.5 - 2019-04-30
+- SailfishOS
+  * note: maintenance update for sixth preview release
+  * changed: hide articles with future publish date (#50)
+  * changed: only hide web view settings when open in external browser has been selected (#51)
+- General
+  * new: Chinese (China) translation by Rui Kon
+
 Fuoten 0.6.4 - 2018-12-04
 - SailfishOS
   * note: maintenance update for sixth preview release
@@ -40,7 +48,7 @@ Fuoten 0.6.0 - 2017-10-27
   * improved: show information about current article on the cover (#31)
   * improved: user agent for the web view is now selectable on a per feed setting
   * fixed: remorse item on feed entry in folder fiew destroys the layout (#30)
-  * fixed: long feed and folder names crash the application (#37)  
+  * fixed: long feed and folder names crash the application (#37)
 
 Fuoten 0.5.2 - 2017-03-19
 - SailfishOS

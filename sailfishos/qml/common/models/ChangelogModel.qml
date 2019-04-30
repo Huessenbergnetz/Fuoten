@@ -30,6 +30,17 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.6.5"
+        date: 1556634791000
+        entries: [
+            ListElement { type: 3; issue: ""; description: "maintenance update for sixth preview release" },
+            ListElement { type: 0; issue: ""; description: "Chinese (China) translation by Rui Kon" },
+            ListElement { type: 1; issue: "50"; description: "hide articles with future publish date" },
+            ListElement { type: 1; issue: "51"; description: "only hide web view settings when open in external browser has been selected" }
+        ]
+    }
+
+    ListElement {
         version: "0.6.4"
         date: 1543914907000
         entries: [

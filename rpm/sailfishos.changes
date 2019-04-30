@@ -8,6 +8,12 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Tue Apr 30 2019 Matthias Fehring <> 0.6.5-1
+- note: maintenance update for the sixth preview release
+- new: Chinese (China) translation by Rui Kon
+- changed: hide articles with future publish date (#50)
+- changed: only hide web view settings when open in external browser has been selected (#51)
+
 * Tue Dec 04 2018 Matthias Fehring <> 0.6.4-1
 - note: maintenance update for sixth preview release
 - fixed: text that is too long destroys the layout (#43)
