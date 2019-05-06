@@ -8,6 +8,11 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Mon May 06 2019 Matthias Fehring <> 0.6.6-1
+- note: maintenance update for the sixth preview release
+- fixed: article list is not updated (#52)
+- improved: translation updates
+
 * Tue Apr 30 2019 Matthias Fehring <> 0.6.5-1
 - note: maintenance update for the sixth preview release
 - new: Chinese (China) translation by Rui Kon

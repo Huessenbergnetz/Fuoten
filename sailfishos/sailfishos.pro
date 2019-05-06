@@ -7,7 +7,7 @@ QT += sql network dbus
 
 VER_MAJ = 0
 VER_MIN = 6
-VER_PAT = 5
+VER_PAT = 6
 
 VERSION = $${VER_MAJ}.$${VER_MIN}.$${VER_PAT}
 

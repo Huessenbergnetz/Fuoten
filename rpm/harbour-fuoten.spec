@@ -15,7 +15,7 @@ Name:       harbour-fuoten
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    ownCloud/Nextcloud News App Client
-Version:    0.6.5
+Version:    0.6.6
 Release:    1
 Group:      Applications/Internet
 License:    GPL-3.0
