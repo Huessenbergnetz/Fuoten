@@ -1160,7 +1160,7 @@
     <message id="fuoten-ruikon-role">
         <source>Chinese (China) translation</source>
         <extracomment>contributor role</extracomment>
-        <translation type="unfinished"/>
+        <translation>Chinese (China) vertaling</translation>
     </message>
 </context>
 </TS>
