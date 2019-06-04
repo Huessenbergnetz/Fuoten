@@ -55,7 +55,8 @@ SOURCES += \
     src/sfosnotificator.cpp \
     src/dbus/fuotendbusproxy.cpp \
     src/dbus/fuotendbusadaptor.cpp \
-    src/languagesmodel.cpp
+    src/languagesmodel.cpp \
+    src/licensesmodel.cpp
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 150x150 172x172
 
@@ -84,7 +85,6 @@ DISTFILES += \
     qml/common/pages/Settings.qml \
     qml/common/parts/ErrorItem.qml \
     qml/common/pages/About.qml \
-    qml/common/models/LicensesModel.qml \
     qml/common/models/ChangelogModel.qml \
     qml/common/models/ContributorsModel.qml \
     qml/common/pages/PrivacyPolicy.qml \
@@ -130,6 +130,7 @@ HEADERS += \
     src/sfosnotificator.h \
     src/dbus/fuotendbusproxy.h \
     src/dbus/fuotendbusadaptor.h \
-    src/languagesmodel.h
+    src/languagesmodel.h \
+    src/licensesmodel.h
 
 include(../HBN_SFOS_Components/HBN_SFOS_Components.pri)
