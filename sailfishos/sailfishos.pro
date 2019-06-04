@@ -54,7 +54,8 @@ SOURCES += \
     src/sfosconfig.cpp \
     src/sfosnotificator.cpp \
     src/dbus/fuotendbusproxy.cpp \
-    src/dbus/fuotendbusadaptor.cpp
+    src/dbus/fuotendbusadaptor.cpp \
+    src/languagesmodel.cpp
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 150x150 172x172
 
@@ -128,6 +129,7 @@ HEADERS += \
     ../ADVobfuscator/Lib/MetaString.h \
     src/sfosnotificator.h \
     src/dbus/fuotendbusproxy.h \
-    src/dbus/fuotendbusadaptor.h
+    src/dbus/fuotendbusadaptor.h \
+    src/languagesmodel.h
 
 include(../HBN_SFOS_Components/HBN_SFOS_Components.pri)

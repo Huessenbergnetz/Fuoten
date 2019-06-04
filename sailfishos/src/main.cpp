@@ -76,7 +76,6 @@
 #include <Fuoten/Models/ArticleListModel>
 #include <Fuoten/Models/ArticleListFilterModel>
 
-#include "../../common/languagemodel.h"
 #include "../../common/enums.h"
 #include "../../common/contextconfig.h"
 #include "../../common/updateintervalmodel.h"
@@ -90,6 +89,7 @@
 #include "useragentmodel.h"
 #include "sfosconfig.h"
 #include "sfosnotificator.h"
+#include "languagesmodel.h"
 
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -346,7 +346,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<Fuoten::Feed>("harbour.fuoten.items", 1, 0, "Feed");
     qmlRegisterType<Fuoten::Article>("harbour.fuoten.items", 1, 0, "Article");
 
-    qmlRegisterType<LanguageModel>("harbour.fuoten", 1, 0, "LanguageModel");
+    qmlRegisterType<LanguagesModel>("harbour.fuoten", 1, 0, "LanguageModel");
     qmlRegisterUncreatableType<Configuration>("harbour.fuoten", 1, 0, "Configuration", QStringLiteral("You can not create a Configuration object"));
     qmlRegisterType<UpdateIntervalModel>("harbour.fuoten", 1, 0, "UpdateIntervalModel");
 
