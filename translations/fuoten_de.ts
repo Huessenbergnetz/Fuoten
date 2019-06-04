@@ -206,21 +206,10 @@
         <source>Germany</source>
         <translation>Deutschland</translation>
     </message>
-    <message id="id-default-lang">
-        <source>Default</source>
-        <extracomment>Means the default language of the system</extracomment>
-        <translation>Standard</translation>
-    </message>
     <message id="fuoten-libfuoten-desc">
         <source>Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API.</source>
-        <extracomment>Description of a used 3rd party component</extracomment>
+        <extracomment>description for libfuoten in the list of used 3rd party components</extracomment>
         <translation>Libfuoten ist eine auf Qt basierende Bibliothek zum Zugriff auf die ownCloud/Nextcloud New App API.</translation>
-    </message>
-    <message id="advobfuscator-desc">
-        <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
-        <oldsource>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming.</oldsource>
-        <extracomment>Description of a used 3rd party component</extracomment>
-        <translation>ADVobfuscator ist eine auf C++11/14 und Metaprogrammierung basierende Programmbibliothek zur Verschleierung von Programmteilen. Sie wird von Fuoten dazu verwendet, den zur AES-Verschlüsselung von Passwörtern intern genutzten AES-Schlüssel zu verschleiern.</translation>
     </message>
     <message id="fuoten-author-role">
         <source>Main developer, Fuoten creator</source>
@@ -1142,11 +1131,6 @@
         <extracomment>Description for a swith on the settings page</extracomment>
         <translation>Falls aktiviert enthalten Artikelseiten am Ende ein Hochziehmenü mit dem selben Inhalt wie das Herunterziehmenü zum schnelleren Zugriff nach dem Lesen des Artikels.</translation>
     </message>
-    <message id="hbnsfoscmops-desc">
-        <source>HBN SFOS Components are a set of QML components for Sailfish OS.</source>
-        <extracomment>Description of a used 3rd party component</extracomment>
-        <translation>HBN SFOS Components sind eine Sammlung von QML-Komponenten für Sailfish OS.</translation>
-    </message>
     <message id="fuoten-main-content-feeds">
         <source>Feeds</source>
         <extracomment>Selectable value in the combo box on the settings page to select the main view content</extracomment>
@@ -1161,6 +1145,26 @@
         <source>Chinese (China) translation</source>
         <extracomment>contributor role</extracomment>
         <translation>Chinesische (China) Übersetzung</translation>
+    </message>
+    <message id="fuoten-libfuoten-trans-desc">
+        <source>Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API. Translations are provided by the community.</source>
+        <extracomment>description for libintfuorit translations in the list of used 3rd party components</extracomment>
+        <translation>Libfuoten ist eine auf Qt basierende Bibliothek zum Zugriff auf die ownCloud/Nextcloud New App API. Übersetzungen werden von der Nutzergemeinde erstellt.</translation>
+    </message>
+    <message id="fuoten-trans-desc">
+        <source>The translations for Fuoten are provided by the community. To see who is responsible for which translation, open the contributors page.</source>
+        <extracomment>description for Fuoten translations in the list of used 3rd party components</extracomment>
+        <translation>Die Übersetzungen für Fuoten werden von der Nutzergemeinde bereitgestellt. Um zu sehen, wer für welche Übersetzung verantwortlich ist, öffnen Sie die Seite über die Beitragenden.</translation>
+    </message>
+    <message id="fuoten-rescaling-richtext-qml-desc">
+        <source>Rescaling Richtext QML part was originally created by Martin Grimme for the Tidings RSS feed reader and is used to rescale richtext views with images included.</source>
+        <extracomment>description for Rescaling Richtext QML in the list of used 3rd party components</extracomment>
+        <translation>Rescaling Richtext QML wurde ursprünglich von Martin Grimme für den Tidings RSS Feed Reader erstellt und wird zur passenden Anzeige von Text mit enthaltenen Bildern genutzt.</translation>
+    </message>
+    <message id="fuoten-advobfuscator-desc">
+        <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
+        <extracomment>description for ADVobfuscator in the list of used 3rd party components</extracomment>
+        <translation>ADVobfuscator ist eine auf C++11/14 und Metaprogrammierung basierende Programmbibliothek zur Verschleierung von Programmteilen. Sie wird von Fuoten dazu verwendet, den zur AES-Verschlüsselung von Passwörtern intern genutzten AES-Schlüssel zu verschleiern.</translation>
     </message>
 </context>
 </TS>

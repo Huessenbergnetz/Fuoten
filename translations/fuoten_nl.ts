@@ -206,21 +206,10 @@
         <source>Germany</source>
         <translation>Duitsland</translation>
     </message>
-    <message id="id-default-lang">
-        <source>Default</source>
-        <extracomment>Means the default language of the system</extracomment>
-        <translation>Standaard</translation>
-    </message>
     <message id="fuoten-libfuoten-desc">
         <source>Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API.</source>
-        <extracomment>Description of a used 3rd party component</extracomment>
+        <extracomment>description for libfuoten in the list of used 3rd party components</extracomment>
         <translation>Libfuoten is een op Qt gebaseerde bibliotheek die toegang biedt tot de ownCloud/Nextcloud-nieuwsapp-API.</translation>
-    </message>
-    <message id="advobfuscator-desc">
-        <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
-        <oldsource>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming.</oldsource>
-        <extracomment>Description of a used 3rd party component</extracomment>
-        <translation>ADVobfuscator is een bibliotheek gebaseerd op C++11/14 en metaprogrammering. Ze wordt gebruikt door Fuoten om de interne AES-sleutel om opgeslagen wachtwoorden mee te versleutelen te verbergen.</translation>
     </message>
     <message id="fuoten-author-role">
         <source>Main developer, Fuoten creator</source>
@@ -1142,11 +1131,6 @@
         <extracomment>Description for a swith on the settings page</extracomment>
         <translation>Indien ingeschakeld krijgen artikelpagina’s een optrekmenu onderaan, met dezelfde inhoud als het uittrekmenu, voor snellere toegang nadat een artikel is gelezen.</translation>
     </message>
-    <message id="hbnsfoscmops-desc">
-        <source>HBN SFOS Components are a set of QML components for Sailfish OS.</source>
-        <extracomment>Description of a used 3rd party component</extracomment>
-        <translation>HBN SFOS-onderdelen zijn een verzameling QML-onderdelen voor Sailfish OS.</translation>
-    </message>
     <message id="fuoten-main-content-feeds">
         <source>Feeds</source>
         <extracomment>Selectable value in the combo box on the settings page to select the main view content</extracomment>
@@ -1161,6 +1145,26 @@
         <source>Chinese (China) translation</source>
         <extracomment>contributor role</extracomment>
         <translation>Chinese (China) vertaling</translation>
+    </message>
+    <message id="fuoten-libfuoten-trans-desc">
+        <source>Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API. Translations are provided by the community.</source>
+        <extracomment>description for libintfuorit translations in the list of used 3rd party components</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-trans-desc">
+        <source>The translations for Fuoten are provided by the community. To see who is responsible for which translation, open the contributors page.</source>
+        <extracomment>description for Fuoten translations in the list of used 3rd party components</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-rescaling-richtext-qml-desc">
+        <source>Rescaling Richtext QML part was originally created by Martin Grimme for the Tidings RSS feed reader and is used to rescale richtext views with images included.</source>
+        <extracomment>description for Rescaling Richtext QML in the list of used 3rd party components</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-advobfuscator-desc">
+        <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
+        <extracomment>description for ADVobfuscator in the list of used 3rd party components</extracomment>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

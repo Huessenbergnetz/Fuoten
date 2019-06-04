@@ -208,20 +208,9 @@
         <source>Germany</source>
         <translation type="unfinished"></translation>
     </message>
-    <message id="id-default-lang">
-        <source>Default</source>
-        <extracomment>Means the default language of the system</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
     <message id="fuoten-libfuoten-desc">
         <source>Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API.</source>
-        <extracomment>Description of a used 3rd party component</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message id="advobfuscator-desc">
-        <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
-        <oldsource>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming.</oldsource>
-        <extracomment>Description of a used 3rd party component</extracomment>
+        <extracomment>description for libfuoten in the list of used 3rd party components</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message id="fuoten-author-role">
@@ -1213,11 +1202,6 @@
         <extracomment>Description for a swith on the settings page</extracomment>
         <translation type="unfinished"></translation>
     </message>
-    <message id="hbnsfoscmops-desc">
-        <source>HBN SFOS Components are a set of QML components for Sailfish OS.</source>
-        <extracomment>Description of a used 3rd party component</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
     <message id="fuoten-main-content-feeds">
         <source>Feeds</source>
         <extracomment>Selectable value in the combo box on the settings page to select the main view content</extracomment>
@@ -1231,6 +1215,26 @@
     <message id="fuoten-ruikon-role">
         <source>Chinese (China) translation</source>
         <extracomment>contributor role</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-libfuoten-trans-desc">
+        <source>Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API. Translations are provided by the community.</source>
+        <extracomment>description for libintfuorit translations in the list of used 3rd party components</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-trans-desc">
+        <source>The translations for Fuoten are provided by the community. To see who is responsible for which translation, open the contributors page.</source>
+        <extracomment>description for Fuoten translations in the list of used 3rd party components</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-rescaling-richtext-qml-desc">
+        <source>Rescaling Richtext QML part was originally created by Martin Grimme for the Tidings RSS feed reader and is used to rescale richtext views with images included.</source>
+        <extracomment>description for Rescaling Richtext QML in the list of used 3rd party components</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-advobfuscator-desc">
+        <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
+        <extracomment>description for ADVobfuscator in the list of used 3rd party components</extracomment>
         <translation type="unfinished"></translation>
     </message>
 </context>
