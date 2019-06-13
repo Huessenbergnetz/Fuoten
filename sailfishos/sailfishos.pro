@@ -25,7 +25,8 @@ DEFINES += AES256_KEY=\"\\\"$${AES256_KEY}\\\"\"
 
 contains(CONFIG, clazy) {
     DEFINES+=CLAZY
-    QMAKE_CXXFLAGS += "-Xclang -load -Xclang ClangLazy.so -Xclang -add-plugin -Xclang clang-lazy"
+    QMAKE_CXX = clazy
+    QMAKE_CXXFLAGS += "-Xclang -plugin-arg-clazy -Xclang level0,level1,level2"
     QT += qml quick
     CONFIG += link_pkgconfig
 }
