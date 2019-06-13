@@ -2,6 +2,7 @@ TARGET = harbour-fuoten
 
 CONFIG += sailfishapp
 CONFIG += c++11
+CONFIG += c++14
 
 QT += sql network dbus
 

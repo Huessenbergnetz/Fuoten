@@ -29,6 +29,7 @@
 #endif
 
 #include <cmath>
+#include <memory>
 
 #include <QtQml>
 #include <QGuiApplication>
@@ -152,9 +153,9 @@ void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, con
 int main(int argc, char *argv[])
 {
 #ifndef CLAZY
-    QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
+    std::unique_ptr<QGuiApplication> app(SailfishApp::application(argc, argv));
 #else
-    QScopedPointer<QGuiApplication> app(new QGuiApplication(argc, argv));
+    auto app = std::make_unique<QGuiApplication>(argc, argv);
 #endif
 
     app->setApplicationName(QStringLiteral("harbour-fuoten"));
@@ -166,15 +167,11 @@ int main(int argc, char *argv[])
 #endif
     qInstallMessageHandler(fuotenMessageHandler);
 
-    auto config = new SfosConfig(app.data());
+    auto config = new SfosConfig(app.get());
 
     if (!config->language().isEmpty()) {
         QLocale::setDefault(QLocale(config->language()));
-    } else {
-        QLocale::setDefault(QLocale::system());
     }
-
-
 
     {
 #ifndef CLAZY
@@ -184,7 +181,7 @@ int main(int argc, char *argv[])
 #endif
         const QLocale locale;
         for (const QString &name : {QStringLiteral("fuoten"), QStringLiteral("libfuoten"), QStringLiteral("hbnsc")}) {
-            auto trans = new QTranslator(app.data());
+            auto trans = new QTranslator(app.get());
             if (Q_LIKELY(trans->load(locale, name, QStringLiteral("_"), l10nDir, QStringLiteral(".qm")))) {
                 if (Q_UNLIKELY(!app->installTranslator(trans))) {
                     qWarning("Can not install translator for component \"%s\" and locale \"%s\".", qUtf8Printable(name), qUtf8Printable(locale.name()));
@@ -194,7 +191,7 @@ int main(int argc, char *argv[])
             }
         }
 
-        QTranslator *tfeTrans = new QTranslator(app.data());
+        QTranslator *tfeTrans = new QTranslator(app.get());
         if (locale.language() == QLocale::C) {
 
             if (Q_LIKELY(tfeTrans->load(QStringLiteral("sailfish_transferengine_plugins_eng_en"), QStringLiteral("/usr/share/translations")))) {
@@ -220,9 +217,9 @@ int main(int argc, char *argv[])
     qRegisterMetaType<Fuoten::IdList>("Fuoten::IdList");
     qRegisterMetaType<Fuoten::ArticleList>("Fuoten::ArticleList");
 
-    auto notificator = new SfosNotificator(config, app.data());
+    auto notificator = new SfosNotificator(config, app.get());
 
-    QObject::connect(app.data(), &QGuiApplication::applicationStateChanged, notificator, [notificator](Qt::ApplicationState state) {
+    QObject::connect(app.get(), &QGuiApplication::applicationStateChanged, notificator, [notificator](Qt::ApplicationState state) {
         notificator->setEnabled(state != Qt::ApplicationActive);
     });
 
@@ -267,7 +264,7 @@ int main(int argc, char *argv[])
             QDBusMessage m = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/"), QStringLiteral("org.freedesktop.DBus"), QStringLiteral("ReloadConfig"));
             m.setAutoStartService(false);
             QDBusPendingCall pc = dc.asyncCall(m, 3000);
-            auto pcw = new QDBusPendingCallWatcher(pc, app.data());
+            auto pcw = new QDBusPendingCallWatcher(pc, app.get());
             QObject::connect(pcw, &QDBusPendingCallWatcher::finished, notificator, [notificator](QDBusPendingCallWatcher *call){
                 QDBusPendingReply<void> reply = *call;
                 if (reply.isError()) {
@@ -308,20 +305,20 @@ int main(int argc, char *argv[])
             }
         }
 
-        qmlDiskCache = new QNetworkDiskCache(app.data());
+        qmlDiskCache = new QNetworkDiskCache(app.get());
         qmlDiskCache->setCacheDirectory(qmlCacheDir.absolutePath());
 
-        sqliteStorage = new Fuoten::SQLiteStorage(dataDir.absoluteFilePath(QStringLiteral("database.sqlite")), app.data());
+        sqliteStorage = new Fuoten::SQLiteStorage(dataDir.absoluteFilePath(QStringLiteral("database.sqlite")), app.get());
         sqliteStorage->setConfiguration(config);
         sqliteStorage->init();
     }
-    QScopedPointer<NamFactory> namFactory(new NamFactory(qmlDiskCache));
+    auto namFactory = std::make_unique<NamFactory>(qmlDiskCache);
 
     Fuoten::Component::setDefaultConfiguration(config);
     Fuoten::Component::setDefaultStorage(sqliteStorage);
     Fuoten::Component::setDefaultNotificator(notificator);
 
-    auto synchronizer = new Fuoten::Synchronizer(app.data());
+    auto synchronizer = new Fuoten::Synchronizer(app.get());
     synchronizer->setConfiguration(config);
     synchronizer->setStorage(sqliteStorage);
 
@@ -358,15 +355,15 @@ int main(int argc, char *argv[])
     qmlRegisterType<UserAgentModel>("harbour.fuoten", 1, 0, "UserAgentModel");
 
 #ifndef CLAZY
-    QScopedPointer<QQuickView> view(SailfishApp::createView());
+    std::unique_ptr<QQuickView> view(SailfishApp::createView());
 #else
-    QScopedPointer<QQuickView> view(new QQuickView);
+    auto view = std::make_unique<QQuickView>();
 #endif
-    QScopedPointer<Hbnsc::HbnscIconProvider> hbnscIconProvider(new Hbnsc::HbnscIconProvider(view->engine()));
-    QScopedPointer<Hbnsc::BaseIconProvider> fuotenIconProvider(new Hbnsc::BaseIconProvider({1.0,1.25,1.5,1.75,2.0}, QString(), false, QStringLiteral("fuoten"), view->engine()));
-    view->engine()->setNetworkAccessManagerFactory(namFactory.data());
+    auto hbnscIconProvider = Hbnsc::HbnscIconProvider::createProvider(view->engine());
+    auto fuotenIconProvider = Hbnsc::BaseIconProvider::createProvider({1.0,1.25,1.5,1.75,2.0}, QString(), false, QStringLiteral("fuoten"), view->engine());
+    view->engine()->setNetworkAccessManagerFactory(namFactory.get());
 
-    auto dbusproxy = new FuotenDbusProxy(app.data());
+    auto dbusproxy = new FuotenDbusProxy(app.get());
     new FuotenDbusAdaptor(dbusproxy);
     {
         QDBusConnection con = QDBusConnection::sessionBus();
@@ -388,14 +385,14 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty(QStringLiteral("config"), config);
     view->rootContext()->setContextProperty(QStringLiteral("localstorage"), sqliteStorage);
     view->rootContext()->setContextProperty(QStringLiteral("synchronizer"), synchronizer);
-    view->rootContext()->setContextProperty(QStringLiteral("covercon"), new CoverConnector(app.data()));
+    view->rootContext()->setContextProperty(QStringLiteral("covercon"), new CoverConnector(app.get()));
     view->rootContext()->setContextProperty(QStringLiteral("_fuotenDbusProxy"), dbusproxy);
 
 #ifndef CLAZY
-    view->setSource(SailfishApp::pathTo(QStringLiteral("qml/harbour-fuoten.qml")));
+    view->setSource(SailfishApp::pathToMainQml());
 #endif
 
-    view->show();
+    view->showFullScreen();
 
     return app->exec();
 }
