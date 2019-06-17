@@ -1,6 +1,8 @@
 TARGET = harbour-fuoten
 
-CONFIG += sailfishapp
+!contains(CONFIG, clazy) {
+    CONFIG += sailfishapp
+}
 CONFIG += c++11
 CONFIG += c++14
 
@@ -24,9 +26,9 @@ isEmpty(AES256_KEY) {
 DEFINES += AES256_KEY=\"\\\"$${AES256_KEY}\\\"\"
 
 contains(CONFIG, clazy) {
-    DEFINES+=CLAZY
-    QMAKE_CXX = clazy
-    QMAKE_CXXFLAGS += "-Xclang -plugin-arg-clazy -Xclang level0,level1,level2"
+    DEFINES += CLAZY
+    isEmpty(CLAZY_PLUGIN_FILE): CLAZY_PLUGIN_FILE = ClazyPlugin.so
+    QMAKE_CXXFLAGS += "-Xclang -load -Xclang $${CLAZY_PLUGIN_FILE} -Xclang -add-plugin -Xclang clazy -Xclang -plugin-arg-clazy -Xclang level0,level1,level2,reserve-candidates,qrequiredresult-candidates,qvariant-template-instantiation"
     QT += qml quick
     CONFIG += link_pkgconfig
 }
@@ -43,7 +45,8 @@ INCLUDEPATH += $$PWD/../libfuoten
 
 PKGCONFIG += openssl
 !contains(CONFIG, clazy) {
-    PKGCONFIG += nemonotifications-qt5 sailfishsilica
+    PKGCONFIG += nemonotifications-qt5
+    INCLUDEPATH += /usr/include/nemonotifications-qt5
 }
 
 SOURCES += \
