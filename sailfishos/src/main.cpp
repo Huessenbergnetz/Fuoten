@@ -52,8 +52,6 @@
 
 #ifndef CLAZY
 #include <sailfishapp.h>
-#include <silicatheme.h>
-#include <silicascreen.h>
 #endif
 
 #include <Fuoten/Error>
