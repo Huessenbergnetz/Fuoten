@@ -94,3 +94,5 @@ LicensesModel::~LicensesModel()
 {
 
 }
+
+#include "moc_licensesmodel.cpp"

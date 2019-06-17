@@ -37,3 +37,5 @@ LanguagesModel::~LanguagesModel()
 {
 
 }
+
+#include "moc_languagesmodel.cpp"
