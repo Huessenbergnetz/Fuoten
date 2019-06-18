@@ -7,9 +7,9 @@ SUBDIRS += sailfishos
 
 sailfishos.depends = libfuoten
 
-OTHER_FILES += rpm/sailfishos.changes \
+OTHER_FILES += rpm/harbour-fuoten.changes \
     rpm/harbour-fuoten.spec \
-    rpm/sailfishos.yaml
+    rpm/harbour-fuoten.yaml
 }
 
 kirigami {
