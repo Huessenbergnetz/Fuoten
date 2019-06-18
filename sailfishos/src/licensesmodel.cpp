@@ -83,10 +83,6 @@ LicensesModel::LicensesModel(QObject *parent) : Hbnsc::LicenseModel(parent)
         QUrl(),
         QUrl());
 
-    addNemoNotifications();
-    addOpenSSL();
-    addSQLite();
-
     sortLicenses();
 }
 

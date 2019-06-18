@@ -7,7 +7,7 @@ Name:       harbour-fuoten
 
 # >> macros
 %define __provides_exclude_from ^%{_datadir}/.*$
-%define __requires_exclude ^libfuoten.*$
+%define __requires_exclude ^libfuoten.*$|^libdbus-1.*$
 # << macros
 
 %{!?qtc_qmake:%define qtc_qmake %qmake}
