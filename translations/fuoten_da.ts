@@ -1144,27 +1144,27 @@
     <message id="fuoten-ruikon-role">
         <source>Chinese (China) translation</source>
         <extracomment>contributor role</extracomment>
-        <translation type="unfinished"/>
+        <translation>Kinesisk (Kina) oversættelse</translation>
     </message>
     <message id="fuoten-libfuoten-trans-desc">
         <source>Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API. Translations are provided by the community.</source>
         <extracomment>description for libintfuorit translations in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>Libfuoten er et Qt-baseret bibliotek, der giver adgang til ownCloud/Nextcloud News App API&apos;et. Oversættelser leveres af fællesskabet.</translation>
     </message>
     <message id="fuoten-trans-desc">
         <source>The translations for Fuoten are provided by the community. To see who is responsible for which translation, open the contributors page.</source>
         <extracomment>description for Fuoten translations in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>Det er fællesskabet der oversætter Fuoten. Se bidragydersiden for at se hvem der står for de enkelte oversættelser. </translation>
     </message>
     <message id="fuoten-rescaling-richtext-qml-desc">
         <source>Rescaling Richtext QML part was originally created by Martin Grimme for the Tidings RSS feed reader and is used to rescale richtext views with images included.</source>
         <extracomment>description for Rescaling Richtext QML in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>Rescaling Richtext QML delen blev oprindeligt skabt af Martin Grimme til Tidings RSS feed reader og bruges til at omskalere visning af rigtekst med billeder.</translation>
     </message>
     <message id="fuoten-advobfuscator-desc">
         <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
         <extracomment>description for ADVobfuscator in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>ADVobfuscator er et obfuscations bibliotek baseret på C 11/14 og metaprogrammering. Det bruges af Fuoten til at styre den internt brugte AES-nøgle til at kryptere gemte adgangskoder.</translation>
     </message>
 </context>
 </TS>

@@ -1149,22 +1149,22 @@
     <message id="fuoten-libfuoten-trans-desc">
         <source>Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API. Translations are provided by the community.</source>
         <extracomment>description for libintfuorit translations in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>Libfuoten är ett Qt-baserat bibliotek som tillhandahåller åtkomst till en API för ownCloud/Nextcloud nyhetsapp. Översättningar tillhandahålles av gemenskapen.</translation>
     </message>
     <message id="fuoten-trans-desc">
         <source>The translations for Fuoten are provided by the community. To see who is responsible for which translation, open the contributors page.</source>
         <extracomment>description for Fuoten translations in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>Översättning av Fouten tillhandahålles av gemenskapen. Öppna medverkandesidan för att se vem som är ansvarig för vilken översättning.</translation>
     </message>
     <message id="fuoten-rescaling-richtext-qml-desc">
         <source>Rescaling Richtext QML part was originally created by Martin Grimme for the Tidings RSS feed reader and is used to rescale richtext views with images included.</source>
         <extracomment>description for Rescaling Richtext QML in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>QML-delen för omskalning av RichText skapades ursprungligen av Martin Grimme för Tidings RSS flödesläsare och används för att skala RichText-vyer där bilder ingår.</translation>
     </message>
     <message id="fuoten-advobfuscator-desc">
         <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
         <extracomment>description for ADVobfuscator in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>Advobfuscator är ett mörkläggningsbibliotek baserat på c++ 11/14 och metaprogramming. Det används av Fuoten för att fördunkla den internt använda AES-nyckel som krypterar lagrade lösenord.</translation>
     </message>
 </context>
 </TS>

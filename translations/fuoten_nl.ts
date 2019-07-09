@@ -1149,22 +1149,22 @@
     <message id="fuoten-libfuoten-trans-desc">
         <source>Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API. Translations are provided by the community.</source>
         <extracomment>description for libintfuorit translations in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>Libfuoten is een op Qt gebaseerde bibliotheek die toegang biedt tot de ownCloud/Nextcloud-nieuwsapp-API. Vertalingen worden geleverd door de gemeenschap.</translation>
     </message>
     <message id="fuoten-trans-desc">
         <source>The translations for Fuoten are provided by the community. To see who is responsible for which translation, open the contributors page.</source>
         <extracomment>description for Fuoten translations in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>De vertalingen voor Fuoten worden geleverd door de gemeenschap. Bekijk de bijdragers-pagina om meer te weten over wie voor welke vertaling verantwoordelijk is.</translation>
     </message>
     <message id="fuoten-rescaling-richtext-qml-desc">
         <source>Rescaling Richtext QML part was originally created by Martin Grimme for the Tidings RSS feed reader and is used to rescale richtext views with images included.</source>
         <extracomment>description for Rescaling Richtext QML in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>Het onderdeel voor het herschalen van Richtext QML is oorspronkelijk ontwikkeld door Martin Grimme voor de Tidings-RSS-feedlezer, en wordt gebruikt om richtext-weergaven met hun afbeeldingen te herschalen.</translation>
     </message>
     <message id="fuoten-advobfuscator-desc">
         <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
         <extracomment>description for ADVobfuscator in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>ADVobfuscator is een bibliotheek gebaseerd op C++11/14 en metaprogrammering. Ze wordt gebruikt door Fuoten om de interne AES-sleutel om opgeslagen versleutelde wachtwoorden mee te verbergen.</translation>
     </message>
 </context>
 </TS>
