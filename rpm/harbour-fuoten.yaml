@@ -32,6 +32,7 @@ PkgConfigBR:
   - nemonotifications-qt5
   - sailfishsilica
   - sqlite3
+  - dbus-1
 
 # Build dependencies without a pkgconfig setup can be listed here
 # PkgBR:
