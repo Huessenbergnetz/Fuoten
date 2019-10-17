@@ -3,10 +3,30 @@
 SCALES="1 1.25 1.5 1.75 2"
 SIZES="32 64 96"
 
-if [ ! -x /usr/bin/inkscape ]
+INKSCAPE=`which inkscape`
+export ZOPFLIPNG=`which zopflipng`
+PARALLEL=`which parallel`
+BC=`which bc`
+
+if [ ! -x $INKSCAPE ]
 then
     echo "Can not find inkscape executable"
     exit 1
+fi
+
+if [ ! -x $BC ]
+then
+    echo "Can not find bc executable"
+fi
+
+if [ ! -x $ZOPFLIPNG ]
+then
+    echo "zopflipng not found. Disabling PNG compression using zopfli."
+fi
+
+if [ ! -x $PARALLEL ]
+then
+    echo "GNU parallel not found. It is recommended for speeding up the icon creation."
 fi
 
 for SCALE in $SCALES
@@ -66,7 +86,7 @@ processSvg() {
         TMPFILE=$(mktemp)
 
         inkscape -z -e $TMPFILE -w $SIZE -h $SIZE $SVGFILE &> /dev/null
-        if [ -x /usr/bin/zopflipng ]
+        if [ -x $ZOPFLIPNG ]
         then
             zopflipng -y --iterations=500 --filters=01234mepb --lossy_transparent $TMPFILE $SCALEDIR/$FNAME
             rm $TMPFILE
@@ -82,7 +102,7 @@ if [ "$1" == "" ]; then
 
     SVGFILES=`ls src/*.svg`
 
-    if [ -x /usr/bin/parallel ]
+    if [ -x $PARALLEL ]
     then
         parallel processSvg ::: $SCALES ::: $SIZES ::: $SVGFILES
     else
@@ -100,7 +120,7 @@ if [ "$1" == "" ]; then
 
 else
 
-    if [ -x /usr/bin/parallel ]
+    if [ -x $PARALLEL ]
     then
         parallel processSvg ::: $SCALES ::: $SIZES ::: $1
     else
