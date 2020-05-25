@@ -67,6 +67,8 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 150x150 172x172
 
 isEmpty(INSTALL_TRANSLATIONS_DIR): INSTALL_TRANSLATIONS_DIR = /usr/share/$$TARGET/translations
 
+DEFINES += TRANSLATIONS_DIR=\"\\\"$${INSTALL_TRANSLATIONS_DIR}\\\"\"
+
 langfiles.path = $$INSTALL_TRANSLATIONS_DIR
 langfiles.files = ../translations/*.qm
 INSTALLS += langfiles

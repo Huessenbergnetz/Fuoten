@@ -172,15 +172,10 @@ int main(int argc, char *argv[])
     }
 
     {
-#ifndef CLAZY
-        const QString l10nDir = SailfishApp::pathTo(QStringLiteral("translations")).toString(QUrl::RemoveScheme);
-#else
-        const QString l10nDir;
-#endif
         const QLocale locale;
         for (const QString &name : {QStringLiteral("fuoten"), QStringLiteral("libfuoten"), QStringLiteral("hbnsc")}) {
             auto trans = new QTranslator(app.get());
-            if (Q_LIKELY(trans->load(locale, name, QStringLiteral("_"), l10nDir, QStringLiteral(".qm")))) {
+            if (Q_LIKELY(trans->load(locale, name, QStringLiteral("_"), QStringLiteral(TRANSLATIONS_DIR), QStringLiteral(".qm")))) {
                 if (Q_UNLIKELY(!app->installTranslator(trans))) {
                     qWarning("Can not install translator for component \"%s\" and locale \"%s\".", qUtf8Printable(name), qUtf8Printable(locale.name()));
                 }
