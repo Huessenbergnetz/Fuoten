@@ -24,9 +24,8 @@
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <QDBusMetaType>
-#ifndef QT_NO_DEBUG_OUTPUT
 #include <QStringList>
-#endif
+#include <QDebug>
 
 SharingMethodsModel::SharingMethodsModel(QObject *parent) : QAbstractListModel(parent)
 {
@@ -46,6 +45,8 @@ QHash<int, QByteArray> SharingMethodsModel::roleNames() const
     roles.insert(MethodId, QByteArrayLiteral("methodId"));
     roles.insert(ShareUiPath, QByteArrayLiteral("shareUiPath"));
     roles.insert(AccountId, QByteArrayLiteral("accountId"));
+    roles.insert(IconUrl, QByteArrayLiteral("iconUrl"));
+    roles.insert(Args, QByteArrayLiteral("args"));
 
     return roles;
 }
@@ -72,6 +73,8 @@ QVariant SharingMethodsModel::data(const QModelIndex &index, int role) const
         case MethodId:      var.setValue(sm.methodId());    break;
         case ShareUiPath:   var.setValue(sm.shareUiPath()); break;
         case AccountId:     var.setValue(sm.accountId());   break;
+        case IconUrl:       var.setValue(sm.iconUrl());     break;
+        case Args:          var.setValue(sm.args());        break;
         default:
             break;
         }
@@ -92,7 +95,7 @@ void SharingMethodsModel::loadMethods()
 
     QDBusConnection bus = QDBusConnection::sessionBus();
     QDBusInterface interface(QStringLiteral("org.nemo.transferengine"), QStringLiteral("/org/nemo/transferengine"), QString(), bus);
-    QDBusReply<QList<SharingMethod>> reply = interface.call(QStringLiteral("transferMethods"));
+    QDBusReply<QList<SharingMethod>> reply = interface.call(QStringLiteral("transferMethods2"));
 
     if (Q_UNLIKELY(!reply.isValid())) {
         qWarning("Failed to query sharing methods via D-Bus: %s", qUtf8Printable(reply.error().message()));
@@ -101,13 +104,13 @@ void SharingMethodsModel::loadMethods()
         const QList<SharingMethod> _methods = reply.value();
         if (Q_LIKELY(!_methods.empty())) {
 
-            qDebug("Loaded sharing methods.");
+            qDebug("%s", "Loaded sharing methods.");
 #ifndef QT_NO_DEBUG_OUTPUT
             for (const SharingMethod &m : _methods) {
-                qDebug("%s; %s; %s; %s; %s", qUtf8Printable(m.displayName()), qUtf8Printable(m.userName()), qUtf8Printable(m.methodId()), qUtf8Printable(m.shareUiPath()), qUtf8Printable(m.capabilites().join(QLatin1Char(','))));
+                qDebug() << m;
             }
 #endif
-            qDebug("Filtering methods by text/x-url");
+            qDebug("%s", "Filtering methods by text/x-url");
             QList<SharingMethod> _filteredMethods;
             for (int i = 0; i < _methods.size(); ++i) {
                 const SharingMethod m = _methods.at(i);
@@ -123,13 +126,15 @@ void SharingMethodsModel::loadMethods()
                 endInsertRows();
             }
         } else {
-            qWarning("No sharing methods received from D-Bus.");
+            qWarning("%s", "No sharing methods received from D-Bus.");
         }
     }
 
+    qDebug("%s", "Adding clipboard sharing method");
     SharingMethod clipboard;
     clipboard.setAccountId(0);
     clipboard.setMethodId(QStringLiteral("clipboard"));
+    clipboard.setIconUrl(QUrl(QStringLiteral("image://theme/icon-m-clipboard")));
     //: name for the pseudo sharing method to copy a link to the clipboard
     //% "Clipboard"
     clipboard.setDisplayName(qtTrId("fuoten-clipboad-sharing"));

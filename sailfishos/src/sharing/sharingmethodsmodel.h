@@ -30,7 +30,7 @@ class SharingMethodsModel : public QAbstractListModel
 public:
     explicit SharingMethodsModel(QObject *parent = nullptr);
 
-    enum Roles { DisplayName = Qt::UserRole + 1, UserName, MethodId, ShareUiPath, AccountId };
+    enum Roles { DisplayName = Qt::UserRole + 1, UserName, MethodId, ShareUiPath, AccountId, IconUrl, Args };
 
     virtual QHash<int, QByteArray> roleNames() const override;
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const override;

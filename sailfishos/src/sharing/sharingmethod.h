@@ -24,6 +24,8 @@
 #include <QSharedDataPointer>
 #include <QString>
 #include <QStringList>
+#include <QVariantMap>
+#include <QUrl>
 #include <QMetaType>
 #include <QDBusArgument>
 
@@ -58,6 +60,12 @@ public:
     quint32 accountId() const;
     void setAccountId(quint32 nAccountId);
 
+    QUrl iconUrl() const;
+    void setIconUrl(const QUrl &nIconUrl);
+
+    QVariantMap args() const;
+    void setArgs(const QVariantMap &nArgs);
+
 protected:
     QSharedDataPointer<SharingMethodData> d;
 };
@@ -67,5 +75,7 @@ Q_DECLARE_TYPEINFO(SharingMethod, Q_MOVABLE_TYPE);
 
 QDBusArgument& operator<<(QDBusArgument &argument, const SharingMethod &sm);
 const QDBusArgument& operator>>(const QDBusArgument &argument, SharingMethod &sm);
+
+QDebug operator<<(QDebug dbg, const SharingMethod &sm);
 
 #endif // SHARINGMETHOD_H

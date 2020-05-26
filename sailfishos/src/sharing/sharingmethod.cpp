@@ -19,6 +19,7 @@
  */
 
 #include "sharingmethod_p.h"
+#include <QDebug>
 
 SharingMethod::SharingMethod() :
     d(new SharingMethodData)
@@ -117,6 +118,30 @@ void SharingMethod::setAccountId(quint32 nAccountId)
 }
 
 
+QUrl SharingMethod::iconUrl() const
+{
+    return d->iconUrl;
+}
+
+
+void SharingMethod::setIconUrl(const QUrl &nIconUrl)
+{
+    d->iconUrl = nIconUrl;
+}
+
+
+QVariantMap SharingMethod::args() const
+{
+    return d->args;
+}
+
+
+void SharingMethod::setArgs(const QVariantMap &nArgs)
+{
+    d->args = nArgs;
+}
+
+
 QDBusArgument &operator <<(QDBusArgument &argument, const SharingMethod &sm)
 {
     argument.beginStructure();
@@ -126,7 +151,9 @@ QDBusArgument &operator <<(QDBusArgument &argument, const SharingMethod &sm)
              << sm.methodId()
              << sm.shareUiPath()
              << sm.capabilites()
-             << sm.accountId();
+             << sm.accountId()
+             << sm.iconUrl().toString()
+             << sm.args();
 
     argument.endStructure();
 
@@ -136,9 +163,10 @@ QDBusArgument &operator <<(QDBusArgument &argument, const SharingMethod &sm)
 
 const QDBusArgument &operator >>(const QDBusArgument &argument, SharingMethod &sm)
 {
-    QString displayName, userName, methodId, shareUiPath;
+    QString displayName, userName, methodId, shareUiPath, iconUrl;
     QStringList capabilities;
     quint32 accountId;
+    QVariantMap args;
 
     argument.beginStructure();
 
@@ -147,7 +175,9 @@ const QDBusArgument &operator >>(const QDBusArgument &argument, SharingMethod &s
              >> methodId
              >> shareUiPath
              >> capabilities
-             >> accountId;
+             >> accountId
+             >> iconUrl
+             >> args;
 
     argument.endStructure();
 
@@ -157,6 +187,24 @@ const QDBusArgument &operator >>(const QDBusArgument &argument, SharingMethod &s
     sm.setShareUiPath(shareUiPath);
     sm.setCapabilities(capabilities);
     sm.setAccountId(accountId);
+    sm.setIconUrl(QUrl(iconUrl));
+    sm.setArgs(args);
 
     return argument;
+}
+
+QDebug operator<<(QDebug dbg, const SharingMethod &sm)
+{
+    QDebugStateSaver saver(dbg);
+    Q_UNUSED(saver)
+    dbg.nospace() << "SharingMethod(";
+    dbg << "Display Name: " << sm.displayName();
+    dbg << ", User Name: " << sm.userName();
+    dbg << ", Method ID: " << sm.methodId();
+    dbg << ", Share UI Path: " << sm.shareUiPath();
+    dbg << ", Capabilites: " << sm.capabilites();
+    dbg << ", Icon URL: " << sm.iconUrl();
+    dbg << ", Args: " << sm.args();
+    dbg << ')';
+    return dbg.maybeSpace();
 }

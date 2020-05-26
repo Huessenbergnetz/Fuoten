@@ -35,7 +35,9 @@ public:
         userName(other.userName),
         methodId(other.methodId),
         shareUiPath(other.shareUiPath),
+        iconUrl(other.iconUrl),
         capabilities(other.capabilities),
+        args(other.args),
         accountId(other.accountId)
     {}
 
@@ -43,7 +45,9 @@ public:
     QString userName;
     QString methodId;
     QString shareUiPath;
+    QUrl iconUrl;
     QStringList capabilities;
+    QVariantMap args;
     quint32 accountId;
 };
 
