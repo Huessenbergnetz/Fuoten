@@ -24,6 +24,9 @@
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <QDBusMetaType>
+#include <QDBusPendingCall>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
 #include <QStringList>
 #include <QDebug>
 
@@ -95,7 +98,14 @@ void SharingMethodsModel::loadMethods()
 
     QDBusConnection bus = QDBusConnection::sessionBus();
     QDBusInterface interface(QStringLiteral("org.nemo.transferengine"), QStringLiteral("/org/nemo/transferengine"), QString(), bus);
-    QDBusReply<QList<SharingMethod>> reply = interface.call(QStringLiteral("transferMethods2"));
+    QDBusPendingCall call = interface.asyncCall(QStringLiteral("transferMethods2"));
+    auto watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &SharingMethodsModel::populateModel);
+}
+
+void SharingMethodsModel::populateModel(QDBusPendingCallWatcher *call)
+{
+    QDBusPendingReply<QList<SharingMethod>> reply = *call;
 
     if (Q_UNLIKELY(!reply.isValid())) {
         qWarning("Failed to query sharing methods via D-Bus: %s", qUtf8Printable(reply.error().message()));
