@@ -60,18 +60,33 @@ Page {
             contentWidth: parent.width
             contentHeight: Theme.itemSizeSmall
 
-            Row {
-                anchors { left: parent.left; leftMargin: Theme.horizontalPageMargin; right: parent.right; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
-                spacing: Theme.paddingSmall
+            Item {
+                anchors { left: parent.left; leftMargin: Theme.horizontalPageMargin; right: parent.right; rightMargin: Theme.horizontalPageMargin }
+                height: parent.height
 
-                Label {
-                    text: qsTrId(displayName)
-                    color: sharingListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                Image {
+                    id: shareIcon
+                    source: iconUrl
+                    width: Theme.iconSizeMedium
+                    height: Theme.iconSizeMedium
+                    anchors { left: parent.left; verticalCenter: parent.verticalCenter }
                 }
 
                 Label {
+                    id: shareName
+                    text: qsTrId(displayName)
+                    color: sharingListItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                    anchors { left: shareIcon.right; leftMargin: Theme.paddingMedium; verticalCenter: parent.verticalCenter }
+                }
+
+                Label {
+                    id: shareUser
                     text: userName
+                    width: parent.width - shareIcon.width - shareName.width - 2 * parent.spacing
+                    maximumLineCount: 1
+                    truncationMode: TruncationMode.Fade
                     color: sharingListItem.highlighted ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                    anchors { left: shareName.right; leftMargin: Theme.paddingSmall; right: parent.right; verticalCenter: parent.verticalCenter }
                 }
             }
 
