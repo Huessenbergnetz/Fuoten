@@ -27,25 +27,15 @@ SharingMethod::SharingMethod() :
 
 }
 
-SharingMethod::SharingMethod(const SharingMethod &other) :
-    d(other.d)
-{
+SharingMethod::SharingMethod(const SharingMethod &other) = default;
 
-}
+SharingMethod::SharingMethod(SharingMethod &&other) noexcept = default;
 
+SharingMethod& SharingMethod::operator=(const SharingMethod &other) = default;
 
-SharingMethod& SharingMethod::operator=(const SharingMethod &other)
-{
-    d = other.d;
-    return *this;
-}
+SharingMethod& SharingMethod::operator=(SharingMethod &&other) noexcept = default;
 
-
-SharingMethod::~SharingMethod()
-{
-
-}
-
+SharingMethod::~SharingMethod() = default;
 
 QString SharingMethod::displayName() const
 {

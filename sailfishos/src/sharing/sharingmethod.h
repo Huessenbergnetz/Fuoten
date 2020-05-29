@@ -38,7 +38,11 @@ public:
 
     SharingMethod(const SharingMethod &other);
 
+    SharingMethod(SharingMethod &&other) noexcept;
+
     SharingMethod& operator=(const SharingMethod &other);
+
+    SharingMethod& operator=(SharingMethod &&other) noexcept;
 
     ~SharingMethod();
 
