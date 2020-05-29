@@ -25,16 +25,11 @@ FuotenDbusAdaptor::FuotenDbusAdaptor(QObject *parent) : QDBusAbstractAdaptor(par
 
 }
 
-
-FuotenDbusAdaptor::~FuotenDbusAdaptor()
-{
-
-}
-
+FuotenDbusAdaptor::~FuotenDbusAdaptor() = default;
 
 void FuotenDbusAdaptor::activate()
 {
-    qDebug("Activating main window via D-Bus.");
+    qDebug("%s", "Activating main window via D-Bus.");
     const bool ret = QMetaObject::invokeMethod(parent(), "activate");
     Q_ASSERT(ret);
 }

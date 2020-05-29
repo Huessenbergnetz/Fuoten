@@ -22,6 +22,7 @@
 #define SFOSCONFIG_H
 
 #include "../../common/configuration.h"
+#include "../common/globals.h"
 
 class SfosConfig : public Configuration
 {
@@ -40,7 +41,7 @@ class SfosConfig : public Configuration
 public:
     explicit SfosConfig(QObject *parent = nullptr);
 
-    ~SfosConfig();
+    ~SfosConfig() override;
 
     QString getPassword() const override;
     void setPassword(const QString &password) override;
@@ -71,6 +72,9 @@ private:
 
     QString m_password;
     bool m_pushUpOnArticle = false;
+
+    Q_DISABLE_COPY(SfosConfig)
+    Q_DISABLE_MOVE(SfosConfig)
 };
 
 #endif // SFOSCONFIG_H

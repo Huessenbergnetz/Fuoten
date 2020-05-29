@@ -21,6 +21,13 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
+#include <QtGlobal>
+
+#if QT_VERSION < QT_VERSION_CHECK(5, 13, 0)
+#define Q_DISABLE_MOVE(Class) \
+    Class(const Class &&) Q_DECL_EQ_DELETE;\
+    Class &operator=(const Class &&) Q_DECL_EQ_DELETE;
+#endif
 
 #endif // GLOBALS_H
 

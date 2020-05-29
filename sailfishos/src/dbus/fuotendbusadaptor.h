@@ -22,6 +22,7 @@
 #define FUOTENDBUSADAPTOR_H
 
 #include <QDBusAbstractAdaptor>
+#include "../../common/globals.h"
 
 class FuotenDbusAdaptor : public QDBusAbstractAdaptor
 {
@@ -34,10 +35,14 @@ class FuotenDbusAdaptor : public QDBusAbstractAdaptor
 
 public:
     explicit FuotenDbusAdaptor(QObject *parent);
-    ~FuotenDbusAdaptor();
+    ~FuotenDbusAdaptor() override;
 
 public Q_SLOTS:
     Q_NOREPLY void activate();
+
+private:
+    Q_DISABLE_COPY(FuotenDbusAdaptor)
+    Q_DISABLE_MOVE(FuotenDbusAdaptor)
 };
 
 #endif // FUOTENDBUSADAPTOR_H

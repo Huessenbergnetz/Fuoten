@@ -29,10 +29,11 @@ class SfosNotificator : public Fuoten::AbstractNotificator
 {
     Q_OBJECT
     Q_DISABLE_COPY(SfosNotificator)
+    Q_DISABLE_MOVE(SfosNotificator)
 public:
     explicit SfosNotificator(SfosConfig *config, QObject *parent = nullptr);
 
-    ~SfosNotificator();
+    ~SfosNotificator() override;
 
     void notify(Fuoten::AbstractNotificator::Type type, QtMsgType severity, const QVariant &data) const override;
 

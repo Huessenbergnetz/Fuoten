@@ -23,6 +23,7 @@
 
 #include <QAbstractListModel>
 #include "sharingmethod.h"
+#include "../../common/globals.h"
 
 class QDBusPendingCallWatcher;
 
@@ -34,9 +35,9 @@ public:
 
     enum Roles { DisplayName = Qt::UserRole + 1, UserName, MethodId, ShareUiPath, AccountId, IconUrl, Args };
 
-    virtual QHash<int, QByteArray> roleNames() const override;
-    virtual int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    QHash<int, QByteArray> roleNames() const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
 private slots:
     void populateModel(QDBusPendingCallWatcher *call);
@@ -45,6 +46,9 @@ private:
     QList<SharingMethod> m_methods;
 
     void loadMethods();
+
+    Q_DISABLE_COPY(SharingMethodsModel)
+    Q_DISABLE_MOVE(SharingMethodsModel)
 };
 
 #endif // SHARINGMETHODSMODEL_H

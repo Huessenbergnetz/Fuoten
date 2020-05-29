@@ -177,7 +177,7 @@ class ContextConfig : public QSettings
     Q_PROPERTY(int defaultFontSize READ defaultFontSize WRITE setDefaultFontSize NOTIFY defaultFontSizeChanged)
 public:
     explicit ContextConfig(QObject *parent = nullptr);
-    ~ContextConfig();
+    ~ContextConfig() override;
 
     FuotenAppEnums::Context contextType() const;
     qint64 contextId() const;
@@ -319,6 +319,7 @@ signals:
 
 private:
     Q_DISABLE_COPY(ContextConfig)
+    Q_DISABLE_MOVE(ContextConfig)
     qint64 m_contextId;
     QString m_userAgent = QStringLiteral("Mozilla/5.0 (Maemo; Linux; U; Jolla; Sailfish; like Android) AppleWebKit/538.1 (KHTML, like Gecko) Version/5.1 Chrome/30.0.0.0 Mobile Safari/538.1 (compatible)");
     int m_minimumFontSize = 0;

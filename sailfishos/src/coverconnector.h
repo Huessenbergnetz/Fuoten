@@ -22,6 +22,7 @@
 #define COVERCONNECTOR_H
 
 #include <QObject>
+#include "../common/globals.h"
 
 namespace Fuoten {
 class Article;
@@ -34,6 +35,8 @@ class CoverConnector : public QObject
 public:
     explicit CoverConnector(QObject *parent = nullptr);
 
+    ~CoverConnector() override;
+
     Fuoten::Article *article() const;
     void setArticle(Fuoten::Article *article);
 
@@ -42,6 +45,9 @@ signals:
 
 private:
     Fuoten::Article *m_article = nullptr;
+
+    Q_DISABLE_COPY(CoverConnector)
+    Q_DISABLE_MOVE(CoverConnector)
 };
 
 #endif // COVERCONNECTOR_H

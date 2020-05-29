@@ -232,7 +232,7 @@ class Configuration : public Fuoten::AbstractConfiguration
     Q_ENUM(Fuoten::FuotenEnums::Type)
 public:
     explicit Configuration(QObject *parent = nullptr);
-    ~Configuration();
+    ~Configuration() override;
 
     QString getUsername() const override;
     QString getPassword() const override;
@@ -289,12 +289,12 @@ public:
      */
     Q_INVOKABLE QString getHumanLastSync() const;
 
-    void setUsername(const QString &username);
-    virtual void setPassword(const QString &password);
-    void setUseSSL(bool useSSL);
-    void setHost(const QString &host);
-    void setInstallPath(const QString &installPath);
-    void setServerPort(int serverPort);
+    void setUsername(const QString &username) override;
+    void setPassword(const QString &password) override;
+    void setUseSSL(bool useSSL) override;
+    void setHost(const QString &host) override;
+    void setInstallPath(const QString &installPath) override;
+    void setServerPort(int serverPort) override;
     void setIgnoreSSLErrors(bool ignoreSSLErrors);
     void setDisplayName(const QString &nDisplayName) override;
     void setImproperlyConfiguredCron(bool nImproperlyConfiguredCron) override;
@@ -422,6 +422,7 @@ signals:
 
 private:
     Q_DISABLE_COPY(Configuration)
+    Q_DISABLE_MOVE(Configuration)
     QString m_username;
     QString m_password;
     QString m_host;

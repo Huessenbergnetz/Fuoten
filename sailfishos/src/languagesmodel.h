@@ -22,11 +22,13 @@
 #define LANGUAGESMODEL_H
 
 #include "hbnsclanguagemodel.h"
+#include "../common/globals.h"
 
 class LanguagesModel : public Hbnsc::LanguageModel
 {
     Q_OBJECT
     Q_DISABLE_COPY(LanguagesModel)
+    Q_DISABLE_MOVE(LanguagesModel)
 public:
     explicit LanguagesModel(QObject *parent = nullptr);
     ~LanguagesModel() override;

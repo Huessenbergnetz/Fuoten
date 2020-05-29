@@ -25,6 +25,7 @@ FuotenDbusProxy::FuotenDbusProxy(QObject *parent) : QObject(parent)
 
 }
 
+FuotenDbusProxy::~FuotenDbusProxy() = default;
 
 void FuotenDbusProxy::activate()
 {

@@ -22,11 +22,13 @@
 #define LICENSESMODEL_H
 
 #include "hbnsclicensemodel.h"
+#include "../common/globals.h"
 
 class LicensesModel : public Hbnsc::LicenseModel
 {
     Q_OBJECT
     Q_DISABLE_COPY(LicensesModel)
+    Q_DISABLE_MOVE(LicensesModel)
 public:
     explicit LicensesModel(QObject *parent = nullptr);
     ~LicensesModel() override;

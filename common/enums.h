@@ -22,6 +22,7 @@
 #define ENUMS_H
 
 #include <QMetaType>
+#include "globals.h"
 
 class FuotenAppEnums {
     Q_GADGET
@@ -49,6 +50,8 @@ public:
 private:
     FuotenAppEnums();
     ~FuotenAppEnums();
+    Q_DISABLE_COPY(FuotenAppEnums)
+    Q_DISABLE_MOVE(FuotenAppEnums)
 };
 
 #endif // ENUMS_H

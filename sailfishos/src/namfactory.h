@@ -22,6 +22,7 @@
 #define NAMFACTORY_H
 
 #include <QQmlNetworkAccessManagerFactory>
+#include "../common/globals.h"
 
 class QNetworkAccessManager;
 class QAbstractNetworkCache;
@@ -29,10 +30,13 @@ class QAbstractNetworkCache;
 class NamFactory : public QQmlNetworkAccessManagerFactory
 {
     Q_DISABLE_COPY(NamFactory)
+    Q_DISABLE_MOVE(NamFactory)
 public:
     explicit NamFactory(QAbstractNetworkCache *cache);
 
-    virtual QNetworkAccessManager *create(QObject *parent = nullptr) override;
+    ~NamFactory() override;
+
+    QNetworkAccessManager *create(QObject *parent = nullptr) override;
 
 private:
     QAbstractNetworkCache *m_cache = nullptr;

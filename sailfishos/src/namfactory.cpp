@@ -28,13 +28,13 @@ NamFactory::NamFactory(QAbstractNetworkCache *cache) : m_cache(cache)
 
 }
 
+NamFactory::~NamFactory() = default;
 
 QNetworkAccessManager *NamFactory::create(QObject *parent)
 {
-    QNetworkAccessManager *nam = new QNetworkAccessManager(parent);
+    auto nam = new QNetworkAccessManager(parent);
     if (m_cache) {
         nam->setCache(m_cache);
-        m_cache->setParent(qApp);
     }
     return nam;
 }

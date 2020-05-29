@@ -22,6 +22,7 @@
 #define FUOTENDBUSPROYX_H
 
 #include <QObject>
+#include "../../common/globals.h"
 
 class FuotenDbusProxy : public QObject
 {
@@ -29,11 +30,17 @@ class FuotenDbusProxy : public QObject
 public:
     explicit FuotenDbusProxy(QObject *parent = nullptr);
 
+    ~FuotenDbusProxy() override;
+
 public slots:
     void activate();
 
 signals:
     void dbusActivate();
+
+private:
+    Q_DISABLE_COPY(FuotenDbusProxy)
+    Q_DISABLE_MOVE(FuotenDbusProxy)
 };
 
 #endif // FUOTENDBUSPROYX_H

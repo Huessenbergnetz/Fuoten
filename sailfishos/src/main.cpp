@@ -69,6 +69,8 @@
 #include <Fuoten/Article>
 #include <Fuoten/API/CreateFeed>
 #include <Fuoten/API/GetItems>
+#include <Fuoten/API/GetServerStatus>
+#include <Fuoten/API/LoginFlowV2>
 
 #include <Fuoten/Models/FeedListModel>
 #include <Fuoten/Models/FeedListFilterModel>
@@ -184,7 +186,7 @@ int main(int argc, char *argv[])
             }
         }
 
-        QTranslator *tfeTrans = new QTranslator(app.get());
+        auto tfeTrans = new QTranslator(app.get());
         if (locale.language() == QLocale::C) {
 
             if (Q_LIKELY(tfeTrans->load(QStringLiteral("sailfish_transferengine_plugins_eng_en"), QStringLiteral("/usr/share/translations")))) {
@@ -332,6 +334,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<Fuoten::CreateFolder>("harbour.fuoten.api", 1, 0, "CreateFolder");
     qmlRegisterType<Fuoten::CreateFeed>("harbour.fuoten.api", 1, 0, "CreateFeed");
     qmlRegisterType<Fuoten::GetItems>("harbour.fuoten.api", 1, 0, "GetItems");
+    qmlRegisterType<Fuoten::GetServerStatus>("harbour.fuoten.api", 1, 0, "GetServerStatus");
+    qmlRegisterType<Fuoten::LoginFlowV2>("harbour.fuoten.api", 1, 0, "LoginFlowV2");
 
     qmlRegisterType<Fuoten::Folder>("harbour.fuoten.items", 1, 0, "Folder");
     qmlRegisterType<Fuoten::Feed>("harbour.fuoten.items", 1, 0, "Feed");

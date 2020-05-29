@@ -25,6 +25,11 @@ CoverConnector::CoverConnector(QObject *parent) : QObject(parent)
 
 }
 
+CoverConnector::~CoverConnector()
+{
+
+}
+
 Fuoten::Article *CoverConnector::article() const { return m_article; }
 
 void CoverConnector::setArticle(Fuoten::Article *article)

@@ -21,6 +21,7 @@
 #ifndef UPDATEINTERVALMODEL_H
 #define UPDATEINTERVALMODEL_H
 
+#include "globals.h"
 #include <QAbstractListModel>
 #include <vector>
 #include <utility>
@@ -40,7 +41,7 @@ public:
     /*!
      * \brief Destroys the UpdateIntervalModel object.
      */
-    ~UpdateIntervalModel();
+    ~UpdateIntervalModel() override;
 
     /*!
      * \brief The model roles.
@@ -73,6 +74,9 @@ private:
      * This is called directly in the constructor.
      */
     void init();
+
+    Q_DISABLE_COPY(UpdateIntervalModel)
+    Q_DISABLE_MOVE(UpdateIntervalModel)
 };
 
 #endif // UPDATEINTERVALMODEL_H

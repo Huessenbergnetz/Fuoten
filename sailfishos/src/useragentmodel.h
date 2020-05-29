@@ -24,6 +24,7 @@
 #include <QAbstractListModel>
 #include <vector>
 #include <utility>
+#include "../common/globals.h"
 
 class UserAgentModel : public QAbstractListModel
 {
@@ -37,7 +38,7 @@ public:
     /*!
      * Destroys the UserAgentModel object.
      */
-    ~UserAgentModel();
+    ~UserAgentModel() override;
 
     /*!
      * \brief The model roles.
@@ -68,6 +69,9 @@ private:
      * This is called directly in the constructor.
      */
     void init();
+
+    Q_DISABLE_COPY(UserAgentModel)
+    Q_DISABLE_MOVE(UserAgentModel)
 };
 
 #endif // USERAGENTMODEL_H
