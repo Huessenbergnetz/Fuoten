@@ -76,11 +76,10 @@ Dialog {
                 text: config.username
             }
 
-            TextField {
+            PasswordField {
                 id: password
                 Layout.fillWidth: true
-                label: qsTrId("id-password"); placeholderText: label
-                echoMode: TextInput.Password
+                showEchoModeToggle: true
                 EnterKey.enabled: text || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: host.focus = true

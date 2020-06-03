@@ -68,25 +68,6 @@ Dialog {
             }
         }
 
-        PushUpMenu {
-            visible: !config.isAccountValid
-            flickable: welcomeAccountFlick
-            MenuItem {
-                text: qsTrId("fuoten-check-account")
-                enabled: username.text.length > 0 && password.text.length > 0 && host.text.length > 0
-                onClicked: {
-                    config.username = username.text
-                    config.password = password.text
-                    config.host = host.text
-                    config.serverPort = port.text.length > 0 ? parseInt(port.text) : 0
-                    config.installPath = installPath.text
-                    config.useSSL = usessl.checked
-                    config.ignoreSSLErrors = ignoresslerrors.checked
-                    account.validate()
-                }
-            }
-        }
-
         DialogHeader {
             id: dHeader;
             title: qsTrId("id-user-account");
@@ -142,13 +123,10 @@ Dialog {
                 EnterKey.onClicked: password.focus = true
             }
 
-            TextField {
+            PasswordField {
                 id: password
                 Layout.fillWidth: true
-                //: Label and placeholder for a text input
-                //% "Password"
-                label: qsTrId("id-password"); placeholderText: label
-                echoMode: TextInput.Password
+                showEchoModeToggle: true
                 EnterKey.enabled: text || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: host.focus = true
