@@ -39,6 +39,12 @@ SharingMethodsModel::SharingMethodsModel(QObject *parent) : QAbstractListModel(p
 }
 
 
+SharingMethodsModel::~SharingMethodsModel()
+{
+
+}
+
+
 QHash<int, QByteArray> SharingMethodsModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();

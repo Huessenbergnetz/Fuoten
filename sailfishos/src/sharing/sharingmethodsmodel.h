@@ -32,6 +32,7 @@ class SharingMethodsModel : public QAbstractListModel
     Q_OBJECT
 public:
     explicit SharingMethodsModel(QObject *parent = nullptr);
+    ~SharingMethodsModel() override;
 
     enum Roles { DisplayName = Qt::UserRole + 1, UserName, MethodId, ShareUiPath, AccountId, IconUrl, Args };
 

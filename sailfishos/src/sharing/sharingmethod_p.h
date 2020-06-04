@@ -27,19 +27,19 @@
 class SharingMethodData : public QSharedData
 {
 public:
-    SharingMethodData() {}
+//    SharingMethodData() : QSharedData() {}
 
-    SharingMethodData(const SharingMethodData &other) :
-        QSharedData(other),
-        displayName(other.displayName),
-        userName(other.userName),
-        methodId(other.methodId),
-        shareUiPath(other.shareUiPath),
-        iconUrl(other.iconUrl),
-        capabilities(other.capabilities),
-        args(other.args),
-        accountId(other.accountId)
-    {}
+//    SharingMethodData(const SharingMethodData &other) :
+//        QSharedData(other),
+//        displayName(other.displayName),
+//        userName(other.userName),
+//        methodId(other.methodId),
+//        shareUiPath(other.shareUiPath),
+//        iconUrl(other.iconUrl),
+//        capabilities(other.capabilities),
+//        args(other.args),
+//        accountId(other.accountId)
+//    {}
 
     QString displayName;
     QString userName;
@@ -48,7 +48,7 @@ public:
     QUrl iconUrl;
     QStringList capabilities;
     QVariantMap args;
-    quint32 accountId;
+    quint32 accountId = 0;
 };
 
 #endif // SHARINGMETHOD_P_H
