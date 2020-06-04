@@ -309,7 +309,7 @@ void Configuration::setAvatar(const QString &data, const QString &mime)
         if (avatar.loadFromData(QByteArray::fromBase64(ba), type.toUtf8().constData())) {
 
             const QString avatarPath = dataDir.absoluteFilePath(QStringLiteral("avatar.").append(type.toLower()));
-            if (avatar.save(avatarPath), type.toUtf8().constData()) {
+            if (avatar.save(avatarPath, type.toUtf8().constData())) {
                 m_avatar.setUrl(avatarPath);
                 setValue(QStringLiteral("account/avatar"), avatarPath);
             } else {
