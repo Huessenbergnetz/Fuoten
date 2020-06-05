@@ -15,11 +15,6 @@
         <extracomment>Label and placeholder for a text input</extracomment>
         <translation>Benutzername</translation>
     </message>
-    <message id="id-password">
-        <source>Password</source>
-        <extracomment>Label and placeholder for a text input</extracomment>
-        <translation>Passwort</translation>
-    </message>
     <message id="id-host">
         <source>Host</source>
         <extracomment>Label for a text input</extracomment>
@@ -293,11 +288,6 @@
         <source>Privacy policy</source>
         <extracomment>Label and page header for the privacy policy</extracomment>
         <translation>Datenschutzerklärung</translation>
-    </message>
-    <message id="fuoten-check-account">
-        <source>Check account</source>
-        <extracomment>Pull down/push up menu entry</extracomment>
-        <translation>Zugang prüfen</translation>
     </message>
     <message id="fuoten-wizard-finish">
         <source>Finish</source>
@@ -1165,6 +1155,149 @@
         <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
         <extracomment>description for ADVobfuscator in the list of used 3rd party components</extracomment>
         <translation>ADVobfuscator ist eine auf C++11/14 und Metaprogrammierung basierende Programmbibliothek zur Verschleierung von Programmteilen. Sie wird von Fuoten dazu verwendet, den zur AES-Verschlüsselung von Passwörtern intern genutzten AES-Schlüssel zu verschleiern.</translation>
+    </message>
+    <message id="fuoten-loginflow-enter-manual">
+        <source>Manual login</source>
+        <extracomment>pull down menu item in the setup wizard</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-check-again">
+        <source>Check again</source>
+        <extracomment>pull down menu item in the setup wizard</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-check-title">
+        <source>Check server</source>
+        <extracomment>dialog header title in the setup wizard</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-next">
+        <source>Next</source>
+        <extracomment>dialog header in the login flow to go to the next step</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-back">
+        <source>Back</source>
+        <extracomment>dialog header in the login flow to go to the previous step</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-server">
+        <source>Server</source>
+        <extracomment>label for a detail item showing the server name, should not be too long</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-version">
+        <source>Version</source>
+        <extracomment>Label for a detail item showing the nextcloud version, should not be too long</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-installed">
+        <source>Installed</source>
+        <extracomment>label for a detail item showing if the nextcloud is fully installed, value will be either yes or no</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-yes">
+        <source>yes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-no">
+        <source>no</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-inmaintenance">
+        <source>Maintenance mode</source>
+        <extracomment>label for a detail item showing if the nexctloud is in maintenance mode, value will be eiter yes or no</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-check-manual-setup-info">
+        <source>Your version of Nextcloud is not yet able to authorize an application through an external browser window. In the next step you will have the option to enter a manually created application password to access your Nextcloud. To create such a password, please log in to your Nextcloud via the web interface and create a new application password in the “Security” section of the settings.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-check-v2-setup-info">
+        <source>The next step is to open an external browser window with the login page of your Nextcloud. By logging in you authorize this application to use your account there. You can revoke this authorization at any time in your Nextcloud settings under “Security”. The name of the application to be authorized is &lt;b&gt;%1&lt;/b&gt;.</source>
+        <oldsource>The next step is to open an external browser window with the login page of your Nextcloud. By logging in you authorize this application to use your account there. You can revoke this authorization at any time in your Nextcloud settings under “Security”. The name of the application to be authorized is “%1”.</oldsource>
+        <extracomment>%1 will be replaced by the name of the application and the device it runs on, e.g.: &quot;Fuoten (Xperia X)&quot;</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-setup-title">
+        <source>Connect your Nextcloud</source>
+        <extracomment>dialog header title in the login flow setup wizard</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-setup-info">
+        <source>Please enter the address (domain and path) of your Nextcloud. It is the same address where you can access your Nextcloud with a web browser.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-usessl">
+        <source>Use HTTPS (SSL/TLS) connection</source>
+        <extracomment>Label for a switch</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-usessl-desc">
+        <source>Your Nextcloud should only be accessible via an encrypted connection (HTTPS) for security reasons. If you still want to establish an unencrypted connection, you can deactivate the connection encryption here.</source>
+        <extracomment>Description for a switch</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-server-address">
+        <source>Server address %1</source>
+        <extracomment>Label for a text input, %1 will be replaced by http://… or https://…</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-polling-title-waiting">
+        <source>Waiting for authorization</source>
+        <oldsource>Waiting for authentication</oldsource>
+        <extracomment>Dialog title in the login flow while waiting for authoriaztion</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-polling-title-success">
+        <source>Authorization succeeded</source>
+        <oldsource>Authentication succeeded</oldsource>
+        <extracomment>Dialog title in the login flow if authorization has succeeded</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-seconds-left" numerus="yes">
+        <source>%n second(s) left</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message id="fuoten-loginflow-polling-retry">
+        <source>Retry</source>
+        <extracomment>Pull down menu entry to retry the authorization with external browser</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-notify-auth-success-summary">
+        <source>Authorization successful</source>
+        <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-notify-auth-success-prev-body">
+        <source>User %1 on %2</source>
+        <extracomment>notification popup body text after successful authorization, %1 will be replaced by the username, %2 by the remote Nextcloud host name</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-notify-auth-success-body">
+        <source>Fuoten has been successfully authorised to connect to your Nextcloud at %1 as user %2.</source>
+        <extracomment>notification area body text after successful authorization, %1 will be replaced by the remote Nextcloud host name, %2 by the username</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-manual-title">
+        <source>Manual setup</source>
+        <extracomment>dialog header title in the login flow setup wizard</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-manual-check-account">
+        <source>Checking account</source>
+        <extracomment>Dialog title in the login flow while checking manual account setup</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-manual-check-failed">
+        <source>Setup failed</source>
+        <extracomment>Dialog title in the login flow if manual account setup failed</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-manual-check-success">
+        <source>Setup finished</source>
+        <extracomment>Dialog title in the login flow if manual account setup succeeded</extracomment>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
