@@ -50,9 +50,7 @@
 #include <QDBusPendingReply>
 #include <QDBusError>
 
-#ifndef CLAZY
 #include <sailfishapp.h>
-#endif
 
 #include <Fuoten/Error>
 #include <Fuoten/FuotenEnums>
@@ -152,11 +150,7 @@ void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, con
 
 int main(int argc, char *argv[])
 {
-#ifndef CLAZY
     std::unique_ptr<QGuiApplication> app(SailfishApp::application(argc, argv));
-#else
-    auto app = std::make_unique<QGuiApplication>(argc, argv);
-#endif
 
     app->setApplicationName(QStringLiteral("harbour-fuoten"));
     app->setApplicationDisplayName(QStringLiteral("Fuoten"));
@@ -351,11 +345,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<SharingMethodsModel>("harbour.fuoten", 1, 0, "SharingMethodsModel");
     qmlRegisterType<UserAgentModel>("harbour.fuoten", 1, 0, "UserAgentModel");
 
-#ifndef CLAZY
     std::unique_ptr<QQuickView> view(SailfishApp::createView());
-#else
-    auto view = std::make_unique<QQuickView>();
-#endif
+
     auto hbnscIconProvider = Hbnsc::HbnscIconProvider::createProvider(view->engine());
     auto fuotenIconProvider = Hbnsc::BaseIconProvider::createProvider({1.0,1.25,1.5,1.75,2.0}, QString(), false, QStringLiteral("fuoten"), view->engine());
     view->engine()->setNetworkAccessManagerFactory(namFactory.get());
@@ -385,9 +376,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty(QStringLiteral("covercon"), new CoverConnector(app.get()));
     view->rootContext()->setContextProperty(QStringLiteral("_fuotenDbusProxy"), dbusproxy);
 
-#ifndef CLAZY
     view->setSource(SailfishApp::pathToMainQml());
-#endif
 
     view->showFullScreen();
 
