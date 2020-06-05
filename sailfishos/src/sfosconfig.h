@@ -59,6 +59,8 @@ public:
 
     QString getUserAgent() const override;
 
+    QString getLoginFlowUserAgent() const override;
+
 signals:
     /*!
      * \brief Notification signal for the \link Configuration::pushUpOnArticle pushUpOnArticle \endlink property.
@@ -69,6 +71,7 @@ signals:
 private:
     QString encPw(const QString &pw) const;
     QString decPw(const QString &pw) const;
+    QString getHwReleasename() const;
 
     QString m_password;
     bool m_pushUpOnArticle = false;
