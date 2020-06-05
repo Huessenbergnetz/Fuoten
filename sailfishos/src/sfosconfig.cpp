@@ -25,6 +25,8 @@
 #include <openssl/evp.h>
 #include <openssl/rand.h>
 #include <QStringBuilder>
+#include <QFile>
+#include <QTextStream>
 #include "../../ADVobfuscator/Lib/MetaString.h"
 
 using namespace andrivet::ADVobfuscator;
@@ -49,7 +51,7 @@ public:
     pointer address (reference v) const {return &v;}
     const_pointer address (const_reference v) const {return &v;}
 
-    pointer allocate (size_type n, const void* hint = 0) {
+    pointer allocate (size_type n, const void* hint = nullptr) {
         Q_UNUSED(hint)
         if (n > std::numeric_limits<size_type>::max() / sizeof(T))
             throw std::bad_alloc();
@@ -79,7 +81,7 @@ public:
         static_cast<T*>(ptr)->~T();
     }
 
-#if __cpluplus >= 201103L
+#if __cplusplus >= 201103L
     template<typename U, typename... Args>
     void construct (U* ptr, Args&&  ... args) {
         ::new (static_cast<void*> (ptr) ) U (std::forward<Args> (args)...);
@@ -137,7 +139,7 @@ QString SfosConfig::encPw(const QString &pw) const
 
         EVP_CIPHER_CTX_free_ptr ctx(EVP_CIPHER_CTX_new(), ::EVP_CIPHER_CTX_free);
 
-        if (EVP_EncryptInit_ex(ctx.get(), EVP_aes_256_cbc(), NULL, key, iv) != 1) {
+        if (EVP_EncryptInit_ex(ctx.get(), EVP_aes_256_cbc(), nullptr, key, iv) != 1) {
             qFatal("EVP_EncryptInit_ex failed");
         }
 
@@ -205,7 +207,7 @@ QString SfosConfig::decPw(const QString &pw) const
 
                 EVP_CIPHER_CTX_free_ptr ctx(EVP_CIPHER_CTX_new(), ::EVP_CIPHER_CTX_free);
 
-                if (EVP_DecryptInit_ex(ctx.get(), EVP_aes_256_cbc(), NULL, key, iv) != 1) {
+                if (EVP_DecryptInit_ex(ctx.get(), EVP_aes_256_cbc(), nullptr, key, iv) != 1) {
                     qFatal("EVP_DecryptInit_ex failed");
                 }
 
@@ -276,6 +278,56 @@ void SfosConfig::setPushUpOnArticle(bool pushUpOnArticle)
 QString SfosConfig::getUserAgent() const
 {
     return QStringLiteral("Fuoten %1 on SailfishOS, Qt %2").arg(QStringLiteral(VERSION_STRING), QString::fromLatin1(qVersion()));
+}
+
+
+QString SfosConfig::getLoginFlowUserAgent() const
+{
+    QString ua = QStringLiteral("Fuoten (");
+
+    QString hwname = getHwReleasename();
+    if (hwname.isEmpty()) {
+        hwname = QStringLiteral("Sailfish OS");
+    }
+
+    ua += hwname;
+    ua += QLatin1Char(')');
+
+    return ua;
+}
+
+QString SfosConfig::getHwReleasename() const
+{
+    QString hwname;
+
+    QFile hwrelease(QStringLiteral("/etc/hw-release"));
+    if (hwrelease.exists()) {
+        if (hwrelease.open(QFile::ReadOnly|QFile::Text)) {
+            QTextStream in(&hwrelease);
+            QString line;
+            while (in.readLineInto(&line)) {
+                const QString trimmedLine = line.trimmed();
+                if (trimmedLine.startsWith(QLatin1String("NAME="), Qt::CaseInsensitive)) {
+                    QString value = trimmedLine.mid(trimmedLine.indexOf(QLatin1Char('=')) + 1);
+                    if (value.startsWith(QLatin1Char('"'))) {
+                        value.remove(0, 1);
+                    }
+                    if (value.endsWith(QLatin1Char('"'))) {
+                        value.chop(1);
+                    }
+                    hwname = value;
+                    return hwname;
+                }
+            }
+            qWarning("%s", "Can not find NAME= entry in /etc/hw-release");
+        } else {
+            qWarning("%s", "Can not open /etc/hw-release for reading");
+        }
+    } else {
+        qWarning("%s", "Can not find /etc/hw-release");
+    }
+
+    return hwname;
 }
 
 #include "moc_sfosconfig.cpp"
