@@ -257,7 +257,8 @@ void SfosConfig::setPassword(const QString &password)
         m_password = _epw;
         setValue(QStringLiteral("account/password"), m_password);
         qDebug("%s", "Password changed");
-        Q_EMIT passwordChanged(getPassword());
+        emit passwordChanged(getPassword());
+        checkAccountValidity();
     }
 }
 
