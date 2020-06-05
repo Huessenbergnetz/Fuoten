@@ -24,9 +24,8 @@
 #include <QVariant>
 #include <QStringBuilder>
 #include <QLocale>
-#ifndef CLAZY
+#include <QDebug>
 #include <notification.h>
-#endif
 
 SfosNotificator::SfosNotificator(SfosConfig *config, QObject *parent) :
     Fuoten::AbstractNotificator(parent), m_config(config)
@@ -56,6 +55,7 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
         case ItemsRequested:
         case FolderCreated:
         case FeedCreated:
+        case AuthorizationSucceeded:
             force = true;
             break;
         case SyncComplete:
@@ -64,15 +64,15 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
             break;
         }
 
+        qDebug() << "Preparing new notification:" << type << severity << data;
+
         if (isEnabled() || force || (severity == QtFatalMsg)) {
 
             QString previewSummary;
             QString previewBody;
             QString summary;
             QString body;
-#ifndef CLAZY
             Notification::Urgency urgency = Notification::Low;
-#endif
             QString icon = m_infoIcon;
             qint32 expireTimeout = -1;
             QString category;
@@ -80,15 +80,11 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
 
             switch(severity) {
             case QtCriticalMsg:
-#ifndef CLAZY
                 urgency = Notification::Normal;
-#endif
                 icon = m_errorIcon;
                 break;
             case QtFatalMsg:
-#ifndef CLAZY
                 urgency = Notification::Critical;
-#endif
                 icon = m_errorIcon;
                 break;
             default:
@@ -497,11 +493,30 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
                 category = QStringLiteral("x-fuoten.items.requested");
                 break;
             }
-            default:
-                return;
+            case AuthorizationSucceeded:
+            {
+                Q_ASSERT(data.isValid());
+                Q_ASSERT(data.canConvert(QMetaType::QVariantMap));
+                const QVariantMap dataMap = data.toMap();
+                const QString username = dataMap.value(QStringLiteral("username")).toString();
+                const QString host = dataMap.value(QStringLiteral("host")).toString();
+                //: headline/summary for a notification, shown in the notification area and in the notification popup
+                //% "Authorization successful"
+                previewSummary = qtTrId("fuoten-notify-auth-success-summary");
+                summary = previewSummary;
+                //: notification popup body text after successful authorization, %1 will be replaced by the username, %2 by the remote Nextcloud host name
+                //% "User %1 on %2"
+                previewBody = qtTrId("fuoten-notify-auth-success-prev-body").arg(username, host);
+                //: notification area body text after successful authorization, %1 will be replaced by the remote Nextcloud host name, %2 by the username
+                //% "Fuoten has been successfully authorised to connect to your Nextcloud at %1 as user %2."
+                body = qtTrId("fuoten-notify-auth-success-body").arg(host, username);
+                expireTimeout = 5000;
+                category = QStringLiteral("x-fuoten.authorization.success");
+                break;
+            }
             }
 
-#ifndef CLAZY
+            // TODO: use Notification::notificationsByCategory()
             const QList<QObject*> currentNotifications = Notification::notifications();
 
             if (!currentNotifications.empty()) {
@@ -517,6 +532,7 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
 
             qDebug("Publishing new notification: %s", qUtf8Printable(previewSummary));
 
+            // TODO: make actions static and check if it is empty
             QVariantList actions;
             actions.push_back(Notification::remoteAction(QStringLiteral("default"),
                                                          QStringLiteral(""),
@@ -544,7 +560,6 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
             n.setUrgency(urgency);
             n.setRemoteActions(actions);
             n.publish();
-#endif
         }
     }
 }
