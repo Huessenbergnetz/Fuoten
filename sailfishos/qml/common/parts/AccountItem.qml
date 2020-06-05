@@ -31,6 +31,7 @@ BackgroundItem {
     enabled: !accValidator.inOperation
 
     property alias inOperation: accValidator.inOperation
+    property alias error: accValidator.error
 
     AccountValidator {
         id: accValidator

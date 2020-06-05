@@ -2,7 +2,7 @@
  * Copyright (C) 2016-2019 Huessenbergnetz/Matthias Fehring
  * https://github.com/Huessenbergnetz/Fuoten
  *
- * sailfishos/qml/common/wizard/Account.qml
+ * sailfishos/qml/common/wizard/LoginManual.qml
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,81 +21,51 @@
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
-import harbour.fuoten 1.0
-import "../parts"
 
 Dialog {
-    id: welcomeAccountDialog
+    id: loginManualDialog
 
-    backNavigation: false
-    canAccept: config.isAccountValid && !account.inOperation
-    acceptDestination: Screen.sizeCategory >= Screen.Large
-                       ? Qt.resolvedUrl("../../tablet/pages/MainPage.qml")
-                       : Qt.resolvedUrl("../../phone/pages/MainPage.qml")
-    acceptDestinationAction: PageStackAction.Replace
+    canAccept: username.length > 0 && password.length > 0 && host.length > 0
+    acceptDestination: Qt.resolvedUrl("LoginManualCheck.qml")
 
     onAccepted: {
-        config.setCurrentVersion()
-        synchronizer.sync()
+        config.username = username.text
+        config.password = password.text
+        config.host = host.text
+        config.serverPort = parseInt(port.text, 10)
+        config.installPath = installPath.text
+        config.useSSL = usessl.checked
+        config.ignoreSSLErrors = ignoresslerrors.checked
     }
 
-
     SilicaFlickable {
-        id: welcomeAccountFlick
+        id: loginManualFlick
         anchors.fill: parent
-        contentHeight: (accountGrid.visible ? accountGrid.height : 0) + account.height + dHeader.height
+        contentHeight: loginManualGrid.height + loginManualHeader.height
 
-        VerticalScrollDecorator { flickable: welcomeAccountFlick; page: welcomeAccountDialog }
-
-        PullDownMenu {
-            visible: !config.isAccountValid
-            flickable: welcomeAccountFlick
-            MenuItem {
-                //: Pull down/push up menu entry
-                //% "Check account"
-                text: qsTrId("fuoten-check-account")
-                enabled: username.text.length > 0 && password.text.length > 0 && host.text.length > 0
-                onClicked: {
-                    config.username = username.text
-                    config.password = password.text
-                    config.host = host.text
-                    config.serverPort = port.text.length > 0 ? parseInt(port.text) : 0
-                    config.installPath = installPath.text
-                    config.useSSL = usessl.checked
-                    config.ignoreSSLErrors = ignoresslerrors.checked
-                    account.validate()
-                }
-            }
-        }
+        VerticalScrollDecorator { flickable: loginManualFlick; page: loginManualDialog }
 
         DialogHeader {
-            id: dHeader;
-            title: qsTrId("id-user-account");
-            dialog: welcomeAccountDialog;
-            flickable: welcomeAccountFlick
-            //: Text for finishing the first start configuration wizard
-            //% "Finish"
-            defaultAcceptText: qsTrId("fuoten-wizard-finish")
-        }
-
-        AccountItem {
-            id: account
-            anchors { left: parent.left; right: parent.right; top: dHeader.bottom }
-            enabled: false
+            id: loginManualHeader;
+            //: dialog header title in the login flow setup wizard
+            //% "Manual setup"
+            title: qsTrId("fuoten-loginflow-manual-title");
+            dialog: loginManualDialog;
+            flickable: loginManualFlick
+            defaultAcceptText: qsTrId("fuoten-loginflow-next")
         }
 
         GridLayout {
-            id: accountGrid
-            anchors { left: parent.left; right: parent.right; top: dHeader.bottom; topMargin: account.contentHeight }
-            visible: !account.inOperation && !config.isAccountValid
+            id: loginManualGrid
+            anchors { left: parent.left; right: parent.right; top: loginManualHeader.bottom; topMargin: account.contentHeight }
 
             columnSpacing: 0
             rowSpacing: Theme.paddingSmall
 
-            columns: Screen.sizeCategory < Screen.Large ? (welcomeAccountDialog.isLandscape ? 2 : 1) : (welcomeAccountDialog.isLandscape ? 4 : 2)
+            columns: Screen.sizeCategory < Screen.Large ? (loginManualDialog.isLandscape ? 2 : 1) : (loginManualDialog.isLandscape ? 4 : 2)
 
             Item {
-                Layout.columnSpan: accountGrid.columns
+                Layout.columnSpan: loginManualGrid.columns
                 Layout.fillWidth: true
                 Layout.preferredHeight: infoText.height
 
@@ -121,6 +91,7 @@ Dialog {
                 EnterKey.enabled: text || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: password.focus = true
+                text: config.username
             }
 
             PasswordField {
@@ -130,6 +101,7 @@ Dialog {
                 EnterKey.enabled: text || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: host.focus = true
+                text: config.password
             }
 
             TextField {
@@ -145,6 +117,7 @@ Dialog {
                 EnterKey.enabled: text || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: installPath.focus = true
+                text: config.host
             }
 
             TextField {
@@ -156,6 +129,7 @@ Dialog {
                 inputMethodHints: Qt.ImhUrlCharactersOnly
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: port.focus = true
+                text: config.installPath
             }
 
             TextField {
@@ -169,12 +143,12 @@ Dialog {
                 EnterKey.enabled: text || inputMethodComposing
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: port.focus = false
-                text: "0"
+                text: config.serverPort
             }
 
             Item {
                 Layout.fillWidth: true
-                Layout.columnSpan: Screen.sizeCategory < Screen.Large ? 1 : (welcomeAccountDialog.isLandscape ? 3 : 1)
+                Layout.columnSpan: Screen.sizeCategory < Screen.Large ? 1 : (loginManualDialog.isLandscape ? 3 : 1)
                 height: 1
             }
 
@@ -191,7 +165,7 @@ Dialog {
                     //: Description for a switch
                     //% "Because the News App requires to send your username and password with every request, you should keep this enabled to use an encrypted connection, when your server supports or even requires encryption."
                     description: qsTrId("id-use-ssl-desc")
-                    checked: true
+                    checked: config.useSSL
                 }
             }
 
@@ -209,7 +183,7 @@ Dialog {
                     //% "Only ignore SSL errors when you really know what you are doing. Ignoring SSL errors is a big security risk."
                     description: qsTrId("id-ignore-ssl-errs-desc")
                     enabled: usessl.checked
-                    checked: false
+                    checked: config.ignoreSSLErrors
                 }
             }
         }

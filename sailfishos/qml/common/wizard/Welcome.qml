@@ -27,7 +27,7 @@ Dialog {
     id: welcomeDialog
 
     backNavigation: false
-    acceptDestination: Qt.resolvedUrl("Account.qml")
+    acceptDestination: Qt.resolvedUrl("LoginFlowSetup.qml")
     acceptDestinationAction: PageStackAction.Replace
 
     SilicaFlickable {

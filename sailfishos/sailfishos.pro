@@ -1,8 +1,6 @@
 TARGET = harbour-fuoten
 
-!contains(CONFIG, clazy) {
-    CONFIG += sailfishapp
-}
+CONFIG += sailfishapp
 CONFIG += c++11
 CONFIG += c++14
 
@@ -25,14 +23,6 @@ isEmpty(AES256_KEY) {
 }
 DEFINES += AES256_KEY=\"\\\"$${AES256_KEY}\\\"\"
 
-contains(CONFIG, clazy) {
-    DEFINES += CLAZY
-    isEmpty(CLAZY_PLUGIN_FILE): CLAZY_PLUGIN_FILE = ClazyPlugin.so
-    QMAKE_CXXFLAGS += "-Xclang -load -Xclang $${CLAZY_PLUGIN_FILE} -Xclang -add-plugin -Xclang clazy -Xclang -plugin-arg-clazy -Xclang level0,level1,level2,reserve-candidates,qrequiredresult-candidates,qvariant-template-instantiation"
-    QT += qml quick
-    CONFIG += link_pkgconfig
-}
-
 contains(CONFIG, asan) {
     QMAKE_CXXFLAGS += "-fsanitize=address -fno-omit-frame-pointer -Wformat -Werror=format-security -Werror=array-bounds -g -ggdb"
     QMAKE_LFLAGS += "-fsanitize=address"
@@ -44,10 +34,8 @@ LIBS += -L$$OUT_PWD/../libfuoten -lfuoten
 INCLUDEPATH += $$PWD/../libfuoten
 
 PKGCONFIG += openssl
-!contains(CONFIG, clazy) {
-    PKGCONFIG += nemonotifications-qt5
-    INCLUDEPATH += /usr/include/nemonotifications-qt5
-}
+PKGCONFIG += nemonotifications-qt5
+INCLUDEPATH += /usr/include/nemonotifications-qt5
 
 SOURCES += \
     src/main.cpp \
@@ -82,6 +70,8 @@ icons.files = icons/z*
 INSTALLS += icons
 
 DISTFILES += \
+    qml/common/wizard/LoginManual.qml \
+    qml/common/wizard/LoginManualCheck.qml \
     qml/harbour-fuoten.qml \
     harbour-fuoten.desktop \
     qml/phone/pages/MainPage.qml \
@@ -96,7 +86,9 @@ DISTFILES += \
     qml/common/models/ContributorsModel.qml \
     qml/common/pages/PrivacyPolicy.qml \
     qml/common/wizard/Welcome.qml \
-    qml/common/wizard/Account.qml \
+    qml/common/wizard/LoginFlowSetup.qml \
+    qml/common/wizard/LoginFlowCheck.qml \
+    qml/common/wizard/LoginFlowPolling.qml \
     qml/common/parts/AccountItem.qml \
     qml/phone/pages/FolderListView.qml \
     qml/common/parts/ListPageHeader.qml \
