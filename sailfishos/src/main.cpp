@@ -69,6 +69,7 @@
 #include <Fuoten/API/GetItems>
 #include <Fuoten/API/GetServerStatus>
 #include <Fuoten/API/LoginFlowV2>
+#include <Fuoten/API/ConvertToAppPassword>
 
 #include <Fuoten/Models/FeedListModel>
 #include <Fuoten/Models/FeedListFilterModel>
@@ -368,6 +369,13 @@ int main(int argc, char *argv[])
             notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-object-register").arg(QString::fromLatin1(dbusproxy->metaObject()->className())));
             qFatal("Failed to register D-Bus object \"%s\".", dbusproxy->metaObject()->className());
         }
+    }
+
+    if (config->isAccountValid()) {
+        auto appPassConverter = new Fuoten::ConvertToAppPassword(app.get());
+        QObject::connect(appPassConverter, &Fuoten::ConvertToAppPassword::succeeded, appPassConverter, &Fuoten::ConvertToAppPassword::deleteLater);
+        QObject::connect(appPassConverter, &Fuoten::ConvertToAppPassword::failed, appPassConverter, &Fuoten::ConvertToAppPassword::deleteLater);
+        appPassConverter->execute();
     }
 
     view->rootContext()->setContextProperty(QStringLiteral("config"), config);
