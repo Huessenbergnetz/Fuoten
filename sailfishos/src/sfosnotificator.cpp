@@ -56,6 +56,7 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
         case FolderCreated:
         case FeedCreated:
         case AuthorizationSucceeded:
+        case AppPasswordRequested:
             force = true;
             break;
         case SyncComplete:
@@ -512,6 +513,27 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
                 body = qtTrId("fuoten-notify-auth-success-body").arg(host, username);
                 expireTimeout = 5000;
                 category = QStringLiteral("x-fuoten.authorization.success");
+                break;
+            }
+            case AppPasswordRequested:
+            {
+                Q_ASSERT(data.isValid());
+                Q_ASSERT(data.canConvert(QMetaType::QVariantMap));
+                const QVariantMap dataMap = data.toMap();
+                const QString username = dataMap.value(QStringLiteral("username")).toString();
+                const QString host = dataMap.value(QStringLiteral("host")).toString();
+                const QString useragent = dataMap.value(QStringLiteral("useragent")).toString();
+                //: headline/summary for a notification, shown in the notification area and in the notification popup
+                //% "Application password created"
+                previewSummary = qtTrId("fuoten-notify-apppassword-created");
+                summary = previewSummary;
+                //: notification popup body text after successfully automatically creating an application password, %1 will be replaced by the username, %2 by the remote Nextcloud host name
+                //% "User %1 on %2"
+                previewBody = qtTrId("fuoten-notify-apppassword-created-prev-body").arg(username, host);
+                //: notification area body text after successfully automatically converting to an application password, %1 will be replaced by the application’s login flow user agent (e.g. Fuoten (Xperia X)),  %2 will be replaced by the remote Nextcloud host name, %3 by the username
+                //% "%1 has been successfully upgraded your login credentials to connect to your Nextcloud at %2 as user %3 with an application specific password."
+                body = qtTrId("fuoten-notify-apppassword-created-body").arg(useragent, host, username);
+                category = QStringLiteral("x-fuoten.authorization.upgraded");
                 break;
             }
             }
