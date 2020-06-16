@@ -1,5 +1,5 @@
 /* Fuoten - ownCloud/Nextcloud News App Client
- * Copyright (C) 2016-2019 Huessenbergnetz/Matthias Fehring
+ * Copyright (C) 2016-2020 Hüssenbergnetz/Matthias Fehring
  * https://github.com/Huessenbergnetz/Fuoten
  *
  * sailfishos/qml/common/dialogs/RenameFeedDialog.qml
