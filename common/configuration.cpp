@@ -21,6 +21,7 @@
 #include <QImage>
 #include <QDir>
 #include <QStandardPaths>
+#include <QSettings>
 #include <math.h>
 #include <QMetaEnum>
 #include <QNetworkConfiguration>
@@ -36,7 +37,7 @@
  * \brief Constructs a new Configuration object.
  */
 Configuration::Configuration(QObject *parent) :
-    Fuoten::AbstractConfiguration(parent)
+    Fuoten::AbstractConfiguration(parent), m_settings(new QSettings(this))
 {
     m_username = value(QStringLiteral("account/user")).toString();
     m_password = value(QStringLiteral("account/password")).toString();
@@ -570,6 +571,21 @@ void Configuration::checkUpdate()
         m_checkUpdateTimer->setInterval(5000);
     }
     m_checkUpdateTimer->start();
+}
+
+void Configuration::setValue(const QString &key, const QVariant &value)
+{
+    m_settings->setValue(key, value);
+}
+
+QVariant Configuration::value(const QString &key, const QVariant &defaultValue) const
+{
+    return m_settings->value(key, defaultValue);
+}
+
+void Configuration::remove(const QString &key)
+{
+    m_settings->remove(key);
 }
 
 #include "moc_configuration.cpp"

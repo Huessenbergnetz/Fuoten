@@ -20,12 +20,15 @@
 #define CONFIGURATION_H
 
 #include <QObject>
+#include <QVariant>
 #include <QUrl>
 #include <QDateTime>
 #include <QTimer>
 #include <Fuoten/Helpers/AbstractConfiguration>
 #include <Fuoten/FuotenEnums>
 #include <QVersionNumber>
+
+class QSettings;
 
 /*!
  * \brief Provides the configuration interface for Fuoten.
@@ -366,6 +369,12 @@ public:
 protected:
     void setIsAccountValid(bool nIsAccountValid) override;
 
+    void setValue(const QString &key, const QVariant &value);
+
+    QVariant value(const QString &key, const QVariant &defaultValue = QVariant()) const;
+
+    void remove(const QString &key);
+
 signals:
     void usernameChanged(const QString &username);
     void passwordChanged(const QString &password);
@@ -431,6 +440,7 @@ private:
     QUrl m_avatar;
     QDateTime m_lastSync;
     QTimer *m_checkUpdateTimer = nullptr;
+    QSettings *m_settings = nullptr;
     QVersionNumber m_serverVersion;
     QVersionNumber m_savedAppVersion;
     quint32 m_updateInterval = 0;
