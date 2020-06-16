@@ -448,10 +448,10 @@ private:
     int m_articleFontSize = 0;
     Fuoten::FuotenEnums::Type m_mainViewType;
     bool m_notificationsEnabled = true;
-    bool m_useSSL;
-    bool m_improperlyConfiguredCron;
-    bool m_isAccountValid;
-    bool m_ignoreSSLErrors;
+    bool m_useSSL = true;
+    bool m_improperlyConfiguredCron = false;
+    bool m_isAccountValid = false;
+    bool m_ignoreSSLErrors = false;
     bool m_wlanOnlyUpdate = true;
 
     /*!

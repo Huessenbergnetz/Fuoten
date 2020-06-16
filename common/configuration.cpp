@@ -22,10 +22,12 @@
 #include <QDir>
 #include <QStandardPaths>
 #include <QSettings>
-#include <math.h>
 #include <QMetaEnum>
 #include <QNetworkConfiguration>
 #include <QNetworkConfigurationManager>
+#include <cmath>
+#include <algorithm>
+#include <limits>
 
 #define DEFAULT_AVATAR "image://theme/icon-l-people"
 #define CONF_KEY_UPDATE_INTERVAL "behavior/updateInterval"
@@ -49,7 +51,6 @@ Configuration::Configuration(QObject *parent) :
     m_savedAppVersion = QVersionNumber::fromString(value(QStringLiteral("system/appVersion")).toString());
     m_serverPort = value(QStringLiteral("account/serverport"), 0).toInt();
     m_improperlyConfiguredCron = value(QStringLiteral("warnings/improperlyConfiguredCron"), false).toBool();
-    m_isAccountValid = false;
     checkAccountValidity();
     m_ignoreSSLErrors = value(QStringLiteral("account/ignoresslerrors"), false).toBool();
     m_avatar = value(QStringLiteral("account/avatar"), QStringLiteral(DEFAULT_AVATAR)).toUrl();
@@ -376,14 +377,14 @@ void Configuration::setLastSync(const QDateTime &lastSync)
 
 Fuoten::FuotenEnums::ItemDeletionStrategy Configuration::getPerFeedDeletionStrategy(qint64 feedId) const
 {
-    return (Fuoten::FuotenEnums::ItemDeletionStrategy)value(QStringLiteral("FeedItems_%1/deletionStrategy").arg(feedId), Fuoten::FuotenEnums::DeleteItemsByTime).toInt();
+    return static_cast<Fuoten::FuotenEnums::ItemDeletionStrategy>(value(QStringLiteral("FeedItems_%1/deletionStrategy").arg(feedId), Fuoten::FuotenEnums::DeleteItemsByTime).toInt());
 }
 
 
 
 quint16 Configuration::getPerFeedDeletionValue(qint64 feedId) const
 {
-    return value(QStringLiteral("FeedItems_%1/deletionValue").arg(feedId), 14).toUInt();
+    return static_cast<quint16>(std::min(value(QStringLiteral("FeedItems_%1/deletionValue").arg(feedId), 14).toUInt(), static_cast<uint>(std::numeric_limits<quint16>::max())));
 }
 
 
@@ -415,28 +416,28 @@ QString Configuration::getHumanLastSync() const
 
     if (m_lastSync.toMSecsSinceEpoch() > 0) {
 
-        qreal td = (qreal)getLastSync().secsTo(QDateTime::currentDateTimeUtc());
+        float td = static_cast<float>(getLastSync().secsTo(QDateTime::currentDateTimeUtc()));
 
         if (td <= 10) {
             //: relative time for last synchronisation
             //% "just now"
             ret = qtTrId("fuoten-just-now");
-        } else if (td < 60.0) {
+        } else if (td < 60.0f) {
             //: relative time for last synchronisation
             //% "%n second(s) ago"
-            ret = qtTrId("fuoten-seconds-ago", td);
-        } else if (td < 7200.0) {
-            long int rtd = lround(td/60.0);
+            ret = qtTrId("fuoten-seconds-ago", static_cast<int>(td));
+        } else if (td < 7200.0f) {
+            long rtd = std::lroundf(td/60.0f);
             //: relative time for last synchronisation
             //% "%n minute(s) ago"
             ret = qtTrId("fuoten-minutes-ago", rtd);
-        } else if (td < 172800.0) {
-            long int rtd = lround(td/3600.0);
+        } else if (td < 172800.0f) {
+            long rtd = std::lroundf(td/3600.0f);
             //: relative time for last synchronisation
             //% "%n hour(s) ago"
             ret = qtTrId("fuoten-hours-ago", rtd);
         } else  {
-            long int rtd = lround(td/86400.0);
+            long rtd = std::lroundf(td/86400.0f);
             //: relative time for last synchronisation
             //% "%n day(s) ago"
             ret = qtTrId("fuoten-days-ago", rtd);
