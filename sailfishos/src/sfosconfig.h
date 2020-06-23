@@ -26,16 +26,27 @@ class SfosConfig : public Configuration
 {
     Q_OBJECT
     /*!
-     * \brief This property holds \c true if a Push Up menu should be shown on article pages
+     * \brief This property holds \c true if a Push Up menu should be shown on article pages.
      *
      * \par Access functions:
      * \li bool pushUpOnArticle() const
      * \li void setPushUpOnArticle(bool pushUpOnArticle)
      *
      * \par Notifier signal:
-     * \li void pushUpOnArticleChanged
+     * \li void pushUpOnArticleChanged(bool pushUpOnArticle)
      */
     Q_PROPERTY(bool pushUpOnArticle READ pushUpOnArticle WRITE setPushUpOnArticle NOTIFY pushUpOnArticleChanged)
+    /*!
+     * \brief This property holds \c true if the search field on list pages should be visible.
+     *
+     * \par Access functions:
+     * \li bool showSearch() const
+     * \li void setShowSearch(bool showSearch)
+     *
+     * \par Notifier signal:
+     * \li void showSearchChanged(bool showSearch)
+     */
+    Q_PROPERTY(bool showSearch READ showSearch WRITE setShowSearch NOTIFY showSearchChanged)
 public:
     explicit SfosConfig(QObject *parent = nullptr);
 
@@ -55,6 +66,18 @@ public:
      */
     void setPushUpOnArticle(bool pushUpOnArticle);
 
+    /*!
+     * \brief Returns \c true if the search field on list pages should be visible.
+     * \sa setShowSearch(), showSearchChanged()
+     */
+    bool showSearch() const;
+
+    /*!
+     * \brief Set \a showSearch to \c true if the search file on list pages should be visible.
+     * \sa showSearch(), showSearchChanged()
+     */
+    void setShowSearch(bool showSearch);
+
     QString getUserAgent() const override;
 
     QString getLoginFlowUserAgent() const override;
@@ -66,6 +89,12 @@ signals:
      */
     void pushUpOnArticleChanged(bool pushUpOnArticle);
 
+    /*!
+     * \brief Emitted when showSearch changed.
+     * \sa showSearch(), setShowSearch()
+     */
+    void showSearchChanged(bool showSearch);
+
 private:
     QString encPw(const QString &pw) const;
     QString decPw(const QString &pw) const;
@@ -73,6 +102,7 @@ private:
 
     QString m_password;
     bool m_pushUpOnArticle = false;
+    bool m_showSearch = false;
 
     Q_DISABLE_COPY(SfosConfig)
     Q_DISABLE_MOVE(SfosConfig)

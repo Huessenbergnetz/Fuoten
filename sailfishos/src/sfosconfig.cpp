@@ -33,6 +33,7 @@ static const unsigned int KEY_SIZE = 32;
 static const unsigned int BLOCK_SIZE = 16;
 
 #define CONF_KEY_PUSHUPONARTICLE "behavior/pushUpOnArticle"
+#define CONF_KEY_SHOWSEARCH "behavior/showSearch"
 
 template <typename T>
 struct zallocator
@@ -270,6 +271,22 @@ void SfosConfig::setPushUpOnArticle(bool pushUpOnArticle)
         setValue(QStringLiteral(CONF_KEY_PUSHUPONARTICLE), m_pushUpOnArticle);
         qDebug("Changed pushUpOnArticle to %s.", m_pushUpOnArticle ? "true" : "false");
         emit pushUpOnArticleChanged(m_pushUpOnArticle);
+    }
+}
+
+
+bool SfosConfig::showSearch() const
+{
+    return m_showSearch;
+}
+
+void SfosConfig::setShowSearch(bool showSearch)
+{
+    if (m_showSearch != showSearch) {
+        qDebug("Changing showSearch from %s to %s", m_showSearch ? "true" : "false", showSearch ? "true" : "false");
+        m_showSearch = showSearch;
+        setValue(QStringLiteral(CONF_KEY_SHOWSEARCH), m_showSearch);
+        emit showSearchChanged(m_showSearch);
     }
 }
 
