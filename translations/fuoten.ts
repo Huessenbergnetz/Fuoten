@@ -1373,5 +1373,20 @@
         <extracomment>Dialog title in the login flow if manual account setup succeeded</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message id="fuoten-notify-apppassword-created">
+        <source>Application password created</source>
+        <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-notify-apppassword-created-prev-body">
+        <source>User %1 on %2</source>
+        <extracomment>notification popup body text after successfully automatically creating an application password, %1 will be replaced by the username, %2 by the remote Nextcloud host name</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="fuoten-notify-apppassword-created-body">
+        <source>%1 has been successfully upgraded your login credentials to connect to your Nextcloud at %2 as user %3 with an application specific password.</source>
+        <extracomment>notification area body text after successfully automatically converting to an application password, %1 will be replaced by the application’s login flow user agent (e.g. Fuoten (Xperia X)), %2 will be replaced by the remote Nextcloud host name, %3 by the username</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

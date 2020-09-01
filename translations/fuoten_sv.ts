@@ -1282,22 +1282,37 @@
     <message id="fuoten-loginflow-manual-title">
         <source>Manual setup</source>
         <extracomment>dialog header title in the login flow setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Manuell konfiguration</translation>
     </message>
     <message id="fuoten-loginflow-manual-check-account">
         <source>Checking account</source>
         <extracomment>Dialog title in the login flow while checking manual account setup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Kontrollerar kontot</translation>
     </message>
     <message id="fuoten-loginflow-manual-check-failed">
         <source>Setup failed</source>
         <extracomment>Dialog title in the login flow if manual account setup failed</extracomment>
-        <translation type="unfinished"/>
+        <translation>Konfigurationen misslyckades</translation>
     </message>
     <message id="fuoten-loginflow-manual-check-success">
         <source>Setup finished</source>
         <extracomment>Dialog title in the login flow if manual account setup succeeded</extracomment>
-        <translation type="unfinished"/>
+        <translation>Konfigurationen slutförd</translation>
+    </message>
+    <message id="fuoten-notify-apppassword-created">
+        <source>Application password created</source>
+        <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
+        <translation>Programlösenord skapat</translation>
+    </message>
+    <message id="fuoten-notify-apppassword-created-prev-body">
+        <source>User %1 on %2</source>
+        <extracomment>notification popup body text after successfully automatically creating an application password, %1 will be replaced by the username, %2 by the remote Nextcloud host name</extracomment>
+        <translation>Användare %1 på %2</translation>
+    </message>
+    <message id="fuoten-notify-apppassword-created-body">
+        <source>%1 has been successfully upgraded your login credentials to connect to your Nextcloud at %2 as user %3 with an application specific password.</source>
+        <extracomment>notification area body text after successfully automatically converting to an application password, %1 will be replaced by the application’s login flow user agent (e.g. Fuoten (Xperia X)), %2 will be replaced by the remote Nextcloud host name, %3 by the username</extracomment>
+        <translation>%1 har uppgraderat dina inloggningsuppgifter, för att ansluta till din Nextcloud på %2 som användare %3, med ett programspecifikt lösenord.</translation>
     </message>
 </context>
 </TS>
