@@ -179,12 +179,12 @@
     </message>
     <message id="fuoten-settings-wlan-only-updates">
         <source>Automatic synchronization only on WLAN</source>
-        <extracomment>Label for a swith on the settings page</extracomment>
+        <extracomment>Label for a switch on the settings page</extracomment>
         <translation>Enkel automatisch synchroniseren op WLAN</translation>
     </message>
     <message id="fuoten-settings-wlan-only-updates-desc">
         <source>If enabled, automatic pseudo background updates will only be performed if the device is connected to a WLAN.</source>
-        <extracomment>Description for a swith on the settings page</extracomment>
+        <extracomment>Description for a switch on the settings page</extracomment>
         <translation>Indien ingeschakeld zullen automatische pseudo-achtergrondupdates enkel uitgevoerd worden als het apparaat verbonden is met WLAN.</translation>
     </message>
     <message id="id-about">
@@ -1067,12 +1067,12 @@
     </message>
     <message id="fuoten-settings-enable-notifications">
         <source>Enable notifications</source>
-        <extracomment>Label for a swith on the settings page</extracomment>
+        <extracomment>Label for a switch on the settings page</extracomment>
         <translation>Meldingen inschakelen</translation>
     </message>
     <message id="fuoten-settings-enable-notifications-desc">
         <source>If enabled, Fuoten will show notifications when specific operations succeed or if errors occure. Most of this notifications will only be generated if the application is not the active one.</source>
-        <extracomment>Description for a swith on the settings page</extracomment>
+        <extracomment>Description for a switch on the settings page</extracomment>
         <translation>Indien ingeschakeld zal Fuoten meldingen tonen bij het voltooien van taken, of als er fouten optreden. De meeste van deze meldingen zullen enkel gegenereerd worden wanneer Fuoten niet de huidig actieve app is.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-dir">
@@ -1113,12 +1113,12 @@
     </message>
     <message id="fuoten-settings-pushuponarticle">
         <source>Show push up menu on article page</source>
-        <extracomment>Label for a swith on the settings page</extracomment>
+        <extracomment>Label for a switch on the settings page</extracomment>
         <translation>Optrekmenu weergeven op artikelpagina</translation>
     </message>
     <message id="fuoten-settings-pushuponarticle-desc">
         <source>If enabled, article pages will have a push up menu on the end with the same content as the pull down menu for faster access after an article has been read.</source>
-        <extracomment>Description for a swith on the settings page</extracomment>
+        <extracomment>Description for a switch on the settings page</extracomment>
         <translation>Indien ingeschakeld krijgen artikelpagina’s een optrekmenu onderaan, met dezelfde inhoud als het uittrekmenu, voor snellere toegang nadat een artikel is gelezen.</translation>
     </message>
     <message id="fuoten-main-content-feeds">
@@ -1312,6 +1312,16 @@
     <message id="fuoten-notify-apppassword-created-body">
         <source>%1 has been successfully upgraded your login credentials to connect to your Nextcloud at %2 as user %3 with an application specific password.</source>
         <extracomment>notification area body text after successfully automatically converting to an application password, %1 will be replaced by the application’s login flow user agent (e.g. Fuoten (Xperia X)), %2 will be replaced by the remote Nextcloud host name, %3 by the username</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-settings-navbackaftermark">
+        <source>Navigate back after marking as read</source>
+        <extracomment>Label for a switch on the settings page</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-settings-navbackaftermark-desc">
+        <source>If activated, after marking a complete feed or folder as read, the application automatically switches back to the parent page.</source>
+        <extracomment>Description for a switch on the settings page</extracomment>
         <translation type="unfinished"/>
     </message>
 </context>

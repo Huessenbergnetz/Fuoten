@@ -197,10 +197,10 @@ Page {
                     enabled: config.updateInterval > 0
                     automaticCheck: false
                     checked: config.wlanOnlyUpdate
-                    //: Label for a swith on the settings page
+                    //: Label for a switch on the settings page
                     //% "Automatic synchronization only on WLAN"
                     text: qsTrId("fuoten-settings-wlan-only-updates")
-                    //: Description for a swith on the settings page
+                    //: Description for a switch on the settings page
                     //% "If enabled, automatic pseudo background updates will only be performed if the device is connected to a WLAN."
                     description: qsTrId("fuoten-settings-wlan-only-updates-desc")
                     onClicked: {
@@ -221,10 +221,10 @@ Page {
                     id: enableNotificationsSwitch
                     automaticCheck: false
                     checked: config.notificationsEnabled
-                    //: Label for a swith on the settings page
+                    //: Label for a switch on the settings page
                     //% "Enable notifications"
                     text: qsTrId("fuoten-settings-enable-notifications")
-                    //: Description for a swith on the settings page
+                    //: Description for a switch on the settings page
                     //% "If enabled, Fuoten will show notifications when specific operations succeed or if errors occure. Most of this notifications will only be generated if the application is not the active one."
                     description: qsTrId("fuoten-settings-enable-notifications-desc")
                     onClicked: {
@@ -242,14 +242,35 @@ Page {
                     id: enablePushUpOnArticle
                     automaticCheck: false
                     checked: config.pushUpOnArticle
-                    //: Label for a swith on the settings page
+                    //: Label for a switch on the settings page
                     //% "Show push up menu on article page"
                     text: qsTrId("fuoten-settings-pushuponarticle")
-                    //: Description for a swith on the settings page
+                    //: Description for a switch on the settings page
                     //% "If enabled, article pages will have a push up menu on the end with the same content as the pull down menu for faster access after an article has been read."
                     description: qsTrId("fuoten-settings-pushuponarticle-desc")
                     onClicked: {
                         config.pushUpOnArticle = !config.pushUpOnArticle
+                    }
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: enableNavBackAfterMark.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
+                TextSwitch {
+                    id: enableNavBackAfterMark
+                    automaticCheck: false
+                    checked: config.navBackAfterMark
+                    //: Label for a switch on the settings page
+                    //% "Navigate back after marking as read"
+                    text: qsTrId("fuoten-settings-navbackaftermark")
+                    //: Description for a switch on the settings page
+                    //% "If activated, after marking a complete feed or folder as read, the application automatically switches back to the parent page."
+                    description: qsTrId("fuoten-settings-navbackaftermark-desc")
+                    onClicked: {
+                        config.navBackAfterMark = !config.navBackAfterMark
                     }
                 }
             }
