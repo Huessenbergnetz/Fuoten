@@ -110,7 +110,7 @@ SilicaListView {
             onClicked: {
                 //: Description of a remorse popup to mark a folder as read, %1 will be the name of the folder
                 //% "Marking %1 read"
-                remorsePop.execute(qsTrId("fuoten-marking-read").arg(folder.name), function() {folder.markAsRead(config, localstorage, true)})
+                remorsePop.execute(qsTrId("fuoten-marking-read").arg(folder.name), function() {folder.markAsRead(config, localstorage, true); if (config.navBackAfterMark) {pageStack.pop()}})
             }
         }
 
@@ -120,7 +120,7 @@ SilicaListView {
             //% "Mark feed read"
             text: qsTrId("fuoten-mark-feed-read")
             enabled: feed && !feed.inOperation && feed.unreadCount > 0
-            onClicked: feed.markAsRead(config, localstorage, true)
+            onClicked: { feed.markAsRead(config, localstorage, true); if (config.navBackAfterMark) {pageStack.pop()} }
         }
 
         MenuItem {
@@ -131,7 +131,7 @@ SilicaListView {
             text: qsTrId("fuoten-mark-all-read")
             //: Remorse popup description for marking all articles as read
             //% "Marking all read"
-            onClicked: remorsePop.execute(qsTrId("fuoten-marking-all-read"), function() {localstorage.enqueueMarkAllItemsRead()})
+            onClicked: remorsePop.execute(qsTrId("fuoten-marking-all-read"), function() {localstorage.enqueueMarkAllItemsRead(); if (config.navBackAfterMark) {pageStack.pop()}})
         }
 
         MenuItem {
