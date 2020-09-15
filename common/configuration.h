@@ -230,6 +230,19 @@ class Configuration : public Fuoten::AbstractConfiguration
      * \li void notificationsEnabledChanged(bool notificationsEnabled)
      */
     Q_PROPERTY(bool notificationsEnabled READ notificationsEnabled WRITE setNotificationsEnabled NOTIFY notificationsEnabledChanged)
+    /*!
+     * \brief This property holds \c true if should navigated back after marking read.
+     *
+     * If \c true, after marking an entire feed or folder as read, go back to the previous page.
+     *
+     * \par Access functions:
+     * \li bool navBackAfterMark() const
+     * \li void setNavBackAfterMark(bool navBackAfterMark)
+     *
+     * \par Notifier signal:
+     * \li voidgoBackOnReadAllChanged(bool navBackAfterMark)
+     */
+    Q_PROPERTY(bool navBackAfterMark READ navBackAfterMark WRITE setNavBackAfterMark NOTIFY navBackAfterMarkChanged)
     Q_ENUM(Fuoten::FuotenEnums::Type)
 public:
     explicit Configuration(QObject *parent = nullptr);
@@ -286,6 +299,12 @@ public:
     bool notificationsEnabled() const;
 
     /*!
+     * \brief Getter function for the \linnk Configuration::navBackAfterMark navBackAfterMark\endlink property.
+     * \sa setNavBackAfterMark(), navBackAfterMarkChanged()
+     */
+    bool navBackAfterMark() const;
+
+    /*!
      * \brief Returns a human readable relative last sync time.
      */
     Q_INVOKABLE QString getHumanLastSync() const;
@@ -328,6 +347,12 @@ public:
      * \sa notificationsEnabled(), notificationsEnabledChanged()
      */
     void setNotificationsEnabled(bool notificationsEnabled);
+
+    /*!
+     * \brief Setter function for the \link Configuration::navBackAfterMark navBackAfterMark\endlink property.
+     * \sa navBackAfterMark(), navBackAfterMarkChanged()
+     */
+    void setNavBackAfterMark(bool navBackAfterMark);
 
     /*!
      * \brief Returns true if Fuoten has been updated.
@@ -423,6 +448,12 @@ signals:
     void notificationsEnabledChanged(bool notificationsEnabled);
 
     /*!
+     * \brief Notification signal for the \link Configuration::navBackAfterMark navBackAfterMark\endlink property.
+     * \sa navBackAfterMark(), setNavBackAfterMark()
+     */
+    void navBackAfterMarkChanged(bool navBackAfterMark);
+
+    /*!
      * \brief This signal will be emitted by the checkUpdate() method.
      */
     void updatePossible();
@@ -453,6 +484,7 @@ private:
     bool m_isAccountValid = false;
     bool m_ignoreSSLErrors = false;
     bool m_wlanOnlyUpdate = true;
+    bool m_navBackAfterMark = true;
 
     /*!
      * \brief Setter function for the \link Configuration::humanLastSync humanLastSync \endlink property.

@@ -34,6 +34,7 @@
 #define CONF_KEY_UPDATE_WLAN_ONLY "behavior/updateWlanOnly"
 #define CONF_KEY_ARTICLE_FONT_SIZE "display/articleFontSize"
 #define CONF_KEY_NOTIFICATIONS_ENABLED "behavior/notificationsEnabled"
+#define CONF_KEY_NAVBACKAFTERMARK "behavior/navBackAfterMark"
 
 /*!
  * \brief Constructs a new Configuration object.
@@ -60,6 +61,7 @@ Configuration::Configuration(QObject *parent) :
     m_wlanOnlyUpdate = value(QStringLiteral(CONF_KEY_UPDATE_WLAN_ONLY), true).toBool();
     m_articleFontSize = value(QStringLiteral(CONF_KEY_ARTICLE_FONT_SIZE), 0).toInt();
     m_notificationsEnabled = value(QStringLiteral(CONF_KEY_NOTIFICATIONS_ENABLED), true).toBool();
+    m_navBackAfterMark = value(QStringLiteral(CONF_KEY_NAVBACKAFTERMARK), true).toBool();
 
     uint lsts = value(QStringLiteral("system/lastsync"), 0).toUInt();
     if (lsts > 0) {
@@ -508,6 +510,19 @@ void Configuration::setNotificationsEnabled(bool notificationsEnabled)
         setValue(QStringLiteral(CONF_KEY_NOTIFICATIONS_ENABLED), m_notificationsEnabled);
         qDebug("Changed notificationsEnabled to %s.", m_notificationsEnabled ? "true" : "false");
         emit notificationsEnabledChanged(m_notificationsEnabled);
+    }
+}
+
+
+bool Configuration::navBackAfterMark() const { return m_navBackAfterMark; }
+
+void Configuration::setNavBackAfterMark(bool navBackAfterMark)
+{
+    if (m_navBackAfterMark != navBackAfterMark) {
+        m_navBackAfterMark = navBackAfterMark;
+        setValue(QStringLiteral(CONF_KEY_NAVBACKAFTERMARK), m_navBackAfterMark);
+        qDebug("Changed navBackAfterMark to %s.", m_navBackAfterMark ? "true" : "false");
+        emit navBackAfterMarkChanged(m_navBackAfterMark);
     }
 }
 
