@@ -57,11 +57,7 @@ Dialog {
                 text: qsTrId("fuoten-loginflow-enter-manual")
                 enabled: !serverStatus.inOperation
                 visible: serverStatus.setupPossible !== GetServerStatus.Manual
-                onClicked: {
-                    loginFlowCheck.acceptDestination = Qt.resolvedUrl("LoginManual.qml")
-                    loginFlowCheck.canAccept = true
-                    loginFlowCheck.accept()
-                }
+                onClicked: pageStack.replace(Qt.resolvedUrl("LoginManual.qml"))
             }
             MenuItem {
                 //: pull down menu item in the setup wizard

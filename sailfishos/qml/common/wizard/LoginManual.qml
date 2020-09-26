@@ -19,6 +19,7 @@
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
+import harbour.fuoten.api 1.0
 
 Dialog {
     id: loginManualDialog
@@ -36,12 +37,33 @@ Dialog {
         config.ignoreSSLErrors = ignoresslerrors.checked
     }
 
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            serverStatus.execute()
+        }
+    }
+
+    GetServerStatus {
+        id: serverStatus
+    }
+
     SilicaFlickable {
         id: loginManualFlick
         anchors.fill: parent
         contentHeight: loginManualGrid.height + loginManualHeader.height
 
         VerticalScrollDecorator { flickable: loginManualFlick; page: loginManualDialog }
+
+        PullDownMenu {
+            flickable: loginManualFlick
+            visible: serverStatus.setupPossible === GetServerStatus.LoginFlowV2
+            MenuItem {
+                //: pull down menu item in the setup wizard, login flow means to login to your Nextcloud by authenticating the app via an external browser window
+                //% "Login flow"
+                text: qsTrId("fuoten-loginflow-use-flow")
+                onClicked: pageStack.replace(Qt.resolvedUrl("LoginFlowCheck.qml"))
+            }
+        }
 
         DialogHeader {
             id: loginManualHeader;
