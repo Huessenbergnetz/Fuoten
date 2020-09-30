@@ -63,6 +63,7 @@ Page {
                 Layout.fillWidth: true
                 Layout.columnSpan: settingsGrid.columns
                 Layout.preferredHeight: contentHeight
+                Component.onCompleted: accountArea.check()
             }
 
 

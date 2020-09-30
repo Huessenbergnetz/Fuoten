@@ -39,7 +39,7 @@ Dialog {
 
     onStatusChanged: {
         if (status === PageStatus.Active) {
-            account.validate()
+            account.check()
         }
     }
 

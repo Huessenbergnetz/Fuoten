@@ -34,7 +34,7 @@ Dialog {
     LoginFlowV2 {
         id: loginFlowV2
         onGotLoginUrl: Qt.openUrlExternally(url)
-        onSucceeded: account.validate()
+        onSucceeded: account.check()
     }
 
     onStatusChanged: {
