@@ -39,6 +39,7 @@ INCLUDEPATH += /usr/include/nemonotifications-qt5
 
 SOURCES += \
     src/main.cpp \
+    src/sfosuseravatar.cpp \
     src/sharing/sharingmethod.cpp \
     src/sharing/sharingmethodsmodel.cpp \
     src/namfactory.cpp \
@@ -114,6 +115,7 @@ DISTFILES += \
     qml/common/parts/FontSizeSlider.qml
 
 HEADERS += \
+    src/sfosuseravatar.h \
     src/sharing/sharingmethod.h \
     src/sharing/sharingmethod_p.h \
     src/sharing/sharingmethodsmodel.h \
