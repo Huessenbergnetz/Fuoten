@@ -29,7 +29,6 @@
 #include <algorithm>
 #include <limits>
 
-#define DEFAULT_AVATAR "image://theme/icon-l-people"
 #define CONF_KEY_UPDATE_INTERVAL "behavior/updateInterval"
 #define CONF_KEY_UPDATE_WLAN_ONLY "behavior/updateWlanOnly"
 #define CONF_KEY_ARTICLE_FONT_SIZE "display/articleFontSize"
@@ -47,14 +46,10 @@ Configuration::Configuration(QObject *parent) :
     m_useSSL = value(QStringLiteral("account/usessl"), true).toBool();
     m_host = value(QStringLiteral("account/host")).toString();
     m_installPath = value(QStringLiteral("account/installpath")).toString();
-    m_displayName = value(QStringLiteral("account/displayname")).toString();
-    m_serverVersion = QVersionNumber::fromString(value(QStringLiteral("account/serverversion")).toString());
     m_savedAppVersion = QVersionNumber::fromString(value(QStringLiteral("system/appVersion")).toString());
     m_serverPort = value(QStringLiteral("account/serverport"), 0).toInt();
-    m_improperlyConfiguredCron = value(QStringLiteral("warnings/improperlyConfiguredCron"), false).toBool();
     checkAccountValidity();
     m_ignoreSSLErrors = value(QStringLiteral("account/ignoresslerrors"), false).toBool();
-    m_avatar = value(QStringLiteral("account/avatar"), QStringLiteral(DEFAULT_AVATAR)).toUrl();
     m_language = value(QStringLiteral("display/language")).toString();
     m_mainViewType = static_cast<Fuoten::FuotenEnums::Type>(value(QStringLiteral("display/mainViewType"), Fuoten::FuotenEnums::Folder).toInt());
     m_updateInterval = value(QStringLiteral(CONF_KEY_UPDATE_INTERVAL), 0).value<quint32>();
@@ -75,9 +70,7 @@ Configuration::Configuration(QObject *parent) :
 /*!
  * \brief Deconstructs the Configuration object.
  */
-Configuration::~Configuration()
-{
-}
+Configuration::~Configuration() = default;
 
 
 QString Configuration::getUsername() const { return m_username; }
@@ -166,50 +159,6 @@ void Configuration::setInstallPath(const QString &installPath)
 }
 
 
-
-
-QString Configuration::displayName() const { return m_displayName; }
-
-void Configuration::setDisplayName(const QString &nDisplayName)
-{
-    if (nDisplayName != m_displayName) {
-        m_displayName = nDisplayName;
-        qDebug("Changed displayName to %s.", qUtf8Printable(m_displayName));
-        setValue(QStringLiteral("account/displayname"), m_displayName);
-        emit displayNameChanged(displayName());
-    }
-}
-
-
-
-
-bool Configuration::improperlyConfiguredCron() const { return m_improperlyConfiguredCron; }
-
-void Configuration::setImproperlyConfiguredCron(bool nImproperlyConfiguredCron)
-{
-    if (nImproperlyConfiguredCron != m_improperlyConfiguredCron) {
-        m_improperlyConfiguredCron = nImproperlyConfiguredCron;
-        qDebug("Changed improperlyConfiguredCron to %s.", m_improperlyConfiguredCron ? "true" : "false");
-        setValue(QStringLiteral("warnings/improperlyConfiguredCron"), m_improperlyConfiguredCron);
-        emit improperlyConfiguredCronChanged(improperlyConfiguredCron());
-    }
-}
-
-
-QVersionNumber Configuration::getServerVersion() const { return m_serverVersion; }
-
-QString Configuration::serverVersion() const { return m_serverVersion.toString(); }
-
-void Configuration::setServerVersion(const QString &nServerVersion)
-{
-    m_serverVersion = QVersionNumber::fromString(nServerVersion);
-    setValue(QStringLiteral("account/serverversion"), m_serverVersion.toString());
-    checkAccountValidity();
-    emit serverVersionChanged(serverVersion());
-}
-
-
-
 bool Configuration::isAccountValid() const { return m_isAccountValid; }
 
 void Configuration::setIsAccountValid(bool nIsAccountValid)
@@ -253,85 +202,6 @@ void Configuration::setIgnoreSSLErrors(bool ignoreSSLErrors)
         emit ignoreSSLErrorsChanged(getIgnoreSSLErrors());
     }
 }
-
-
-QUrl Configuration::avatar() const { return m_avatar; }
-
-
-void Configuration::setAvatar(const QString &data, const QString &mime)
-{
-    QDir dataDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
-
-    if (!dataDir.exists()) {
-        if (!dataDir.mkpath(dataDir.absolutePath()))
-        qCritical("Failed to create data directory.");
-        return;
-    } else {
-        QStringList oldAvatars = dataDir.entryList(QStringList({QStringLiteral("avatar.*")}), QDir::Files);
-        if (!oldAvatars.isEmpty()) {
-            for (const QString &oa : oldAvatars) {
-                dataDir.remove(oa);
-            }
-        }
-    }
-
-    if (data.isEmpty() || mime.isEmpty()) {
-
-        qWarning("Data or mime is empty, no avatar data found.");
-        m_avatar.setUrl(QStringLiteral(DEFAULT_AVATAR));
-        remove(QStringLiteral("account/avatar"));
-        emit avatarChanged(m_avatar);
-
-    } else {
-
-        QString type;
-        type.reserve(3);
-
-        if (mime.contains(QStringLiteral("png"), Qt::CaseInsensitive)) {
-            type = QStringLiteral("PNG");
-        } else if (mime.contains(QRegularExpression(QStringLiteral("jpe?g"), QRegularExpression::CaseInsensitiveOption))) {
-            type = QStringLiteral("JPG");
-        } else if (mime.contains(QStringLiteral("bmp"), Qt::CaseInsensitive)) {
-            type = QStringLiteral("BMP");
-        }
-
-        if (type.isEmpty()) {
-            qCritical("Unsupported image type %s", qPrintable(mime));
-
-            m_avatar.setUrl(QStringLiteral(DEFAULT_AVATAR));
-            remove(QStringLiteral("account/avatar"));
-            emit avatarChanged(m_avatar);
-            return;
-        }
-
-        QImage avatar;
-        QByteArray ba;
-        ba.append(data);
-
-        if (avatar.loadFromData(QByteArray::fromBase64(ba), type.toUtf8().constData())) {
-
-            const QString avatarPath = dataDir.absoluteFilePath(QStringLiteral("avatar.").append(type.toLower()));
-            if (avatar.save(avatarPath, type.toUtf8().constData())) {
-                m_avatar.setUrl(avatarPath);
-                setValue(QStringLiteral("account/avatar"), avatarPath);
-            } else {
-                m_avatar.setUrl(QStringLiteral(DEFAULT_AVATAR));
-                remove(QStringLiteral("account/avatar"));
-            }
-            emit avatarChanged(m_avatar);
-
-        } else {
-            qCritical("Can not load avatar image.");
-
-            m_avatar.setUrl(QStringLiteral(DEFAULT_AVATAR));
-            remove(QStringLiteral("account/avatar"));
-            emit avatarChanged(m_avatar);
-            return;
-        }
-    }
-
-}
-
 
 
 QString Configuration::language() const { return m_language; }

@@ -82,33 +82,6 @@ class Configuration : public Fuoten::AbstractConfiguration
      */
     Q_PROPERTY(QString installPath READ getInstallPath WRITE setInstallPath NOTIFY installPathChanged)
     /*!
-     * \brief The display name of the user.
-     *
-     * \par Access functions:
-     * <TABLE><TR><TD>QString</TD><TD>displayName() const</TD></TR></TABLE>
-     * \par Notifier signal:
-     * <TABLE><TR><TD>void</TD><TD>displayNameChanged(const QString &displayName)</TD></TR></TABLE>
-     */
-    Q_PROPERTY(QString displayName READ displayName NOTIFY displayNameChanged)
-    /*!
-     * \brief Returns true if the cron is not configured properly.
-     *
-     * \par Access functions:
-     * <TABLE><TR><TD>bool</TD><TD>improperlyConfiguredCron() const</TD></TR></TABLE>
-     * \par Notifier signal:
-     * <TABLE><TR><TD>void</TD><TD>improperlyConfiguredCronChanged(bool improperlyConfiguredCron)</TD></TR></TABLE>
-     */
-    Q_PROPERTY(bool improperlyConfiguredCron READ improperlyConfiguredCron NOTIFY improperlyConfiguredCronChanged)
-    /*!
-     * \brief Contains the version of the News App on the server.
-     *
-     * \par Access functions:
-     * <TABLE><TR><TD>QString</TD><TD>serverVersion() const</TD></TR></TABLE>
-     * \par Notifier signal:
-     * <TABLE><TR><TD>void</TD><TD>serverVersionChanged(const QString &serverVersion)</TD></TR></TABLE>
-     */
-    Q_PROPERTY(QString serverVersion READ serverVersion NOTIFY serverVersionChanged)
-    /*!
      * \brief Returns true if the account data seems to be valid.
      *
      * \par Access functions:
@@ -135,16 +108,6 @@ class Configuration : public Fuoten::AbstractConfiguration
      * <TABLE><TR><TD>void</TD><TD>ignoreSSLErrorsChanged(bool ignoreSSLErrors)</TD></TR></TABLE>
      */
     Q_PROPERTY(bool ignoreSSLErrors READ getIgnoreSSLErrors WRITE setIgnoreSSLErrors NOTIFY ignoreSSLErrorsChanged)
-
-    /*!
-     * \brief Return the URL to the user avatar image.
-     *
-     * \par Access functions:
-     * <TABLE><TR><TD>QUrl</TD><TD>avatar() const</TD></TR></TABLE>
-     * \par Notifier signal:
-     * <TABLE><TR><TD>void</TD><TD>avatarChanged(const QUrl &avatar)</TD></TR></TABLE>
-     */
-    Q_PROPERTY(QUrl avatar READ avatar NOTIFY avatarChanged)
     /*!
      * \brief Stores the user defined language.
      *
@@ -253,15 +216,10 @@ public:
     bool getUseSSL() const override;
     QString getHost() const override;
     QString getInstallPath() const override;
-    QString displayName() const;
-    bool improperlyConfiguredCron() const;
     bool isAccountValid() const override;
     int getServerPort() const override;
     QString getUserAgent() const override;
     bool getIgnoreSSLErrors() const override;
-    QVersionNumber getServerVersion() const override;
-    QString serverVersion() const;
-    QUrl avatar() const;
     QString language() const;
     Fuoten::FuotenEnums::Type mainViewType() const;
     QDateTime getLastSync() const override;
@@ -316,10 +274,6 @@ public:
     void setInstallPath(const QString &installPath) override;
     void setServerPort(int serverPort) override;
     void setIgnoreSSLErrors(bool ignoreSSLErrors);
-    void setDisplayName(const QString &nDisplayName) override;
-    void setImproperlyConfiguredCron(bool nImproperlyConfiguredCron) override;
-    void setServerVersion(const QString &nServerVersion) override;
-    void setAvatar(const QString &data, const QString &mime) override;
     void setLanguage(const QString &nLanguage);
     void setMainViewType(Fuoten::FuotenEnums::Type nMainViewType);
     void setLastSync(const QDateTime &lastSync) override;
@@ -406,13 +360,9 @@ signals:
     void useSSLChanged(bool useSSL);
     void hostChanged(const QString &host);
     void installPathChanged(const QString &installPath);
-    void displayNameChanged(const QString &displayName);
-    void improperlyConfiguredCronChanged(bool improperlyConfiguredCron);
-    void serverVersionChanged(const QString &serverVersion);
     void isAccountValidChanged(bool isAccountValid);
     void serverPortChanged(int serverPort);
     void ignoreSSLErrorsChanged(bool ignoreSSLErrors);
-    void avatarChanged(const QUrl &avatar);
     void languageChanged(const QString &language);
     void mainViewTypeChanged(Fuoten::FuotenEnums::Type mainViewType);
     void lastSyncChanged(const QDateTime &lastSync);
@@ -465,14 +415,11 @@ private:
     QString m_password;
     QString m_host;
     QString m_installPath;
-    QString m_displayName;
     QString m_language;
     QString m_humanLastSync;
-    QUrl m_avatar;
     QDateTime m_lastSync;
     QTimer *m_checkUpdateTimer = nullptr;
     QSettings *m_settings = nullptr;
-    QVersionNumber m_serverVersion;
     QVersionNumber m_savedAppVersion;
     quint32 m_updateInterval = 0;
     int m_serverPort;
@@ -480,7 +427,6 @@ private:
     Fuoten::FuotenEnums::Type m_mainViewType;
     bool m_notificationsEnabled = true;
     bool m_useSSL = true;
-    bool m_improperlyConfiguredCron = false;
     bool m_isAccountValid = false;
     bool m_ignoreSSLErrors = false;
     bool m_wlanOnlyUpdate = true;
