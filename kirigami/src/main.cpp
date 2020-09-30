@@ -37,7 +37,6 @@
 
 #include <Fuoten/Error>
 #include <Fuoten/FuotenEnums>
-#include <Fuoten/Helpers/AccountValidator>
 #include <Fuoten/Helpers/AbstractConfiguration>
 #include <Fuoten/Helpers/Synchronizer>
 #include <Fuoten/Storage/SQLiteStorage>
@@ -181,7 +180,6 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<Fuoten::FuotenEnums>("buschtrommel.fuoten", 1, 0, "Fuoten", QStringLiteral("You can not create a Fuoten object"));
     qmlRegisterUncreatableType<Fuoten::AbstractConfiguration>("buschtrommel.fuoten", 1, 0, "FuotenConfiguration", QStringLiteral("You can not create a FuotenConfiguration object."));
     qmlRegisterType<Fuoten::Error>("buschtrommel.fuoten", 1, 0, "FuotenError");
-    qmlRegisterType<Fuoten::AccountValidator>("buschtrommel.fuoten", 1, 0, "AccountValidator");
     qmlRegisterUncreatableType<Fuoten::AbstractStorage>("buschtrommel.fuoten", 1, 0, "AbstractStorage", QStringLiteral("You can not create an AbstractStorage object."));
 
     qmlRegisterType<Fuoten::FolderListFilterModel>("buschtrommel.fuoten.models", 1, 0, "FolderListFilterModel");

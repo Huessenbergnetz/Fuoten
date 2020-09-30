@@ -35,11 +35,6 @@ Kirigami.ScrollablePage {
         columnSpacing: Kirigami.Units.largeSpacing
         rowSpacing: Kirigami.Units.largeSpacing
 
-        AccountValidator {
-            id: accValidator
-            configuration: config
-        }
-
         Kirigami.Heading {
             text: qsTrId("id-user-account")
             Layout.columnSpan: settingsGrid.columns
@@ -118,7 +113,6 @@ Kirigami.ScrollablePage {
                     config.serverPort = port.text.length > 0 ? parseInt(port.text) : 0
                     config.useSSL = usessl.checked
                     config.ignoreSSLErrors = ignoresslerrors.checked
-                    accValidator.start()
                 }
             }
         }
