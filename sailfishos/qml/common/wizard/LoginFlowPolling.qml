@@ -31,9 +31,11 @@ Dialog {
     acceptDestinationAction: PageStackAction.Replace
     acceptDestinationReplaceTarget: null
 
+    property url loginUrl: ""
+
     LoginFlowV2 {
         id: loginFlowV2
-        onGotLoginUrl: Qt.openUrlExternally(url)
+        onGotLoginUrl: { loginFlowPolling.loginUrl = url; Qt.openUrlExternally(url) }
         onSucceeded: account.check()
     }
 
@@ -57,12 +59,20 @@ Dialog {
 
         PullDownMenu {
             flickable: loginFlowPollingFlick
+            enabled: !config.isAccountValid
+            MenuItem {
+                //: Pull down menu entry to reopen the external authorization browser window
+                //% "Open in browser"
+                text: qsTrId("fuoten-loginflow-open-loginurl")
+                enabled: loginFlowV2.inOperation && loginFlowPolling.loginUrl != ""
+                onClicked: Qt.openUrlExternally(loginFlowPolling.loginUrl)
+            }
             MenuItem {
                 //: Pull down menu entry to retry the authorization with external browser
                 //% "Retry"
                 text: qsTrId("fuoten-loginflow-polling-retry")
-                enabled: !loginFlowV2.inOperation && !config.isAccountValid
-                onClicked: loginFlowV2.execute()
+                enabled: !loginFlowV2.inOperation
+                onClicked: { loginFlowPolling.loginUrl = ""; loginFlowV2.execute() }
             }
         }
 
