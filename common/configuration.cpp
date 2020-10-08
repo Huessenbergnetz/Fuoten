@@ -459,6 +459,16 @@ void Configuration::checkUpdate()
     m_checkUpdateTimer->start();
 }
 
+void Configuration::deleteAccount()
+{
+    qDebug("%s", "deleting account data");
+    m_settings->beginGroup(QStringLiteral("account"));
+    m_settings->remove(QStringLiteral(""));
+    m_settings->endGroup();
+    m_settings->remove(QStringLiteral("system/appVersion"));
+    emit accountDeleted();
+}
+
 void Configuration::setValue(const QString &key, const QVariant &value)
 {
     m_settings->setValue(key, value);
