@@ -32,14 +32,14 @@ ContextConfig::ContextConfig(QObject *parent) :
 {
     m_contextType = FuotenAppEnums::StartPage;
     m_contextId = -1;
-    m_sorting = (Fuoten::FuotenEnums::SortingRole)value(path(QStringLiteral("sorting")), Fuoten::FuotenEnums::Name).toInt();
+    m_sorting = static_cast<Fuoten::FuotenEnums::SortingRole>(value(path(QStringLiteral("sorting")), Fuoten::FuotenEnums::Name).toInt());
     m_hideRead = value(path(QStringLiteral("hideRead")), false).toBool();
-    m_sortOrder = (Qt::SortOrder)value(path(QStringLiteral("sortOrder")), Qt::AscendingOrder).toInt();
+    m_sortOrder = static_cast<Qt::SortOrder>(value(path(QStringLiteral("sortOrder")), Qt::AscendingOrder).toInt());
     m_showFolderSections = value(path(QStringLiteral("showFolderSections")), false).toBool();
     m_respectPinned = value(path(QStringLiteral("respectPinned")), true).toBool();
     m_showExcerpt = value(path(QStringLiteral("showExcerpt")), false).toBool();
-    m_openArticles = (FuotenAppEnums::OpenIn)value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenInternal).toInt();
-    m_deletionStrategy = (Fuoten::FuotenEnums::ItemDeletionStrategy)value(path(QStringLiteral("deletionStrategy")), Fuoten::FuotenEnums::DeleteItemsByTime).toInt();
+    m_openArticles = static_cast<FuotenAppEnums::OpenIn>(value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenInternal).toInt());
+    m_deletionStrategy = static_cast<Fuoten::FuotenEnums::ItemDeletionStrategy>(value(path(QStringLiteral("deletionStrategy")), Fuoten::FuotenEnums::DeleteItemsByTime).toInt());
     m_deletionValue = value(path(QStringLiteral("deletionValue")), 14).value<quint16>();
     m_userAgentIdx = value(path(QStringLiteral(CONF_KEY_USERAGENTIDX)), m_userAgentIdx).value<quint8>();
     m_userAgent = value(path(QStringLiteral(CONF_KEY_USERAGENT)), m_userAgent).toString();
@@ -58,14 +58,14 @@ ContextConfig::~ContextConfig()
 
 void ContextConfig::load()
 {
-    setSorting((Fuoten::FuotenEnums::SortingRole)value(path(QStringLiteral("sorting")), Fuoten::FuotenEnums::Name).toInt());
+    setSorting(static_cast<Fuoten::FuotenEnums::SortingRole>(value(path(QStringLiteral("sorting")), Fuoten::FuotenEnums::Name).toInt()));
     setHideRead(value(path(QStringLiteral("hideRead")), false).toBool());
-    setSortOrder((Qt::SortOrder)value(path(QStringLiteral("sortOrder")), m_contextType < FuotenAppEnums::AllItems ? Qt::AscendingOrder : Qt::DescendingOrder).toInt());
+    setSortOrder(static_cast<Qt::SortOrder>(value(path(QStringLiteral("sortOrder")), m_contextType < FuotenAppEnums::AllItems ? Qt::AscendingOrder : Qt::DescendingOrder).toInt()));
     setShowFolderSections(value(path(QStringLiteral("showFolderSections")), true).toBool());
     setRespectPinned(value(path(QStringLiteral("respectPinned")), true).toBool());
     setShowExcerpt(value(path(QStringLiteral("showExcerpt")), false).toBool());
-    setOpenArticles((FuotenAppEnums::OpenIn)value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenInternal).toInt());
-    setDeletionStrategy((Fuoten::FuotenEnums::ItemDeletionStrategy)value(path(QStringLiteral("deletionStrategy")), Fuoten::FuotenEnums::DeleteItemsByTime).toInt());
+    setOpenArticles(static_cast<FuotenAppEnums::OpenIn>(value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenInternal).toInt()));
+    setDeletionStrategy(static_cast<Fuoten::FuotenEnums::ItemDeletionStrategy>(value(path(QStringLiteral("deletionStrategy")), Fuoten::FuotenEnums::DeleteItemsByTime).toInt()));
     setDeletionValue(value(path(QStringLiteral("deletionValue")), 14).value<quint16>());
     setUserAgentIdx(value(path(QStringLiteral(CONF_KEY_USERAGENTIDX)), 0).value<quint8>());
     setUserAgent(value(path(QStringLiteral(CONF_KEY_USERAGENT)), m_userAgent).toString());
