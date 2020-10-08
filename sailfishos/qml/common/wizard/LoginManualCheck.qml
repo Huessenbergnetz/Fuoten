@@ -54,6 +54,8 @@ Dialog {
             flickable: loginManualCheckFlick
             MenuItem {
                 text: qsTrId("fuoten-loginflow-polling-retry")
+                enabled: !account.inOperation
+                onClicked: account.check()
             }
         }
 
