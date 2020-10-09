@@ -60,6 +60,7 @@ Dialog {
         PullDownMenu {
             flickable: loginFlowPollingFlick
             enabled: !config.isAccountValid
+            visible: !config.isAccountValid
             MenuItem {
                 //: Pull down menu entry to reopen the external authorization browser window
                 //% "Open in browser"
