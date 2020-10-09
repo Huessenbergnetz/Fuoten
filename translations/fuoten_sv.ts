@@ -1317,11 +1317,72 @@
     <message id="fuoten-settings-navbackaftermark">
         <source>Navigate back after marking as read</source>
         <extracomment>Label for a switch on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Gå tillbaka efter märkning som läst</translation>
     </message>
     <message id="fuoten-settings-navbackaftermark-desc">
         <source>If activated, after marking a complete feed or folder as read, the application automatically switches back to the parent page.</source>
         <extracomment>Description for a switch on the settings page</extracomment>
+        <translation>Vid aktivering kommer appen att automatiskt gå tillbaka till överordnad sida, efter att ett helt flöde eller en hel mapp har märkts som läst.</translation>
+    </message>
+    <message id="fuoten-deleteaccount-title">
+        <source>Delete account</source>
+        <extracomment>dialog header title when deleting the nextcloud account and pull down menu entry</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-deleteaccount-delete">
+        <source>Delete</source>
+        <extracomment>dialog header accept text when deleting account</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-deleteaccount-local-text">
+        <source>Delete local data</source>
+        <extracomment>Label for a text switch when deleting account</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-deleteaccount-local-desc">
+        <source>Also deletes all local data, including the database with all folders, feeds and articles.</source>
+        <extracomment>Description for a text switch when deleting account</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-deleteaccount-remote-text">
+        <source>Delete app password</source>
+        <extracomment>Label for a text switch when deleting account</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-deleteaccount-remote-desc">
+        <source>Also deletes the application password on the server, if one has been set.</source>
+        <extracomment>Description for a text switch when deleting account</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-deleting-account-busy-local">
+        <source>Deleting local storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-deleting-account-busy-remote">
+        <source>Deleting application password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-deleting-account-title">
+        <source>Deleting account</source>
+        <extracomment>Page header when deleting account data</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-deleting-account-success-title">
+        <source>Account deleted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-deleting-account-success-message">
+        <source>Your account was successfully deleted, please close the application. If you want to create a new account, simply restart the application.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-open-loginurl">
+        <source>Open in browser</source>
+        <extracomment>Pull down menu entry to reopen the external authorization browser window</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-loginflow-use-flow">
+        <source>Login flow</source>
+        <extracomment>pull down menu item in the setup wizard, login flow means to login to your Nextcloud by authenticating the app via an external browser window</extracomment>
         <translation type="unfinished"/>
     </message>
 </context>
