@@ -68,6 +68,7 @@
 #include <Fuoten/API/LoginFlowV2>
 #include <Fuoten/API/ConvertToAppPassword>
 #include <Fuoten/API/GetStatus>
+#include <Fuoten/API/DeleteAppPassword>
 
 #include <Fuoten/Models/FeedListModel>
 #include <Fuoten/Models/FeedListFilterModel>
@@ -330,6 +331,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<Fuoten::GetServerStatus>("harbour.fuoten.api", 1, 0, "GetServerStatus");
     qmlRegisterType<Fuoten::LoginFlowV2>("harbour.fuoten.api", 1, 0, "LoginFlowV2");
     qmlRegisterType<Fuoten::GetStatus>("harbour.fuoten.api", 1, 0, "GetStatus");
+    qmlRegisterType<Fuoten::DeleteAppPassword>("harbour.fuoten.api", 1, 0, "DeleteAppPassword");
 
     qmlRegisterType<Fuoten::Folder>("harbour.fuoten.items", 1, 0, "Folder");
     qmlRegisterType<Fuoten::Feed>("harbour.fuoten.items", 1, 0, "Feed");

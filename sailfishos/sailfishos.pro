@@ -90,6 +90,8 @@ DISTFILES += \
     qml/common/wizard/LoginFlowSetup.qml \
     qml/common/wizard/LoginFlowCheck.qml \
     qml/common/wizard/LoginFlowPolling.qml \
+    qml/common/wizard/DeleteAccount.qml \
+    qml/common/wizard/DeleteAccountFinish.qml \
     qml/common/parts/AccountItem.qml \
     qml/phone/pages/FolderListView.qml \
     qml/common/parts/ListPageHeader.qml \

@@ -30,6 +30,13 @@ Page {
         anchors.fill: parent
         contentHeight: settingsGrid.height
 
+        PullDownMenu {
+            MenuItem {
+                text: qsTrId("fuoten-deleteaccount-title")
+                onClicked: pageStack.push(Qt.resolvedUrl("../wizard/DeleteAccount.qml"))
+            }
+        }
+
         VerticalScrollDecorator { flickable: settingsFlick; page: settingsPage }
 
         GridLayout {
