@@ -349,9 +349,10 @@ public:
      * \brief Deletes all local account data.
      *
      * This will delete the configuration entries for username, password, host, path,
-     * port and current version. After deletion accountDeleted() will be emitted.
+     * port and current version. After deletion Fuoten::AbstractConfiguration::accountDeleted()
+     * will be emitted.
      */
-    Q_INVOKABLE void deleteAccount();
+    Q_INVOKABLE void deleteAccount() override;
 
 protected:
     void setIsAccountValid(bool nIsAccountValid) override;
@@ -415,11 +416,6 @@ signals:
      * \brief This signal will be emitted by the checkUpdate() method.
      */
     void updatePossible();
-
-    /*!
-     * \brief This signal will be emitted by the deleteAccount() method.
-     */
-    void accountDeleted();
 
 private:
     Q_DISABLE_COPY(Configuration)
