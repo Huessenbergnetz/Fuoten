@@ -1386,5 +1386,42 @@
         <extracomment>pull down menu item in the setup wizard, login flow means to login to your Nextcloud by authenticating the app via an external browser window</extracomment>
         <translation type="unfinished"/>
     </message>
+    <message id="fuoten-remote-wipe-title">
+        <source>Remote wipe</source>
+        <extracomment>page header for the remote wipe</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-remote-wipe-executing">
+        <source>Executing remote wipe request</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-remote-wipe-done-title">
+        <source>Remote wipe done</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-remote-wipe-done-message">
+        <source>The requested remote wipe has been done. Your local account and content data of Fuoten have been deleted.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-notify-wipe-requested">
+        <source>Remote wipe requested</source>
+        <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-notify-wipe-requested-body">
+        <source>A remote wipe has been requested for this application on your device.</source>
+        <extracomment>body text for a notification, shown in the notification area</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-notify-wipe-done">
+        <source>Remote wipe done</source>
+        <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-notify-wipe-done-body">
+        <source>A remote wipe hase been done for this application on your device.</source>
+        <extracomment>body text for a notification, shown in the notification area</extracomment>
+        <translation type="unfinished"/>
+    </message>
 </context>
 </TS>

@@ -1159,231 +1159,268 @@
     <message id="fuoten-loginflow-enter-manual">
         <source>Manual login</source>
         <extracomment>pull down menu item in the setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Manuell anmelden</translation>
     </message>
     <message id="fuoten-loginflow-check-again">
         <source>Check again</source>
         <extracomment>pull down menu item in the setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Erneut prüfen</translation>
     </message>
     <message id="fuoten-loginflow-check-title">
         <source>Check server</source>
         <extracomment>dialog header title in the setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Server prüfen</translation>
     </message>
     <message id="fuoten-loginflow-next">
         <source>Next</source>
         <extracomment>dialog header in the login flow to go to the next step</extracomment>
-        <translation type="unfinished"/>
+        <translation>Weiter</translation>
     </message>
     <message id="fuoten-loginflow-back">
         <source>Back</source>
         <extracomment>dialog header in the login flow to go to the previous step</extracomment>
-        <translation type="unfinished"/>
+        <translation>Zurück</translation>
     </message>
     <message id="fuoten-loginflow-server">
         <source>Server</source>
         <extracomment>label for a detail item showing the server name, should not be too long</extracomment>
-        <translation type="unfinished"/>
+        <translation>Server</translation>
     </message>
     <message id="fuoten-loginflow-version">
         <source>Version</source>
         <extracomment>Label for a detail item showing the nextcloud version, should not be too long</extracomment>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
     <message id="fuoten-loginflow-installed">
         <source>Installed</source>
         <extracomment>label for a detail item showing if the nextcloud is fully installed, value will be either yes or no</extracomment>
-        <translation type="unfinished"/>
+        <translation>Installiert</translation>
     </message>
     <message id="fuoten-yes">
         <source>yes</source>
-        <translation type="unfinished"/>
+        <translation>ja</translation>
     </message>
     <message id="fuoten-no">
         <source>no</source>
-        <translation type="unfinished"/>
+        <translation>nein</translation>
     </message>
     <message id="fuoten-loginflow-inmaintenance">
         <source>Maintenance mode</source>
         <extracomment>label for a detail item showing if the nexctloud is in maintenance mode, value will be eiter yes or no</extracomment>
-        <translation type="unfinished"/>
+        <translation>Wartungsmodus</translation>
     </message>
     <message id="fuoten-loginflow-check-manual-setup-info">
         <source>Your version of Nextcloud is not yet able to authorize an application through an external browser window. In the next step you will have the option to enter a manually created application password to access your Nextcloud. To create such a password, please log in to your Nextcloud via the web interface and create a new application password in the “Security” section of the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Ihre Version von Nextcloud kann eine Anwendung noch nicht über ein externes Browser-Fenster autorisieren. Im nächsten Schritt werden Sie die Möglichkeit haben, ein manuell erstelltes Anwendungspasswort zum Zugriff auf Ihre Nextcloud einzugeben. Um ein solches Passwort zu erstellen, melden Sie sich bitte über die Web-Schnittstelle an Ihrer Nextcloud an und erstellen unter „Sicherheit“ in den Einstellungen ein neues App-Passwort.</translation>
     </message>
     <message id="fuoten-loginflow-check-v2-setup-info">
         <source>The next step is to open an external browser window with the login page of your Nextcloud. By logging in you authorize this application to use your account there. You can revoke this authorization at any time in your Nextcloud settings under “Security”. The name of the application to be authorized is &lt;b&gt;%1&lt;/b&gt;.</source>
         <oldsource>The next step is to open an external browser window with the login page of your Nextcloud. By logging in you authorize this application to use your account there. You can revoke this authorization at any time in your Nextcloud settings under “Security”. The name of the application to be authorized is “%1”.</oldsource>
         <extracomment>%1 will be replaced by the name of the application and the device it runs on, e.g.: &quot;Fuoten (Xperia X)&quot;</extracomment>
-        <translation type="unfinished"/>
+        <translation>Im nächsten Schritt wird sich ein externes Browser-Fenster mit der Anmeldeseite Ihrer Nextcloud öffnen. Indem Sie sich dort anmelden, erlauben Sie dieser Anwendung ihr dortiges Benutzerkonto zu verwenden. Sie können diese Erlaubnis jederzeit in den Einstellungen Ihrer Nextcloud im Bereich „Sicherheit“ widerrufen. Der Name der zu autorisierenden Anwendung ist &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
     <message id="fuoten-loginflow-setup-title">
         <source>Connect your Nextcloud</source>
         <extracomment>dialog header title in the login flow setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Verbinden Sie Ihre Nextcloud</translation>
     </message>
     <message id="fuoten-loginflow-setup-info">
         <source>Please enter the address (domain and path) of your Nextcloud. It is the same address where you can access your Nextcloud with a web browser.</source>
-        <translation type="unfinished"/>
+        <translation>Geben Sie bitte die Adresse (Domäne und Pfad) Ihrer Nextcloud ein. Es ist die gleiche Adresse über die Sie Ihre Nextcloud auch mit einem Web-Browser erreichen.</translation>
     </message>
     <message id="fuoten-loginflow-usessl">
         <source>Use HTTPS (SSL/TLS) connection</source>
         <extracomment>Label for a switch</extracomment>
-        <translation type="unfinished"/>
+        <translation>HTTPS-Verbindung nutzen (SSL/TLS)</translation>
     </message>
     <message id="fuoten-loginflow-usessl-desc">
         <source>Your Nextcloud should only be accessible via an encrypted connection (HTTPS) for security reasons. If you still want to establish an unencrypted connection, you can deactivate the connection encryption here.</source>
         <extracomment>Description for a switch</extracomment>
-        <translation type="unfinished"/>
+        <translation>Aus Sicherheitsgründen sollte Ihre Nextcloud nur über eine verschlüsselte Verbindung (HTTPS) erreichbar sein. Falls Sie dennoch eine unverschlüsselte Verbindung herstellen wollen, können Sie die Verbindungsverschlüsselung hier deaktivieren.</translation>
     </message>
     <message id="fuoten-loginflow-server-address">
         <source>Server address %1</source>
         <extracomment>Label for a text input, %1 will be replaced by http://… or https://…</extracomment>
-        <translation type="unfinished"/>
+        <translation>Server-Adresse %1</translation>
     </message>
     <message id="fuoten-loginflow-polling-title-waiting">
         <source>Waiting for authorization</source>
         <oldsource>Waiting for authentication</oldsource>
         <extracomment>Dialog title in the login flow while waiting for authoriaztion</extracomment>
-        <translation type="unfinished"/>
+        <translation>Warte auf Berechtigung</translation>
     </message>
     <message id="fuoten-loginflow-polling-title-success">
         <source>Authorization succeeded</source>
         <oldsource>Authentication succeeded</oldsource>
         <extracomment>Dialog title in the login flow if authorization has succeeded</extracomment>
-        <translation type="unfinished"/>
+        <translation>Berechtigung erteilt</translation>
     </message>
     <message id="fuoten-loginflow-seconds-left" numerus="yes">
         <source>%n second(s) left</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n Sekunde verbleibt</numerusform><numerusform>%n Sekunden verbleiben</numerusform></translation>
     </message>
     <message id="fuoten-loginflow-polling-retry">
         <source>Retry</source>
         <extracomment>Pull down menu entry to retry the authorization with external browser</extracomment>
-        <translation type="unfinished"/>
+        <translation>Erneut versuchen</translation>
     </message>
     <message id="fuoten-notify-auth-success-summary">
         <source>Authorization successful</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Berechtigung erteilt</translation>
     </message>
     <message id="fuoten-notify-auth-success-prev-body">
         <source>User %1 on %2</source>
         <extracomment>notification popup body text after successful authorization, %1 will be replaced by the username, %2 by the remote Nextcloud host name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Benutzer %1 auf %2</translation>
     </message>
     <message id="fuoten-notify-auth-success-body">
         <source>Fuoten has been successfully authorised to connect to your Nextcloud at %1 as user %2.</source>
         <extracomment>notification area body text after successful authorization, %1 will be replaced by the remote Nextcloud host name, %2 by the username</extracomment>
-        <translation type="unfinished"/>
+        <translation>Fuoten wurde erfolgreich die Erlaubnis erteilt, sich mit Ihrer Nextcloud unter %1 als Benutzer %2 zu verbinden.</translation>
     </message>
     <message id="fuoten-loginflow-manual-title">
         <source>Manual setup</source>
         <extracomment>dialog header title in the login flow setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Manuelle Einrichtung</translation>
     </message>
     <message id="fuoten-loginflow-manual-check-account">
         <source>Checking account</source>
         <extracomment>Dialog title in the login flow while checking manual account setup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Zugang prüfen</translation>
     </message>
     <message id="fuoten-loginflow-manual-check-failed">
         <source>Setup failed</source>
         <extracomment>Dialog title in the login flow if manual account setup failed</extracomment>
-        <translation type="unfinished"/>
+        <translation>Einrichtung fehlgeschlagen</translation>
     </message>
     <message id="fuoten-loginflow-manual-check-success">
         <source>Setup finished</source>
         <extracomment>Dialog title in the login flow if manual account setup succeeded</extracomment>
-        <translation type="unfinished"/>
+        <translation>Einrichtung erfolgreich</translation>
     </message>
     <message id="fuoten-notify-apppassword-created">
         <source>Application password created</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Anwendungspasswort erstellt</translation>
     </message>
     <message id="fuoten-notify-apppassword-created-prev-body">
         <source>User %1 on %2</source>
         <extracomment>notification popup body text after successfully automatically creating an application password, %1 will be replaced by the username, %2 by the remote Nextcloud host name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Benutzer %1 auf %2</translation>
     </message>
     <message id="fuoten-notify-apppassword-created-body">
         <source>%1 has been successfully upgraded your login credentials to connect to your Nextcloud at %2 as user %3 with an application specific password.</source>
         <extracomment>notification area body text after successfully automatically converting to an application password, %1 will be replaced by the application’s login flow user agent (e.g. Fuoten (Xperia X)), %2 will be replaced by the remote Nextcloud host name, %3 by the username</extracomment>
-        <translation type="unfinished"/>
+        <translation>%1 hat Ihre Anmeldedaten zum Verbinden als Benutzer %3 zu Ihrer Nextcloud unter %2 erfolgreich auf ein Anwendungspasswort umgestellt.</translation>
     </message>
     <message id="fuoten-settings-navbackaftermark">
         <source>Navigate back after marking as read</source>
         <extracomment>Label for a switch on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Zurück nachdem als gelesen markiert</translation>
     </message>
     <message id="fuoten-settings-navbackaftermark-desc">
         <source>If activated, after marking a complete feed or folder as read, the application automatically switches back to the parent page.</source>
         <extracomment>Description for a switch on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Navigiert nach dem Markieren eines gesamten Ordners oder Feeds automatische eine Seite zurück.</translation>
     </message>
     <message id="fuoten-deleteaccount-title">
         <source>Delete account</source>
         <extracomment>dialog header title when deleting the nextcloud account and pull down menu entry</extracomment>
-        <translation type="unfinished"/>
+        <translation>Zugang löschen</translation>
     </message>
     <message id="fuoten-deleteaccount-delete">
         <source>Delete</source>
         <extracomment>dialog header accept text when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Löschen</translation>
     </message>
     <message id="fuoten-deleteaccount-local-text">
         <source>Delete local data</source>
         <extracomment>Label for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Lokale Daten löschen</translation>
     </message>
     <message id="fuoten-deleteaccount-local-desc">
         <source>Also deletes all local data, including the database with all folders, feeds and articles.</source>
         <extracomment>Description for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Löscht auch alle lokalen Daten inklusive der Datenbank mit allen Ordnern, Feeds und Artikeln.</translation>
     </message>
     <message id="fuoten-deleteaccount-remote-text">
         <source>Delete app password</source>
         <extracomment>Label for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Anwendungspasswort löschen</translation>
     </message>
     <message id="fuoten-deleteaccount-remote-desc">
         <source>Also deletes the application password on the server, if one has been set.</source>
         <extracomment>Description for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Löscht auch das Anwendungspasswort auf dem Server, falls eins eingerichtet wurde.</translation>
     </message>
     <message id="fuoten-deleting-account-busy-local">
         <source>Deleting local storage</source>
-        <translation type="unfinished"/>
+        <translation>Lösche lokale Daten</translation>
     </message>
     <message id="fuoten-deleting-account-busy-remote">
         <source>Deleting application password</source>
-        <translation type="unfinished"/>
+        <translation>Lösche Anwendungspasswort</translation>
     </message>
     <message id="fuoten-deleting-account-title">
         <source>Deleting account</source>
         <extracomment>Page header when deleting account data</extracomment>
-        <translation type="unfinished"/>
+        <translation>Lösche Zugang</translation>
     </message>
     <message id="fuoten-deleting-account-success-title">
         <source>Account deleted</source>
-        <translation type="unfinished"/>
+        <translation>Zugang gelöscht</translation>
     </message>
     <message id="fuoten-deleting-account-success-message">
         <source>Your account was successfully deleted, please close the application. If you want to create a new account, simply restart the application.</source>
-        <translation type="unfinished"/>
+        <translation>Ihr Zugangsdaten wurden erfolgreich gelöscht, bitte schließen Sie die Anwendung. Wenn Sie neue Zugangsdaten eingeben möchten, starten Sie die Anwendung einfach erneut.</translation>
     </message>
     <message id="fuoten-loginflow-open-loginurl">
         <source>Open in browser</source>
         <extracomment>Pull down menu entry to reopen the external authorization browser window</extracomment>
-        <translation type="unfinished"/>
+        <translation>Im Browser öffnen</translation>
     </message>
     <message id="fuoten-loginflow-use-flow">
         <source>Login flow</source>
         <extracomment>pull down menu item in the setup wizard, login flow means to login to your Nextcloud by authenticating the app via an external browser window</extracomment>
-        <translation type="unfinished"/>
+        <translation>Anmledevorgang</translation>
+    </message>
+    <message id="fuoten-remote-wipe-title">
+        <source>Remote wipe</source>
+        <extracomment>page header for the remote wipe</extracomment>
+        <translation>Fernlöschung</translation>
+    </message>
+    <message id="fuoten-remote-wipe-executing">
+        <source>Executing remote wipe request</source>
+        <translation>Führe Fernlöschanfrage aus</translation>
+    </message>
+    <message id="fuoten-remote-wipe-done-title">
+        <source>Remote wipe done</source>
+        <translation>Fernlöschung ausgeführt</translation>
+    </message>
+    <message id="fuoten-remote-wipe-done-message">
+        <source>The requested remote wipe has been done. Your local account and content data of Fuoten have been deleted.</source>
+        <translation>Die angeforderte Fernlöschung wurde durchgeführt. Ihr lokalen Zugangs- und Inhaltsdaten wurden gelöscht.</translation>
+    </message>
+    <message id="fuoten-notify-wipe-requested">
+        <source>Remote wipe requested</source>
+        <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
+        <translation>Fernlöschung beauftragt</translation>
+    </message>
+    <message id="fuoten-notify-wipe-requested-body">
+        <source>A remote wipe has been requested for this application on your device.</source>
+        <extracomment>body text for a notification, shown in the notification area</extracomment>
+        <translation>Für diese Anwendung auf Ihrem Geräte wurde eine Fernlöschung angefordert.</translation>
+    </message>
+    <message id="fuoten-notify-wipe-done">
+        <source>Remote wipe done</source>
+        <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
+        <translation>Fernlöschung ausgeführt</translation>
+    </message>
+    <message id="fuoten-notify-wipe-done-body">
+        <source>A remote wipe hase been done for this application on your device.</source>
+        <extracomment>body text for a notification, shown in the notification area</extracomment>
+        <translation>Für diese Anwendung auf Ihrem Gerät wurde eine Fernlöschung durchgeführt.</translation>
     </message>
 </context>
 </TS>

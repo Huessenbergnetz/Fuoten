@@ -1327,62 +1327,99 @@
     <message id="fuoten-deleteaccount-title">
         <source>Delete account</source>
         <extracomment>dialog header title when deleting the nextcloud account and pull down menu entry</extracomment>
-        <translation type="unfinished"/>
+        <translation>Ta bort konto</translation>
     </message>
     <message id="fuoten-deleteaccount-delete">
         <source>Delete</source>
         <extracomment>dialog header accept text when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Ta bort</translation>
     </message>
     <message id="fuoten-deleteaccount-local-text">
         <source>Delete local data</source>
         <extracomment>Label for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Ta bort lokal data</translation>
     </message>
     <message id="fuoten-deleteaccount-local-desc">
         <source>Also deletes all local data, including the database with all folders, feeds and articles.</source>
         <extracomment>Description for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Tar också bort all lokal data, inklusive databasen med alla mappar, flöden och artiklar.</translation>
     </message>
     <message id="fuoten-deleteaccount-remote-text">
         <source>Delete app password</source>
         <extracomment>Label for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Ta bort programlösenordet</translation>
     </message>
     <message id="fuoten-deleteaccount-remote-desc">
         <source>Also deletes the application password on the server, if one has been set.</source>
         <extracomment>Description for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Tar också bort programlösenordet från servern, om lösenord har konfigurerats.</translation>
     </message>
     <message id="fuoten-deleting-account-busy-local">
         <source>Deleting local storage</source>
-        <translation type="unfinished"/>
+        <translation>Tar bort lokal lagring</translation>
     </message>
     <message id="fuoten-deleting-account-busy-remote">
         <source>Deleting application password</source>
-        <translation type="unfinished"/>
+        <translation>Tar bort programlösenord</translation>
     </message>
     <message id="fuoten-deleting-account-title">
         <source>Deleting account</source>
         <extracomment>Page header when deleting account data</extracomment>
-        <translation type="unfinished"/>
+        <translation>Tar bort konto</translation>
     </message>
     <message id="fuoten-deleting-account-success-title">
         <source>Account deleted</source>
-        <translation type="unfinished"/>
+        <translation>Konto borttaget</translation>
     </message>
     <message id="fuoten-deleting-account-success-message">
         <source>Your account was successfully deleted, please close the application. If you want to create a new account, simply restart the application.</source>
-        <translation type="unfinished"/>
+        <translation>Ditt konto har tagits bort, stäng nu appen. Om du vill skapa ett nytt konto, startar du appen igen.</translation>
     </message>
     <message id="fuoten-loginflow-open-loginurl">
         <source>Open in browser</source>
         <extracomment>Pull down menu entry to reopen the external authorization browser window</extracomment>
-        <translation type="unfinished"/>
+        <translation>Öppna i webbläsaren</translation>
     </message>
     <message id="fuoten-loginflow-use-flow">
         <source>Login flow</source>
         <extracomment>pull down menu item in the setup wizard, login flow means to login to your Nextcloud by authenticating the app via an external browser window</extracomment>
+        <translation>Inloggningsflöde</translation>
+    </message>
+    <message id="fuoten-remote-wipe-title">
+        <source>Remote wipe</source>
+        <extracomment>page header for the remote wipe</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-remote-wipe-executing">
+        <source>Executing remote wipe request</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-remote-wipe-done-title">
+        <source>Remote wipe done</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-remote-wipe-done-message">
+        <source>The requested remote wipe has been done. Your local account and content data of Fuoten have been deleted.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-notify-wipe-requested">
+        <source>Remote wipe requested</source>
+        <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-notify-wipe-requested-body">
+        <source>A remote wipe has been requested for this application on your device.</source>
+        <extracomment>body text for a notification, shown in the notification area</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-notify-wipe-done">
+        <source>Remote wipe done</source>
+        <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-notify-wipe-done-body">
+        <source>A remote wipe hase been done for this application on your device.</source>
+        <extracomment>body text for a notification, shown in the notification area</extracomment>
         <translation type="unfinished"/>
     </message>
 </context>
