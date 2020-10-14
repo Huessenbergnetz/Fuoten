@@ -55,6 +55,8 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
         case FeedCreated:
         case AuthorizationSucceeded:
         case AppPasswordRequested:
+        case RemoteWipeRequested:
+        case RemoteWipeDone:
             force = true;
             break;
         case SyncComplete:
@@ -532,6 +534,30 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
                 //% "%1 has been successfully upgraded your login credentials to connect to your Nextcloud at %2 as user %3 with an application specific password."
                 body = qtTrId("fuoten-notify-apppassword-created-body").arg(useragent, host, username);
                 category = QStringLiteral("x-fuoten.authorization.upgraded");
+                break;
+            }
+            case RemoteWipeRequested:
+            {
+                //: headline/summary for a notification, shown in the notification area and in the notification popup
+                //% "Remote wipe requested"
+                previewSummary = qtTrId("fuoten-notify-wipe-requested");
+                summary = previewSummary;
+                //: body text for a notification, shown in the notification area
+                //% "A remote wipe has been requested for this application on your device."
+                body = qtTrId("fuoten-notify-wipe-requested-body");
+                category = QStringLiteral("x-fuoten.wipe.requested");
+                break;
+            }
+            case RemoteWipeDone:
+            {
+                //: headline/summary for a notification, shown in the notification area and in the notification popup
+                //% "Remote wipe done"
+                previewSummary = qtTrId("fuoten-notify-wipe-done");
+                summary = previewSummary;
+                //: body text for a notification, shown in the notification area
+                //% "A remote wipe hase been done for this application on your device."
+                body = qtTrId("fuoten-notify-wipe-done-body");
+                category = QStringLiteral("x-fuoten.wipe.done");
                 break;
             }
             }
