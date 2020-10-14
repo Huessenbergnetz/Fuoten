@@ -114,7 +114,8 @@ DISTFILES += \
     qml/phone/pages/BaseListView.qml \
     qml/common/parts/SyncPanel.qml \
     qml/common/pages/Sharing.qml \
-    qml/common/parts/FontSizeSlider.qml
+    qml/common/parts/FontSizeSlider.qml \
+    qml/common/pages/WipeManager.qml
 
 HEADERS += \
     src/sfosuseravatar.h \

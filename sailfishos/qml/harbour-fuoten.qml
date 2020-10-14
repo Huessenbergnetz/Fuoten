@@ -50,6 +50,11 @@ ApplicationWindow
             }
         }
     }
+
+    Connections {
+        target: wipemanager
+        onWipeStarted: pageStack.replaceAbove(null, Qt.resolvedUrl("common/pages/WipeManager.qml"))
+    }
 }
 
 
