@@ -54,6 +54,7 @@
 #include <Fuoten/FuotenEnums>
 #include <Fuoten/Helpers/AbstractConfiguration>
 #include <Fuoten/Helpers/Synchronizer>
+#include <Fuoten/Helpers/WipeManager>
 #include <Fuoten/Storage/SQLiteStorage>
 #include <Fuoten/Storage/AbstractStorage>
 #include <Fuoten/Models/FolderListFilterModel>
@@ -304,9 +305,15 @@ int main(int argc, char *argv[])
     }
     auto namFactory = std::make_unique<NamFactory>(qmlDiskCache);
 
+    auto wipeManager = new Fuoten::WipeManager(app.get());
+    wipeManager->setConfiguration(config);
+    wipeManager->setStorage(sqliteStorage);
+    wipeManager->setNotificator(notificator);
+
     Fuoten::Component::setDefaultConfiguration(config);
     Fuoten::Component::setDefaultStorage(sqliteStorage);
     Fuoten::Component::setDefaultNotificator(notificator);
+    Fuoten::Component::setDefaultWipeManager(wipeManager);
 
     auto synchronizer = new Fuoten::Synchronizer(app.get());
     synchronizer->setConfiguration(config);
@@ -383,6 +390,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty(QStringLiteral("config"), config);
     view->rootContext()->setContextProperty(QStringLiteral("localstorage"), sqliteStorage);
     view->rootContext()->setContextProperty(QStringLiteral("synchronizer"), synchronizer);
+    view->rootContext()->setContextProperty(QStringLiteral("wipemanager"), wipeManager);
     view->rootContext()->setContextProperty(QStringLiteral("covercon"), new CoverConnector(app.get()));
     view->rootContext()->setContextProperty(QStringLiteral("_fuotenDbusProxy"), dbusproxy);
 
