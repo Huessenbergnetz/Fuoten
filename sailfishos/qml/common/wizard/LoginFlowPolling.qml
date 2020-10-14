@@ -119,6 +119,7 @@ Dialog {
                 id: account
                 anchors { left: parent.left; right: parent.right }
                 enabled: false
+                visible: !loginFlowV2.inOperation
             }
 
             ErrorItem {
