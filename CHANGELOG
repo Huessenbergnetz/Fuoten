@@ -1,3 +1,14 @@
+Fuoten 0.7.0 - 2020-10-17
+- General
+  * note: seventh preview release
+  * improved: translation updates
+- SailfishOS
+  * new: implement remote wipe (#61)
+  * new: implement account deletion (#60)
+  * new: use Nextcloud Login Flow (#57)
+  * improved: option for navigating back after marking feed/folder as read (#47)
+  * improved: sharing dialog (#56)
+
 Fuoten 0.6.6 - 2019-05-06
 - General
   * note: maintenance update for sixth preview release

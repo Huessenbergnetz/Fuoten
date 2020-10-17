@@ -28,6 +28,20 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.7.0"
+        date: 1602946026000
+        entries: [
+            ListElement { type: 3; issue: ""; description: "seventh preview release" },
+            ListElement { type: 0; issue: "57"; description: "support for Nextcloud login flow" },
+            ListElement { type: 0; issue: "60"; description: "account deletion support" },
+            ListElement { type: 0; issue: "61"; description: "remote wipe support" },
+            ListElement { type: 1; issue: "47"; description: "option for navigating back after marking feed/folder as read" },
+            ListElement { type: 1; issue: "56"; description: "better sharing dialog" },
+            ListElement { type: 1; issue: ""; description: "translation updates" }
+        ]
+    }
+
+    ListElement {
         version: "0.6.6"
         date: 1557152996000
         entries: [

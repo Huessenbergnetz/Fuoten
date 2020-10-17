@@ -8,6 +8,15 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sat Oct 17 2020 Matthias Fehring <> 0.7.0-1
+- info: seventh preview release
+- new: implement remote wipe (#61)
+- new: implement account deletion (#60)
+- new: use Nextcloud Login Flow (#57)
+- improved: option for navigating back after marking feed/folder as read (#47)
+- improved: sharing dialog (#56)
+- improved: translation updates
+
 * Mon May 06 2019 Matthias Fehring <> 0.6.6-1
 - note: maintenance update for the sixth preview release
 - fixed: article list is not updated (#52)
