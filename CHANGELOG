@@ -1,3 +1,7 @@
+Fuoten 0.7.1 - 2020-11-26
+- General
+  * fixed: update to current libfuoten to handle changes in News App API (#63)
+
 Fuoten 0.7.0 - 2020-10-17
 - General
   * note: seventh preview release

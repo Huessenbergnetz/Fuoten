@@ -28,6 +28,14 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.7.1"
+        date: 1606394206000
+        entries: [
+                ListElement { type: 2; issue: "63"; description: "update to libfuoten 0.8.2 to handle changes in News App API data types" }
+        ]
+    }
+
+    ListElement {
         version: "0.7.0"
         date: 1602946026000
         entries: [
