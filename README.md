@@ -15,7 +15,7 @@ and some other tools.
 * [git](https://git-scm.com/) (required to get the code)
 * [bash](https://www.gnu.org/software/bash/) (required for the source code setup/init scripts)
 * [lrelease](https://doc.qt.io/qt-5/linguist-manager.html) (required to generate the translations)
-* [inkscape](https://inkscape.org) (required to generate the icons)
+* [CairoSVG](https://cairosvg.org/) (required to generate the icons)
 * [bc](http://www.gnu.org/software/bc/bc.html) (required to generate the icons)
 * [parallel](https://www.gnu.org/software/parallel/) (optional to speed up icon creation)
 * [zopflipng](https://github.com/google/zopfli) (optional to decrease icon sizes on disk)

@@ -3,14 +3,14 @@
 SCALES="1 1.25 1.5 1.75 2"
 SIZES="32 64 96"
 
-INKSCAPE=`which inkscape`
+CAIROSVG=`which cairosvg`
 export ZOPFLIPNG=`which zopflipng`
 PARALLEL=`which parallel`
 BC=`which bc`
 
-if [ ! -x $INKSCAPE ]
+if [ ! -x $CAIROSVG ]
 then
-    echo "Can not find inkscape executable"
+    echo "Can not find CairoSVG executable"
     exit 1
 fi
 
@@ -85,7 +85,7 @@ processSvg() {
         echo "Creating $SCALEDIR/$FNAME (${SIZE}x${SIZE})"
         TMPFILE=$(mktemp)
 
-        inkscape -z -e $TMPFILE -w $SIZE -h $SIZE $SVGFILE &> /dev/null
+        cairosvg -f png --output-width $SIZE --output-height $SIZE -o $TMPFILE $SVGFILE
         if [ -x $ZOPFLIPNG ]
         then
             zopflipng -y --iterations=500 --filters=01234mepb --lossy_transparent $TMPFILE $SCALEDIR/$FNAME

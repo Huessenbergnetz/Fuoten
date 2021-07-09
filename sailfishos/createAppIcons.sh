@@ -2,12 +2,12 @@
 
 BASENAME=harbour-fuoten
 ICONSDIR=icons
-INKSCAPE=`which inkscape`
+CAIROSVG=`which cairosvg`
 ZOPFLIPNG=`which zopflipng`
 
-if [ ! -x $INKSCAPE ]
+if [ ! -x $CAIROSVG ]
 then
-    echo "Can not find inkscape executable"
+    echo "Can not find CairoSVG executable"
     exit 1
 fi
 
@@ -38,7 +38,7 @@ do
         fi
 
         FNAME=$(mktemp)
-        $INKSCAPE -z -e $FNAME -w $SIZE  -h $SIZE $SVGFILE &> /dev/null
+        $CAIROSVG -f png --output-width $SIZE --output-height $SIZE -o $FNAME $SVGFILE
         if [ -x $ZOPFLIPNG ]
         then
             $ZOPFLIPNG -y --iterations=500 --filters=01234mepb --lossy_transparent $FNAME $FULLPATH

@@ -12,10 +12,10 @@ then
     exit 1
 fi
 
-INKSCAPE=`which inkscape`
-if [ ! -x $INKSCAPE ]
+CAIROSVG=`which cairosvg`
+if [ ! -x $CAIROSVG ]
 then
-    echo "Can not find inkscape that is needed to generate icons"
+    echo "Can not find CairoSVG that is needed to generate icons"
     exit 1
 fi
 
