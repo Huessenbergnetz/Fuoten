@@ -6,8 +6,6 @@
 Name:       harbour-fuoten
 
 # >> macros
-%define __provides_exclude_from ^%{_datadir}/.*$
-%define __requires_exclude ^libfuoten.*$|^libdbus-1.*$
 # << macros
 
 %{!?qtc_qmake:%define qtc_qmake %qmake}
@@ -16,7 +14,7 @@ Name:       harbour-fuoten
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    ownCloud/Nextcloud News App Client
 Version:    0.7.1
-Release:    1
+Release:    2
 Group:      Applications/Internet
 License:    GPL-3.0
 URL:        https://github.com/Huessenbergnetz/Fuoten

@@ -8,6 +8,9 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Fri Nov 12 2021 Matthias Fehring <> 0.7.1-2
+- fixed: rebuild for SailfishOS 4.3 openSSL update (#68)
+
 * Thu Nov 26 2020 Matthias Fehring <> 0.7.1-1
 - fixed: update to current libfuoten to handle changes in News App API (#63)
 
