@@ -20,7 +20,7 @@
 #define SFOSCONFIG_H
 
 #include "../../common/configuration.h"
-#include "../common/globals.h"
+#include "../../common/globals.h"
 
 class SfosConfig : public Configuration
 {

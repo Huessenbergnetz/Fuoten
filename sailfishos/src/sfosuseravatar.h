@@ -21,7 +21,7 @@
 
 #include <QObject>
 #include "../../common/useravatar.h"
-#include "../common/globals.h"
+#include "../../common/globals.h"
 
 /*!
  * \brief Requests and stores the user’s avatar image.
