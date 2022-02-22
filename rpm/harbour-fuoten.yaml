@@ -17,7 +17,7 @@ Description: |
 Configure: none
 # The qtc5 builder inserts macros to allow QtCreator to have fine
 # control over qmake/make execution
-Builder: qtc5
+Builder: cmake
 
 # This section specifies build dependencies that are resolved using pkgconfig.
 # This is the preferred way of specifying build dependencies for your package.
@@ -37,10 +37,14 @@ PkgConfigBR:
 # Build dependencies without a pkgconfig setup can be listed here
 # PkgBR:
 #   - package-needed-to-build
+PkgBR:
+  - librsvg-tools
+  - bc
+  - qt5-qttools-linguist
 
 # Runtime dependencies which are not automatically detected
 Requires:
-  - sailfishsilica-qt5 >= 0.10.9 
+  - sailfishsilica-qt5 >= 0.10.9
   - qt5-plugin-imageformat-gif
   - qt5-plugin-imageformat-ico
   - qt5-plugin-imageformat-jpeg
