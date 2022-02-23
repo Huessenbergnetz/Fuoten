@@ -6,6 +6,8 @@
 Name:       harbour-fuoten
 
 # >> macros
+%define __provides_exclude_from ^%{_datadir}/.*$
+%define __requires_exclude ^libFirfuoridaQt5|libFuotenQt5|libHbnSfosComponentsQt5.*$
 # << macros
 
 Summary:    ownCloud/Nextcloud News App Client
@@ -78,4 +80,7 @@ desktop-file-install --delete-original       \
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 # >> files
+%exclude %{_datadir}/%{name}/lib/cmake
+%exclude %{_datadir}/%{name}/lib/pkgconfig
+%exclude %{_includedir}/fuoten-qt5
 # << files
