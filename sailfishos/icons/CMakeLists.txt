@@ -1,19 +1,31 @@
 include(HBNSfosGenerateIcons)
 
-hbn_sfos_add_appicon(appIcon harbour-fuoten.svg)
+hbn_sfos_add_appicon(appIconPngs harbour-fuoten.svg)
 
-add_custom_target(fuotenAppIcon ALL
-                  DEPENDS ${appIcon}
+add_custom_target(appIcon ALL
+                  DEPENDS ${appIconPngs}
                   COMMENT "Generating application icon"
                   SOURCES harbour-fuoten.svg)
 
-set(fuotenIcons
+set(iconSvgs
     src/feed.svg
 )
 
-hbn_sfos_add_icon(themeIcons ${fuotenIcons} SIZES s m l)
+hbn_sfos_add_icon(iconPngs ${iconSvgs} SIZES s m l)
 
-add_custom_target(fuotenThemeIcons ALL
-                  DEPENDS ${themeIcons}
+add_custom_target(icons ALL
+                  DEPENDS ${iconPngs}
                   COMMENT "Generating theme icons"
-                  SOURCES ${fuotenIcons})
+                  SOURCES ${iconSvgs})
+
+set(lockIconSvgs
+    src/fuoten-error.svg
+    src/fuoten-info.svg
+)
+
+hbn_sfos_add_icon(lockIconPngs ${lockIconSvgs} SIZES lock)
+
+add_custom_target(lockIcons ALL
+                  DEPENDS ${lockIconPngs}
+                  COMMENT "Generating lock icons"
+                  SOURCS ${lockIconSvgs})
