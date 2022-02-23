@@ -76,9 +76,9 @@
 #include <Fuoten/Models/ArticleListModel>
 #include <Fuoten/Models/ArticleListFilterModel>
 
-#include "../../common/enums.h"
-#include "../../common/contextconfig.h"
-#include "../../common/updateintervalmodel.h"
+#include "enums.h"
+#include "contextconfig.h"
+#include "updateintervalmodel.h"
 
 #include "hbnsciconprovider.h"
 #include "sharing/sharingmethodsmodel.h"

@@ -21,7 +21,7 @@
 
 #include <QObject>
 #include <QUrl>
-#include "../common/globals.h"
+#include "globals.h"
 
 /*!
  * \brief Requests and stores the user’s avatar image.

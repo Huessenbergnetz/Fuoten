@@ -21,7 +21,7 @@
 
 #include <QAbstractListModel>
 #include "sharingmethod.h"
-#include "../../common/globals.h"
+#include "globals.h"
 
 class QDBusPendingCallWatcher;
 

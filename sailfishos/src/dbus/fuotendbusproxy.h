@@ -20,7 +20,7 @@
 #define FUOTENDBUSPROYX_H
 
 #include <QObject>
-#include "../../common/globals.h"
+#include "globals.h"
 
 class FuotenDbusProxy : public QObject
 {

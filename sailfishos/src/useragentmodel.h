@@ -22,7 +22,7 @@
 #include <QAbstractListModel>
 #include <vector>
 #include <utility>
-#include "../common/globals.h"
+#include "globals.h"
 
 class UserAgentModel : public QAbstractListModel
 {

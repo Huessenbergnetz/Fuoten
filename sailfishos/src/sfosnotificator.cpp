@@ -18,7 +18,7 @@
 
 #include "sfosnotificator.h"
 #include "sfosconfig.h"
-#include "hbnsc.h"
+#include <hbnsc.h>
 #include <QVariant>
 #include <QStringBuilder>
 #include <QLocale>

@@ -20,7 +20,7 @@
 #define NAMFACTORY_H
 
 #include <QQmlNetworkAccessManagerFactory>
-#include "../common/globals.h"
+#include "globals.h"
 
 class QNetworkAccessManager;
 class QAbstractNetworkCache;

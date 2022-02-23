@@ -20,7 +20,7 @@
 #define FUOTENDBUSADAPTOR_H
 
 #include <QDBusAbstractAdaptor>
-#include "../../common/globals.h"
+#include "globals.h"
 
 class FuotenDbusAdaptor : public QDBusAbstractAdaptor
 {

@@ -20,7 +20,7 @@
 #define COVERCONNECTOR_H
 
 #include <QObject>
-#include "../common/globals.h"
+#include "globals.h"
 
 namespace Fuoten {
 class Article;

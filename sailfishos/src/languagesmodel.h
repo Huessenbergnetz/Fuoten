@@ -19,8 +19,8 @@
 #ifndef LANGUAGESMODEL_H
 #define LANGUAGESMODEL_H
 
-#include "hbnsclanguagemodel.h"
-#include "../common/globals.h"
+#include <hbnsclanguagemodel.h>
+#include "globals.h"
 
 class LanguagesModel : public Hbnsc::LanguageModel
 {

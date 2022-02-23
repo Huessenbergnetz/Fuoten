@@ -19,8 +19,8 @@
 #ifndef LICENSESMODEL_H
 #define LICENSESMODEL_H
 
-#include "hbnsclicensemodel.h"
-#include "../common/globals.h"
+#include <hbnsclicensemodel.h>
+#include "globals.h"
 
 class LicensesModel : public Hbnsc::LicenseModel
 {

@@ -19,8 +19,8 @@
 #ifndef SFOSCONFIG_H
 #define SFOSCONFIG_H
 
-#include "../../common/configuration.h"
-#include "../../common/globals.h"
+#include "configuration.h"
+#include "globals.h"
 
 class SfosConfig : public Configuration
 {
