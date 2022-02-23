@@ -8,6 +8,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 add_subdirectory(src)
 add_subdirectory(qml)
 add_subdirectory(icons)
+add_subdirectory(translations)
 
 install(FILES harbour-fuoten.desktop
     DESTINATION ${CMAKE_INSTALL_DATADIR}/applications

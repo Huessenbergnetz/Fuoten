@@ -50,7 +50,7 @@ target_compile_definitions(fuoten_exe PRIVATE
     $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>
     $<$<NOT:$<CONFIG:Debug>>:QT_NO_DEBUG_OUTPUT>
     VERSION_STRING="${PROJECT_VERSION}"
-    TRANSLATIONS_DIR="/usr/share/${FUOTEN_EXE_OUTPUT_NAME}/translations"
+    TRANSLATIONS_DIR="${FUOTEN_TRANSDIR}"
     AES256_KEY="${AES256_KEY}"
 )
 

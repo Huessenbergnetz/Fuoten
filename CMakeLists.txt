@@ -33,6 +33,7 @@ endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 
 option(ENABLE_MAINTAINER_FLAGS "Enables some build flags used for development" OFF)
 set(TARGETSYSTEM "sfos" CACHE STRING "Target system to build the application for, currently supported: sfos, kirigami")
+set(FUOTEN_TRANSDIR "${CMAKE_INSTALL_DATADIR}/nazzida/translations" CACHE PATH "Installation destination for translation files.")
 
 if(${TARGETSYSTEM} STREQUAL "sfos")
     message(STATUS "Building Fuoten for SailfishOS")
@@ -43,6 +44,8 @@ if(${TARGETSYSTEM} STREQUAL "sfos")
     set(FUOTEN_EXE_OUTPUT_NAME harbour-fuoten)
     set(CMAKE_INSTALL_LIBDIR share/${HBNSC_APPNAME}/lib)
     set(HBNSC_WITH_FIRFUORIDA OFF)
+    set(FUOTEN_TRANSDIR share/${FUOTEN_EXE_OUTPUT_NAME}/translations)
+    set(LIBFUOTEN_I18NDIR ${FUOTEN_TRANSDIR})
 
     list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/HBN_SFOS_Cmake)
 
