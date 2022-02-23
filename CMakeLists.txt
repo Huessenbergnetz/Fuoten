@@ -40,6 +40,7 @@ if(${TARGETSYSTEM} STREQUAL "sfos")
     find_package(Qt5 COMPONENTS Core Quick Network Sql DBus LinguistTools REQUIRED)
 
     set(HBNSC_APPNAME harbour-fuoten)
+    set(FUOTEN_EXE_OUTPUT_NAME harbour-fuoten)
     set(CMAKE_INSTALL_LIBDIR share/${HBNSC_APPNAME}/lib)
     set(HBNSC_WITH_FIRFUORIDA OFF)
 

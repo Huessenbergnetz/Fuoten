@@ -3,60 +3,40 @@ pkg_search_module(Sailfish sailfishapp REQUIRED IMPORTED_TARGET)
 pkg_search_module(NemoNotifications nemonotifications-qt5 REQUIRED IMPORTED_TARGET)
 find_package(OpenSSL COMPONENTS SSL REQUIRED)
 
-set(harbour_fuoten_SRCS
-    main.cpp
-    sfosuseravatar.cpp
-    sharing/sharingmethod.cpp
-    sharing/sharingmethodsmodel.cpp
-    namfactory.cpp
-    coverconnector.cpp
-    useragentmodel.cpp
-    sfosconfig.cpp
-    sfosnotificator.cpp
-    dbus/fuotendbusproxy.cpp
-    dbus/fuotendbusadaptor.cpp
-    languagesmodel.cpp
-    licensesmodel.cpp
-    ../../common/configuration.cpp
-    ../../common/contextconfig.cpp
-    ../../common/updateintervalmodel.cpp
-    ../../common/useravatar.cpp
+add_executable(fuoten_exe)
+
+target_sources(fuoten_exe
+    PRIVATE
+        main.cpp
+        sfosconfig.h
+        sfosconfig.cpp
+        sfosnotificator.h
+        sfosnotificator.cpp
+        sfosuseravatar.h
+        sfosuseravatar.cpp
+        useragentmodel.h
+        useragentmodel.cpp
+        languagesmodel.h
+        languagesmodel.cpp
+        licensesmodel.h
+        licensesmodel.cpp
+        coverconnector.h
+        coverconnector.cpp
+        namfactory.h
+        namfactory.cpp
+        ../../ADVobfuscator/Lib/Indexes.h
+        ../../ADVobfuscator/Lib/Inline.h
+        ../../ADVobfuscator/Lib/Log.h
+        ../../ADVobfuscator/Lib/MetaRandom.h
+        ../../ADVobfuscator/Lib/MetaString.h
 )
 
-set(harbour_fuoten_HEADERS
-    sfosuseravatar.h
-    sharing/sharingmethod.h
-    sharing/sharingmethod_p.h
-    sharing/sharingmethodsmodel.h
-    namfactory.h
-    coverconnector.h
-    useragentmodel.h
-    sfosconfig.h
-    ../../ADVobfuscator/Lib/Indexes.h
-    ../../ADVobfuscator/Lib/Inline.h
-    ../../ADVobfuscator/Lib/Log.h
-    ../../ADVobfuscator/Lib/MetaRandom.h
-    ../../ADVobfuscator/Lib/MetaString.h
-    sfosnotificator.h
-    dbus/fuotendbusproxy.h
-    dbus/fuotendbusadaptor.h
-    languagesmodel.h
-    licensesmodel.h
-    ../../common/globals.h
-    ../../common/configuration.h
-    ../../common/enums.h
-    ../../common/contextconfig.h
-    ../../common/updateintervalmodel.h
-    ../../common/useravatar.h
+set_property(TARGET fuoten_exe
+    APPEND PROPERTY INSTALL_RPATH "/usr/share/${FUOTEN_EXE_OUTPUT_NAME}/lib"
 )
 
-add_executable(harbour-fuoten
-    ${harbour_fuoten_HEADERS}
-    ${harbour_fuoten_SRCS}
-)
-
-set_property(TARGET harbour-fuoten
-    APPEND PROPERTY INSTALL_RPATH "/usr/share/harbour-fuoten/lib"
+set_property(TARGET fuoten_exe
+    PROPERTY OUTPUT_NAME "${FUOTEN_EXE_OUTPUT_NAME}"
 )
 
 set(CMAKE_SKIP_RPATH OFF CACHE BOOL "" FORCE)
@@ -66,15 +46,15 @@ if(NOT ${AES256_KEY} MATCHES "[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]+")
     message(FATAL_ERROR "Invalid AES256_KEY variable")
 endif()
 
-target_compile_definitions(harbour-fuoten PRIVATE
+target_compile_definitions(fuoten_exe PRIVATE
     $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>
     $<$<NOT:$<CONFIG:Debug>>:QT_NO_DEBUG_OUTPUT>
     VERSION_STRING="${PROJECT_VERSION}"
-    TRANSLATIONS_DIR="/usr/share/harbour-fuoten/translations"
+    TRANSLATIONS_DIR="/usr/share/${FUOTEN_EXE_OUTPUT_NAME}/translations"
     AES256_KEY="${AES256_KEY}"
 )
 
-target_link_libraries(harbour-fuoten
+target_link_libraries(fuoten_exe
     PRIVATE
         Qt5::Core
         Qt5::Quick
@@ -88,6 +68,10 @@ target_link_libraries(harbour-fuoten
         FuotenQt5::Core
 )
 
-install(TARGETS harbour-fuoten
+install(TARGETS fuoten_exe
     RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
 )
+
+add_subdirectory(../../common common)
+add_subdirectory(dbus)
+add_subdirectory(sharing)

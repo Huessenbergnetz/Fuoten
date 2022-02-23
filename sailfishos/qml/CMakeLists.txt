@@ -48,6 +48,6 @@ set(QMLSRCS
 add_custom_target(qmlfiles
     SOURCES ${QMLSRCS})
 
-install(FILES harbour-fuoten.qml DESTINATION ${CMAKE_INSTALL_DATADIR}/harbour-fuoten/qml)
+install(FILES harbour-fuoten.qml DESTINATION ${CMAKE_INSTALL_DATADIR}/${FUOTEN_EXE_OUTPUT_NAME}/qml)
 
-install(DIRECTORY common phone tablet DESTINATION ${CMAKE_INSTALL_DATADIR}/harbour-fuoten/qml)
+install(DIRECTORY common phone tablet DESTINATION ${CMAKE_INSTALL_DATADIR}/${FUOTEN_EXE_OUTPUT_NAME}/qml)
