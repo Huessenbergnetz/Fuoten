@@ -178,7 +178,7 @@ int main(int argc, char *argv[])
                     qWarning(R"(Can not install translator for component "%s" and locale "%s".)", qUtf8Printable(name), qUtf8Printable(locale.name()));
                 }
             } else {
-                qWarning(R"(Can not load translations for component "%s" and locale "%s".)", qUtf8Printable(name), qUtf8Printable(locale.name()));
+                qWarning(R"(Can not load translations for component "%s" and locale "%s" from "%s".)", qUtf8Printable(name), qUtf8Printable(locale.name()), TRANSLATIONS_DIR);
             }
         }
 
