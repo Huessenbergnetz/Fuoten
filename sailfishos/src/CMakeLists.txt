@@ -46,11 +46,13 @@ if(NOT ${AES256_KEY} MATCHES "[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]+")
     message(FATAL_ERROR "Invalid AES256_KEY variable")
 endif()
 
+GNUInstallDirs_get_absolute_install_dir(FUOTEN_ABS_TRANSDIR FUOTEN_TRANSDIR)
+
 target_compile_definitions(fuoten_exe PRIVATE
     $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>
     $<$<NOT:$<CONFIG:Debug>>:QT_NO_DEBUG_OUTPUT>
     VERSION_STRING="${PROJECT_VERSION}"
-    TRANSLATIONS_DIR="${FUOTEN_TRANSDIR}"
+    TRANSLATIONS_DIR="${FUOTEN_ABS_TRANSDIR}"
     AES256_KEY="${AES256_KEY}"
 )
 
