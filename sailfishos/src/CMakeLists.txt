@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: (C) 2016-2022 Matthias Fehring / www.huessenbergnetz.de
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 include(FindPkgConfig)
 pkg_search_module(Sailfish sailfishapp REQUIRED IMPORTED_TARGET)
 pkg_search_module(NemoNotifications nemonotifications-qt5 REQUIRED IMPORTED_TARGET)

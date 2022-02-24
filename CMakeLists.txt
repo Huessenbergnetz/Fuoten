@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: (C) 2016-2021 Matthias Fehring / www.huessenbergnetz.de
+# SPDX-FileCopyrightText: (C) 2016-2022 Matthias Fehring / www.huessenbergnetz.de
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 cmake_minimum_required(VERSION 3.16.0 FATAL_ERROR)
