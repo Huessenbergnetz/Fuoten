@@ -14,8 +14,8 @@
 /*!
  * \brief Constructs a new ContextConfig object.
  */
-ContextConfig::ContextConfig(QObject *parent) :
-    QSettings(parent)
+ContextConfig::ContextConfig(const QString &settingsPath, QObject *parent) :
+    QSettings(settingsPath, QSettings::NativeFormat, parent)
 {
     m_contextType = FuotenAppEnums::StartPage;
     m_contextId = -1;

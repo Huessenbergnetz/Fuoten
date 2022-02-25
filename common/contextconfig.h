@@ -161,7 +161,7 @@ class ContextConfig : public QSettings
      */
     Q_PROPERTY(int defaultFontSize READ defaultFontSize WRITE setDefaultFontSize NOTIFY defaultFontSizeChanged)
 public:
-    explicit ContextConfig(QObject *parent = nullptr);
+    explicit ContextConfig(const QString &settingsPath, QObject *parent = nullptr);
     ~ContextConfig() override;
 
     FuotenAppEnums::Context contextType() const;
