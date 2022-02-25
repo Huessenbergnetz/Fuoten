@@ -70,22 +70,7 @@ Page {
                 //% "Share"
                 text: qsTrId("fuoten-share")
                 enabled: article
-//                onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": article.url.toString(), "shareTitle": article.title })
-//                onClicked: articleShareAction.trigger()
-//                onClicked: webShareAction.shareLink(article.url, article.title)
                 onClicked: shareAction.trigger()
-                ShareAction {
-                    id: shareAction
-                    //: share action title
-                    //% "Share link"
-                    title: qsTrId("fuoten-share-link")
-                    mimeType: "text/x-url"
-                    resources: [{
-                        "type": "text/x-url",
-                        "linkTitle": article.title,
-                        "status": article.url.toString()
-                    }]
-                }
             }
             MenuItem {
                 //: Menu entry to open a single article in external browser
@@ -109,7 +94,7 @@ Page {
             MenuItem {
                 text: qsTrId("fuoten-share")
                 enabled: article
-                onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": article.url.toString(), "shareTitle": article.title })
+                onClicked: shareAction.trigger()
             }
             MenuItem {
                 text: qsTrId("fuoten-open-in-browser")
@@ -212,6 +197,19 @@ Page {
             onLinkActivated: Qt.openUrlExternally(link)
             fontSize: (config.articleFontSize > 0) ? config.articleFontSize : Theme.fontSizeSmall
         }
+    }
+
+    ShareAction {
+        id: shareAction
+        //: share action title
+        //% "Share link"
+        title: qsTrId("fuoten-share-link")
+        mimeType: "text/x-url"
+        resources: [{
+            "type": "text/x-url",
+            "linkTitle": article.title,
+            "status": article.url.toString()
+        }]
     }
 }
 
