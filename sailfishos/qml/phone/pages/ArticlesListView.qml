@@ -6,6 +6,7 @@
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
+import Sailfish.Share 1.0
 import harbour.fuoten 1.0
 import harbour.fuoten.models 1.0
 import harbour.fuoten.items 1.0
@@ -255,9 +256,21 @@ BaseListView {
                 }
                 MenuItem {
                     text: qsTrId("fuoten-share")
-                    onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": display.url.toString(), "shareTitle": display.title })
+                    onClicked: shareAction.shareLink(display.url.toString(), display.title)
                 }
             }
+        }
+    }
+
+    ShareAction {
+        id: shareAction
+        title: qsTrId("fuoten-share-link")
+        mimeType: "text/x-url"
+
+        function shareLink(linkHref, linkTitle) {
+            var content = {"type": "text/x-url", "linkTitle": linkTitle, "status": linkHref }
+            shareAction.resources = [content]
+            shareAction.trigger()
         }
     }
 }
