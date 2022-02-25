@@ -28,24 +28,30 @@ include(GNUInstallDirs)
 include(FindPkgConfig)
 
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-  set(CMAKE_INSTALL_PREFIX "/usr/local" CACHE PATH "libfuoten default install prefix" FORCE)
+  set(CMAKE_INSTALL_PREFIX "/usr/local" CACHE PATH "Fuoten default install prefix" FORCE)
 endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 
 option(ENABLE_MAINTAINER_FLAGS "Enables some build flags used for development" OFF)
 set(TARGETSYSTEM "sfos" CACHE STRING "Target system to build the application for, currently supported: sfos, kirigami")
-set(FUOTEN_TRANSDIR "${CMAKE_INSTALL_DATADIR}/nazzida/translations" CACHE PATH "Installation destination for translation files.")
 
 if(${TARGETSYSTEM} STREQUAL "sfos")
     message(STATUS "Building Fuoten for SailfishOS")
 
     find_package(Qt5 COMPONENTS Core Quick Network Sql DBus LinguistTools REQUIRED)
 
-    set(HBNSC_APPNAME harbour-fuoten)
-    set(FUOTEN_EXE_OUTPUT_NAME harbour-fuoten)
-    set(CMAKE_INSTALL_LIBDIR share/${HBNSC_APPNAME}/lib)
+    set(HBNSC_APPNAME "harbour-fuoten" CACHE STRING "Name of the application the HBN SFOS Components are used for. Used for installation values.")
+    set(FUOTEN_EXE_OUTPUT_NAME ${HBNSC_APPNAME})
+    set(CMAKE_INSTALL_LIBDIR ${CMAKE_INSTALL_DATADIR}/${FUOTEN_EXE_OUTPUT_NAME}/lib)
+
+    set(HBNSC_WITH_OPENSSL ON)
+    set(HBNSC_WITH_NEMONOTIFY ON)
     set(HBNSC_WITH_FIRFUORIDA OFF)
-    set(FUOTEN_TRANSDIR share/${FUOTEN_EXE_OUTPUT_NAME}/translations)
-    set(LIBFUOTEN_I18NDIR ${FUOTEN_TRANSDIR})
+    set(HBNSC_WITH_SQLITE ON)
+    set(HBNSC_WITH_DBUS ON)
+
+    set(FUOTEN_I18NDIR "${CMAKE_INSTALL_DATADIR}/${FUOTEN_EXE_OUTPUT_NAME}/translations")
+    set(FUOTEN_QMLDIR "${CMAKE_INSTALL_DATADIR}/${FUOTEN_EXE_OUTPUT_NAME}/qml")
+    set(LIBFUOTEN_I18NDIR "${FUOTEN_I18NDIR}" CACHE PATH "Directory to install translations")
 
     list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/HBN_SFOS_Cmake)
 

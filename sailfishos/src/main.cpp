@@ -162,12 +162,12 @@ int main(int argc, char *argv[])
         const QLocale locale;
         for (const QString &name : {QStringLiteral("fuoten"), QStringLiteral("libfuoten"), QStringLiteral("hbnsc")}) {
             auto trans = new QTranslator(app.get());
-            if (Q_LIKELY(trans->load(locale, name, QStringLiteral("_"), QStringLiteral(TRANSLATIONS_DIR), QStringLiteral(".qm")))) {
+            if (Q_LIKELY(trans->load(locale, name, QStringLiteral("_"), QStringLiteral(FUOTEN_I18NDIR), QStringLiteral(".qm")))) {
                 if (Q_UNLIKELY(!app->installTranslator(trans))) {
                     qWarning(R"(Can not install translator for component "%s" and locale "%s".)", qUtf8Printable(name), qUtf8Printable(locale.name()));
                 }
             } else {
-                qWarning(R"(Can not load translations for component "%s" and locale "%s" from "%s".)", qUtf8Printable(name), qUtf8Printable(locale.name()), TRANSLATIONS_DIR);
+                qWarning(R"(Can not load translations for component "%s" and locale "%s" from "%s".)", qUtf8Printable(name), qUtf8Printable(locale.name()), FUOTEN_I18NDIR);
             }
         }
 

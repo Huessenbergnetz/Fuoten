@@ -28,4 +28,4 @@ add_custom_target(commonqml
     SOURCES ${commonqml_SRCS}
 )
 
-install(DIRECTORY qml/common DESTINATION ${CMAKE_INSTALL_DATADIR}/${FUOTEN_EXE_OUTPUT_NAME}/qml)
+install(DIRECTORY qml/common DESTINATION ${FUOTEN_QMLDIR})

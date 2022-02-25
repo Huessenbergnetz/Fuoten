@@ -25,4 +25,4 @@ add_custom_target(fuotentrans ALL
                   SOURCES ${TS_FILES}
 )
 
-install(FILES ${QM_FILES} DESTINATION ${FUOTEN_TRANSDIR})
+install(FILES ${QM_FILES} DESTINATION ${FUOTEN_I18NDIR})
