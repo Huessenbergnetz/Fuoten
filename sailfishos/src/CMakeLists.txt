@@ -19,6 +19,8 @@ target_sources(fuoten_exe
         sfosuseravatar.cpp
         sfosmigrator.h
         sfosmigrator.cpp
+        sfoscontextconfig.h
+        sfoscontextconfig.cpp
         useragentmodel.h
         useragentmodel.cpp
         languagesmodel.h
