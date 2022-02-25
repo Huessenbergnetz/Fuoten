@@ -169,28 +169,6 @@ int main(int argc, char *argv[])
                 qWarning(R"(Can not load translations for component "%s" and locale "%s" from "%s".)", qUtf8Printable(name), qUtf8Printable(locale.name()), FUOTEN_I18NDIR);
             }
         }
-
-        auto tfeTrans = new QTranslator(app.get());
-        if (locale.language() == QLocale::C) {
-
-            if (Q_LIKELY(tfeTrans->load(QStringLiteral("sailfish_transferengine_plugins_eng_en"), QStringLiteral("/usr/share/translations")))) {
-                if (Q_UNLIKELY(!app->installTranslator(tfeTrans))) {
-                    qWarning("%s", "Can not install English translator for sailfish transfer engine plugin.");
-                }
-            } else {
-                qWarning("%s", "Can not load English translations for sailfish transfer engine plugin.");
-            }
-
-        } else {
-
-            if (Q_LIKELY(tfeTrans->load(locale, QStringLiteral("sailfish_transferengine_plugins"), QStringLiteral("-"), QStringLiteral("/usr/share/translations"), QStringLiteral(".qm")))) {
-                if (Q_UNLIKELY(!app->installTranslator(tfeTrans))) {
-                    qWarning("Can not install translator for sailfish transfer engine plugin and locale \"%s\".", qUtf8Printable(locale.name()));
-                }
-            } else {
-                qWarning("Can not load translation for sailfish transfer engine plugin and locale \"%s\".", qUtf8Printable(locale.name()));
-            }
-        }
     }
 
     qRegisterMetaType<Fuoten::IdList>("Fuoten::IdList");
