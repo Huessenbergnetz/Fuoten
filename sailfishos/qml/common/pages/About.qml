@@ -25,7 +25,6 @@ AboutPage {
     bugTrackerBaseUrl: "https://github.com/Huessenbergnetz/Fuoten/issues/"
 
     contributorsModel: ContributorsModel {}
-    contributorsAvatarBasePath: "/usr/share/harbour-fuoten/images/contributors"
 
     contactCompany: "Hüssenbergnetz"
     contactName: "Matthias Fehring"
