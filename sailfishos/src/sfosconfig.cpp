@@ -13,6 +13,7 @@
 #include <QFile>
 #include <QTextStream>
 #include "../../ADVobfuscator/Lib/MetaString.h"
+#include "sfosmigrator.h"
 
 using namespace andrivet::ADVobfuscator;
 
@@ -85,7 +86,7 @@ typedef std::basic_string<char, std::char_traits<char>, zallocator<char> > secur
 using EVP_CIPHER_CTX_free_ptr = std::unique_ptr<EVP_CIPHER_CTX, decltype(&::EVP_CIPHER_CTX_free)>;
 
 
-SfosConfig::SfosConfig(QObject *parent) : Configuration(parent)
+SfosConfig::SfosConfig(QObject *parent) : Configuration(SfosMigrator::configFilename(), parent)
 {
     EVP_add_cipher(EVP_aes_256_cbc());
     m_password = value(QStringLiteral("account/password")).toString();
