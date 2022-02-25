@@ -79,6 +79,7 @@
 #include "sfosuseravatar.h"
 #include "languagesmodel.h"
 #include "licensesmodel.h"
+#include "sfosmigrator.h"
 
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -143,12 +144,17 @@ int main(int argc, char *argv[])
 
     app->setApplicationName(QStringLiteral("harbour-fuoten"));
     app->setApplicationDisplayName(QStringLiteral("Fuoten"));
+    app->setOrganizationName(QStringLiteral("de.huessenbergnetz"));
     app->setApplicationVersion(QStringLiteral(VERSION_STRING));
 
 #ifdef QT_DEBUG
     QFile::remove(QDir::home().absoluteFilePath(QStringLiteral("fuoten.log")));
 #endif
     qInstallMessageHandler(fuotenMessageHandler);
+
+    if (Q_UNLIKELY(!SfosMigrator::migrate())) {
+        qFatal("%s", "Failed to migrate application data and configuration");
+    }
 
     auto config = new SfosConfig(app.get());
 
@@ -205,7 +211,7 @@ int main(int argc, char *argv[])
     Fuoten::SQLiteStorage *sqliteStorage = nullptr;
     {
         QDir dbusDir(QDir::homePath() + QStringLiteral("/.local/share/dbus-1/services"));
-        QDir dataDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+        QDir dataDir(SfosMigrator::dataDirPath());
         QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
         QDir qmlCacheDir(cacheDir.absoluteFilePath(QStringLiteral("qmlcache")));
 
