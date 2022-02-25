@@ -10,17 +10,13 @@ import harbour.fuoten 1.0
 import "../models"
 
 AboutPage {
-    //: title for the about page and used in pull down menus
-    //% "About"
-    pageTitle: qsTrId("id-about")
-
     appTitle: "Fuoten"
     //: Description on the about page
     //% "Client for the ownCloud/Nextcloud News App."
     appDescription: qsTrId("about-desc")
     appHomepage: "https://github.com/Huessenbergnetz/Fuoten"
     appCopyrightYearFrom: "2016"
-    appCopyrightYearTo: "2020"
+    appCopyrightYearTo: "2022"
     appCopyrightHolder: "Matthias Fehring"
     appLicense: "GNU General Public License, Version 3"
     appLicenseFile: "GPLv3.qml"
