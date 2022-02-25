@@ -6,6 +6,7 @@
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import Sailfish.Silica 1.0
+import Sailfish.Share 1.0
 import harbour.fuoten 1.0
 import harbour.fuoten.items 1.0
 import "../../common/parts"
@@ -69,7 +70,22 @@ Page {
                 //% "Share"
                 text: qsTrId("fuoten-share")
                 enabled: article
-                onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": article.url.toString(), "shareTitle": article.title })
+//                onClicked: pageStack.push(Qt.resolvedUrl("../../common/pages/Sharing.qml"), {"shareUrl": article.url.toString(), "shareTitle": article.title })
+//                onClicked: articleShareAction.trigger()
+//                onClicked: webShareAction.shareLink(article.url, article.title)
+                onClicked: shareAction.trigger()
+                ShareAction {
+                    id: shareAction
+                    //: share action title
+                    //% "Share link"
+                    title: qsTrId("fuoten-share-link")
+                    mimeType: "text/x-url"
+                    resources: [{
+                        "type": "text/x-url",
+                        "linkTitle": article.title,
+                        "status": article.url.toString()
+                    }]
+                }
             }
             MenuItem {
                 //: Menu entry to open a single article in external browser
