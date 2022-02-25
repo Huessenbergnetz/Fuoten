@@ -12,9 +12,9 @@
 class FuotenDbusAdaptor : public QDBusAbstractAdaptor
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.harbour.fuoten")
+    Q_CLASSINFO("D-Bus Interface", "de.huessenbergnetz.fuoten")
     Q_CLASSINFO("D-Bus Introspection", ""
-"  <interface name=\"org.harbour.fuoten\">\n"
+"  <interface name=\"de.huessenbergnetz.fuoten\">\n"
 "    <method name=\"activate\" />\n"
 "  </interface>\n")
 

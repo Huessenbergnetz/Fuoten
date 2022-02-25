@@ -568,16 +568,16 @@ void SfosNotificator::notify(Fuoten::AbstractNotificator::Type type, QtMsgType s
             // TODO: make actions static and check if it is empty
             QVariantList actions;
             actions.push_back(Notification::remoteAction(QStringLiteral("default"),
-                                                         QStringLiteral(""),
-                                                         QStringLiteral("org.harbour.fuoten"),
+                                                         QLatin1String(),
+                                                         QStringLiteral("de.huessenbergnetz.fuoten"),
                                                          QStringLiteral("/"),
-                                                         QStringLiteral("org.harbour.fuoten"),
+                                                         QStringLiteral("de.huessenbergnetz.fuoten"),
                                                          QStringLiteral("activate")));
             actions.push_back(Notification::remoteAction(QStringLiteral("app"),
-                                                         QStringLiteral(""),
-                                                         QStringLiteral("org.harbour.fuoten"),
+                                                         QLatin1String(),
+                                                         QStringLiteral("de.huessenbergnetz.fuoten"),
                                                          QStringLiteral("/"),
-                                                         QStringLiteral("org.harbour.fuoten"),
+                                                         QStringLiteral("de.huessenbergnetz.fuoten"),
                                                          QStringLiteral("activate")));
 
             Notification n;

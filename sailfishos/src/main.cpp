@@ -29,11 +29,6 @@
 #include <QStringBuilder>
 
 #include <QDBusConnection>
-#include <QDBusMessage>
-#include <QDBusPendingCall>
-#include <QDBusPendingCallWatcher>
-#include <QDBusPendingReply>
-#include <QDBusError>
 
 #include <sailfishapp.h>
 
@@ -63,11 +58,11 @@
 #include <Fuoten/Models/ArticleListModel>
 #include <Fuoten/Models/ArticleListFilterModel>
 
+#include <hbnsciconprovider.h>
+
 #include "enums.h"
-#include "contextconfig.h"
 #include "updateintervalmodel.h"
 
-#include "hbnsciconprovider.h"
 #include "sharing/sharingmethodsmodel.h"
 #include "dbus/fuotendbusadaptor.h"
 #include "dbus/fuotendbusproxy.h"
@@ -80,6 +75,7 @@
 #include "languagesmodel.h"
 #include "licensesmodel.h"
 #include "sfosmigrator.h"
+#include "sfoscontextconfig.h"
 
 void fuotenMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -142,7 +138,7 @@ int main(int argc, char *argv[])
 {
     std::unique_ptr<QGuiApplication> app(SailfishApp::application(argc, argv));
 
-    app->setApplicationName(QStringLiteral("harbour-fuoten"));
+    app->setApplicationName(QStringLiteral("fuoten"));
     app->setApplicationDisplayName(QStringLiteral("Fuoten"));
     app->setOrganizationName(QStringLiteral("de.huessenbergnetz"));
     app->setApplicationVersion(QStringLiteral(VERSION_STRING));
@@ -210,57 +206,9 @@ int main(int argc, char *argv[])
     QNetworkDiskCache *qmlDiskCache = nullptr;
     Fuoten::SQLiteStorage *sqliteStorage = nullptr;
     {
-        QDir dbusDir(QDir::homePath() + QStringLiteral("/.local/share/dbus-1/services"));
         QDir dataDir(SfosMigrator::dataDirPath());
         QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
         QDir qmlCacheDir(cacheDir.absoluteFilePath(QStringLiteral("qmlcache")));
-
-        if (Q_UNLIKELY(!dbusDir.exists())) {
-            if (!dbusDir.mkpath(dbusDir.absolutePath())) {
-                //: error message
-                //% "Failed to create user D-Bus directory."
-                notificator->notify(Fuoten::AbstractNotificator::StorageError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-dir"));
-                qFatal("Failed to create D-Bus direcotry.");
-            }
-        }
-
-        QFile dbusFile(dbusDir.absoluteFilePath(QStringLiteral("org.harbour.fuoten.service")));
-        if (Q_UNLIKELY(!dbusFile.exists())) {
-            if (Q_UNLIKELY(!dbusFile.open(QIODevice::WriteOnly|QIODevice::Text))) {
-                //% "Failed to open D-Bus service file for writing."
-                notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-file"));
-                qFatal("Failed to open D-Bus service file for writing.");
-            }
-            QTextStream dbusOut(&dbusFile);
-            dbusOut << QStringLiteral("[D-BUS Service]\n");
-            dbusOut << QStringLiteral("Name=org.harbour.fuoten\n");
-            dbusOut << QStringLiteral("Exec=/usr/bin/invoker -s --type=silica-qt5 /usr/bin/harbour-fuoten");
-            dbusOut.flush();
-            dbusFile.close();
-
-            QDBusConnection dc = QDBusConnection::sessionBus();
-            if (!dc.isConnected()) {
-                //: error message
-                //% "Failed to connect to D-Bus session bus."
-                notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-connection"));
-                qFatal("Failed to connect to D-Bus session bus.");
-            }
-            QDBusMessage m = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/"), QStringLiteral("org.freedesktop.DBus"), QStringLiteral("ReloadConfig"));
-            m.setAutoStartService(false);
-            QDBusPendingCall pc = dc.asyncCall(m, 3000);
-            auto pcw = new QDBusPendingCallWatcher(pc, app.get());
-            QObject::connect(pcw, &QDBusPendingCallWatcher::finished, notificator, [notificator](QDBusPendingCallWatcher *call){
-                QDBusPendingReply<void> reply = *call;
-                if (reply.isError()) {
-                    //: error message
-                    //% "Failed to reload D-Bus session bus configuration."
-                    notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-reload-config"));
-                    qCritical("D-Bus error: %s (%s)", qUtf8Printable(reply.error().message()), qUtf8Printable(reply.error().name()));
-                    qFatal("Failed to reload D-Bus session bus configuration.");
-                }
-                call->deleteLater();
-            });
-        }
 
         if (Q_UNLIKELY(!dataDir.exists())) {
             if (!dataDir.mkpath(dataDir.absolutePath())) {
@@ -343,7 +291,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<UpdateIntervalModel>("harbour.fuoten", 1, 0, "UpdateIntervalModel");
 
     qmlRegisterUncreatableType<FuotenAppEnums>("harbour.fuoten", 1, 0, "FuotenApp", QStringLiteral("You can not create a FuotenApp object."));
-    qmlRegisterType<ContextConfig>("harbour.fuoten", 1, 0, "ContextConfig");
+    qmlRegisterType<SfosContextConfig>("harbour.fuoten", 1, 0, "ContextConfig");
     qmlRegisterType<SharingMethodsModel>("harbour.fuoten", 1, 0, "SharingMethodsModel");
     qmlRegisterType<UserAgentModel>("harbour.fuoten", 1, 0, "UserAgentModel");
     qmlRegisterType<SfosUserAvatar>("harbour.fuoten", 1, 0, "UserAvatar");
@@ -358,7 +306,7 @@ int main(int argc, char *argv[])
     new FuotenDbusAdaptor(dbusproxy);
     {
         QDBusConnection con = QDBusConnection::sessionBus();
-        if (Q_UNLIKELY(!con.registerService(QStringLiteral("org.harbour.fuoten")))) {
+        if (Q_UNLIKELY(!con.registerService(QStringLiteral("de.huessenbergnetz.fuoten")))) {
             //: error message
             //% "Failed to register D-Bus service."
             notificator->notify(Fuoten::AbstractNotificator::ApplicationError, QtFatalMsg, qtTrId("fuoten-fatal-error-failed-dbus-service-register"));

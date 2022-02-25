@@ -2,10 +2,11 @@
 Type=Application
 X-Nemo-Application-Type=silica-qt5
 Icon=harbour-fuoten
-Exec=harbour-fuoten
+Exec=/usr/bin/harbour-fuoten
 Name=Fuoten
 
 [X-Sailjail]
 Permissions=Internet;WebView
 OrganizationName=de.huessenbergnetz
-ApplicationName=harbour-fuoten
+ApplicationName=fuoten
+ExecDBus=/usr/bin/harbour-fuoten
