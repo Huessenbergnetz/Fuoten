@@ -195,7 +195,7 @@ class Configuration : public Fuoten::AbstractConfiguration
     Q_PROPERTY(bool navBackAfterMark READ navBackAfterMark WRITE setNavBackAfterMark NOTIFY navBackAfterMarkChanged)
     Q_ENUM(Fuoten::FuotenEnums::Type)
 public:
-    explicit Configuration(QObject *parent = nullptr);
+    explicit Configuration(const QString &settingsPath = QString(), QObject *parent = nullptr);
     ~Configuration() override;
 
     QString getUsername() const override;

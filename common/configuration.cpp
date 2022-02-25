@@ -25,9 +25,15 @@
 /*!
  * \brief Constructs a new Configuration object.
  */
-Configuration::Configuration(QObject *parent) :
-    Fuoten::AbstractConfiguration(parent), m_settings(new QSettings(this))
+Configuration::Configuration(const QString &settingsPath, QObject *parent) :
+    Fuoten::AbstractConfiguration(parent)
 {
+    if (!settingsPath.isEmpty()) {
+        m_settings = new QSettings(settingsPath, QSettings::NativeFormat, this);
+    } else {
+        m_settings = new QSettings(this);
+    }
+
     m_username = value(QStringLiteral("account/user")).toString();
     m_password = value(QStringLiteral("account/password")).toString();
     m_useSSL = value(QStringLiteral("account/usessl"), true).toBool();
