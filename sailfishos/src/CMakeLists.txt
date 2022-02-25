@@ -83,4 +83,3 @@ install(TARGETS fuoten_exe
 
 add_subdirectory(../../common common)
 add_subdirectory(dbus)
-add_subdirectory(sharing)

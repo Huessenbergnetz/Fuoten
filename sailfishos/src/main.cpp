@@ -63,7 +63,6 @@
 #include "enums.h"
 #include "updateintervalmodel.h"
 
-#include "sharing/sharingmethodsmodel.h"
 #include "dbus/fuotendbusadaptor.h"
 #include "dbus/fuotendbusproxy.h"
 #include "namfactory.h"
@@ -292,7 +291,6 @@ int main(int argc, char *argv[])
 
     qmlRegisterUncreatableType<FuotenAppEnums>("harbour.fuoten", 1, 0, "FuotenApp", QStringLiteral("You can not create a FuotenApp object."));
     qmlRegisterType<SfosContextConfig>("harbour.fuoten", 1, 0, "ContextConfig");
-    qmlRegisterType<SharingMethodsModel>("harbour.fuoten", 1, 0, "SharingMethodsModel");
     qmlRegisterType<UserAgentModel>("harbour.fuoten", 1, 0, "UserAgentModel");
     qmlRegisterType<SfosUserAvatar>("harbour.fuoten", 1, 0, "UserAvatar");
 

@@ -15,7 +15,6 @@ set(QMLSRCS
     common/pages/ContextConfigPage.qml
     common/pages/PrivacyPolicy.qml
     common/pages/Settings.qml
-    common/pages/Sharing.qml
     common/pages/WipeManager.qml
     common/parts/AccountItem.qml
     common/parts/CountBubble.qml
