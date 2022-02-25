@@ -48,7 +48,13 @@ bool SfosMigrator::migrateData()
 
     if (!oldData.exists()) {
         qDebug("No data to migrate, old data does not exist at %s", qUtf8Printable(oldData.fileName()));
-        return true;
+
+        oldData.setFileName(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/harbour-") + QCoreApplication::applicationName() + QStringLiteral("/harbour-") + QCoreApplication::applicationName() + QStringLiteral("/database.sqlite"));
+
+        if (!oldData.exists()) {
+            qDebug("No data to migrate, old data does not exist at %s", qUtf8Printable(oldData.fileName()));
+            return true;
+        }
     }
 
     QDir newDataDir(SfosMigrator::dataDirPath());
@@ -80,7 +86,13 @@ bool SfosMigrator::migrateConfig()
 
     if (!oldSettings.exists()) {
         qDebug("No settings to migrate, old settings do not exist at %s", qUtf8Printable(oldSettings.fileName()));
-        return true;
+
+        oldSettings.setFileName(QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QStringLiteral("/harbour-") + QCoreApplication::applicationName() + QStringLiteral("/harbour-") + QCoreApplication::applicationName() + QStringLiteral(".conf"));
+
+        if (!oldSettings.exists()) {
+            qDebug("No settings to migrate, old settings do not exist at %s", qUtf8Printable(oldSettings.fileName()));
+            return true;
+        }
     }
 
     QDir newConfigDir(SfosMigrator::configDirPath());
