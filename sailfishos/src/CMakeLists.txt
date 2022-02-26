@@ -38,8 +38,10 @@ target_sources(fuoten_exe
         ../../ADVobfuscator/Lib/MetaString.h
 )
 
+GNUInstallDirs_get_absolute_install_dir(FUOTEN_EXE_RPATH CMAKE_INSTALL_LIBDIR)
+
 set_property(TARGET fuoten_exe
-    APPEND PROPERTY INSTALL_RPATH "/usr/share/${FUOTEN_EXE_OUTPUT_NAME}/lib"
+    APPEND PROPERTY INSTALL_RPATH "${FUOTEN_EXE_RPATH}"
 )
 
 set_property(TARGET fuoten_exe
