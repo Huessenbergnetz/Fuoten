@@ -40,6 +40,7 @@ AboutPage {
 
     bugUrl: "https://github.com/Huessenbergnetz/Fuoten/issues"
     translateUrl: "https://www.transifex.com/huessenbergnetz/fuoten"
+    sourceCodeUrl: "https://github.com/Huessenbergnetz/Fuoten"
 
     licensesModel: LicensesModel {}
 
