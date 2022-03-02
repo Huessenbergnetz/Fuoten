@@ -308,41 +308,41 @@ Page {
                 }
             }
 
-            Item {
-                Layout.fillWidth: true
-                Layout.preferredHeight: minimumFontSizeSlider.height
-                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                Layout.columnSpan: contextConfigGrid.columns
-                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles !== FuotenApp.OpenExternal)
+//            Item {
+//                Layout.fillWidth: true
+//                Layout.preferredHeight: minimumFontSizeSlider.height
+//                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+//                Layout.columnSpan: contextConfigGrid.columns
+//                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles !== FuotenApp.OpenExternal)
 
-                FontSizeSlider {
-                    id: minimumFontSizeSlider
-                    width: parent.width
-                    //: Label for a slider on a context config page to select the minimum font size for the internal article web view
-                    //% "Minimum font size for web view"
-                    label: qsTrId("fuoten-contextconfig-minimum-font-size")
-                    value: (cc.minimumFontSize > 0) ? cc.minimumFontSize : Theme.fontSizeExtraSmall
-                    onChangeTriggered: cc.minimumFontSize = Math.floor(minimumFontSizeSlider.sliderValue)
-                }
-            }
+//                FontSizeSlider {
+//                    id: minimumFontSizeSlider
+//                    width: parent.width
+//                    //: Label for a slider on a context config page to select the minimum font size for the internal article web view
+//                    //% "Minimum font size for web view"
+//                    label: qsTrId("fuoten-contextconfig-minimum-font-size")
+//                    value: (cc.minimumFontSize > 0) ? cc.minimumFontSize : Theme.fontSizeExtraSmall
+//                    onChangeTriggered: cc.minimumFontSize = Math.floor(minimumFontSizeSlider.sliderValue)
+//                }
+//            }
 
-            Item {
-                Layout.fillWidth: true
-                Layout.preferredHeight: defaultFontSizeSlider.height
-                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                Layout.columnSpan: contextConfigGrid.columns
-                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles !== FuotenApp.OpenExternal)
+//            Item {
+//                Layout.fillWidth: true
+//                Layout.preferredHeight: defaultFontSizeSlider.height
+//                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+//                Layout.columnSpan: contextConfigGrid.columns
+//                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles !== FuotenApp.OpenExternal)
 
-                FontSizeSlider {
-                    id: defaultFontSizeSlider
-                    width: parent.width
-                    //: Label for a slider on a context config page to select the default font size for the internal article web view
-                    //% "Default font size for web view"
-                    label: qsTrId("fuoten-contextconfig-default-font-size")
-                    value: (cc.defaultFontSize > 0) ? cc.defaultFontSize : Theme.fontSizeSmall
-                    onChangeTriggered: cc.defaultFontSize = Math.floor(defaultFontSizeSlider.sliderValue)
-                }
-            }
+//                FontSizeSlider {
+//                    id: defaultFontSizeSlider
+//                    width: parent.width
+//                    //: Label for a slider on a context config page to select the default font size for the internal article web view
+//                    //% "Default font size for web view"
+//                    label: qsTrId("fuoten-contextconfig-default-font-size")
+//                    value: (cc.defaultFontSize > 0) ? cc.defaultFontSize : Theme.fontSizeSmall
+//                    onChangeTriggered: cc.defaultFontSize = Math.floor(defaultFontSizeSlider.sliderValue)
+//                }
+//            }
 
             SectionHeader {
                 //: Section header on a context config page
