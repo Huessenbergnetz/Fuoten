@@ -282,31 +282,31 @@ Page {
                 }
             }
 
-            Item {
-                Layout.fillWidth: true
-                Layout.preferredHeight: userAgentChoser.height
-                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                Layout.columnSpan: contextConfigGrid.columns
-                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles !== FuotenApp.OpenExternal)
+//            Item {
+//                Layout.fillWidth: true
+//                Layout.preferredHeight: userAgentChoser.height
+//                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+//                Layout.columnSpan: contextConfigGrid.columns
+//                visible: (cc.contextType > FuotenApp.Feeds) && (cc.openArticles !== FuotenApp.OpenExternal)
 
-                ComboBox {
-                    id: userAgentChoser
-                    //: Label for a combo box on a context config page to set the user agent used in the internal web view
-                    //% "User agent"
-                    label: qsTrId("fuoten-user-agent")
-                    //: Description for a combo box on a context config page to set the user agent used in the internal web view
-                    //% "The user agent used for the internal web view."
-                    description: qsTrId("fuoten-user-agent-desc")
-                    menu: ContextMenu {
-                        Repeater {
-                            model: UserAgentModel { id: userAgentModel }
-                            MenuItem { text: model.title; readonly property string value: model.agent }
-                        }
-                    }
-                    currentIndex: cc.userAgentIdx
-                    onCurrentIndexChanged: if (currentItem) { cc.userAgent = currentItem.value; cc.userAgentIdx = currentIndex }
-                }
-            }
+//                ComboBox {
+//                    id: userAgentChoser
+//                    //: Label for a combo box on a context config page to set the user agent used in the internal web view
+//                    //% "User agent"
+//                    label: qsTrId("fuoten-user-agent")
+//                    //: Description for a combo box on a context config page to set the user agent used in the internal web view
+//                    //% "The user agent used for the internal web view."
+//                    description: qsTrId("fuoten-user-agent-desc")
+//                    menu: ContextMenu {
+//                        Repeater {
+//                            model: UserAgentModel { id: userAgentModel }
+//                            MenuItem { text: model.title; readonly property string value: model.agent }
+//                        }
+//                    }
+//                    currentIndex: cc.userAgentIdx
+//                    onCurrentIndexChanged: if (currentItem) { cc.userAgent = currentItem.value; cc.userAgentIdx = currentIndex }
+//                }
+//            }
 
 //            Item {
 //                Layout.fillWidth: true

@@ -67,7 +67,7 @@
 #include "dbus/fuotendbusproxy.h"
 #include "namfactory.h"
 #include "coverconnector.h"
-#include "useragentmodel.h"
+//#include "useragentmodel.h"
 #include "sfosconfig.h"
 #include "sfosnotificator.h"
 #include "sfosuseravatar.h"
@@ -269,7 +269,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterUncreatableType<FuotenAppEnums>("harbour.fuoten", 1, 0, "FuotenApp", QStringLiteral("You can not create a FuotenApp object."));
     qmlRegisterType<SfosContextConfig>("harbour.fuoten", 1, 0, "ContextConfig");
-    qmlRegisterType<UserAgentModel>("harbour.fuoten", 1, 0, "UserAgentModel");
+//    qmlRegisterType<UserAgentModel>("harbour.fuoten", 1, 0, "UserAgentModel");
     qmlRegisterType<SfosUserAvatar>("harbour.fuoten", 1, 0, "UserAvatar");
 
     std::unique_ptr<QQuickView> view(SailfishApp::createView());
