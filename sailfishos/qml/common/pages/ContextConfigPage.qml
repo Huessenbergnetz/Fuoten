@@ -282,6 +282,47 @@ Page {
                 }
             }
 
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: webViewJsSupportPicker.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                Layout.columnSpan: contextConfigGrid.columns
+                visible: cc.openArticles == FuotenApp.OpenWebView
+
+                ComboBox {
+                    id: webViewJsSupportPicker
+                    //: Label for a combo box on the context config page to select the support for JavaScript for the internal WebView.
+                    //% "JavaScript support"
+                    label: qsTrId("fuoten-webview-jssupport-label")
+                    //% "Whether JavaScript on the page will be automatically executed. Most modern web pages will not work with JavaScript disabled."
+                    description: qsTrId("fuoten-webview-jssupport-desc")
+                    menu: ContextMenu {
+                        MenuItem {
+                            //: Selectable entry in the combo box to choose JavaScript support
+                            //% "Enabled"
+                            text: qsTrId("fuoten-jssupport-enabled")
+                            readonly property int value: FuotenApp.JsEnabled
+                        }
+                        MenuItem {
+                            //: Selectable entry in the combo box to choose JavaScript support
+                            //% "Disabled"
+                            text: qsTrId("fuoten-jssupport-disabled")
+                            readonly property int value: FuotenApp.JsDisabled
+                        }
+                    }
+                    onCurrentIndexChanged: if (currentItem) { cc.jsSupport = currentItem.value }
+                    currentIndex: {
+                        var menuEntries = webViewJsSupportPicker.menu.children
+                        var length = menuEntries.length
+                        for (var i = 0; i < length; i++) {
+                            if (menuEntries[i].value == cc.jsSupport) {
+                                return i;
+                            }
+                        }
+                    }
+                }
+            }
+
 //            Item {
 //                Layout.fillWidth: true
 //                Layout.preferredHeight: userAgentChoser.height

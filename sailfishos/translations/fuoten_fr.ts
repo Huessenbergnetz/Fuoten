@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" sourcelanguage="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fr" sourcelanguage="en">
 <context>
     <name/>
     <message id="id-user-account">
@@ -189,7 +189,7 @@
     </message>
     <message id="id-about">
         <source>About</source>
-        <extracomment>title for the about page and used in pull down menus</extracomment>
+        <extracomment>pull down menu label</extracomment>
         <translation>À propos</translation>
     </message>
     <message id="about-desc">
@@ -533,16 +533,6 @@
         <extracomment>Selectabe entry in the combo box to choose the way articles are opened</extracomment>
         <translation>Navigateur externe</translation>
     </message>
-    <message id="fuoten-user-agent">
-        <source>User agent</source>
-        <extracomment>Label for a combo box on a context config page to set the user agent used in the internal web view</extracomment>
-        <translation>Agent utilisateur</translation>
-    </message>
-    <message id="fuoten-user-agent-desc">
-        <source>The user agent used for the internal web view.</source>
-        <extracomment>Description for a combo box on a context config page to set the user agent used in the internal web view</extracomment>
-        <translation>L&apos;agent utilisateur utilisé pour la vue web interne.</translation>
-    </message>
     <message id="fuoten-sort-descending-label">
         <source>Sort descending</source>
         <extracomment>Label for a context config switch to enable descending sort order of feeds, folders or articles</extracomment>
@@ -592,16 +582,6 @@
         <source>Article view</source>
         <extracomment>Section header on a context config page</extracomment>
         <translation>Vue de l&apos;article</translation>
-    </message>
-    <message id="fuoten-contextconfig-minimum-font-size">
-        <source>Minimum font size for web view</source>
-        <extracomment>Label for a slider on a context config page to select the minimum font size for the internal article web view</extracomment>
-        <translation>Taille de police minimum pour la vue web</translation>
-    </message>
-    <message id="fuoten-contextconfig-default-font-size">
-        <source>Default font size for web view</source>
-        <extracomment>Label for a slider on a context config page to select the default font size for the internal article web view</extracomment>
-        <translation>Taille de police par défaut pour la vue web</translation>
     </message>
     <message id="fuoten-config-section-maintenance">
         <source>Maintenance</source>
@@ -706,11 +686,6 @@
         <extracomment>Label for combo box to choose a folder a feed should be moved to</extracomment>
         <translation>Dossier de destination</translation>
     </message>
-    <message id="fuoten-back">
-        <source>Back</source>
-        <extracomment>Menu entry on the web view to go back to the previous appliction page</extracomment>
-        <translation>Retour</translation>
-    </message>
     <message id="fuoten-unread-articles">
         <source>Unread articles</source>
         <translation>Articles non lus</translation>
@@ -747,13 +722,8 @@
     </message>
     <message id="fuoten-share-link">
         <source>Share link</source>
-        <extracomment>Page header for sharing a link</extracomment>
+        <extracomment>share action title</extracomment>
         <translation>Partager le lien</translation>
-    </message>
-    <message id="fuoten-clipboad-sharing">
-        <source>Clipboard</source>
-        <extracomment>name for the pseudo sharing method to copy a link to the clipboard</extracomment>
-        <translation>Presse papier</translation>
     </message>
     <message id="fuoten-update-interval-disabled">
         <source>Disabled</source>
@@ -1074,27 +1044,6 @@
         <source>If enabled, Fuoten will show notifications when specific operations succeed or if errors occure. Most of this notifications will only be generated if the application is not the active one.</source>
         <extracomment>Description for a switch on the settings page</extracomment>
         <translation>Si activé, Fuoyen affichera les notifications quand des opérations spécifiques auront réussies ou si des erreurs se produisent. La plupart de ces notifications seront générées seulement si l&apos;application n&apos;est pas en premier plan.</translation>
-    </message>
-    <message id="fuoten-fatal-error-failed-dbus-dir">
-        <source>Failed to create user D-Bus directory.</source>
-        <oldsource>Failed to create user D-BUS directory.</oldsource>
-        <extracomment>error message</extracomment>
-        <translation>Echec de la création du répertoire utilisateur D-Bus.</translation>
-    </message>
-    <message id="fuoten-fatal-error-failed-dbus-file">
-        <source>Failed to open D-Bus service file for writing.</source>
-        <oldsource>Failed to open D-BUS service file for writing.</oldsource>
-        <translation>Echec de l&apos;ouverture du fichier de service D-Bus en écriture.</translation>
-    </message>
-    <message id="fuoten-fatal-error-failed-dbus-connection">
-        <source>Failed to connect to D-Bus session bus.</source>
-        <extracomment>error message</extracomment>
-        <translation>Echec de la connexion au bus de sessions D-Bus.</translation>
-    </message>
-    <message id="fuoten-fatal-error-failed-dbus-reload-config">
-        <source>Failed to reload D-Bus session bus configuration.</source>
-        <extracomment>error message</extracomment>
-        <translation>Echec du rechargement de la configuration du bus de session D-Bus.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-service-register">
         <source>Failed to register D-Bus service.</source>
@@ -1420,6 +1369,25 @@
     <message id="fuoten-notify-wipe-done-body">
         <source>A remote wipe hase been done for this application on your device.</source>
         <extracomment>body text for a notification, shown in the notification area</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-webview-jssupport-label">
+        <source>JavaScript support</source>
+        <extracomment>Label for a combo box on the context config page to select the support for JavaScript for the internal WebView.</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-webview-jssupport-desc">
+        <source>Whether JavaScript on the page will be automatically executed. Most modern web pages will not work with JavaScript disabled.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-jssupport-enabled">
+        <source>Enabled</source>
+        <extracomment>Selectable entry in the combo box to choose JavaScript support</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-jssupport-disabled">
+        <source>Disabled</source>
+        <extracomment>Selectable entry in the combo box to choose JavaScript support</extracomment>
         <translation type="unfinished"/>
     </message>
 </context>

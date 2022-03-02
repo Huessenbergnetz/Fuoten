@@ -10,6 +10,7 @@
 #define CONF_KEY_USERAGENT "userAgent"
 #define CONF_KEY_MINFONTSIZE "minimumFontSize"
 #define CONF_KEY_DEFFONTSIZE "defaultFontSize"
+#define CONF_KEY_JSSUPPORT "javaScriptSupport"
 
 /*!
  * \brief Constructs a new ContextConfig object.
@@ -32,6 +33,7 @@ ContextConfig::ContextConfig(const QString &settingsPath, QObject *parent) :
     m_userAgent = value(path(QStringLiteral(CONF_KEY_USERAGENT)), m_userAgent).toString();
     m_minimumFontSize = value(path(QStringLiteral(CONF_KEY_MINFONTSIZE)), m_minimumFontSize).toInt();
     m_defaultFontSize = value(path(QStringLiteral(CONF_KEY_DEFFONTSIZE)), m_defaultFontSize).toInt();
+    m_jsSupport = static_cast<FuotenAppEnums::JsSupport>(value(path(QStringLiteral(CONF_KEY_JSSUPPORT)), FuotenAppEnums::JsEnabled).toInt());
 }
 
 
@@ -58,6 +60,7 @@ void ContextConfig::load()
     setUserAgent(value(path(QStringLiteral(CONF_KEY_USERAGENT)), m_userAgent).toString());
     setMinimumFontSize(value(path(QStringLiteral(CONF_KEY_MINFONTSIZE)), m_minimumFontSize).toInt());
     setDefaultFontSize(value(path(QStringLiteral(CONF_KEY_DEFFONTSIZE)), m_defaultFontSize).toInt());
+    setJsSupport(static_cast<FuotenAppEnums::JsSupport>(value(path(QStringLiteral(CONF_KEY_JSSUPPORT)), FuotenAppEnums::JsEnabled).toInt()));
 }
 
 
@@ -250,6 +253,19 @@ void ContextConfig::setDefaultFontSize(int defaultFontSize)
         qDebug("Changed defaultFontSize to %i.", m_defaultFontSize);
         setValue(path(QStringLiteral(CONF_KEY_DEFFONTSIZE)), m_defaultFontSize);
         Q_EMIT defaultFontSizeChanged(m_defaultFontSize);
+    }
+}
+
+
+FuotenAppEnums::JsSupport ContextConfig::jsSupport() const { return m_jsSupport; }
+
+void ContextConfig::setJsSupport(FuotenAppEnums::JsSupport jsSupport)
+{
+    if (jsSupport != m_jsSupport) {
+        qDebug("Changing %s from %s to %s.", CONF_KEY_JSSUPPORT, FuotenAppEnums::staticMetaObject.enumerator(FuotenAppEnums::staticMetaObject.indexOfEnumerator("JsSupport")).valueToKey(m_jsSupport), FuotenAppEnums::staticMetaObject.enumerator(FuotenAppEnums::staticMetaObject.indexOfEnumerator("JsSupport")).valueToKey(jsSupport));
+        m_jsSupport = jsSupport;
+        setValue(path(QStringLiteral(CONF_KEY_JSSUPPORT)), m_jsSupport);
+        Q_EMIT jsSupportChanged(this->jsSupport());
     }
 }
 

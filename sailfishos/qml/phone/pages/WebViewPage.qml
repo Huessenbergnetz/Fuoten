@@ -7,6 +7,7 @@ import QtQuick 2.2
 import Sailfish.Silica 1.0
 import Sailfish.Share 1.0
 import Sailfish.WebView 1.0
+import Sailfish.WebEngine 1.0
 import harbour.fuoten 1.0
 import harbour.fuoten.items 1.0
 
@@ -51,8 +52,11 @@ WebViewPage {
                 anchors { left: parent.left; right: parent.right; top: parent.top; bottom: navBar.top }
 
                 Component.onCompleted: {
+                    if (cc.jsSupport == FuotenApp.JsDisabled) {
+                        console.debug("Disabling JavaScript for WebView")
+                        WebEngineSettings.javascriptEnabled = false;
+                    }
                     webView.url = article.url
-                    console.log("USER AGENT: " + webViewFlick.webView.httpUserAgent)
                 }
             }
 

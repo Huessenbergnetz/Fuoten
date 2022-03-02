@@ -160,6 +160,19 @@ class ContextConfig : public QSettings
      * \li void defaultFontSizeChanged(int defaultFontSize)
      */
     Q_PROPERTY(int defaultFontSize READ defaultFontSize WRITE setDefaultFontSize NOTIFY defaultFontSizeChanged)
+    /*!
+     * \brief Holds wether JavsScript is enabled in the internal WebView.
+     *
+     * By default, JavaScript is enabled.
+     *
+     * \par Access functions:
+     * \li FuotenAppEnums::JsSupport jsSupport() const
+     * \li void setJsSupport(FuotenAppEnums::JsSupport jsSupport)
+     *
+     * \par Notifier signal:
+     * \li void jsSupportChanged(FuotenAppEnums::JsSupport jsSupport)
+     */
+    Q_PROPERTY(FuotenAppEnums::JsSupport jsSupport READ jsSupport WRITE setJsSupport NOTIFY jsSupportChanged)
 public:
     explicit ContextConfig(const QString &settingsPath, QObject *parent = nullptr);
     ~ContextConfig() override;
@@ -207,6 +220,11 @@ public:
      * \sa setDefaultFontSize(), defaultFontSizeChanged()
      */
     int defaultFontSize() const;
+    /*!
+     * \brief Getter function for the \link ContextConfig::jsSupport jsSupport \endlink property.
+     * \sa setJsSupport(), jsSupportChanged()
+     */
+    FuotenAppEnums::JsSupport jsSupport() const;
 
 
     void setContextType(FuotenAppEnums::Context nContextType);
@@ -255,6 +273,11 @@ public:
      * \sa defaultFontSize(), defaultFontSizeChanged()
      */
     void setDefaultFontSize(int defaultFontSize);
+    /*!
+     * \brief Setter function for the \link ContextConfig::jsSupport jsSupport \endlink property.
+     * \sa jsSupport(), jsSupportChanged()
+     */
+    void setJsSupport(FuotenAppEnums::JsSupport jsSupport);
 
 
 signals:
@@ -301,6 +324,11 @@ signals:
      * \sa setDefaultFontSize(), defaultFontSize()
      */
     void defaultFontSizeChanged(int defaultFontSize);
+    /*!
+     * \brief Notifier signal for the \link ContextConfig::jsSupport jsSupport \endlink property.
+     * \sa setJsSupport(), jsSupport()
+     */
+    void jsSupportChanged(FuotenAppEnums::JsSupport jsSupport);
 
 private:
     Q_DISABLE_COPY(ContextConfig)
@@ -316,6 +344,7 @@ private:
     Fuoten::FuotenEnums::SortingRole m_sorting;
     FuotenAppEnums::OpenIn m_openArticles;
     FuotenAppEnums::Context m_contextType;
+    FuotenAppEnums::JsSupport m_jsSupport = FuotenAppEnums::JsEnabled;
     bool m_hideRead;
     bool m_showFolderSections;
     bool m_respectPinned;

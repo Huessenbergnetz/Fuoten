@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" sourcelanguage="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="de" sourcelanguage="en">
 <context>
     <name/>
     <message id="id-user-account">
@@ -189,7 +189,7 @@
     </message>
     <message id="id-about">
         <source>About</source>
-        <extracomment>title for the about page and used in pull down menus</extracomment>
+        <extracomment>pull down menu label</extracomment>
         <translation>Über</translation>
     </message>
     <message id="about-desc">
@@ -533,16 +533,6 @@
         <extracomment>Selectabe entry in the combo box to choose the way articles are opened</extracomment>
         <translation>Externer Browser</translation>
     </message>
-    <message id="fuoten-user-agent">
-        <source>User agent</source>
-        <extracomment>Label for a combo box on a context config page to set the user agent used in the internal web view</extracomment>
-        <translation>User Agent</translation>
-    </message>
-    <message id="fuoten-user-agent-desc">
-        <source>The user agent used for the internal web view.</source>
-        <extracomment>Description for a combo box on a context config page to set the user agent used in the internal web view</extracomment>
-        <translation>Der für die interne Web-Ansicht genutzte User Agent.</translation>
-    </message>
     <message id="fuoten-sort-descending-label">
         <source>Sort descending</source>
         <extracomment>Label for a context config switch to enable descending sort order of feeds, folders or articles</extracomment>
@@ -592,16 +582,6 @@
         <source>Article view</source>
         <extracomment>Section header on a context config page</extracomment>
         <translation>Artikelansicht</translation>
-    </message>
-    <message id="fuoten-contextconfig-minimum-font-size">
-        <source>Minimum font size for web view</source>
-        <extracomment>Label for a slider on a context config page to select the minimum font size for the internal article web view</extracomment>
-        <translation>Minimale Schriftgröße für interne Web-Ansicht</translation>
-    </message>
-    <message id="fuoten-contextconfig-default-font-size">
-        <source>Default font size for web view</source>
-        <extracomment>Label for a slider on a context config page to select the default font size for the internal article web view</extracomment>
-        <translation>Standardschriftgröße für interne Web-Ansicht</translation>
     </message>
     <message id="fuoten-config-section-maintenance">
         <source>Maintenance</source>
@@ -706,11 +686,6 @@
         <extracomment>Label for combo box to choose a folder a feed should be moved to</extracomment>
         <translation>Zielordner</translation>
     </message>
-    <message id="fuoten-back">
-        <source>Back</source>
-        <extracomment>Menu entry on the web view to go back to the previous appliction page</extracomment>
-        <translation>Zurück</translation>
-    </message>
     <message id="fuoten-unread-articles">
         <source>Unread articles</source>
         <translation>Ungelesene Artikel</translation>
@@ -747,13 +722,8 @@
     </message>
     <message id="fuoten-share-link">
         <source>Share link</source>
-        <extracomment>Page header for sharing a link</extracomment>
+        <extracomment>share action title</extracomment>
         <translation>Link teilen</translation>
-    </message>
-    <message id="fuoten-clipboad-sharing">
-        <source>Clipboard</source>
-        <extracomment>name for the pseudo sharing method to copy a link to the clipboard</extracomment>
-        <translation>Zwischenablage</translation>
     </message>
     <message id="fuoten-update-interval-disabled">
         <source>Disabled</source>
@@ -1074,27 +1044,6 @@
         <source>If enabled, Fuoten will show notifications when specific operations succeed or if errors occure. Most of this notifications will only be generated if the application is not the active one.</source>
         <extracomment>Description for a switch on the settings page</extracomment>
         <translation>Falls aktiviert zeigt Fuoten bei bestimmten erfolgreichen Aktionen und bei auftretenden Fehlern eine Benachrichtigung an. Die meisten Benachrichtigungen werden nur dann erstellt, wenn die Anwendung nicht aktiv ist.</translation>
-    </message>
-    <message id="fuoten-fatal-error-failed-dbus-dir">
-        <source>Failed to create user D-Bus directory.</source>
-        <oldsource>Failed to create user D-BUS directory.</oldsource>
-        <extracomment>error message</extracomment>
-        <translation>Konnte das D-Bus-Verzeichnis des Benutzers nicht erstellen.</translation>
-    </message>
-    <message id="fuoten-fatal-error-failed-dbus-file">
-        <source>Failed to open D-Bus service file for writing.</source>
-        <oldsource>Failed to open D-BUS service file for writing.</oldsource>
-        <translation>Konnte die D-Bus-Service-Datei nicht zum Schreiben öffnen.</translation>
-    </message>
-    <message id="fuoten-fatal-error-failed-dbus-connection">
-        <source>Failed to connect to D-Bus session bus.</source>
-        <extracomment>error message</extracomment>
-        <translation>Konnte keine Verbindung zum D-Bus der aktuellen Sitzung herstellen.</translation>
-    </message>
-    <message id="fuoten-fatal-error-failed-dbus-reload-config">
-        <source>Failed to reload D-Bus session bus configuration.</source>
-        <extracomment>error message</extracomment>
-        <translation>Konnte die Konfiguration der aktuellen D-Bus-Sitzung nicht neu laden.</translation>
     </message>
     <message id="fuoten-fatal-error-failed-dbus-service-register">
         <source>Failed to register D-Bus service.</source>
@@ -1421,6 +1370,25 @@
         <source>A remote wipe hase been done for this application on your device.</source>
         <extracomment>body text for a notification, shown in the notification area</extracomment>
         <translation>Für diese Anwendung auf Ihrem Gerät wurde eine Fernlöschung durchgeführt.</translation>
+    </message>
+    <message id="fuoten-webview-jssupport-label">
+        <source>JavaScript support</source>
+        <extracomment>Label for a combo box on the context config page to select the support for JavaScript for the internal WebView.</extracomment>
+        <translation>Java-Script-Unterstützung</translation>
+    </message>
+    <message id="fuoten-webview-jssupport-desc">
+        <source>Whether JavaScript on the page will be automatically executed. Most modern web pages will not work with JavaScript disabled.</source>
+        <translation>Ob JavaScript auf der Seite automatisch ausgeführt werden soll. Die meisten modernen Webseiten funktionieren nicht, wenn JavaScript deaktiviert ist.</translation>
+    </message>
+    <message id="fuoten-jssupport-enabled">
+        <source>Enabled</source>
+        <extracomment>Selectable entry in the combo box to choose JavaScript support</extracomment>
+        <translation>Aktiviert</translation>
+    </message>
+    <message id="fuoten-jssupport-disabled">
+        <source>Disabled</source>
+        <extracomment>Selectable entry in the combo box to choose JavaScript support</extracomment>
+        <translation>Deaktiviert</translation>
     </message>
 </context>
 </TS>

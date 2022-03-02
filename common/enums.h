@@ -32,6 +32,13 @@ public:
     };
     Q_ENUM(OpenIn)
 
+    enum JsSupport: qint8 {
+        JsDefault   = -1,
+        JsDisabled  =  0,
+        JsEnabled   =  1
+    };
+    Q_ENUM(JsSupport)
+
 private:
     FuotenAppEnums();
     ~FuotenAppEnums();

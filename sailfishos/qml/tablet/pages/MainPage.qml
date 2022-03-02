@@ -14,6 +14,8 @@ Page {
 
         PullDownMenu {
             MenuItem {
+                //: pull down menu label
+                //% "About"
                 text: qsTrId("id-about")
             }
 

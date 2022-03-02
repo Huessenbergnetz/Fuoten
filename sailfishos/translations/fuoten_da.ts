@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="da" sourcelanguage="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="da" sourcelanguage="en">
 <context>
     <name/>
     <message id="id-user-account">
@@ -189,7 +189,7 @@
     </message>
     <message id="id-about">
         <source>About</source>
-        <extracomment>title for the about page and used in pull down menus</extracomment>
+        <extracomment>pull down menu label</extracomment>
         <translation>Information</translation>
     </message>
     <message id="about-desc">
@@ -533,16 +533,6 @@
         <extracomment>Selectabe entry in the combo box to choose the way articles are opened</extracomment>
         <translation>Ekstern netlæser</translation>
     </message>
-    <message id="fuoten-user-agent">
-        <source>User agent</source>
-        <extracomment>Label for a combo box on a context config page to set the user agent used in the internal web view</extracomment>
-        <translation>Brugeragent</translation>
-    </message>
-    <message id="fuoten-user-agent-desc">
-        <source>The user agent used for the internal web view.</source>
-        <extracomment>Description for a combo box on a context config page to set the user agent used in the internal web view</extracomment>
-        <translation>Brugeragenten brugt ved intern netfremvisning.</translation>
-    </message>
     <message id="fuoten-sort-descending-label">
         <source>Sort descending</source>
         <extracomment>Label for a context config switch to enable descending sort order of feeds, folders or articles</extracomment>
@@ -592,16 +582,6 @@
         <source>Article view</source>
         <extracomment>Section header on a context config page</extracomment>
         <translation>Artikelfremvisning</translation>
-    </message>
-    <message id="fuoten-contextconfig-minimum-font-size">
-        <source>Minimum font size for web view</source>
-        <extracomment>Label for a slider on a context config page to select the minimum font size for the internal article web view</extracomment>
-        <translation>Minimum typestørrelse for netfremvisning</translation>
-    </message>
-    <message id="fuoten-contextconfig-default-font-size">
-        <source>Default font size for web view</source>
-        <extracomment>Label for a slider on a context config page to select the default font size for the internal article web view</extracomment>
-        <translation>Standard typestørrelse for netfremvisning</translation>
     </message>
     <message id="fuoten-config-section-maintenance">
         <source>Maintenance</source>
@@ -706,11 +686,6 @@
         <extracomment>Label for combo box to choose a folder a feed should be moved to</extracomment>
         <translation>Målmappe</translation>
     </message>
-    <message id="fuoten-back">
-        <source>Back</source>
-        <extracomment>Menu entry on the web view to go back to the previous appliction page</extracomment>
-        <translation>Tilbage</translation>
-    </message>
     <message id="fuoten-unread-articles">
         <source>Unread articles</source>
         <translation>Ulæste artikler</translation>
@@ -747,13 +722,8 @@
     </message>
     <message id="fuoten-share-link">
         <source>Share link</source>
-        <extracomment>Page header for sharing a link</extracomment>
+        <extracomment>share action title</extracomment>
         <translation>Del link</translation>
-    </message>
-    <message id="fuoten-clipboad-sharing">
-        <source>Clipboard</source>
-        <extracomment>name for the pseudo sharing method to copy a link to the clipboard</extracomment>
-        <translation>Udklipsholder</translation>
     </message>
     <message id="fuoten-update-interval-disabled">
         <source>Disabled</source>
@@ -1075,27 +1045,6 @@
         <extracomment>Description for a switch on the settings page</extracomment>
         <translation>Hvis aktiveret, vil Fuoten vise meddelelser, når bestemte operationer lykkes eller hvis der opstår fejl. De fleste af disse meddelelser genereres kun, hvis Fuoten ikke er det aktive program..</translation>
     </message>
-    <message id="fuoten-fatal-error-failed-dbus-dir">
-        <source>Failed to create user D-Bus directory.</source>
-        <oldsource>Failed to create user D-BUS directory.</oldsource>
-        <extracomment>error message</extracomment>
-        <translation>Kunne ikke oprette D-Bus bibliotek.</translation>
-    </message>
-    <message id="fuoten-fatal-error-failed-dbus-file">
-        <source>Failed to open D-Bus service file for writing.</source>
-        <oldsource>Failed to open D-BUS service file for writing.</oldsource>
-        <translation>Kunne ikke skrive til D-Bus servicefil.</translation>
-    </message>
-    <message id="fuoten-fatal-error-failed-dbus-connection">
-        <source>Failed to connect to D-Bus session bus.</source>
-        <extracomment>error message</extracomment>
-        <translation>Kan ikke forbinde til D-Bus sessionsbussen.</translation>
-    </message>
-    <message id="fuoten-fatal-error-failed-dbus-reload-config">
-        <source>Failed to reload D-Bus session bus configuration.</source>
-        <extracomment>error message</extracomment>
-        <translation>Kan ikke genindlæse D-Bus indstillingerne.</translation>
-    </message>
     <message id="fuoten-fatal-error-failed-dbus-service-register">
         <source>Failed to register D-Bus service.</source>
         <extracomment>error message</extracomment>
@@ -1159,226 +1108,226 @@
     <message id="fuoten-loginflow-enter-manual">
         <source>Manual login</source>
         <extracomment>pull down menu item in the setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Manuel loginf</translation>
     </message>
     <message id="fuoten-loginflow-check-again">
         <source>Check again</source>
         <extracomment>pull down menu item in the setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Kontrollér igen</translation>
     </message>
     <message id="fuoten-loginflow-check-title">
         <source>Check server</source>
         <extracomment>dialog header title in the setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Kontrollér server</translation>
     </message>
     <message id="fuoten-loginflow-next">
         <source>Next</source>
         <extracomment>dialog header in the login flow to go to the next step</extracomment>
-        <translation type="unfinished"/>
+        <translation>Næste</translation>
     </message>
     <message id="fuoten-loginflow-back">
         <source>Back</source>
         <extracomment>dialog header in the login flow to go to the previous step</extracomment>
-        <translation type="unfinished"/>
+        <translation>Tilbage</translation>
     </message>
     <message id="fuoten-loginflow-server">
         <source>Server</source>
         <extracomment>label for a detail item showing the server name, should not be too long</extracomment>
-        <translation type="unfinished"/>
+        <translation>Server</translation>
     </message>
     <message id="fuoten-loginflow-version">
         <source>Version</source>
         <extracomment>Label for a detail item showing the nextcloud version, should not be too long</extracomment>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
     <message id="fuoten-loginflow-installed">
         <source>Installed</source>
         <extracomment>label for a detail item showing if the nextcloud is fully installed, value will be either yes or no</extracomment>
-        <translation type="unfinished"/>
+        <translation>Installeret</translation>
     </message>
     <message id="fuoten-yes">
         <source>yes</source>
-        <translation type="unfinished"/>
+        <translation>ja</translation>
     </message>
     <message id="fuoten-no">
         <source>no</source>
-        <translation type="unfinished"/>
+        <translation>nej</translation>
     </message>
     <message id="fuoten-loginflow-inmaintenance">
         <source>Maintenance mode</source>
         <extracomment>label for a detail item showing if the nexctloud is in maintenance mode, value will be eiter yes or no</extracomment>
-        <translation type="unfinished"/>
+        <translation>Vedligeholdelsestilstand</translation>
     </message>
     <message id="fuoten-loginflow-check-manual-setup-info">
         <source>Your version of Nextcloud is not yet able to authorize an application through an external browser window. In the next step you will have the option to enter a manually created application password to access your Nextcloud. To create such a password, please log in to your Nextcloud via the web interface and create a new application password in the “Security” section of the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Din version af Nextcloud er endnu ikke i stand til at godkende et program gennem et eksternt netlæservindue. I det næste trin har du mulighed for at indtaste en manuelt oprettet programadgangskode for at få adgang til din Nextcloud. For at oprette en sådan adgangskode skal du logge ind på din Nextcloud via webgrænsefladen og oprette en ny programadgangskode i afsnittet &quot;Sikkerhed&quot; i indstillingerne.</translation>
     </message>
     <message id="fuoten-loginflow-check-v2-setup-info">
         <source>The next step is to open an external browser window with the login page of your Nextcloud. By logging in you authorize this application to use your account there. You can revoke this authorization at any time in your Nextcloud settings under “Security”. The name of the application to be authorized is &lt;b&gt;%1&lt;/b&gt;.</source>
         <oldsource>The next step is to open an external browser window with the login page of your Nextcloud. By logging in you authorize this application to use your account there. You can revoke this authorization at any time in your Nextcloud settings under “Security”. The name of the application to be authorized is “%1”.</oldsource>
         <extracomment>%1 will be replaced by the name of the application and the device it runs on, e.g.: &quot;Fuoten (Xperia X)&quot;</extracomment>
-        <translation type="unfinished"/>
+        <translation>Det næste trin er at åbne et eksternt netlæservindue med login-siden til din Nextcloud. Ved at logge ind giver du dette program tilladelse til at bruge din konto. Du kan når som helst tilbagekalde denne tilladelse i dine Nextcloud-indstillinger under &quot;Sikkerhed&quot;. Navnet på den ansøgning, der skal godkendes, er &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
     <message id="fuoten-loginflow-setup-title">
         <source>Connect your Nextcloud</source>
         <extracomment>dialog header title in the login flow setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Forbind til din Nextcloud</translation>
     </message>
     <message id="fuoten-loginflow-setup-info">
         <source>Please enter the address (domain and path) of your Nextcloud. It is the same address where you can access your Nextcloud with a web browser.</source>
-        <translation type="unfinished"/>
+        <translation>Indtast venligst adressen (domæne og sti) på din Nextcloud. Det er den samme adresse, hvor du kan få adgang til din Nextcloud med en netlæser.</translation>
     </message>
     <message id="fuoten-loginflow-usessl">
         <source>Use HTTPS (SSL/TLS) connection</source>
         <extracomment>Label for a switch</extracomment>
-        <translation type="unfinished"/>
+        <translation>Brug HTTPS (SSL/TLS) forbindelse</translation>
     </message>
     <message id="fuoten-loginflow-usessl-desc">
         <source>Your Nextcloud should only be accessible via an encrypted connection (HTTPS) for security reasons. If you still want to establish an unencrypted connection, you can deactivate the connection encryption here.</source>
         <extracomment>Description for a switch</extracomment>
-        <translation type="unfinished"/>
+        <translation>Din Nextcloud bør af sikkerhedmæssige årsager kun være tilgængelig via en krypteret forbindelse (HTTPS). Hvis du stadig vil oprette en ukrypteret forbindelse, kan du deaktivere forbindelseskryptering her.</translation>
     </message>
     <message id="fuoten-loginflow-server-address">
         <source>Server address %1</source>
         <extracomment>Label for a text input, %1 will be replaced by http://… or https://…</extracomment>
-        <translation type="unfinished"/>
+        <translation>Serveradresse %1</translation>
     </message>
     <message id="fuoten-loginflow-polling-title-waiting">
         <source>Waiting for authorization</source>
         <oldsource>Waiting for authentication</oldsource>
         <extracomment>Dialog title in the login flow while waiting for authoriaztion</extracomment>
-        <translation type="unfinished"/>
+        <translation>Venter på godkendelse</translation>
     </message>
     <message id="fuoten-loginflow-polling-title-success">
         <source>Authorization succeeded</source>
         <oldsource>Authentication succeeded</oldsource>
         <extracomment>Dialog title in the login flow if authorization has succeeded</extracomment>
-        <translation type="unfinished"/>
+        <translation>Godkendelse opnået</translation>
     </message>
     <message id="fuoten-loginflow-seconds-left" numerus="yes">
         <source>%n second(s) left</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n sekund tilbage</numerusform><numerusform>%n sekund(er) tilbage</numerusform></translation>
     </message>
     <message id="fuoten-loginflow-polling-retry">
         <source>Retry</source>
         <extracomment>Pull down menu entry to retry the authorization with external browser</extracomment>
-        <translation type="unfinished"/>
+        <translation>Prøv igen</translation>
     </message>
     <message id="fuoten-notify-auth-success-summary">
         <source>Authorization successful</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Godkendt</translation>
     </message>
     <message id="fuoten-notify-auth-success-prev-body">
         <source>User %1 on %2</source>
         <extracomment>notification popup body text after successful authorization, %1 will be replaced by the username, %2 by the remote Nextcloud host name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Bruger %1 på %2</translation>
     </message>
     <message id="fuoten-notify-auth-success-body">
         <source>Fuoten has been successfully authorised to connect to your Nextcloud at %1 as user %2.</source>
         <extracomment>notification area body text after successful authorization, %1 will be replaced by the remote Nextcloud host name, %2 by the username</extracomment>
-        <translation type="unfinished"/>
+        <translation>Fuoten er blevet godkendt til at kunne forbinde til din Nextcloud på %1 som bruger %2.</translation>
     </message>
     <message id="fuoten-loginflow-manual-title">
         <source>Manual setup</source>
         <extracomment>dialog header title in the login flow setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Manuel opsætning</translation>
     </message>
     <message id="fuoten-loginflow-manual-check-account">
         <source>Checking account</source>
         <extracomment>Dialog title in the login flow while checking manual account setup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Kontrollerer konto</translation>
     </message>
     <message id="fuoten-loginflow-manual-check-failed">
         <source>Setup failed</source>
         <extracomment>Dialog title in the login flow if manual account setup failed</extracomment>
-        <translation type="unfinished"/>
+        <translation>Opsætningen mislykkedes</translation>
     </message>
     <message id="fuoten-loginflow-manual-check-success">
         <source>Setup finished</source>
         <extracomment>Dialog title in the login flow if manual account setup succeeded</extracomment>
-        <translation type="unfinished"/>
+        <translation>Opsætningen er afsluttet</translation>
     </message>
     <message id="fuoten-notify-apppassword-created">
         <source>Application password created</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Programkodeord oprettet</translation>
     </message>
     <message id="fuoten-notify-apppassword-created-prev-body">
         <source>User %1 on %2</source>
         <extracomment>notification popup body text after successfully automatically creating an application password, %1 will be replaced by the username, %2 by the remote Nextcloud host name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Bruger %1 på %2</translation>
     </message>
     <message id="fuoten-notify-apppassword-created-body">
         <source>%1 has been successfully upgraded your login credentials to connect to your Nextcloud at %2 as user %3 with an application specific password.</source>
         <extracomment>notification area body text after successfully automatically converting to an application password, %1 will be replaced by the application’s login flow user agent (e.g. Fuoten (Xperia X)), %2 will be replaced by the remote Nextcloud host name, %3 by the username</extracomment>
-        <translation type="unfinished"/>
+        <translation>%1 har med success ajourført dine loginoplysninger til at oprette forbindelse til din Nextcloud på %2 som bruger %3 med en programspecifik adgangskode.</translation>
     </message>
     <message id="fuoten-settings-navbackaftermark">
         <source>Navigate back after marking as read</source>
         <extracomment>Label for a switch on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Gå tilbage efter at de er markeret som læste</translation>
     </message>
     <message id="fuoten-settings-navbackaftermark-desc">
         <source>If activated, after marking a complete feed or folder as read, the application automatically switches back to the parent page.</source>
         <extracomment>Description for a switch on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Hvis slået til, går programmet automatisk  tilbage til forældresiden efter at et komplet feed eller mappe er blevet markeret som læst. </translation>
     </message>
     <message id="fuoten-deleteaccount-title">
         <source>Delete account</source>
         <extracomment>dialog header title when deleting the nextcloud account and pull down menu entry</extracomment>
-        <translation type="unfinished"/>
+        <translation>Slet konto</translation>
     </message>
     <message id="fuoten-deleteaccount-delete">
         <source>Delete</source>
         <extracomment>dialog header accept text when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Slet</translation>
     </message>
     <message id="fuoten-deleteaccount-local-text">
         <source>Delete local data</source>
         <extracomment>Label for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Slet lokale data</translation>
     </message>
     <message id="fuoten-deleteaccount-local-desc">
         <source>Also deletes all local data, including the database with all folders, feeds and articles.</source>
         <extracomment>Description for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Sletter også lokal data, inklusiv database med alle foldere, feeds og artikler.</translation>
     </message>
     <message id="fuoten-deleteaccount-remote-text">
         <source>Delete app password</source>
         <extracomment>Label for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Slet kodeordet til programmet</translation>
     </message>
     <message id="fuoten-deleteaccount-remote-desc">
         <source>Also deletes the application password on the server, if one has been set.</source>
         <extracomment>Description for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Sletter også kodeordet til programmet på serveren, hvis det er defineret.</translation>
     </message>
     <message id="fuoten-deleting-account-busy-local">
         <source>Deleting local storage</source>
-        <translation type="unfinished"/>
+        <translation>Sletter lokalt lager</translation>
     </message>
     <message id="fuoten-deleting-account-busy-remote">
         <source>Deleting application password</source>
-        <translation type="unfinished"/>
+        <translation>Sletter kodeord til programmet</translation>
     </message>
     <message id="fuoten-deleting-account-title">
         <source>Deleting account</source>
         <extracomment>Page header when deleting account data</extracomment>
-        <translation type="unfinished"/>
+        <translation>Sletter konto</translation>
     </message>
     <message id="fuoten-deleting-account-success-title">
         <source>Account deleted</source>
-        <translation type="unfinished"/>
+        <translation>Konto slettet</translation>
     </message>
     <message id="fuoten-deleting-account-success-message">
         <source>Your account was successfully deleted, please close the application. If you want to create a new account, simply restart the application.</source>
-        <translation type="unfinished"/>
+        <translation>Din konto er blevet slettet. Luk venligst programmet. Hvis du vil oprette en ny konto, skal du blot genstarte programmet.</translation>
     </message>
     <message id="fuoten-loginflow-open-loginurl">
         <source>Open in browser</source>
         <extracomment>Pull down menu entry to reopen the external authorization browser window</extracomment>
-        <translation type="unfinished"/>
+        <translation>Åben i netlæser</translation>
     </message>
     <message id="fuoten-loginflow-use-flow">
         <source>Login flow</source>
@@ -1420,6 +1369,25 @@
     <message id="fuoten-notify-wipe-done-body">
         <source>A remote wipe hase been done for this application on your device.</source>
         <extracomment>body text for a notification, shown in the notification area</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-webview-jssupport-label">
+        <source>JavaScript support</source>
+        <extracomment>Label for a combo box on the context config page to select the support for JavaScript for the internal WebView.</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-webview-jssupport-desc">
+        <source>Whether JavaScript on the page will be automatically executed. Most modern web pages will not work with JavaScript disabled.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-jssupport-enabled">
+        <source>Enabled</source>
+        <extracomment>Selectable entry in the combo box to choose JavaScript support</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message id="fuoten-jssupport-disabled">
+        <source>Disabled</source>
+        <extracomment>Selectable entry in the combo box to choose JavaScript support</extracomment>
         <translation type="unfinished"/>
     </message>
 </context>
