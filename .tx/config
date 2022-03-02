@@ -1,8 +1,8 @@
 [main]
 host = https://www.transifex.com
 
-[fuoten.main]
-file_filter = translations/fuoten_<lang>.ts
-source_file = translations/fuoten.ts
+[fuoten.sfos]
+file_filter = sailfishos/translations/fuoten_<lang>.ts
+source_file = sailfishos/translations/fuoten.ts
 source_lang = en
 type = QT
