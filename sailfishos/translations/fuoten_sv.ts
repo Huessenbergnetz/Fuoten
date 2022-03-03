@@ -1374,21 +1374,21 @@
     <message id="fuoten-webview-jssupport-label">
         <source>JavaScript support</source>
         <extracomment>Label for a combo box on the context config page to select the support for JavaScript for the internal WebView.</extracomment>
-        <translation type="unfinished"/>
+        <translation>JavaScript-stöd</translation>
     </message>
     <message id="fuoten-webview-jssupport-desc">
         <source>Whether JavaScript on the page will be automatically executed. Most modern web pages will not work with JavaScript disabled.</source>
-        <translation type="unfinished"/>
+        <translation>Om JavaScript på sidan skall köras automatiskt. De flesta moderna webbsidor fungerar inte med JavaScript inaktiverat.</translation>
     </message>
     <message id="fuoten-jssupport-enabled">
         <source>Enabled</source>
         <extracomment>Selectable entry in the combo box to choose JavaScript support</extracomment>
-        <translation type="unfinished"/>
+        <translation>Aktiverat</translation>
     </message>
     <message id="fuoten-jssupport-disabled">
         <source>Disabled</source>
         <extracomment>Selectable entry in the combo box to choose JavaScript support</extracomment>
-        <translation type="unfinished"/>
+        <translation>Inaktiverat</translation>
     </message>
 </context>
 </TS>
