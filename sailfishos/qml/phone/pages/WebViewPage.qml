@@ -58,7 +58,7 @@ WebViewPage {
                 Component.onCompleted: {
                     if (cc.jsSupport == FuotenApp.JsDisabled) {
                         console.debug("Disabling JavaScript for WebView")
-                        WebEngineSettings.javascriptEnabled = false;
+                        WebEngineSettings.javascriptEnabled = false
                     }
                     webView.url = article.url
                 }
