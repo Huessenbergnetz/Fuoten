@@ -29,11 +29,15 @@ WebViewPage {
     }
 
     Component.onCompleted: {
-        covercon.article = article
+        if (!isAttached) {
+            covercon.article = article
+        }
     }
 
     Component.onDestruction: {
-        covercon.article = null
+        if (!isAttached) {
+            covercon.article = null
+        }
     }
 
     Loader {
