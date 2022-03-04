@@ -161,7 +161,7 @@ class ContextConfig : public QSettings
      */
     Q_PROPERTY(int defaultFontSize READ defaultFontSize WRITE setDefaultFontSize NOTIFY defaultFontSizeChanged)
     /*!
-     * \brief Holds wether JavsScript is enabled in the internal WebView.
+     * \brief Holds wether JavaScript is enabled in the internal WebView.
      *
      * By default, JavaScript is enabled.
      *
@@ -173,6 +173,19 @@ class ContextConfig : public QSettings
      * \li void jsSupportChanged(FuotenAppEnums::JsSupport jsSupport)
      */
     Q_PROPERTY(FuotenAppEnums::JsSupport jsSupport READ jsSupport WRITE setJsSupport NOTIFY jsSupportChanged)
+    /*!
+     * \brief Holds the behavior to handle cookies.
+     *
+     * By default, all cookies are accpeted.
+     *
+     * \par Access functions:
+     * \li FuotenAppEnums::CookieBehavior cookieBehavior() const
+     * \li void setCookieBehavior(FuotenAppEnums cookieBehavior)
+     *
+     * \par Notifier signal:
+     * \li void cookieBehaviorChanged(FuotenAppEnums cookieBehavior)
+     */
+    Q_PROPERTY(FuotenAppEnums::CookieBehavior cookieBehavior READ cookieBehavior WRITE setCookieBehavior NOTIFY cookieBehaviorChanged)
 public:
     explicit ContextConfig(const QString &settingsPath, QObject *parent = nullptr);
     ~ContextConfig() override;
@@ -225,6 +238,11 @@ public:
      * \sa setJsSupport(), jsSupportChanged()
      */
     FuotenAppEnums::JsSupport jsSupport() const;
+    /*!
+     * \brief Getter function for the \link ContextConfig::cookieBehavior cookieBehavior \endlink property.
+     * \sa setCookieBehavior(), cookieBehaviorChanged()
+     */
+    FuotenAppEnums::CookieBehavior cookieBehavior() const;
 
 
     void setContextType(FuotenAppEnums::Context nContextType);
@@ -278,6 +296,11 @@ public:
      * \sa jsSupport(), jsSupportChanged()
      */
     void setJsSupport(FuotenAppEnums::JsSupport jsSupport);
+    /*!
+     * \brief Setter function for the \link ContextConfig::cookieBehavior cookieBehavior \endlink property.
+     * \sa cookieBehavior(), cookieBehaviorChanged()
+     */
+    void setCookieBehavior(FuotenAppEnums::CookieBehavior cookieBehavior);
 
 
 signals:
@@ -329,6 +352,11 @@ signals:
      * \sa setJsSupport(), jsSupport()
      */
     void jsSupportChanged(FuotenAppEnums::JsSupport jsSupport);
+    /*!
+     * \brief Notifier signal for the \link ContextConfig::cookieBehavior cookieBehavior \endlink property.
+     * \sa setCookieBehavior(), cookieBehavior()
+     */
+    void cookieBehaviorChanged(FuotenAppEnums::CookieBehavior cookieBehavior);
 
 private:
     Q_DISABLE_COPY(ContextConfig)
@@ -345,6 +373,7 @@ private:
     FuotenAppEnums::OpenIn m_openArticles;
     FuotenAppEnums::Context m_contextType;
     FuotenAppEnums::JsSupport m_jsSupport = FuotenAppEnums::JsEnabled;
+    FuotenAppEnums::CookieBehavior m_cookieBehavior = FuotenAppEnums::CookiesAcceptAll;
     bool m_hideRead;
     bool m_showFolderSections;
     bool m_respectPinned;

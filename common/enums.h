@@ -39,6 +39,14 @@ public:
     };
     Q_ENUM(JsSupport)
 
+    enum CookieBehavior: qint8 {
+        CookiesDefault          = -1,
+        CookiesBlockAll         =  0,
+        CookiesAcceptAll        =  1,
+        CookiesBlockThirdParty  =  2
+    };
+    Q_ENUM(CookieBehavior)
+
 private:
     FuotenAppEnums();
     ~FuotenAppEnums();

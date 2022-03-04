@@ -11,6 +11,7 @@
 #define CONF_KEY_MINFONTSIZE "minimumFontSize"
 #define CONF_KEY_DEFFONTSIZE "defaultFontSize"
 #define CONF_KEY_JSSUPPORT "javaScriptSupport"
+#define CONF_KEY_COOKIEBEHAVIOR "cookieBehavior"
 
 /*!
  * \brief Constructs a new ContextConfig object.
@@ -34,6 +35,7 @@ ContextConfig::ContextConfig(const QString &settingsPath, QObject *parent) :
     m_minimumFontSize = value(path(QStringLiteral(CONF_KEY_MINFONTSIZE)), m_minimumFontSize).toInt();
     m_defaultFontSize = value(path(QStringLiteral(CONF_KEY_DEFFONTSIZE)), m_defaultFontSize).toInt();
     m_jsSupport = static_cast<FuotenAppEnums::JsSupport>(value(path(QStringLiteral(CONF_KEY_JSSUPPORT)), FuotenAppEnums::JsEnabled).toInt());
+    m_cookieBehavior = static_cast<FuotenAppEnums::CookieBehavior>(value(path(QStringLiteral(CONF_KEY_COOKIEBEHAVIOR)), FuotenAppEnums::CookiesAcceptAll).toInt());
 }
 
 
@@ -61,6 +63,7 @@ void ContextConfig::load()
     setMinimumFontSize(value(path(QStringLiteral(CONF_KEY_MINFONTSIZE)), m_minimumFontSize).toInt());
     setDefaultFontSize(value(path(QStringLiteral(CONF_KEY_DEFFONTSIZE)), m_defaultFontSize).toInt());
     setJsSupport(static_cast<FuotenAppEnums::JsSupport>(value(path(QStringLiteral(CONF_KEY_JSSUPPORT)), FuotenAppEnums::JsEnabled).toInt()));
+    setCookieBehavior(static_cast<FuotenAppEnums::CookieBehavior>(value(path(QStringLiteral(CONF_KEY_COOKIEBEHAVIOR)), FuotenAppEnums::CookiesAcceptAll).toInt()));
 }
 
 
@@ -269,6 +272,17 @@ void ContextConfig::setJsSupport(FuotenAppEnums::JsSupport jsSupport)
     }
 }
 
+FuotenAppEnums::CookieBehavior ContextConfig::cookieBehavior() const { return m_cookieBehavior; }
+
+void ContextConfig::setCookieBehavior(FuotenAppEnums::CookieBehavior cookieBehavior)
+{
+    if (cookieBehavior != m_cookieBehavior) {
+        qDebug("Changing %s from %s to %s.", CONF_KEY_COOKIEBEHAVIOR, FuotenAppEnums::staticMetaObject.enumerator(FuotenAppEnums::staticMetaObject.indexOfEnumerator("CookieBehavior")).valueToKey(m_cookieBehavior), FuotenAppEnums::staticMetaObject.enumerator(FuotenAppEnums::staticMetaObject.indexOfEnumerator("CookieBehavior")).valueToKey(cookieBehavior));
+        m_cookieBehavior = cookieBehavior;
+        setValue(path(QStringLiteral(CONF_KEY_COOKIEBEHAVIOR)), m_cookieBehavior);
+        Q_EMIT cookieBehaviorChanged(this->cookieBehavior());
+    }
+}
 
 QString ContextConfig::path(const QString &key) const
 {
