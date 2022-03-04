@@ -287,14 +287,14 @@ Page {
                 Layout.preferredHeight: webViewJsSupportPicker.height
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 Layout.columnSpan: contextConfigGrid.columns
-                visible: cc.openArticles == FuotenApp.OpenWebView
 
                 ComboBox {
                     id: webViewJsSupportPicker
                     //: Label for a combo box on the context config page to select the support for JavaScript for the internal WebView.
                     //% "JavaScript support"
                     label: qsTrId("fuoten-webview-jssupport-label")
-                    //% "Whether JavaScript on the page will be automatically executed. Most modern web pages will not work with JavaScript disabled."
+                    //: Description for a combo box on the context config page to select support for JavaScript for the internal WebView.
+                    //% "Whether JavaScript on the page will be automatically executed in the internal web view. Most modern web pages will not work with JavaScript disabled."
                     description: qsTrId("fuoten-webview-jssupport-desc")
                     menu: ContextMenu {
                         MenuItem {
