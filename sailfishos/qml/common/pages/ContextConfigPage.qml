@@ -287,6 +287,7 @@ Page {
                 Layout.preferredHeight: webViewJsSupportPicker.height
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 Layout.columnSpan: contextConfigGrid.columns
+                visible: cc.contextType > FuotenApp.Feeds
 
                 ComboBox {
                     id: webViewJsSupportPicker
@@ -316,6 +317,54 @@ Page {
                         var length = menuEntries.length
                         for (var i = 0; i < length; i++) {
                             if (menuEntries[i].value == cc.jsSupport) {
+                                return i;
+                            }
+                        }
+                    }
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: webViewCookieBehaviorPicker.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                Layout.columnSpan: contextConfigGrid.columns
+                visible: cc.contextType > FuotenApp.Feeds
+
+                ComboBox {
+                    id: webViewCookieBehaviorPicker
+                    //: Label for a combo box on the context config page to select cookie behavior
+                    //% "Cookies"
+                    label: qsTrId("fuoten-webview-cookiebehavior-label")
+                    //: Description for a combo box on the context config page to select cookie behavior
+                    //% "How cookies should be handled."
+                    description: qsTrId("fuoten-webview-cookiebehavior-desc")
+                    menu: ContextMenu {
+                        MenuItem {
+                            //: Selectable entry in the combo box to choose cookie behavior
+                            //% "Accept all"
+                            text: qsTrId("fuoten-cookiebehavior-accept-all")
+                            readonly property int value: FuotenApp.CookiesAcceptAll
+                        }
+                        MenuItem {
+                            //: Selectable entry in the combo box to choose cookie behavior
+                            //% "Block all"
+                            text: qsTrId("fuoten-cookiebehavior-block-all")
+                            readonly property int value: FuotenApp.CookiesBlockAll
+                        }
+                        MenuItem {
+                            //: Selectable entry in the combo box to choose cookie behavior
+                            //% "Block 3rd party"
+                            text: qsTrId("fuoten-cookiebehavior-block-3rd")
+                            readonly property int value: FuotenApp.CookiesBlockThirdParty
+                        }
+                    }
+                    onCurrentIndexChanged: if (currentItem) { cc.cookieBehavior = currentItem.value }
+                    currentIndex: {
+                        var menuEntries = webViewCookieBehaviorPicker.menu.children
+                        var length = menuEntries.length
+                        for (var i = 0; i < length; i++) {
+                            if (menuEntries[i].value == cc.cookieBehavior) {
                                 return i;
                             }
                         }

@@ -1377,8 +1377,10 @@
         <translation>Java-Script-Unterstützung</translation>
     </message>
     <message id="fuoten-webview-jssupport-desc">
-        <source>Whether JavaScript on the page will be automatically executed. Most modern web pages will not work with JavaScript disabled.</source>
-        <translation>Ob JavaScript auf der Seite automatisch ausgeführt werden soll. Die meisten modernen Webseiten funktionieren nicht, wenn JavaScript deaktiviert ist.</translation>
+        <source>Whether JavaScript on the page will be automatically executed in the internal web view. Most modern web pages will not work with JavaScript disabled.</source>
+        <oldsource>Whether JavaScript on the page will be automatically executed. Most modern web pages will not work with JavaScript disabled.</oldsource>
+        <extracomment>Description for a combo box on the context config page to select support for JavaScript for the internal WebView.</extracomment>
+        <translation>Ob JavaScript auf der Seite automatisch in der internen Web-Ansicht ausgeführt werden soll. Die meisten modernen Webseiten funktionieren nicht, wenn JavaScript deaktiviert ist.</translation>
     </message>
     <message id="fuoten-jssupport-enabled">
         <source>Enabled</source>
@@ -1389,6 +1391,31 @@
         <source>Disabled</source>
         <extracomment>Selectable entry in the combo box to choose JavaScript support</extracomment>
         <translation>Deaktiviert</translation>
+    </message>
+    <message id="fuoten-webview-cookiebehavior-label">
+        <source>Cookies</source>
+        <extracomment>Label for a combo box on the context config page to select cookie behavior</extracomment>
+        <translation>Cookies</translation>
+    </message>
+    <message id="fuoten-webview-cookiebehavior-desc">
+        <source>How cookies should be handled.</source>
+        <extracomment>Description for a combo box on the context config page to select cookie behavior</extracomment>
+        <translation>Wie Cookies behandelt werden sollen.</translation>
+    </message>
+    <message id="fuoten-cookiebehavior-accept-all">
+        <source>Accept all</source>
+        <extracomment>Selectable entry in the combo box to choose cookie behavior</extracomment>
+        <translation>Alle akzeptieren</translation>
+    </message>
+    <message id="fuoten-cookiebehavior-block-all">
+        <source>Block all</source>
+        <extracomment>Selectable entry in the combo box to choose cookie behavior</extracomment>
+        <translation>Alle blockieren</translation>
+    </message>
+    <message id="fuoten-cookiebehavior-block-3rd">
+        <source>Block 3rd party</source>
+        <extracomment>Selectable entry in the combo box to choose cookie behavior</extracomment>
+        <translation>Von Dritten blockieren</translation>
     </message>
 </context>
 </TS>

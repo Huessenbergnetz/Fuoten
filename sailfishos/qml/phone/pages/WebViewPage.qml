@@ -56,10 +56,31 @@ WebViewPage {
                 anchors { left: parent.left; right: parent.right; top: parent.top; bottom: navBar.top }
 
                 Component.onCompleted: {
+                    WebEngineSettings.autoLoadImages = true
+
                     if (cc.jsSupport == FuotenApp.JsDisabled) {
                         console.debug("Disabling JavaScript for WebView")
                         WebEngineSettings.javascriptEnabled = false
+                    } else {
+                        console.debug("Enabling JavaScript for WebView")
+                        WebEngineSettings.javascriptEnabled = true
                     }
+
+                    switch (cc.cookieBehavior) {
+                    case FuotenApp.CookiesAcceptAll:
+                        console.debug("Accept all cookies in WebView")
+                        WebEngineSettings.cookieBehavior = WebEngineSettings.AcceptAll
+                        break
+                    case FuotenApp.CookiesBlockAll:
+                        console.debug("Block all cookies in WebView")
+                        WebEngineSettings.cookieBehavior = WebEngineSettings.BlockAll
+                        break
+                    case FuotenApp.CookiesBlockThirdParty:
+                        console.debug("Block 3rd party cookies in WebView")
+                        WebEngineSettings.cookieBehavior = WebEngineSettings.BlockThirdParty
+                        break
+                    }
+
                     webView.url = article.url
                 }
             }
