@@ -10,6 +10,7 @@ import Sailfish.WebView 1.0
 import Sailfish.WebEngine 1.0
 import harbour.fuoten 1.0
 import harbour.fuoten.items 1.0
+import "../../common/parts"
 
 WebViewPage {
     id: articleWebView
@@ -53,7 +54,9 @@ WebViewPage {
 
             WebViewFlickable {
                 id: webViewFlick
-                anchors { left: parent.left; right: parent.right; top: parent.top; bottom: navBar.top }
+                anchors { left: parent.left; right: parent.right; top: parent.top; bottom: navBar.top; bottomMargin: menuPanel.margin }
+
+                clip: menuPanel.expanded
 
                 Component.onCompleted: {
                     WebEngineSettings.autoLoadImages = true
@@ -85,11 +88,89 @@ WebViewPage {
                 }
             }
 
+            DockedPanel {
+                id: menuPanel
+                modal: true
+                width: parent.width
+                height: menuPanelCol.height
+
+                dock: Dock.Bottom
+
+                Column {
+                    id: menuPanelCol
+                    width: parent.width
+
+                    WebViewMenuItem {
+                        icon: article.starred
+                        ? "image://theme/icon-m-favorite-selected"
+                        : "image://theme/icon-m-favorite"
+                        text: article.starred
+                        ? qsTrId("fuoten-remove-from-favorites")
+                        : qsTrId("fuoten-add-to-favorites")
+                        enabled: !article.inOperation
+                        onClicked: {
+                            article.star(!article.starred, config, localstorage, true)
+                            menuPanel.hide()
+                        }
+                    }
+
+                    WebViewMenuItem {
+                        icon: article.unread
+                        ? "image://theme/icon-m-mail"
+                        : "image://theme/icon-m-mail-open"
+                        text: article.unread
+                        ? qsTrId("fuoten-mark-item-as-read")
+                        : qsTrId("fuoten-mark-item-as-unread")
+                        enabled: !article.inOperation
+                        onClicked: {
+                            article.mark(!article.unread, config, localstorage, true)
+                            menuPanel.hide()
+                        }
+                    }
+
+                    WebViewMenuItem {
+                        icon: "image://theme/icon-m-website"
+                        text: qsTrId("fuoten-open-in-browser")
+                        onClicked: {
+                            Qt.openUrlExternally(article.url)
+                            menuPanel.hide()
+                        }
+                    }
+
+                    WebViewMenuItem {
+                        icon: "image://theme/icon-m-share"
+                        text: qsTrId("fuoten-share")
+                        onClicked: {
+                            shareAction.trigger()
+                            menuPanel.hide()
+                        }
+                    }
+
+                    WebViewMenuItem {
+                        icon: "image://theme/icon-m-forward"
+                        //: web view menu panel entry
+                        //% "One page forward"
+                        text: qsTrId("fuoten-webview-menu-forward")
+                        enabled: webViewFlick.webView.canGoForward
+                        onClicked: {
+                            webViewFlick.webView.goForward()
+                            menuPanel.hide()
+                        }
+                    }
+                }
+            }
+
             Rectangle {
                 id: navBar
                 anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
-                height: Theme.itemSizeSmall
-                color: "black"
+                height: menuPanel.expanded ? 0 : Theme.itemSizeSmall
+                color: Theme.rgba("black", 0.9)
+
+                Behavior on height {
+                    NumberAnimation {
+                        duration: 500; easing.type: Easing.OutQuad
+                    }
+                }
 
                 Rectangle {
                     height: parent.height
@@ -99,6 +180,7 @@ WebViewPage {
                 }
 
                 IconButton {
+                    visible: !menuPanel.expanded
                     width: Theme.itemSizeMedium; height: Theme.itemSizeMedium
                     icon.source: "image://theme/icon-m-back"
                     enabled: webViewFlick.webView.canGoBack
@@ -107,6 +189,7 @@ WebViewPage {
                 }
 
                 IconButton {
+                    visible: !menuPanel.expanded
                     width: Theme.itemSizeMedium; height: Theme.itemSizeMedium
                     icon.source: webViewFlick.webView.loading ? "image://theme/icon-m-reset" : "image://theme/icon-m-refresh"
                     anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter }
@@ -114,11 +197,11 @@ WebViewPage {
                 }
 
                 IconButton {
+                    visible: !menuPanel.expanded
                     width: Theme.itemSizeMedium; height: Theme.itemSizeMedium
-                    icon.source: "image://theme/icon-m-forward"
-                    enabled: webViewFlick.webView.canGoForward
+                    icon.source: "image://theme/icon-m-menu"
                     anchors { right: parent.right; rightMargin: Theme.horizontalPageMargin; verticalCenter: parent.verticalCenter }
-                    onClicked: webViewFlick.webView.goForward()
+                    onClicked: menuPanel.show()
                 }
             }
         }

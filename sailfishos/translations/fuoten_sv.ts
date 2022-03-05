@@ -1380,7 +1380,7 @@
         <source>Whether JavaScript on the page will be automatically executed in the internal web view. Most modern web pages will not work with JavaScript disabled.</source>
         <oldsource>Whether JavaScript on the page will be automatically executed. Most modern web pages will not work with JavaScript disabled.</oldsource>
         <extracomment>Description for a combo box on the context config page to select support for JavaScript for the internal WebView.</extracomment>
-        <translation type="unfinished"/>
+        <translation>Om JavaScript på sidan skall köras automatiskt i den interna webbvyn. De flesta moderna webbsidor fungerar inte med JavaScript inaktiverat.</translation>
     </message>
     <message id="fuoten-jssupport-enabled">
         <source>Enabled</source>
@@ -1395,26 +1395,31 @@
     <message id="fuoten-webview-cookiebehavior-label">
         <source>Cookies</source>
         <extracomment>Label for a combo box on the context config page to select cookie behavior</extracomment>
-        <translation type="unfinished"/>
+        <translation>Cookies</translation>
     </message>
     <message id="fuoten-webview-cookiebehavior-desc">
         <source>How cookies should be handled.</source>
         <extracomment>Description for a combo box on the context config page to select cookie behavior</extracomment>
-        <translation type="unfinished"/>
+        <translation>Hur cookies skall hanteras.</translation>
     </message>
     <message id="fuoten-cookiebehavior-accept-all">
         <source>Accept all</source>
         <extracomment>Selectable entry in the combo box to choose cookie behavior</extracomment>
-        <translation type="unfinished"/>
+        <translation>Acceptera alla</translation>
     </message>
     <message id="fuoten-cookiebehavior-block-all">
         <source>Block all</source>
         <extracomment>Selectable entry in the combo box to choose cookie behavior</extracomment>
-        <translation type="unfinished"/>
+        <translation>Blockera alla</translation>
     </message>
     <message id="fuoten-cookiebehavior-block-3rd">
         <source>Block 3rd party</source>
         <extracomment>Selectable entry in the combo box to choose cookie behavior</extracomment>
+        <translation>Blockera 3:e-part</translation>
+    </message>
+    <message id="fuoten-webview-menu-forward">
+        <source>One page forward</source>
+        <extracomment>web view menu panel entry</extracomment>
         <translation type="unfinished"/>
     </message>
 </context>

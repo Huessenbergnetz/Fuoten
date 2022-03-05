@@ -1491,5 +1491,10 @@
         <extracomment>Selectable entry in the combo box to choose cookie behavior</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message id="fuoten-webview-menu-forward">
+        <source>One page forward</source>
+        <extracomment>web view menu panel entry</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

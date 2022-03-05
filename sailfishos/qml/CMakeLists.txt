@@ -24,6 +24,7 @@ set(QMLSRCS
     common/parts/ListPageHeader.qml
     common/parts/RescalingRichText.qml
     common/parts/SyncPanel.qml
+    common/parts/WebViewMenuItem.qml
     common/wizard/DeleteAccount.qml
     common/wizard/DeleteAccountFinish.qml
     common/wizard/LoginFlowCheck.qml

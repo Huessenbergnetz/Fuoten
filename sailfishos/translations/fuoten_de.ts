@@ -1417,5 +1417,10 @@
         <extracomment>Selectable entry in the combo box to choose cookie behavior</extracomment>
         <translation>Von Dritten blockieren</translation>
     </message>
+    <message id="fuoten-webview-menu-forward">
+        <source>One page forward</source>
+        <extracomment>web view menu panel entry</extracomment>
+        <translation>Eine Seite vor</translation>
+    </message>
 </context>
 </TS>
