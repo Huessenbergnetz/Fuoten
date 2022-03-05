@@ -287,7 +287,7 @@ Page {
                 Layout.preferredHeight: webViewJsSupportPicker.height
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 Layout.columnSpan: contextConfigGrid.columns
-                visible: cc.contextType > FuotenApp.Feeds
+                visible: cc.contextType > FuotenApp.Feeds && cc.openArticles === FuotenApp.OpenWebView
 
                 ComboBox {
                     id: webViewJsSupportPicker
@@ -329,7 +329,7 @@ Page {
                 Layout.preferredHeight: webViewCookieBehaviorPicker.height
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 Layout.columnSpan: contextConfigGrid.columns
-                visible: cc.contextType > FuotenApp.Feeds
+                visible: cc.contextType > FuotenApp.Feeds && cc.openArticles !== FuotenApp.OpenExternal
 
                 ComboBox {
                     id: webViewCookieBehaviorPicker
