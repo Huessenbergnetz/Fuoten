@@ -27,6 +27,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QStringBuilder>
+#include <QLoggingCategory>
 
 #include <QDBusConnection>
 
@@ -143,7 +144,10 @@ int main(int argc, char *argv[])
     app->setApplicationVersion(QStringLiteral(VERSION_STRING));
 
 #ifdef QT_DEBUG
+    QLoggingCategory::setFilterRules(QStringLiteral("*.debug=true"));
     QFile::remove(QDir::home().absoluteFilePath(QStringLiteral("fuoten.log")));
+#else
+    QLoggingCategory::setFilterRules(QStringLiteral("*.debug=false"));
 #endif
     qInstallMessageHandler(fuotenMessageHandler);
 
