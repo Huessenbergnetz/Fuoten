@@ -6,11 +6,26 @@
 #ifndef NAMFACTORY_H
 #define NAMFACTORY_H
 
+#include <QObject>
 #include <QQmlNetworkAccessManagerFactory>
+#include <QNetworkAccessManager>
 #include "globals.h"
 
-class QNetworkAccessManager;
 class QAbstractNetworkCache;
+
+class SfosNetworkAccessManager : public QNetworkAccessManager
+{
+    Q_OBJECT
+public:
+    explicit SfosNetworkAccessManager(QObject *parent = nullptr);
+    ~SfosNetworkAccessManager() override;
+
+protected:
+    QNetworkReply* createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &originalReq, QIODevice *outgoingData = nullptr) override;
+
+private:
+    Q_DISABLE_COPY(SfosNetworkAccessManager)
+};
 
 class NamFactory : public QQmlNetworkAccessManagerFactory
 {
