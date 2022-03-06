@@ -299,14 +299,22 @@ Page {
                     description: qsTrId("fuoten-webview-jssupport-desc")
                     menu: ContextMenu {
                         MenuItem {
-                            //: Selectable entry in the combo box to choose JavaScript support
-                            //% "Enabled"
+                            //: Selectable entry in the combo box to choose JavaScript support,
+                            //: %1 will be replaced by the default value
+                            //% "Default (%1)"
+                            text: qsTrId("fuoten-jssupport-default").arg(config.jsSupport == FuotenApp.JsEnabled
+                                                                         //: Selectable entry in the combo box to choose JavaScript support
+                                                                         //% "Enabled"
+                                                                         ? qsTrId("fuoten-jssupport-enabled")
+                                                                         //: Selectable entry in the combo box to choose JavaScript support
+                                                                         //% "Disabled"
+                                                                         : qsTrId("fuoten-jssupport-disabled"))
+                        }
+                        MenuItem {
                             text: qsTrId("fuoten-jssupport-enabled")
                             readonly property int value: FuotenApp.JsEnabled
                         }
                         MenuItem {
-                            //: Selectable entry in the combo box to choose JavaScript support
-                            //% "Disabled"
                             text: qsTrId("fuoten-jssupport-disabled")
                             readonly property int value: FuotenApp.JsDisabled
                         }

@@ -34,7 +34,7 @@ ContextConfig::ContextConfig(const QString &settingsPath, QObject *parent) :
     m_userAgent = value(path(QStringLiteral(CONF_KEY_USERAGENT)), m_userAgent).toString();
     m_minimumFontSize = value(path(QStringLiteral(CONF_KEY_MINFONTSIZE)), m_minimumFontSize).toInt();
     m_defaultFontSize = value(path(QStringLiteral(CONF_KEY_DEFFONTSIZE)), m_defaultFontSize).toInt();
-    m_jsSupport = static_cast<FuotenAppEnums::JsSupport>(value(path(QStringLiteral(CONF_KEY_JSSUPPORT)), FuotenAppEnums::JsEnabled).toInt());
+    m_jsSupport = static_cast<FuotenAppEnums::JsSupport>(value(path(QStringLiteral(CONF_KEY_JSSUPPORT)), FuotenAppEnums::JsDefault).toInt());
     m_cookieBehavior = static_cast<FuotenAppEnums::CookieBehavior>(value(path(QStringLiteral(CONF_KEY_COOKIEBEHAVIOR)), FuotenAppEnums::CookiesAcceptAll).toInt());
 }
 
@@ -62,7 +62,7 @@ void ContextConfig::load()
     setUserAgent(value(path(QStringLiteral(CONF_KEY_USERAGENT)), m_userAgent).toString());
     setMinimumFontSize(value(path(QStringLiteral(CONF_KEY_MINFONTSIZE)), m_minimumFontSize).toInt());
     setDefaultFontSize(value(path(QStringLiteral(CONF_KEY_DEFFONTSIZE)), m_defaultFontSize).toInt());
-    setJsSupport(static_cast<FuotenAppEnums::JsSupport>(value(path(QStringLiteral(CONF_KEY_JSSUPPORT)), FuotenAppEnums::JsEnabled).toInt()));
+    setJsSupport(static_cast<FuotenAppEnums::JsSupport>(value(path(QStringLiteral(CONF_KEY_JSSUPPORT)), FuotenAppEnums::JsDefault).toInt()));
     setCookieBehavior(static_cast<FuotenAppEnums::CookieBehavior>(value(path(QStringLiteral(CONF_KEY_COOKIEBEHAVIOR)), FuotenAppEnums::CookiesAcceptAll).toInt()));
 }
 

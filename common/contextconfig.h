@@ -372,7 +372,7 @@ private:
     Fuoten::FuotenEnums::SortingRole m_sorting;
     FuotenAppEnums::OpenIn m_openArticles;
     FuotenAppEnums::Context m_contextType;
-    FuotenAppEnums::JsSupport m_jsSupport = FuotenAppEnums::JsEnabled;
+    FuotenAppEnums::JsSupport m_jsSupport = FuotenAppEnums::JsDefault;
     FuotenAppEnums::CookieBehavior m_cookieBehavior = FuotenAppEnums::CookiesAcceptAll;
     bool m_hideRead;
     bool m_showFolderSections;

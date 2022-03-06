@@ -14,6 +14,7 @@
 #include <Fuoten/Helpers/AbstractConfiguration>
 #include <Fuoten/FuotenEnums>
 #include <QVersionNumber>
+#include "enums.h"
 
 class QSettings;
 
@@ -193,6 +194,7 @@ class Configuration : public Fuoten::AbstractConfiguration
      * \li voidgoBackOnReadAllChanged(bool navBackAfterMark)
      */
     Q_PROPERTY(bool navBackAfterMark READ navBackAfterMark WRITE setNavBackAfterMark NOTIFY navBackAfterMarkChanged)
+    Q_PROPERTY(FuotenAppEnums::JsSupport jsSupport READ jsSupport WRITE setJsSupport NOTIFY jsSupportChanged)
     Q_ENUM(Fuoten::FuotenEnums::Type)
 public:
     explicit Configuration(const QString &settingsPath = QString(), QObject *parent = nullptr);
@@ -250,6 +252,12 @@ public:
     bool navBackAfterMark() const;
 
     /*!
+     * \brief Getter function for the \linnk Configuration::jsSupport jsSupport\endlink property.
+     * \sa setJsSupport(), jsSupportChanged()
+     */
+    FuotenAppEnums::JsSupport jsSupport() const;
+
+    /*!
      * \brief Returns a human readable relative last sync time.
      */
     Q_INVOKABLE QString getHumanLastSync() const;
@@ -294,6 +302,12 @@ public:
      * \sa navBackAfterMark(), navBackAfterMarkChanged()
      */
     void setNavBackAfterMark(bool navBackAfterMark);
+
+    /*!
+     * \brief Setter function for the \link Configuration::jsSupport jsSupport\endlink property.
+     * \sa jsSupport(), jsSupportChanged()
+     */
+    void setJsSupport(FuotenAppEnums::JsSupport jsSupport);
 
     /*!
      * \brief Returns true if Fuoten has been updated.
@@ -400,6 +414,12 @@ signals:
     void navBackAfterMarkChanged(bool navBackAfterMark);
 
     /*!
+     * \brief Notification signal for the \link Configuration::jsSupport jsSupport\endlink property.
+     * \sa jsSupport(), setJsSupport()
+     */
+    void jsSupportChanged(FuotenAppEnums::JsSupport jsSupport);
+
+    /*!
      * \brief This signal will be emitted by the checkUpdate() method.
      */
     void updatePossible();
@@ -421,6 +441,7 @@ private:
     int m_serverPort;
     int m_articleFontSize = 0;
     Fuoten::FuotenEnums::Type m_mainViewType;
+    FuotenAppEnums::JsSupport m_jsSupport = FuotenAppEnums::JsEnabled;
     bool m_notificationsEnabled = true;
     bool m_useSSL = true;
     bool m_isAccountValid = false;

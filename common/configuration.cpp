@@ -21,6 +21,7 @@
 #define CONF_KEY_ARTICLE_FONT_SIZE "display/articleFontSize"
 #define CONF_KEY_NOTIFICATIONS_ENABLED "behavior/notificationsEnabled"
 #define CONF_KEY_NAVBACKAFTERMARK "behavior/navBackAfterMark"
+#define CONF_KEY_JSSUPPORT "defaults/jsSupport"
 
 /*!
  * \brief Constructs a new Configuration object.
@@ -50,6 +51,7 @@ Configuration::Configuration(const QString &settingsPath, QObject *parent) :
     m_articleFontSize = value(QStringLiteral(CONF_KEY_ARTICLE_FONT_SIZE), 0).toInt();
     m_notificationsEnabled = value(QStringLiteral(CONF_KEY_NOTIFICATIONS_ENABLED), true).toBool();
     m_navBackAfterMark = value(QStringLiteral(CONF_KEY_NAVBACKAFTERMARK), true).toBool();
+    m_jsSupport = static_cast<FuotenAppEnums::JsSupport>(value(QStringLiteral(CONF_KEY_JSSUPPORT), FuotenAppEnums::JsEnabled).toInt());
 
     uint lsts = value(QStringLiteral("system/lastsync"), 0).toUInt();
     if (lsts > 0) {
@@ -386,6 +388,19 @@ void Configuration::setNavBackAfterMark(bool navBackAfterMark)
         setValue(QStringLiteral(CONF_KEY_NAVBACKAFTERMARK), m_navBackAfterMark);
         qDebug("Changed navBackAfterMark to %s.", m_navBackAfterMark ? "true" : "false");
         emit navBackAfterMarkChanged(m_navBackAfterMark);
+    }
+}
+
+
+FuotenAppEnums::JsSupport Configuration::jsSupport() const { return m_jsSupport; }
+
+void Configuration::setJsSupport(FuotenAppEnums::JsSupport jsSupport)
+{
+    if (m_jsSupport != jsSupport) {
+        qDebug("Changing %s from %s to %s", CONF_KEY_JSSUPPORT, FuotenAppEnums::staticMetaObject.enumerator(FuotenAppEnums::staticMetaObject.indexOfEnumerator("JsSupport")).valueToKey(m_jsSupport), FuotenAppEnums::staticMetaObject.enumerator(FuotenAppEnums::staticMetaObject.indexOfEnumerator("JsSupport")).valueToKey(jsSupport));
+        m_jsSupport = jsSupport;
+        setValue(QStringLiteral(CONF_KEY_JSSUPPORT), m_jsSupport);
+        emit jsSupportChanged(this->jsSupport());
     }
 }
 

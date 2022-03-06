@@ -269,6 +269,46 @@ Page {
                     }
                 }
             }
+
+            SectionHeader {
+                //: section header on the settings page
+                //% "Default settings"
+                text: qsTrId("fuoten-settings-defaults-section")
+                Layout.columnSpan: settingsGrid.columns
+                Layout.preferredWidth: settingsGrid.width - Theme.horizontalPageMargin
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: defaultJsSupportPicker.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
+                ComboBox {
+                    id: defaultJsSupportPicker
+                    label: qsTrId("fuoten-webview-jssupport-label")
+                    description: qsTrId("fuoten-webview-jssupport-desc")
+                    menu: ContextMenu {
+                        MenuItem {
+                            text: qsTrId("fuoten-jssupport-enabled")
+                            readonly property int value: FuotenApp.JsEnabled
+                        }
+                        MenuItem {
+                            text: qsTrId("fuoten-jssupport-disabled")
+                            readonly property int value: FuotenApp.JsDisabled
+                        }
+                    }
+                    onCurrentIndexChanged: if (currentItem) { config.jsSupport = currentItem.value }
+                    currentIndex: {
+                        var menuEntries = defaultJsSupportPicker.menu.children
+                        var length = menuEntries.length
+                        for (var i = 0; i < length; i++) {
+                            if (menuEntries[i].value == config.jsSupport) {
+                                return i;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

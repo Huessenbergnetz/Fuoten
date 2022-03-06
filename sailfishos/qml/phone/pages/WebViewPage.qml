@@ -61,7 +61,9 @@ WebViewPage {
                 Component.onCompleted: {
                     WebEngineSettings.autoLoadImages = true
 
-                    if (cc.jsSupport == FuotenApp.JsDisabled) {
+                    var _jsSupport = cc.jsSupport == FuotenApp.JsDefault ? config.jsSupport : cc.jsSupport
+
+                    if (_jsSupport == FuotenApp.JsDisabled) {
                         console.debug("Disabling JavaScript for WebView")
                         WebEngineSettings.javascriptEnabled = false
                     } else {
