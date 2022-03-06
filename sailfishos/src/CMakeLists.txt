@@ -49,11 +49,7 @@ set_property(TARGET fuoten_exe
 )
 
 set(CMAKE_SKIP_RPATH OFF CACHE BOOL "" FORCE)
-set(AES256_KEY "" CACHE STRING "32 charachter (32 byte) long encryption key used for AES256 encryption of the password, if you change this key, passwords stored with old keys are not readable anymore")
 
-if(NOT ${AES256_KEY} MATCHES "[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]+")
-    message(FATAL_ERROR "Invalid AES256_KEY variable")
-endif()
 
 GNUInstallDirs_get_absolute_install_dir(FUOTEN_ABS_I18NDIR FUOTEN_I18NDIR)
 
@@ -62,7 +58,7 @@ target_compile_definitions(fuoten_exe PRIVATE
     $<$<NOT:$<CONFIG:Debug>>:QT_NO_DEBUG_OUTPUT>
     VERSION_STRING="${PROJECT_VERSION}"
     FUOTEN_I18NDIR="${FUOTEN_ABS_I18NDIR}"
-    AES256_KEY="${AES256_KEY}"
+    AES256_KEY="${FUOTEN_AES256_KEY}"
 )
 
 target_link_libraries(fuoten_exe

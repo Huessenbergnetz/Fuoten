@@ -30,12 +30,12 @@ Open the *CMakeLists.txt* project file in the SDK and configure your build targe
 you have to specify the following additional *CMake* (can be done on the Projects page of the Qt Creator).
 **Note:** The AES256_KEY used here is only an example. Please use your own 32 character (32 byte) long key.
 
-    AES256_KEY=AbCdEfGhIjKlMnOpQrStUvWxYz012345
+    FUOTEN_AES256_KEY=AbCdEfGhIjKlMnOpQrStUvWxYz012345
 
 #### Configuration options
 | Option                         | Description
 | ------------------------------ | ---------------
-| `AES256_KEY`                   | 32 charachter (32 byte) long encryption key used for AES256 encryption of the password, if you change this key, passwords stored with old keys are not readable anymore
+| `FUOTENAES256_KEY`             | 32 charachter (32 byte) long encryption key used for AES256 encryption of the password, if you change this key, passwords stored with old keys are not readable anymore
 
 ### Build the code
 Now you are ready to build and run Fuoten on your Sailfish OS device or in the emulator.

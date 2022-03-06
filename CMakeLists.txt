@@ -52,6 +52,11 @@ if(${TARGETSYSTEM} STREQUAL "sfos")
     set(FUOTEN_I18NDIR "${CMAKE_INSTALL_DATADIR}/${FUOTEN_EXE_OUTPUT_NAME}/translations")
     set(FUOTEN_QMLDIR "${CMAKE_INSTALL_DATADIR}/${FUOTEN_EXE_OUTPUT_NAME}/qml")
     set(LIBFUOTEN_I18NDIR "${FUOTEN_I18NDIR}" CACHE PATH "Directory to install translations")
+    set(FUOTEN_AES256_KEY "" CACHE STRING "32 charachter (32 byte) long encryption key used for AES256 encryption of the password, if you change this key, passwords stored with old keys are not readable anymore")
+
+    if(NOT ${FUOTEN_AES256_KEY} MATCHES "[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]+")
+        message(FATAL_ERROR "Invalid FUOTEN_AES256_KEY variable")
+    endif()
 
     list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/HBN_SFOS_Cmake)
 
