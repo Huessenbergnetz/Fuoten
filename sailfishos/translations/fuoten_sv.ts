@@ -1425,22 +1425,22 @@
     <message id="fuoten-jssupport-default">
         <source>Default (%1)</source>
         <extracomment>Selectable entry in the combo box to choose JavaScript support, %1 will be replaced by the default value</extracomment>
-        <translation type="unfinished"/>
+        <translation>Standard (%1)</translation>
     </message>
     <message id="fuoten-settings-defaults-section">
         <source>Default settings</source>
         <extracomment>section header on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Standardinställningar</translation>
     </message>
     <message id="fuoten-cookiebehavior-default">
         <source>Default (%1)</source>
         <extracomment>Selectable entry in the combo box to choose cookie behavior %1 will be replaced by the default value</extracomment>
-        <translation type="unfinished"/>
+        <translation>Standard (%1)</translation>
     </message>
     <message id="fuoten-open-article-default">
         <source>Default (%1)</source>
         <extracomment>Selectable entry in the combo box to choose how to open articles %1 will be replaced by the default value</extracomment>
-        <translation type="unfinished"/>
+        <translation>Standard (%1)</translation>
     </message>
 </context>
 </TS>
