@@ -13,7 +13,7 @@ class FuotenAppEnums {
     Q_GADGET
 public:
 
-    enum Context : quint8 {
+    enum Context : int {
         StartPage       = 0,
         Folders         = 1,
         Feeds           = 2,
@@ -25,21 +25,21 @@ public:
     };
     Q_ENUM(Context)
 
-    enum OpenIn : quint8 {
+    enum OpenIn : int {
         OpenInternal    = 0,
         OpenWebView     = 1,
         OpenExternal    = 2
     };
     Q_ENUM(OpenIn)
 
-    enum JsSupport: qint8 {
+    enum JsSupport : int {
         JsDefault   = -1,
         JsDisabled  =  0,
         JsEnabled   =  1
     };
     Q_ENUM(JsSupport)
 
-    enum CookieBehavior: qint8 {
+    enum CookieBehavior : int {
         CookiesDefault          = -1,
         CookiesBlockAll         =  0,
         CookiesAcceptAll        =  1,
