@@ -8,6 +8,16 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sun Mar  6 2022 Matthias Fehring <> 0.8.0
+  * new: add default config values (#76)
+  * improved: switch to CMake (#71)
+  * improved: generate translation binaries at build time (#73)
+  * improved: generate PNG icons at build time (#72)
+  * improved: better caching of favicons (#46)
+  * improved: use new Gecko based WebView for internal article display (#69)
+  * improved: use new sharing API (#70)
+  * improved: use sailjail sandboxing (#74)
+
 * Fri Nov 12 2021 Matthias Fehring <> 0.7.1-2
 - fixed: rebuild for SailfishOS 4.3 openSSL update (#68)
 

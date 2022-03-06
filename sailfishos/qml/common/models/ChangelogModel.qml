@@ -15,6 +15,21 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.8.0"
+        date: 1646584837000
+        entries: [
+            ListElement { type: 0; issue: "76"; description: "add default config values" },
+            ListElement { type: 1; issue: "46"; description: "better caching of favicons" },
+            ListElement { type: 1; issue: "69"; description: "use new Gecko based WebView for internal article display" },
+            ListElement { type: 1; issue: "70"; description: "use new sharing API" },
+            ListElement { type: 1; issue: "74"; description: "use sailjail sandboxing" },
+            ListElement { type: 1; issue: "71"; description: "switch to CMake" },
+            ListElement { type: 1; issue: "73"; description: "generate translation binaries at build time" },
+            ListElement { type: 1; issue: "72"; description: "generate PNG icons at build time" }
+        ]
+    }
+
+    ListElement {
         version: "0.7.1"
         date: 1606394206000
         entries: [

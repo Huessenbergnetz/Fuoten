@@ -1,3 +1,15 @@
+Fuoten 0.8.0 - 2022-03-06
+- General
+  * improved: switch to CMake (#71)
+  * improved: generate translation binaries at build time (#73)
+  * improved: generate PNG icons at build time (#72)
+- SailfishOS
+  * new: add default config values (#76)
+  * improved: better caching of favicons (#46)
+  * improved: use new Gecko based WebView for internal article display (#69)
+  * improved: use new sharing API (#70)
+  * improved: use sailjail sandboxing (#74)
+
 Fuoten 0.7.1 - 2020-11-26
 - General
   * fixed: update to current libfuoten to handle changes in News App API (#63)

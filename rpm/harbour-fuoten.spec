@@ -11,8 +11,8 @@ Name:       harbour-fuoten
 # << macros
 
 Summary:    ownCloud/Nextcloud News App Client
-Version:    0.7.1
-Release:    2
+Version:    0.8.0
+Release:    1
 Group:      Applications/Internet
 License:    GPL-3.0
 URL:        https://github.com/Huessenbergnetz/Fuoten
@@ -54,6 +54,7 @@ web feed reader.
 # >> build pre
 %cmake .
 # << build pre
+
 
 make %{?_smp_mflags}
 
