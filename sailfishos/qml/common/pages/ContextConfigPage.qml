@@ -258,6 +258,29 @@ Page {
                     description: qsTrId("fuoten-open-in-desc")
                     menu: ContextMenu {
                         MenuItem {
+                            id: openInDefMenuItem
+                            readonly property int value: FuotenApp.OpenDefault
+
+                            Component.onCompleted: {
+                                var _defVal;
+                                switch(config.openArticles) {
+                                case FuotenApp.OpenInternal:
+                                    _defVal = qsTrId("fuoten-open-article-internal")
+                                    break
+                                case FuotenApp.OpenWebView:
+                                    _defVal = qsTrId("fuoten-open-article-webview")
+                                    break
+                                case FuotenApp.OpenExternal:
+                                    _defVal = qsTrId("fuoten-open-article-external")
+                                    break
+                                }
+                                //: Selectable entry in the combo box to choose how to open articles
+                                //: %1 will be replaced by the default value
+                                //% "Default (%1)"
+                                openInDefMenuItem.text = qsTrId("fuoten-open-article-default").arg(_defVal)
+                            }
+                        }
+                        MenuItem {
                             //: Selectabe entry in the combo box to choose the way articles are opened
                             //% "Internal"
                             text: qsTrId("fuoten-open-article-internal")
@@ -278,7 +301,15 @@ Page {
                     }
 
                     onCurrentIndexChanged: if (currentItem) { cc.openArticles = currentItem.value }
-                    currentIndex: cc.openArticles
+                    currentIndex: {
+                        var menuEntries = openInChoser.menu.children
+                        var length = menuEntries.length
+                        for (var i = 0; i < length; i++) {
+                            if (menuEntries[i].value == cc.openArticles) {
+                                return i;
+                            }
+                        }
+                    }
                 }
             }
 

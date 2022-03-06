@@ -23,6 +23,7 @@
 #define CONF_KEY_NAVBACKAFTERMARK "behavior/navBackAfterMark"
 #define CONF_KEY_JSSUPPORT "defaults/jsSupport"
 #define CONF_KEY_COOKIEBEHAVIOR "defaults/cookieBehavior"
+#define CONF_KEY_OPENARTICLES "defaults/openArticles"
 
 /*!
  * \brief Constructs a new Configuration object.
@@ -54,6 +55,7 @@ Configuration::Configuration(const QString &settingsPath, QObject *parent) :
     m_navBackAfterMark = value(QStringLiteral(CONF_KEY_NAVBACKAFTERMARK), true).toBool();
     m_jsSupport = static_cast<FuotenAppEnums::JsSupport>(value(QStringLiteral(CONF_KEY_JSSUPPORT), FuotenAppEnums::JsEnabled).toInt());
     m_cookieBehavior = static_cast<FuotenAppEnums::CookieBehavior>(value(QStringLiteral(CONF_KEY_COOKIEBEHAVIOR), FuotenAppEnums::CookiesAcceptAll).toInt());
+    m_openArticles = static_cast<FuotenAppEnums::OpenIn>(value(QStringLiteral(CONF_KEY_OPENARTICLES), FuotenAppEnums::OpenInternal).toInt());
 
     uint lsts = value(QStringLiteral("system/lastsync"), 0).toUInt();
     if (lsts > 0) {
@@ -416,6 +418,19 @@ void Configuration::setCookieBehavior(FuotenAppEnums::CookieBehavior cookieBehav
         m_cookieBehavior = cookieBehavior;
         setValue(QStringLiteral(CONF_KEY_COOKIEBEHAVIOR), m_cookieBehavior);
         emit cookieBehaviorChanged(this->cookieBehavior());
+    }
+}
+
+
+FuotenAppEnums::OpenIn Configuration::openArticles() const { return m_openArticles; }
+
+void Configuration::setOpenArticles(FuotenAppEnums::OpenIn openArticles)
+{
+    if (m_openArticles != openArticles) {
+        qDebug("Changing %s from %s to %s", CONF_KEY_OPENARTICLES, FuotenAppEnums::staticMetaObject.enumerator(FuotenAppEnums::staticMetaObject.indexOfEnumerator("OpenIn")).valueToKey(m_openArticles), FuotenAppEnums::staticMetaObject.enumerator(FuotenAppEnums::staticMetaObject.indexOfEnumerator("OpenIn")).valueToKey(openArticles));
+        m_openArticles = openArticles;
+        setValue(QStringLiteral(CONF_KEY_OPENARTICLES), m_openArticles);
+        emit openArticlesChanged(this->openArticles());
     }
 }
 

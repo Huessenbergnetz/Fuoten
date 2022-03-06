@@ -220,6 +220,19 @@ class Configuration : public Fuoten::AbstractConfiguration
      * \li void cookieBehaviorChanged(FuotenAppEnums::CookieBehavior cookieBehavior)
      */
     Q_PROPERTY(FuotenAppEnums::CookieBehavior cookieBehavior READ cookieBehavior WRITE setCookieBehavior NOTIFY cookieBehaviorChanged)
+    /*!
+     * \brief This property holds how to open articles by default.
+     *
+     * The default value is FuotenAppEnums::OpenInternal.
+     *
+     * \par Access functions:
+     * \li FuotenAppEnums::OpenIn openArticles() const
+     * \li void setOpenArticles(FuotenAppEnums::OpenIn openArticles)
+     *
+     * \par Notifier signal:
+     * \li void openArticlesChanged(FuotenAppEnums::OpenIn openArticles)
+     */
+    Q_PROPERTY(FuotenAppEnums::OpenIn openArticles READ openArticles WRITE setOpenArticles NOTIFY openArticlesChanged)
     Q_ENUM(Fuoten::FuotenEnums::Type)
 public:
     explicit Configuration(const QString &settingsPath = QString(), QObject *parent = nullptr);
@@ -289,6 +302,12 @@ public:
     FuotenAppEnums::CookieBehavior cookieBehavior() const;
 
     /*!
+     * \brief Getter function for the \linnk Configuration::openArticles openArticles\endlink property.
+     * \sa setOpenArticles(), openArticlesChanged()
+     */
+    FuotenAppEnums::OpenIn openArticles() const;
+
+    /*!
      * \brief Returns a human readable relative last sync time.
      */
     Q_INVOKABLE QString getHumanLastSync() const;
@@ -345,6 +364,12 @@ public:
      * \sa cookieBehavior(), cookieBehaviorChanged()
      */
     void setCookieBehavior(FuotenAppEnums::CookieBehavior cookieBehavior);
+
+    /*!
+     * \brief Setter function for the \link Configuration::openArticles openArticles\endlink property.
+     * \sa openArticles(), openArticlesChanged()
+     */
+    void setOpenArticles(FuotenAppEnums::OpenIn openArticles);
 
     /*!
      * \brief Returns true if Fuoten has been updated.
@@ -463,6 +488,12 @@ signals:
     void cookieBehaviorChanged(FuotenAppEnums::CookieBehavior cookieBehavior);
 
     /*!
+     * \brief Notification signal for the \link Configuration::openArticles openArticles\endlink property.
+     * \sa openArticles(), setOpenArticles()
+     */
+    void openArticlesChanged(FuotenAppEnums::OpenIn openArticles);
+
+    /*!
      * \brief This signal will be emitted by the checkUpdate() method.
      */
     void updatePossible();
@@ -486,6 +517,7 @@ private:
     Fuoten::FuotenEnums::Type m_mainViewType;
     FuotenAppEnums::JsSupport m_jsSupport = FuotenAppEnums::JsEnabled;
     FuotenAppEnums::CookieBehavior m_cookieBehavior = FuotenAppEnums::CookiesAcceptAll;
+    FuotenAppEnums::OpenIn m_openArticles = FuotenAppEnums::OpenInternal;
     bool m_notificationsEnabled = true;
     bool m_useSSL = true;
     bool m_isAccountValid = false;

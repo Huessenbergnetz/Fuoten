@@ -26,9 +26,10 @@ public:
     Q_ENUM(Context)
 
     enum OpenIn : int {
-        OpenInternal    = 0,
-        OpenWebView     = 1,
-        OpenExternal    = 2
+        OpenDefault     = -1,
+        OpenInternal    =  0,
+        OpenWebView     =  1,
+        OpenExternal    =  2
     };
     Q_ENUM(OpenIn)
 

@@ -280,6 +280,42 @@ Page {
 
             Item {
                 Layout.fillWidth: true
+                Layout.preferredHeight: defaultOpenInPicker.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
+                ComboBox {
+                    id: defaultOpenInPicker
+                    label: qsTrId("fuoten-open-in-label")
+                    description: qsTrId("fuoten-open-in-desc")
+                    menu: ContextMenu {
+                        MenuItem {
+                            text: qsTrId("fuoten-open-article-internal")
+                            readonly property int value: FuotenApp.OpenInternal
+                        }
+                        MenuItem {
+                            text: qsTrId("fuoten-open-article-webview")
+                            readonly property int value: FuotenApp.OpenWebView
+                        }
+                        MenuItem {
+                            text: qsTrId("fuoten-open-article-external")
+                            readonly property int value: FuotenApp.OpenExternal
+                        }
+                    }
+                    onCurrentIndexChanged: if (currentItem) { config.openArticles = currentItem.value }
+                    currentIndex: {
+                        var menuEntries = defaultOpenInPicker.menu.children
+                        var length = menuEntries.length
+                        for (var i = 0; i < length; i++) {
+                            if (menuEntries[i].value == config.openArticles) {
+                                return i;
+                            }
+                        }
+                    }
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
                 Layout.preferredHeight: defaultJsSupportPicker.height
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
 
