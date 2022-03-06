@@ -373,7 +373,7 @@ private:
     FuotenAppEnums::OpenIn m_openArticles;
     FuotenAppEnums::Context m_contextType;
     FuotenAppEnums::JsSupport m_jsSupport = FuotenAppEnums::JsDefault;
-    FuotenAppEnums::CookieBehavior m_cookieBehavior = FuotenAppEnums::CookiesAcceptAll;
+    FuotenAppEnums::CookieBehavior m_cookieBehavior = FuotenAppEnums::CookiesDefault;
     bool m_hideRead;
     bool m_showFolderSections;
     bool m_respectPinned;

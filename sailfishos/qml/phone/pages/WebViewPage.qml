@@ -71,7 +71,9 @@ WebViewPage {
                         WebEngineSettings.javascriptEnabled = true
                     }
 
-                    switch (cc.cookieBehavior) {
+                    var _cookieBehavior = cc.cookieBehavior == FuotenApp.CookiesDefault ? config.cookieBehavior : cc.cookieBehavior
+
+                    switch (_cookieBehavior) {
                     case FuotenApp.CookiesAcceptAll:
                         console.debug("Accept all cookies in WebView")
                         WebEngineSettings.cookieBehavior = WebEngineSettings.AcceptAll

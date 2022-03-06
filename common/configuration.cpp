@@ -22,6 +22,7 @@
 #define CONF_KEY_NOTIFICATIONS_ENABLED "behavior/notificationsEnabled"
 #define CONF_KEY_NAVBACKAFTERMARK "behavior/navBackAfterMark"
 #define CONF_KEY_JSSUPPORT "defaults/jsSupport"
+#define CONF_KEY_COOKIEBEHAVIOR "defaults/cookieBehavior"
 
 /*!
  * \brief Constructs a new Configuration object.
@@ -52,6 +53,7 @@ Configuration::Configuration(const QString &settingsPath, QObject *parent) :
     m_notificationsEnabled = value(QStringLiteral(CONF_KEY_NOTIFICATIONS_ENABLED), true).toBool();
     m_navBackAfterMark = value(QStringLiteral(CONF_KEY_NAVBACKAFTERMARK), true).toBool();
     m_jsSupport = static_cast<FuotenAppEnums::JsSupport>(value(QStringLiteral(CONF_KEY_JSSUPPORT), FuotenAppEnums::JsEnabled).toInt());
+    m_cookieBehavior = static_cast<FuotenAppEnums::CookieBehavior>(value(QStringLiteral(CONF_KEY_COOKIEBEHAVIOR), FuotenAppEnums::CookiesAcceptAll).toInt());
 
     uint lsts = value(QStringLiteral("system/lastsync"), 0).toUInt();
     if (lsts > 0) {
@@ -401,6 +403,19 @@ void Configuration::setJsSupport(FuotenAppEnums::JsSupport jsSupport)
         m_jsSupport = jsSupport;
         setValue(QStringLiteral(CONF_KEY_JSSUPPORT), m_jsSupport);
         emit jsSupportChanged(this->jsSupport());
+    }
+}
+
+
+FuotenAppEnums::CookieBehavior Configuration::cookieBehavior() const { return m_cookieBehavior; }
+
+void Configuration::setCookieBehavior(FuotenAppEnums::CookieBehavior cookieBehavior)
+{
+    if (m_cookieBehavior != cookieBehavior) {
+        qDebug("Changing %s from %s to %s", CONF_KEY_COOKIEBEHAVIOR, FuotenAppEnums::staticMetaObject.enumerator(FuotenAppEnums::staticMetaObject.indexOfEnumerator("CookieBehavior")).valueToKey(m_cookieBehavior), FuotenAppEnums::staticMetaObject.enumerator(FuotenAppEnums::staticMetaObject.indexOfEnumerator("CookieBehavior")).valueToKey(cookieBehavior));
+        m_cookieBehavior = cookieBehavior;
+        setValue(QStringLiteral(CONF_KEY_COOKIEBEHAVIOR), m_cookieBehavior);
+        emit cookieBehaviorChanged(this->cookieBehavior());
     }
 }
 

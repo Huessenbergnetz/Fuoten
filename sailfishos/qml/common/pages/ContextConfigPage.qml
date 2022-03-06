@@ -350,6 +350,30 @@ Page {
                     description: qsTrId("fuoten-webview-cookiebehavior-desc")
                     menu: ContextMenu {
                         MenuItem {
+                            id: cookieBehaviorMenuItem
+
+                            readonly property int value: FuotenApp.CookiesDefault
+
+                            Component.onCompleted: {
+                                var _defVal;
+                                switch(config.cookieBehavior) {
+                                case FuotenApp.CookiesAcceptAll:
+                                    _defVal = qsTrId("fuoten-cookiebehavior-accept-all")
+                                    break
+                                case FuotenApp.CookiesBlockAll:
+                                    _defVal = qsTrId("fuoten-cookiebehavior-block-all")
+                                    break
+                                case FuotenApp.CookiesBlockThirdParty:
+                                    _defVal = qsTrId("fuoten-cookiebehavior-block-3rd")
+                                    break
+                                }
+                                //: Selectable entry in the combo box to choose cookie behavior
+                                //: %1 will be replaced by the default value
+                                //% "Default (%1)"
+                                cookieBehaviorMenuItem.text = qsTrId("fuoten-cookiebehavior-default").arg(_defVal)
+                            }
+                        }
+                        MenuItem {
                             //: Selectable entry in the combo box to choose cookie behavior
                             //% "Accept all"
                             text: qsTrId("fuoten-cookiebehavior-accept-all")

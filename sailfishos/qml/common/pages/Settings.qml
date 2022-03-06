@@ -309,6 +309,42 @@ Page {
                     }
                 }
             }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: defaultCookieBehaviorPicker.height
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
+                ComboBox {
+                    id: defaultCookieBehaviorPicker
+                    label: qsTrId("fuoten-webview-cookiebehavior-label")
+                    description: qsTrId("fuoten-webview-cookiebehavior-desc")
+                    menu: ContextMenu {
+                        MenuItem {
+                            text: qsTrId("fuoten-cookiebehavior-accept-all")
+                            readonly property int value: FuotenApp.CookiesAcceptAll
+                        }
+                        MenuItem {
+                            text: qsTrId("fuoten-cookiebehavior-block-all")
+                            readonly property int value: FuotenApp.CookiesBlockAll
+                        }
+                        MenuItem {
+                            text: qsTrId("fuoten-cookiebehavior-block-3rd")
+                            readonly property int value: FuotenApp.CookiesBlockThirdParty
+                        }
+                    }
+                    onCurrentIndexChanged: if (currentItem) { config.cookieBehavior = currentItem.value }
+                    currentIndex: {
+                        var menuEntries = defaultCookieBehaviorPicker.menu.children
+                        var length = menuEntries.length
+                        for (var i = 0; i < length; i++) {
+                            if (menuEntries[i].value == config.cookieBehavior) {
+                                return i;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -191,10 +191,35 @@ class Configuration : public Fuoten::AbstractConfiguration
      * \li void setNavBackAfterMark(bool navBackAfterMark)
      *
      * \par Notifier signal:
-     * \li voidgoBackOnReadAllChanged(bool navBackAfterMark)
+     * \li void goBackOnReadAllChanged(bool navBackAfterMark)
      */
     Q_PROPERTY(bool navBackAfterMark READ navBackAfterMark WRITE setNavBackAfterMark NOTIFY navBackAfterMarkChanged)
+    /*!
+     * \brief This property holds wether JavaScript should be supported by default in the internal web view.
+     *
+     * The default values is FuotenAppEnums::JsEnabled.
+     *
+     * \par Access functions:
+     * \li FuotenAppEnums::JsSupport jsSupport() const
+     * \li setJsSupport(FuotenAppEnums::JsSupport jsSupport)
+     *
+     * \par Notifier signal:
+     * \li void jsSupportChanged(FuotenAppEnums::JsSupport jsSupport)
+     */
     Q_PROPERTY(FuotenAppEnums::JsSupport jsSupport READ jsSupport WRITE setJsSupport NOTIFY jsSupportChanged)
+    /*!
+     * \brief This property holds how to handle cookies by default.
+     *
+     * The default values is FuotenAppEnums::CookiesAcceptAll.
+     *
+     * \par Access functions:
+     * \li FuotenAppEnums::CookieBehavior cookieBehavior() const
+     * \li void setCookieBehavior(FuotenAppEnums::CookieBehavior cookieBehavior)
+     *
+     * \par Notifier signal:
+     * \li void cookieBehaviorChanged(FuotenAppEnums::CookieBehavior cookieBehavior)
+     */
+    Q_PROPERTY(FuotenAppEnums::CookieBehavior cookieBehavior READ cookieBehavior WRITE setCookieBehavior NOTIFY cookieBehaviorChanged)
     Q_ENUM(Fuoten::FuotenEnums::Type)
 public:
     explicit Configuration(const QString &settingsPath = QString(), QObject *parent = nullptr);
@@ -258,6 +283,12 @@ public:
     FuotenAppEnums::JsSupport jsSupport() const;
 
     /*!
+     * \brief Getter function for the \linnk Configuration::cookieBehavior cookieBehavior\endlink property.
+     * \sa setCookieBehavior(), cookieBehaviorChanged()
+     */
+    FuotenAppEnums::CookieBehavior cookieBehavior() const;
+
+    /*!
      * \brief Returns a human readable relative last sync time.
      */
     Q_INVOKABLE QString getHumanLastSync() const;
@@ -308,6 +339,12 @@ public:
      * \sa jsSupport(), jsSupportChanged()
      */
     void setJsSupport(FuotenAppEnums::JsSupport jsSupport);
+
+    /*!
+     * \brief Setter function for the \link Configuration::cookieBehavior cookieBehavior\endlink property.
+     * \sa cookieBehavior(), cookieBehaviorChanged()
+     */
+    void setCookieBehavior(FuotenAppEnums::CookieBehavior cookieBehavior);
 
     /*!
      * \brief Returns true if Fuoten has been updated.
@@ -420,6 +457,12 @@ signals:
     void jsSupportChanged(FuotenAppEnums::JsSupport jsSupport);
 
     /*!
+     * \brief Notification signal for the \link Configuration::cookieBehavior cookieBehavior\endlink property.
+     * \sa cookieBehavior(), setCookieBehavior()
+     */
+    void cookieBehaviorChanged(FuotenAppEnums::CookieBehavior cookieBehavior);
+
+    /*!
      * \brief This signal will be emitted by the checkUpdate() method.
      */
     void updatePossible();
@@ -442,6 +485,7 @@ private:
     int m_articleFontSize = 0;
     Fuoten::FuotenEnums::Type m_mainViewType;
     FuotenAppEnums::JsSupport m_jsSupport = FuotenAppEnums::JsEnabled;
+    FuotenAppEnums::CookieBehavior m_cookieBehavior = FuotenAppEnums::CookiesAcceptAll;
     bool m_notificationsEnabled = true;
     bool m_useSSL = true;
     bool m_isAccountValid = false;

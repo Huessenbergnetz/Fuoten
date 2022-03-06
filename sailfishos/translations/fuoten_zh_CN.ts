@@ -1433,5 +1433,10 @@
         <extracomment>section header on the settings page</extracomment>
         <translation type="unfinished"/>
     </message>
+    <message id="fuoten-cookiebehavior-default">
+        <source>Default (%1)</source>
+        <extracomment>Selectable entry in the combo box to choose cookie behavior %1 will be replaced by the default value</extracomment>
+        <translation type="unfinished"/>
+    </message>
 </context>
 </TS>
