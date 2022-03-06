@@ -309,6 +309,7 @@ Page {
                                                                          //: Selectable entry in the combo box to choose JavaScript support
                                                                          //% "Disabled"
                                                                          : qsTrId("fuoten-jssupport-disabled"))
+                            readonly property int value: FuotenApp.JsDefault
                         }
                         MenuItem {
                             text: qsTrId("fuoten-jssupport-enabled")
