@@ -96,7 +96,9 @@ BaseListView {
             if (display.error) {
                 display.clearError()
             } else {
-                switch(articlesListView.cc.openArticles) {
+                var _openArticles = articlesListView.cc.openArticles == FuotenApp.OpenDefault ? config.openArticles : articlesListView.cc.openArticles
+
+                switch(_openArticles) {
                 case FuotenApp.OpenInternal:
                     pageStack.push(Qt.resolvedUrl("ArticlePage.qml"), {article: display, cc: articlesListView.cc})
                     break
