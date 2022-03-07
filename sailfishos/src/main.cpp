@@ -277,8 +277,9 @@ int main(int argc, char *argv[])
 
     std::unique_ptr<QQuickView> view(SailfishApp::createView());
 
-    auto hbnscIconProvider = Hbnsc::HbnscIconProvider::createProvider(view->engine());
-    auto fuotenIconProvider = Hbnsc::BaseIconProvider::createProvider({1.0,1.25,1.5,1.75,2.0}, QString(), false, QStringLiteral("fuoten"), view->engine());
+
+    Hbnsc::HbnscIconProvider::addProvider(view->engine());
+    Hbnsc::BaseIconProvider::addProvider(view->engine(), QStringLiteral("fuoten"), {1.0,1.25,1.5,1.75,2.0});
     view->engine()->setNetworkAccessManagerFactory(namFactory.get());
 
     auto dbusproxy = new FuotenDbusProxy(app.get());
