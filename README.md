@@ -35,7 +35,7 @@ you have to specify the following additional *CMake* (can be done on the Project
 #### Configuration options
 | Option                         | Description
 | ------------------------------ | ---------------
-| `FUOTENAES256_KEY`             | 32 charachter (32 byte) long encryption key used for AES256 encryption of the password, if you change this key, passwords stored with old keys are not readable anymore
+| `FUOTEN_AES256_KEY`             | 32 charachter (32 byte) long encryption key used for AES256 encryption of the password, if you change this key, passwords stored with old keys are not readable anymore
 
 ### Build the code
 Now you are ready to build and run Fuoten on your Sailfish OS device or in the emulator.
