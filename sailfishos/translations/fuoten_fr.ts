@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr" sourcelanguage="en">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fr" sourcelanguage="en">
 <context>
-    <name></name>
+    <name/>
     <message id="id-user-account">
         <source>User account</source>
         <extracomment>Used as dialog and section header for displaying and configuring the user account</extracomment>
@@ -379,17 +377,11 @@
     <message id="fuoten-feeds-count" numerus="yes">
         <source>%n feed(s)</source>
         <oldsource>%n Feed(s)</oldsource>
-        <translation>
-            <numerusform>%n flux</numerusform>
-            <numerusform>%n flux</numerusform>
-        </translation>
+        <translation><numerusform>%n flux</numerusform><numerusform>%n flux</numerusform></translation>
     </message>
     <message id="fuoten-unread-articles-with-count" numerus="yes">
         <source>%n unread article(s)</source>
-        <translation>
-            <numerusform>%n article non lu</numerusform>
-            <numerusform>%n article non lus</numerusform>
-        </translation>
+        <translation><numerusform>%n article non lu</numerusform><numerusform>%n article non lus</numerusform></translation>
     </message>
     <message id="fuoten-all-articles">
         <source>All articles</source>
@@ -610,19 +602,13 @@
         <source>Articles will be deleted if they have been published more than %n days ago. Set the number of days in the next input field.</source>
         <oldsource>Articles will be deleted if they have been published more than n days ago. Set the number of days in the next input field.</oldsource>
         <extracomment>Description for a combo box on a context config page to select article clean up strategy if cleanup will be done based on the article age. %n will contain the number of days after which articles are deleted from the local storage</extracomment>
-        <translation>
-            <numerusform>Les articles seront supprimés s&apos;ils ont été publiés il y a plus de %n jour. Entrer le nombre de jours dans le champ de texte suivant.</numerusform>
-            <numerusform>Les articles seront supprimés s&apos;ils ont été publiés il y a plus de %n jours. Entrer le nombre de jours dans le champ de texte suivant.</numerusform>
-        </translation>
+        <translation><numerusform>Les articles seront supprimés s&apos;ils ont été publiés il y a plus de %n jour. Entrer le nombre de jours dans le champ de texte suivant.</numerusform><numerusform>Les articles seront supprimés s&apos;ils ont été publiés il y a plus de %n jours. Entrer le nombre de jours dans le champ de texte suivant.</numerusform></translation>
     </message>
     <message id="fuoten-articles-cleanup-count-desc" numerus="yes">
         <source>Articles will be deleted if there are more than %n articles in the local storage. Set the number in the next input field.</source>
         <oldsource>Articles will be deleted if there are more than the defined number of articles in the local storage. Set the number in the next input field.</oldsource>
         <extracomment>Description for a combo box on a context config page to select article clean up strategy if cleanup will be done based on the article count. %n will contain the number of articles that will be kept in the local storage</extracomment>
-        <translation>
-            <numerusform>Les articles seront supprimés s&apos;il y a plus de %n article dans le stockage local. Entrez le nombre dans le champ de texte suivant.</numerusform>
-            <numerusform>Les articles seront supprimés s&apos;il y a plus de %n articles dans le stockage local. Entrez le nombre dans le champ de texte suivant.</numerusform>
-        </translation>
+        <translation><numerusform>Les articles seront supprimés s&apos;il y a plus de %n article dans le stockage local. Entrez le nombre dans le champ de texte suivant.</numerusform><numerusform>Les articles seront supprimés s&apos;il y a plus de %n articles dans le stockage local. Entrez le nombre dans le champ de texte suivant.</numerusform></translation>
     </message>
     <message id="fuoten-articles-no-cleanup">
         <source>No cleanup</source>
@@ -717,34 +703,22 @@
     <message id="fuoten-seconds-ago" numerus="yes">
         <source>%n second(s) ago</source>
         <extracomment>relative time for last synchronisation</extracomment>
-        <translation>
-            <numerusform>Il y a %n seconde</numerusform>
-            <numerusform>Il y a %n secondes</numerusform>
-        </translation>
+        <translation><numerusform>Il y a %n seconde</numerusform><numerusform>Il y a %n secondes</numerusform></translation>
     </message>
     <message id="fuoten-minutes-ago" numerus="yes">
         <source>%n minute(s) ago</source>
         <extracomment>relative time for last synchronisation</extracomment>
-        <translation>
-            <numerusform>Il y a %n minute</numerusform>
-            <numerusform>Il y a %n minutes</numerusform>
-        </translation>
+        <translation><numerusform>Il y a %n minute</numerusform><numerusform>Il y a %n minutes</numerusform></translation>
     </message>
     <message id="fuoten-hours-ago" numerus="yes">
         <source>%n hour(s) ago</source>
         <extracomment>relative time for last synchronisation</extracomment>
-        <translation>
-            <numerusform>Il y a %n heure</numerusform>
-            <numerusform>Il y a %n heures</numerusform>
-        </translation>
+        <translation><numerusform>Il y a %n heure</numerusform><numerusform>Il y a %n heures</numerusform></translation>
     </message>
     <message id="fuoten-days-ago" numerus="yes">
         <source>%n day(s) ago</source>
         <extracomment>relative time for last synchronisation</extracomment>
-        <translation>
-            <numerusform>Il y a %n jour</numerusform>
-            <numerusform>Il y a %n jours</numerusform>
-        </translation>
+        <translation><numerusform>Il y a %n jour</numerusform><numerusform>Il y a %n jours</numerusform></translation>
     </message>
     <message id="fuoten-share-link">
         <source>Share link</source>
@@ -869,26 +843,17 @@
     <message id="fuoten-notify-folders-requested-body-new" numerus="yes">
         <source>New folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation>
-            <numerusform>Nouveau dossier : %1</numerusform>
-            <numerusform>Nouveaux dossiers : %1</numerusform>
-        </translation>
+        <translation><numerusform>Nouveau dossier : %1</numerusform><numerusform>Nouveaux dossiers : %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-body-renamed" numerus="yes">
         <source>Renamed folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation>
-            <numerusform>Dossier renommé : %1</numerusform>
-            <numerusform>Dossiers renommés : %1</numerusform>
-        </translation>
+        <translation><numerusform>Dossier renommé : %1</numerusform><numerusform>Dossiers renommés : %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-body-deleted" numerus="yes">
         <source>Deleted folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation>
-            <numerusform>Dossier supprimé : %1</numerusform>
-            <numerusform>Dossiers supprimés : %1</numerusform>
-        </translation>
+        <translation><numerusform>Dossier supprimé : %1</numerusform><numerusform>Dossiers supprimés : %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-folder-created-summary">
         <source>Folder created</source>
@@ -943,26 +908,17 @@
     <message id="fuoten-notify-feeds-requested-body-new" numerus="yes">
         <source>New feed(s): %1</source>
         <extracomment>part of the notification area body text for requested feeds, %1 will be replaced by a list of new feed titles</extracomment>
-        <translation>
-            <numerusform>Nouveau flux : %1</numerusform>
-            <numerusform>Nouveaux flux : %1</numerusform>
-        </translation>
+        <translation><numerusform>Nouveau flux : %1</numerusform><numerusform>Nouveaux flux : %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-feeds-requested-body-updated" numerus="yes">
         <source>Updated feed(s): %1</source>
         <extracomment>part of the notification area body text for requested feeds, %1 will be replaced by a list of updated feed titles</extracomment>
-        <translation>
-            <numerusform>Flux mis à jour : %1</numerusform>
-            <numerusform>Flux mis à jour : %1</numerusform>
-        </translation>
+        <translation><numerusform>Flux mis à jour : %1</numerusform><numerusform>Flux mis à jour : %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-feeds-requested-body-deleted" numerus="yes">
         <source>Deleted feed(s): %1</source>
         <extracomment>part of the notification area body text for requested feeds, %1 will be replaced by a list of deleted feed titles</extracomment>
-        <translation>
-            <numerusform>Flux supprimé : %1</numerusform>
-            <numerusform>Flux supprimés : %1</numerusform>
-        </translation>
+        <translation><numerusform>Flux supprimé : %1</numerusform><numerusform>Flux supprimés : %1</numerusform></translation>
     </message>
     <message id="fuoten-notify-feed-created-summary">
         <source>Feed added</source>
@@ -1032,74 +988,47 @@
     <message id="fuoten-notify-items-requested-prev-body" numerus="yes">
         <source>%n new unread article(s).</source>
         <extracomment>notification popup body text</extracomment>
-        <translation>
-            <numerusform>%n nouvel article non lu.</numerusform>
-            <numerusform>%n nouveaux articles non lus.</numerusform>
-        </translation>
+        <translation><numerusform>%n nouvel article non lu.</numerusform><numerusform>%n nouveaux articles non lus.</numerusform></translation>
     </message>
     <message id="fuoten-notify-items-requested-body" numerus="yes">
         <source>Successfully requested articles from the server. There are %n new unread article(s).</source>
         <extracomment>notification area body text</extracomment>
-        <translation>
-            <numerusform>Articles demandés au serveur avec succès. Il y a %n nouvel article.</numerusform>
-            <numerusform>Articles demandés au serveur avec succès. Il y a %n nouveaux articles.</numerusform>
-        </translation>
+        <translation><numerusform>Articles demandés au serveur avec succès. Il y a %n nouvel article.</numerusform><numerusform>Articles demandés au serveur avec succès. Il y a %n nouveaux articles.</numerusform></translation>
     </message>
     <message id="fuoten-notify-feeds-requested-prev-body-new" numerus="yes">
         <source>%n new</source>
         <extracomment>part of the notification popup body text for requested feeds, %n will be replaced by the numer of new feeds</extracomment>
-        <translation>
-            <numerusform>%n nouveau</numerusform>
-            <numerusform>%n nouveaux</numerusform>
-        </translation>
+        <translation><numerusform>%n nouveau</numerusform><numerusform>%n nouveaux</numerusform></translation>
     </message>
     <message id="fuoten-notify-feeds-requested-prev-body-updated" numerus="yes">
         <source>%n updated</source>
         <extracomment>part of the notification popup body text for requested feeds, %n will be replaced by the numer of updated feeds</extracomment>
-        <translation>
-            <numerusform>%n mis à jour</numerusform>
-            <numerusform>%n mis à jour</numerusform>
-        </translation>
+        <translation><numerusform>%n mis à jour</numerusform><numerusform>%n mis à jour</numerusform></translation>
     </message>
     <message id="fuoten-notify-feeds-requested-prev-body-deleted" numerus="yes">
         <source>%n deleted</source>
         <extracomment>part of the notifitcation popup body text for requested feeds, %n will be replaced by the numer of deleted feeds</extracomment>
-        <translation>
-            <numerusform>%n supprimé</numerusform>
-            <numerusform>%n supprimés</numerusform>
-        </translation>
+        <translation><numerusform>%n supprimé</numerusform><numerusform>%n supprimés</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-prev-body-new" numerus="yes">
         <source>%n new</source>
         <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of new folders</extracomment>
-        <translation>
-            <numerusform>%n nouveau</numerusform>
-            <numerusform>%n nouveaux</numerusform>
-        </translation>
+        <translation><numerusform>%n nouveau</numerusform><numerusform>%n nouveaux</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-prev-body-renamed" numerus="yes">
         <source>%n renamed</source>
         <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of reanmed folders</extracomment>
-        <translation>
-            <numerusform>%n renommé</numerusform>
-            <numerusform>%n renommés</numerusform>
-        </translation>
+        <translation><numerusform>%n renommé</numerusform><numerusform>%n renommés</numerusform></translation>
     </message>
     <message id="fuoten-notify-folders-requested-prev-body-deleted" numerus="yes">
         <source>%n deleted</source>
         <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of deleted folders</extracomment>
-        <translation>
-            <numerusform>%n supprimé</numerusform>
-            <numerusform>%n supprimés</numerusform>
-        </translation>
+        <translation><numerusform>%n supprimé</numerusform><numerusform>%n supprimés</numerusform></translation>
     </message>
     <message id="fuoten-notify-synccomplete-body" numerus="yes">
         <source>Synchronization succeeded in %n second(s).</source>
         <extracomment>body notification message for both, notification popup and notification area</extracomment>
-        <translation>
-            <numerusform>Synchronisation réussie en %n seconde.</numerusform>
-            <numerusform>Synchronisation réussie en %n secondes.</numerusform>
-        </translation>
+        <translation><numerusform>Synchronisation réussie en %n seconde.</numerusform><numerusform>Synchronisation réussie en %n secondes.</numerusform></translation>
     </message>
     <message id="fuoten-notify-authorization-error-summary">
         <source>Authorization error</source>
@@ -1277,10 +1206,7 @@
     </message>
     <message id="fuoten-loginflow-seconds-left" numerus="yes">
         <source>%n second(s) left</source>
-        <translation>
-            <numerusform>%n seconde restante</numerusform>
-            <numerusform>%n secondes restantes</numerusform>
-        </translation>
+        <translation><numerusform>%n seconde restante</numerusform><numerusform>%n secondes restantes</numerusform></translation>
     </message>
     <message id="fuoten-loginflow-polling-retry">
         <source>Retry</source>
