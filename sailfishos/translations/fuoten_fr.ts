@@ -1,6 +1,8 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fr" sourcelanguage="en">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fr" sourcelanguage="en">
 <context>
-    <name/>
+    <name></name>
     <message id="id-user-account">
         <source>User account</source>
         <extracomment>Used as dialog and section header for displaying and configuring the user account</extracomment>
@@ -244,7 +246,7 @@
     <message id="fuoten-privacy-1">
         <source>To log in to your ownCloud/Nextcloud server, Fuoten requires your server address, username and password. This data will only be stored on your device and will not be passed on to the author of Fuoten or any other third party other than the operator of your server.</source>
         <oldsource>In order to log in to your ownCloud/Nextcloud server, Fuoten collects the server address, your user name and your password. These information is only saved on your device and is not given to the author of Fuoten or other third parties.</oldsource>
-        <translation type="unfinished"/>
+        <translation>Pour se connecter sur son serveur ownCloud/Nextcloud, Fuoten nécessite de l&apos;adresse du serveur, d&apos;un nom d&apos;utilisateur et d&apos;un mot de passe. Ces données seront uniquement conservées dans votre appareil et ne seront pas transmises au développeur de Fuoten ou toutes autres applications que l&apos;administrateur de votre serveur.</translation>
     </message>
     <message id="fuoten-privacy-2">
         <source>What does Fuoten use your information for?</source>
@@ -257,12 +259,12 @@
     <message id="fuoten-privacy-4">
         <source>Does Fuoten disclose any information to outside parties?</source>
         <oldsource>Does ocNews disclose any information to outside parties?</oldsource>
-        <translation type="unfinished"/>
+        <translation></translation>
     </message>
     <message id="fuoten-privacy-5">
         <source>Fuoten uses your data only for the login process on the server you have set in the settings. Fuoten does not send this data to the author of Fuoten or to other third parties - except to the operator of your server. Questions regarding data protection on the server side should be directed to the operator of your server.</source>
         <oldsource>Fuoten only uses your data for the login process into the server that you configure in the settings. Fuoten does not send these data to the author of Fuoten or other third parties. For questions concerning the privacy on the server side, you have to contact your ownCloud/Nextcloud service provider.</oldsource>
-        <translation type="unfinished"/>
+        <translation>Fuoten utilise vos données uniquement pour l&apos;authentification sur le serveur défini dans les paramètres. Aucunes données ne sont envoyées à l&apos;auteur de Fuoten ou à des tiers - au-dehors de l&apos;administrateur de votre serveur. Les questions relatives à la protection des données du côté du serveur doivent être adressées directement à son administrateur.</translation>
     </message>
     <message id="fuoten-privacy-6">
         <source>Third party links</source>
@@ -377,11 +379,17 @@
     <message id="fuoten-feeds-count" numerus="yes">
         <source>%n feed(s)</source>
         <oldsource>%n Feed(s)</oldsource>
-        <translation><numerusform>%n flux</numerusform><numerusform>%n flux</numerusform></translation>
+        <translation>
+            <numerusform>%n flux</numerusform>
+            <numerusform>%n flux</numerusform>
+        </translation>
     </message>
     <message id="fuoten-unread-articles-with-count" numerus="yes">
         <source>%n unread article(s)</source>
-        <translation><numerusform>%n article non lu</numerusform><numerusform>%n article non lus</numerusform></translation>
+        <translation>
+            <numerusform>%n article non lu</numerusform>
+            <numerusform>%n article non lus</numerusform>
+        </translation>
     </message>
     <message id="fuoten-all-articles">
         <source>All articles</source>
@@ -602,13 +610,19 @@
         <source>Articles will be deleted if they have been published more than %n days ago. Set the number of days in the next input field.</source>
         <oldsource>Articles will be deleted if they have been published more than n days ago. Set the number of days in the next input field.</oldsource>
         <extracomment>Description for a combo box on a context config page to select article clean up strategy if cleanup will be done based on the article age. %n will contain the number of days after which articles are deleted from the local storage</extracomment>
-        <translation><numerusform>Les articles seront supprimés s&apos;ils ont été publiés il y a plus de %n jour. Entrer le nombre de jours dans le champ de texte suivant.</numerusform><numerusform>Les articles seront supprimés s&apos;ils ont été publiés il y a plus de %n jours. Entrer le nombre de jours dans le champ de texte suivant.</numerusform></translation>
+        <translation>
+            <numerusform>Les articles seront supprimés s&apos;ils ont été publiés il y a plus de %n jour. Entrer le nombre de jours dans le champ de texte suivant.</numerusform>
+            <numerusform>Les articles seront supprimés s&apos;ils ont été publiés il y a plus de %n jours. Entrer le nombre de jours dans le champ de texte suivant.</numerusform>
+        </translation>
     </message>
     <message id="fuoten-articles-cleanup-count-desc" numerus="yes">
         <source>Articles will be deleted if there are more than %n articles in the local storage. Set the number in the next input field.</source>
         <oldsource>Articles will be deleted if there are more than the defined number of articles in the local storage. Set the number in the next input field.</oldsource>
         <extracomment>Description for a combo box on a context config page to select article clean up strategy if cleanup will be done based on the article count. %n will contain the number of articles that will be kept in the local storage</extracomment>
-        <translation><numerusform>Les articles seront supprimés s&apos;il y a plus de %n article dans le stockage local. Entrez le nombre dans le champ de texte suivant.</numerusform><numerusform>Les articles seront supprimés s&apos;il y a plus de %n articles dans le stockage local. Entrez le nombre dans le champ de texte suivant.</numerusform></translation>
+        <translation>
+            <numerusform>Les articles seront supprimés s&apos;il y a plus de %n article dans le stockage local. Entrez le nombre dans le champ de texte suivant.</numerusform>
+            <numerusform>Les articles seront supprimés s&apos;il y a plus de %n articles dans le stockage local. Entrez le nombre dans le champ de texte suivant.</numerusform>
+        </translation>
     </message>
     <message id="fuoten-articles-no-cleanup">
         <source>No cleanup</source>
@@ -703,22 +717,34 @@
     <message id="fuoten-seconds-ago" numerus="yes">
         <source>%n second(s) ago</source>
         <extracomment>relative time for last synchronisation</extracomment>
-        <translation><numerusform>Il y a %n seconde</numerusform><numerusform>Il y a %n secondes</numerusform></translation>
+        <translation>
+            <numerusform>Il y a %n seconde</numerusform>
+            <numerusform>Il y a %n secondes</numerusform>
+        </translation>
     </message>
     <message id="fuoten-minutes-ago" numerus="yes">
         <source>%n minute(s) ago</source>
         <extracomment>relative time for last synchronisation</extracomment>
-        <translation><numerusform>Il y a %n minute</numerusform><numerusform>Il y a %n minutes</numerusform></translation>
+        <translation>
+            <numerusform>Il y a %n minute</numerusform>
+            <numerusform>Il y a %n minutes</numerusform>
+        </translation>
     </message>
     <message id="fuoten-hours-ago" numerus="yes">
         <source>%n hour(s) ago</source>
         <extracomment>relative time for last synchronisation</extracomment>
-        <translation><numerusform>Il y a %n heure</numerusform><numerusform>Il y a %n heures</numerusform></translation>
+        <translation>
+            <numerusform>Il y a %n heure</numerusform>
+            <numerusform>Il y a %n heures</numerusform>
+        </translation>
     </message>
     <message id="fuoten-days-ago" numerus="yes">
         <source>%n day(s) ago</source>
         <extracomment>relative time for last synchronisation</extracomment>
-        <translation><numerusform>Il y a %n jour</numerusform><numerusform>Il y a %n jours</numerusform></translation>
+        <translation>
+            <numerusform>Il y a %n jour</numerusform>
+            <numerusform>Il y a %n jours</numerusform>
+        </translation>
     </message>
     <message id="fuoten-share-link">
         <source>Share link</source>
@@ -843,17 +869,26 @@
     <message id="fuoten-notify-folders-requested-body-new" numerus="yes">
         <source>New folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation><numerusform>Nouveau dossier: %1</numerusform><numerusform>Nouveaux dossiers: %1</numerusform></translation>
+        <translation>
+            <numerusform>Nouveau dossier: %1</numerusform>
+            <numerusform>Nouveaux dossiers: %1</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-folders-requested-body-renamed" numerus="yes">
         <source>Renamed folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation><numerusform>Dossier renommé: %1</numerusform><numerusform>Dossiers renommés: %1</numerusform></translation>
+        <translation>
+            <numerusform>Dossier renommé: %1</numerusform>
+            <numerusform>Dossiers renommés: %1</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-folders-requested-body-deleted" numerus="yes">
         <source>Deleted folder(s): %1</source>
         <extracomment>part of the notification area body text, %1 will be replaced by a list of affected folder names</extracomment>
-        <translation><numerusform>Dossier supprimé: %1</numerusform><numerusform>Dossiers supprimés: %1</numerusform></translation>
+        <translation>
+            <numerusform>Dossier supprimé: %1</numerusform>
+            <numerusform>Dossiers supprimés: %1</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-folder-created-summary">
         <source>Folder created</source>
@@ -908,17 +943,26 @@
     <message id="fuoten-notify-feeds-requested-body-new" numerus="yes">
         <source>New feed(s): %1</source>
         <extracomment>part of the notification area body text for requested feeds, %1 will be replaced by a list of new feed titles</extracomment>
-        <translation><numerusform>Nouveau flux: %1</numerusform><numerusform>Nouveaux flux: %1</numerusform></translation>
+        <translation>
+            <numerusform>Nouveau flux: %1</numerusform>
+            <numerusform>Nouveaux flux: %1</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-feeds-requested-body-updated" numerus="yes">
         <source>Updated feed(s): %1</source>
         <extracomment>part of the notification area body text for requested feeds, %1 will be replaced by a list of updated feed titles</extracomment>
-        <translation><numerusform>Flux mis à jour: %1</numerusform><numerusform>Flux mis à jour: %1</numerusform></translation>
+        <translation>
+            <numerusform>Flux mis à jour: %1</numerusform>
+            <numerusform>Flux mis à jour: %1</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-feeds-requested-body-deleted" numerus="yes">
         <source>Deleted feed(s): %1</source>
         <extracomment>part of the notification area body text for requested feeds, %1 will be replaced by a list of deleted feed titles</extracomment>
-        <translation><numerusform>Flux supprimé: %1</numerusform><numerusform>Flux supprimés: %1</numerusform></translation>
+        <translation>
+            <numerusform>Flux supprimé: %1</numerusform>
+            <numerusform>Flux supprimés: %1</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-feed-created-summary">
         <source>Feed added</source>
@@ -988,47 +1032,74 @@
     <message id="fuoten-notify-items-requested-prev-body" numerus="yes">
         <source>%n new unread article(s).</source>
         <extracomment>notification popup body text</extracomment>
-        <translation><numerusform>%n nouvel article non lu.</numerusform><numerusform>%n nouveaux articles non lu.</numerusform></translation>
+        <translation>
+            <numerusform>%n nouvel article non lu.</numerusform>
+            <numerusform>%n nouveaux articles non lu.</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-items-requested-body" numerus="yes">
         <source>Successfully requested articles from the server. There are %n new unread article(s).</source>
         <extracomment>notification area body text</extracomment>
-        <translation><numerusform>Articles demandés au serveur avec succès. Il y a %n nouvel article.</numerusform><numerusform>Articles demandés au serveur avec succès. Il y a %n nouveaux articles.</numerusform></translation>
+        <translation>
+            <numerusform>Articles demandés au serveur avec succès. Il y a %n nouvel article.</numerusform>
+            <numerusform>Articles demandés au serveur avec succès. Il y a %n nouveaux articles.</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-feeds-requested-prev-body-new" numerus="yes">
         <source>%n new</source>
         <extracomment>part of the notification popup body text for requested feeds, %n will be replaced by the numer of new feeds</extracomment>
-        <translation><numerusform>%n nouveau</numerusform><numerusform>%n nouveaux</numerusform></translation>
+        <translation>
+            <numerusform>%n nouveau</numerusform>
+            <numerusform>%n nouveaux</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-feeds-requested-prev-body-updated" numerus="yes">
         <source>%n updated</source>
         <extracomment>part of the notification popup body text for requested feeds, %n will be replaced by the numer of updated feeds</extracomment>
-        <translation><numerusform>%n mis à jour</numerusform><numerusform>%n mis à jour</numerusform></translation>
+        <translation>
+            <numerusform>%n mis à jour</numerusform>
+            <numerusform>%n mis à jour</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-feeds-requested-prev-body-deleted" numerus="yes">
         <source>%n deleted</source>
         <extracomment>part of the notifitcation popup body text for requested feeds, %n will be replaced by the numer of deleted feeds</extracomment>
-        <translation><numerusform>%n supprimé</numerusform><numerusform>%n supprimés</numerusform></translation>
+        <translation>
+            <numerusform>%n supprimé</numerusform>
+            <numerusform>%n supprimés</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-folders-requested-prev-body-new" numerus="yes">
         <source>%n new</source>
         <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of new folders</extracomment>
-        <translation><numerusform>%n nouveau</numerusform><numerusform>%n nouveaux</numerusform></translation>
+        <translation>
+            <numerusform>%n nouveau</numerusform>
+            <numerusform>%n nouveaux</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-folders-requested-prev-body-renamed" numerus="yes">
         <source>%n renamed</source>
         <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of reanmed folders</extracomment>
-        <translation><numerusform>%n renommé</numerusform><numerusform>%n renommés</numerusform></translation>
+        <translation>
+            <numerusform>%n renommé</numerusform>
+            <numerusform>%n renommés</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-folders-requested-prev-body-deleted" numerus="yes">
         <source>%n deleted</source>
         <extracomment>part of the notification popup body text for requested folders, %n will be replaced by the numer of deleted folders</extracomment>
-        <translation><numerusform>%n supprimé</numerusform><numerusform>%n supprimés</numerusform></translation>
+        <translation>
+            <numerusform>%n supprimé</numerusform>
+            <numerusform>%n supprimés</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-synccomplete-body" numerus="yes">
         <source>Synchronization succeeded in %n second(s).</source>
         <extracomment>body notification message for both, notification popup and notification area</extracomment>
-        <translation><numerusform>Synchronisation réussie en %n seconde.</numerusform><numerusform>Synchronisation réussie en %n secondes.</numerusform></translation>
+        <translation>
+            <numerusform>Synchronisation réussie en %n seconde.</numerusform>
+            <numerusform>Synchronisation réussie en %n secondes.</numerusform>
+        </translation>
     </message>
     <message id="fuoten-notify-authorization-error-summary">
         <source>Authorization error</source>
@@ -1058,389 +1129,392 @@
     <message id="fuoten-tigrebleu-role">
         <source>French translation</source>
         <extracomment>contributor role</extracomment>
-        <translation type="unfinished"/>
+        <translation>Traduction française</translation>
     </message>
     <message id="fuoten-settings-pushuponarticle">
         <source>Show push up menu on article page</source>
         <extracomment>Label for a switch on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Afficher le menu déroulant sur la page article</translation>
     </message>
     <message id="fuoten-settings-pushuponarticle-desc">
         <source>If enabled, article pages will have a push up menu on the end with the same content as the pull down menu for faster access after an article has been read.</source>
         <extracomment>Description for a switch on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Si activé, un accès plus rapide au menu déroulant et identique au pulley menu sera présent dans la page articles une fois l&apos;article lu.</translation>
     </message>
     <message id="fuoten-main-content-feeds">
         <source>Feeds</source>
         <extracomment>Selectable value in the combo box on the settings page to select the main view content</extracomment>
-        <translation type="unfinished"/>
+        <translation>Flux</translation>
     </message>
     <message id="fuoten-main-content-folders">
         <source>Folders</source>
         <extracomment>Selectable value in the combo box on the settings page to select the main view content</extracomment>
-        <translation type="unfinished"/>
+        <translation>Dossiers</translation>
     </message>
     <message id="fuoten-ruikon-role">
         <source>Chinese (China) translation</source>
         <extracomment>contributor role</extracomment>
-        <translation type="unfinished"/>
+        <translation>Traduction chinoise (Chine)</translation>
     </message>
     <message id="fuoten-libfuoten-trans-desc">
         <source>Libfuoten is a Qt based library that provides access the ownCloud/Nextcloud News App API. Translations are provided by the community.</source>
         <extracomment>description for libintfuorit translations in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>Libfuoten est une libraire basée sur Qt apportant l&apos;accès à l&apos;API à l&apos;app ownCloud/Nextcloud News. Les traductions sont fournies par la communauté.</translation>
     </message>
     <message id="fuoten-trans-desc">
         <source>The translations for Fuoten are provided by the community. To see who is responsible for which translation, open the contributors page.</source>
         <extracomment>description for Fuoten translations in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>La traduction pour Fuoten est fourni par la communauté. Pour afficher le responsable de chaque traduction, ouvrir la page contributeur.</translation>
     </message>
     <message id="fuoten-rescaling-richtext-qml-desc">
         <source>Rescaling Richtext QML part was originally created by Martin Grimme for the Tidings RSS feed reader and is used to rescale richtext views with images included.</source>
         <extracomment>description for Rescaling Richtext QML in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>La partie Rescaling Richtext QML a été à l&apos;origine créée par Martin Grimme pour le lecteur de flux RSS Tinding et est utilisée pour redimensionner les vues de textes enrichis avec des images incluses.</translation>
     </message>
     <message id="fuoten-advobfuscator-desc">
         <source>ADVobfuscator is an obfuscation library based on C++11/14 and metaprogramming. It is used by Fuoten to obfuscate the internal used AES key to encrypt stored passwords.</source>
         <extracomment>description for ADVobfuscator in the list of used 3rd party components</extracomment>
-        <translation type="unfinished"/>
+        <translation>ADVobfuscator est une librairie d&apos;obfuscation basée sur C++11/14 et la métaprogrammation. Fuoten l&apos;utilise pour obfusquer la clef AES interne pour chiffrer les mots de passe stockés.</translation>
     </message>
     <message id="fuoten-loginflow-enter-manual">
         <source>Manual login</source>
         <extracomment>pull down menu item in the setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Authentification manuelle</translation>
     </message>
     <message id="fuoten-loginflow-check-again">
         <source>Check again</source>
         <extracomment>pull down menu item in the setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Vérifier à nouveau</translation>
     </message>
     <message id="fuoten-loginflow-check-title">
         <source>Check server</source>
         <extracomment>dialog header title in the setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Vérifier le serveur</translation>
     </message>
     <message id="fuoten-loginflow-next">
         <source>Next</source>
         <extracomment>dialog header in the login flow to go to the next step</extracomment>
-        <translation type="unfinished"/>
+        <translation>Suivant</translation>
     </message>
     <message id="fuoten-loginflow-back">
         <source>Back</source>
         <extracomment>dialog header in the login flow to go to the previous step</extracomment>
-        <translation type="unfinished"/>
+        <translation>Retour</translation>
     </message>
     <message id="fuoten-loginflow-server">
         <source>Server</source>
         <extracomment>label for a detail item showing the server name, should not be too long</extracomment>
-        <translation type="unfinished"/>
+        <translation>Serveur</translation>
     </message>
     <message id="fuoten-loginflow-version">
         <source>Version</source>
         <extracomment>Label for a detail item showing the nextcloud version, should not be too long</extracomment>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
     <message id="fuoten-loginflow-installed">
         <source>Installed</source>
         <extracomment>label for a detail item showing if the nextcloud is fully installed, value will be either yes or no</extracomment>
-        <translation type="unfinished"/>
+        <translation>Installé</translation>
     </message>
     <message id="fuoten-yes">
         <source>yes</source>
-        <translation type="unfinished"/>
+        <translation>oui</translation>
     </message>
     <message id="fuoten-no">
         <source>no</source>
-        <translation type="unfinished"/>
+        <translation>non</translation>
     </message>
     <message id="fuoten-loginflow-inmaintenance">
         <source>Maintenance mode</source>
         <extracomment>label for a detail item showing if the nexctloud is in maintenance mode, value will be eiter yes or no</extracomment>
-        <translation type="unfinished"/>
+        <translation>Mode maintenance</translation>
     </message>
     <message id="fuoten-loginflow-check-manual-setup-info">
         <source>Your version of Nextcloud is not yet able to authorize an application through an external browser window. In the next step you will have the option to enter a manually created application password to access your Nextcloud. To create such a password, please log in to your Nextcloud via the web interface and create a new application password in the “Security” section of the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Votre version de Nextcloud n&apos;autorise pas une application à travers une fenêtre de navigateur externe. Lors de la prochaine étape, vous pourrez insérer le mot de passe d&apos;application créé manuellement pour accéder à Nextcloud. Pour cela, authententifiez-vous à Nextcloud via l&apos;inteface web et créez un nouveau mot de passe d&apos;application dans la section &quot;Sécurité&quot; des paramètres.</translation>
     </message>
     <message id="fuoten-loginflow-check-v2-setup-info">
         <source>The next step is to open an external browser window with the login page of your Nextcloud. By logging in you authorize this application to use your account there. You can revoke this authorization at any time in your Nextcloud settings under “Security”. The name of the application to be authorized is &lt;b&gt;%1&lt;/b&gt;.</source>
         <oldsource>The next step is to open an external browser window with the login page of your Nextcloud. By logging in you authorize this application to use your account there. You can revoke this authorization at any time in your Nextcloud settings under “Security”. The name of the application to be authorized is “%1”.</oldsource>
         <extracomment>%1 will be replaced by the name of the application and the device it runs on, e.g.: &quot;Fuoten (Xperia X)&quot;</extracomment>
-        <translation type="unfinished"/>
+        <translation>La prochaine étape consiste à ouvrir une fenêtre de navigateur externe avec la page de connexion de Nextcloud. En s&apos;authentifiant, vous authorisez cette application à utiliser votre compte à cet endroit. Il est possible de révoquer à tout moment dans la section &quot;Sécurité&quot; des paramètres de Nextcloud. Le nom de l&apos;application à authoriser est &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
     <message id="fuoten-loginflow-setup-title">
         <source>Connect your Nextcloud</source>
         <extracomment>dialog header title in the login flow setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Connectez votre Nextcloud</translation>
     </message>
     <message id="fuoten-loginflow-setup-info">
         <source>Please enter the address (domain and path) of your Nextcloud. It is the same address where you can access your Nextcloud with a web browser.</source>
-        <translation type="unfinished"/>
+        <translation>Insérez l&apos;adresse (domaine et chemin) de votre Nextcloud. L&apos;adresse est la même où vous accéder à Nextcloud avec votre navigateur.</translation>
     </message>
     <message id="fuoten-loginflow-usessl">
         <source>Use HTTPS (SSL/TLS) connection</source>
         <extracomment>Label for a switch</extracomment>
-        <translation type="unfinished"/>
+        <translation>Utiliser une connexion HTTPS (SSL/TLS)</translation>
     </message>
     <message id="fuoten-loginflow-usessl-desc">
         <source>Your Nextcloud should only be accessible via an encrypted connection (HTTPS) for security reasons. If you still want to establish an unencrypted connection, you can deactivate the connection encryption here.</source>
         <extracomment>Description for a switch</extracomment>
-        <translation type="unfinished"/>
+        <translation>Pour des raisons de sécurité, votre Nextcloud ne devrait être accessible que via une connexion chiffrée (HTTPS). Si vous souhaitez établir une connexion en clair, il est possible de désactiver la connexion chiffrée ici.</translation>
     </message>
     <message id="fuoten-loginflow-server-address">
         <source>Server address %1</source>
         <extracomment>Label for a text input, %1 will be replaced by http://… or https://…</extracomment>
-        <translation type="unfinished"/>
+        <translation>Adresse du serveur %1</translation>
     </message>
     <message id="fuoten-loginflow-polling-title-waiting">
         <source>Waiting for authorization</source>
         <oldsource>Waiting for authentication</oldsource>
         <extracomment>Dialog title in the login flow while waiting for authoriaztion</extracomment>
-        <translation type="unfinished"/>
+        <translation>En attente d&apos;une authorisation</translation>
     </message>
     <message id="fuoten-loginflow-polling-title-success">
         <source>Authorization succeeded</source>
         <oldsource>Authentication succeeded</oldsource>
         <extracomment>Dialog title in the login flow if authorization has succeeded</extracomment>
-        <translation type="unfinished"/>
+        <translation></translation>
     </message>
     <message id="fuoten-loginflow-seconds-left" numerus="yes">
         <source>%n second(s) left</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message id="fuoten-loginflow-polling-retry">
         <source>Retry</source>
         <extracomment>Pull down menu entry to retry the authorization with external browser</extracomment>
-        <translation type="unfinished"/>
+        <translation>Réessayer</translation>
     </message>
     <message id="fuoten-notify-auth-success-summary">
         <source>Authorization successful</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Authorisation avec succès</translation>
     </message>
     <message id="fuoten-notify-auth-success-prev-body">
         <source>User %1 on %2</source>
         <extracomment>notification popup body text after successful authorization, %1 will be replaced by the username, %2 by the remote Nextcloud host name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Utilisateur %1 sur %2</translation>
     </message>
     <message id="fuoten-notify-auth-success-body">
         <source>Fuoten has been successfully authorised to connect to your Nextcloud at %1 as user %2.</source>
         <extracomment>notification area body text after successful authorization, %1 will be replaced by the remote Nextcloud host name, %2 by the username</extracomment>
-        <translation type="unfinished"/>
+        <translation>Fuoten a été authorisé avec succès à se connecter à votre Nextcloud sur %1 en tant qu&apos;utilisateur %2.</translation>
     </message>
     <message id="fuoten-loginflow-manual-title">
         <source>Manual setup</source>
         <extracomment>dialog header title in the login flow setup wizard</extracomment>
-        <translation type="unfinished"/>
+        <translation>Configuration manuelle</translation>
     </message>
     <message id="fuoten-loginflow-manual-check-account">
         <source>Checking account</source>
         <extracomment>Dialog title in the login flow while checking manual account setup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Vérification du compte</translation>
     </message>
     <message id="fuoten-loginflow-manual-check-failed">
         <source>Setup failed</source>
         <extracomment>Dialog title in the login flow if manual account setup failed</extracomment>
-        <translation type="unfinished"/>
+        <translation>La configuration a échoué</translation>
     </message>
     <message id="fuoten-loginflow-manual-check-success">
         <source>Setup finished</source>
         <extracomment>Dialog title in the login flow if manual account setup succeeded</extracomment>
-        <translation type="unfinished"/>
+        <translation>Configuration terminée</translation>
     </message>
     <message id="fuoten-notify-apppassword-created">
         <source>Application password created</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Mot de passe d&apos;application créé</translation>
     </message>
     <message id="fuoten-notify-apppassword-created-prev-body">
         <source>User %1 on %2</source>
         <extracomment>notification popup body text after successfully automatically creating an application password, %1 will be replaced by the username, %2 by the remote Nextcloud host name</extracomment>
-        <translation type="unfinished"/>
+        <translation>Utilisateur %1 sur %2</translation>
     </message>
     <message id="fuoten-notify-apppassword-created-body">
         <source>%1 has been successfully upgraded your login credentials to connect to your Nextcloud at %2 as user %3 with an application specific password.</source>
         <extracomment>notification area body text after successfully automatically converting to an application password, %1 will be replaced by the application’s login flow user agent (e.g. Fuoten (Xperia X)), %2 will be replaced by the remote Nextcloud host name, %3 by the username</extracomment>
-        <translation type="unfinished"/>
+        <translation>%1 a mis à jour avec succès vos identifiants de connexion pour se connecter à votre Nextcloud sur %2 en tant qu&apos;utilisateur %3 avec le mot de passe d&apos;application.</translation>
     </message>
     <message id="fuoten-settings-navbackaftermark">
         <source>Navigate back after marking as read</source>
         <extracomment>Label for a switch on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Revenir en arrière après avoir marqué comme lu</translation>
     </message>
     <message id="fuoten-settings-navbackaftermark-desc">
         <source>If activated, after marking a complete feed or folder as read, the application automatically switches back to the parent page.</source>
         <extracomment>Description for a switch on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Si activée, après avoir marqué un flux ou un dossier complet comme lu, l&apos;application bascule automatiquement à la page parent.</translation>
     </message>
     <message id="fuoten-deleteaccount-title">
         <source>Delete account</source>
         <extracomment>dialog header title when deleting the nextcloud account and pull down menu entry</extracomment>
-        <translation type="unfinished"/>
+        <translation>Supprimer le compte</translation>
     </message>
     <message id="fuoten-deleteaccount-delete">
         <source>Delete</source>
         <extracomment>dialog header accept text when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Supprimer</translation>
     </message>
     <message id="fuoten-deleteaccount-local-text">
         <source>Delete local data</source>
         <extracomment>Label for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Supprimer les données locales</translation>
     </message>
     <message id="fuoten-deleteaccount-local-desc">
         <source>Also deletes all local data, including the database with all folders, feeds and articles.</source>
         <extracomment>Description for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Supprime également toutes les données locales, ainsi que la base de données avec tous les dossiers, flux et articles.</translation>
     </message>
     <message id="fuoten-deleteaccount-remote-text">
         <source>Delete app password</source>
         <extracomment>Label for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Supprimer le mot de passe d&apos;application</translation>
     </message>
     <message id="fuoten-deleteaccount-remote-desc">
         <source>Also deletes the application password on the server, if one has been set.</source>
         <extracomment>Description for a text switch when deleting account</extracomment>
-        <translation type="unfinished"/>
+        <translation>Aussi supprimer le mot de passe d&apos;application sur le serveur, s&apos;il a été défini</translation>
     </message>
     <message id="fuoten-deleting-account-busy-local">
         <source>Deleting local storage</source>
-        <translation type="unfinished"/>
+        <translation>Suppression du stockage local</translation>
     </message>
     <message id="fuoten-deleting-account-busy-remote">
         <source>Deleting application password</source>
-        <translation type="unfinished"/>
+        <translation>Suppression du mot de passe d&apos;application</translation>
     </message>
     <message id="fuoten-deleting-account-title">
         <source>Deleting account</source>
         <extracomment>Page header when deleting account data</extracomment>
-        <translation type="unfinished"/>
+        <translation>Suppression du compte</translation>
     </message>
     <message id="fuoten-deleting-account-success-title">
         <source>Account deleted</source>
-        <translation type="unfinished"/>
+        <translation>Compte supprimé</translation>
     </message>
     <message id="fuoten-deleting-account-success-message">
         <source>Your account was successfully deleted, please close the application. If you want to create a new account, simply restart the application.</source>
-        <translation type="unfinished"/>
+        <translation>Votre compte a été supprimé avec succès, veuillez fermer l&apos;application. Si vous souhaitez créer un nouveau compte, redémarrez l&apos;application.</translation>
     </message>
     <message id="fuoten-loginflow-open-loginurl">
         <source>Open in browser</source>
         <extracomment>Pull down menu entry to reopen the external authorization browser window</extracomment>
-        <translation type="unfinished"/>
+        <translation>Ouvrir dans le navigateur</translation>
     </message>
     <message id="fuoten-loginflow-use-flow">
         <source>Login flow</source>
         <extracomment>pull down menu item in the setup wizard, login flow means to login to your Nextcloud by authenticating the app via an external browser window</extracomment>
-        <translation type="unfinished"/>
+        <translation>Processus d&apos;authentification</translation>
     </message>
     <message id="fuoten-remote-wipe-title">
         <source>Remote wipe</source>
         <extracomment>page header for the remote wipe</extracomment>
-        <translation type="unfinished"/>
+        <translation>Effacement à distance</translation>
     </message>
     <message id="fuoten-remote-wipe-executing">
         <source>Executing remote wipe request</source>
-        <translation type="unfinished"/>
+        <translation>Exécution de la demande de suppression à distance</translation>
     </message>
     <message id="fuoten-remote-wipe-done-title">
         <source>Remote wipe done</source>
-        <translation type="unfinished"/>
+        <translation>Effacement à distance terminé</translation>
     </message>
     <message id="fuoten-remote-wipe-done-message">
         <source>The requested remote wipe has been done. Your local account and content data of Fuoten have been deleted.</source>
-        <translation type="unfinished"/>
+        <translation>La demande de suppression à distance a été effectuée. Votre compte local et les données de Fuoten ont été supprimés.</translation>
     </message>
     <message id="fuoten-notify-wipe-requested">
         <source>Remote wipe requested</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Demande d&apos;effacement à distance</translation>
     </message>
     <message id="fuoten-notify-wipe-requested-body">
         <source>A remote wipe has been requested for this application on your device.</source>
         <extracomment>body text for a notification, shown in the notification area</extracomment>
-        <translation type="unfinished"/>
+        <translation>Demande d&apos;effacement à distance pour cette application sur votre appareil </translation>
     </message>
     <message id="fuoten-notify-wipe-done">
         <source>Remote wipe done</source>
         <extracomment>headline/summary for a notification, shown in the notification area and in the notification popup</extracomment>
-        <translation type="unfinished"/>
+        <translation>Effacement à distance effectué</translation>
     </message>
     <message id="fuoten-notify-wipe-done-body">
         <source>A remote wipe hase been done for this application on your device.</source>
         <extracomment>body text for a notification, shown in the notification area</extracomment>
-        <translation type="unfinished"/>
+        <translation>L&apos;effacement à distance a été effectué sur cette application sur votre appareil.</translation>
     </message>
     <message id="fuoten-webview-jssupport-label">
         <source>JavaScript support</source>
         <extracomment>Label for a combo box on the context config page to select the support for JavaScript for the internal WebView.</extracomment>
-        <translation type="unfinished"/>
+        <translation>Support JavaScript</translation>
     </message>
     <message id="fuoten-webview-jssupport-desc">
         <source>Whether JavaScript on the page will be automatically executed in the internal web view. Most modern web pages will not work with JavaScript disabled.</source>
         <oldsource>Whether JavaScript on the page will be automatically executed. Most modern web pages will not work with JavaScript disabled.</oldsource>
         <extracomment>Description for a combo box on the context config page to select support for JavaScript for the internal WebView.</extracomment>
-        <translation type="unfinished"/>
+        <translation>Si Javascript sera exécuté automatiquement dans le vue du navigateur interne. La pluspart des pages web modernes fonctionnent mal avec JavaScript désactivé.</translation>
     </message>
     <message id="fuoten-jssupport-enabled">
         <source>Enabled</source>
         <extracomment>Selectable entry in the combo box to choose JavaScript support</extracomment>
-        <translation type="unfinished"/>
+        <translation>Activé</translation>
     </message>
     <message id="fuoten-jssupport-disabled">
         <source>Disabled</source>
         <extracomment>Selectable entry in the combo box to choose JavaScript support</extracomment>
-        <translation type="unfinished"/>
+        <translation>Désactivé</translation>
     </message>
     <message id="fuoten-webview-cookiebehavior-label">
         <source>Cookies</source>
         <extracomment>Label for a combo box on the context config page to select cookie behavior</extracomment>
-        <translation type="unfinished"/>
+        <translation>Cookies</translation>
     </message>
     <message id="fuoten-webview-cookiebehavior-desc">
         <source>How cookies should be handled.</source>
         <extracomment>Description for a combo box on the context config page to select cookie behavior</extracomment>
-        <translation type="unfinished"/>
+        <translation>Gestion des cookies.</translation>
     </message>
     <message id="fuoten-cookiebehavior-accept-all">
         <source>Accept all</source>
         <extracomment>Selectable entry in the combo box to choose cookie behavior</extracomment>
-        <translation type="unfinished"/>
+        <translation>Accepter tous</translation>
     </message>
     <message id="fuoten-cookiebehavior-block-all">
         <source>Block all</source>
         <extracomment>Selectable entry in the combo box to choose cookie behavior</extracomment>
-        <translation type="unfinished"/>
+        <translation>Bloquer tous</translation>
     </message>
     <message id="fuoten-cookiebehavior-block-3rd">
         <source>Block 3rd party</source>
         <extracomment>Selectable entry in the combo box to choose cookie behavior</extracomment>
-        <translation type="unfinished"/>
+        <translation>Bloquer les tiers</translation>
     </message>
     <message id="fuoten-webview-menu-forward">
         <source>One page forward</source>
         <extracomment>web view menu panel entry</extracomment>
-        <translation type="unfinished"/>
+        <translation>Avancer d&apos;une page</translation>
     </message>
     <message id="fuoten-jssupport-default">
         <source>Default (%1)</source>
         <extracomment>Selectable entry in the combo box to choose JavaScript support, %1 will be replaced by the default value</extracomment>
-        <translation type="unfinished"/>
+        <translation>Défaut (%1)</translation>
     </message>
     <message id="fuoten-settings-defaults-section">
         <source>Default settings</source>
         <extracomment>section header on the settings page</extracomment>
-        <translation type="unfinished"/>
+        <translation>Paramètres par défaut</translation>
     </message>
     <message id="fuoten-cookiebehavior-default">
         <source>Default (%1)</source>
         <extracomment>Selectable entry in the combo box to choose cookie behavior %1 will be replaced by the default value</extracomment>
-        <translation type="unfinished"/>
+        <translation>Défaut (%1)</translation>
     </message>
     <message id="fuoten-open-article-default">
         <source>Default (%1)</source>
         <extracomment>Selectable entry in the combo box to choose how to open articles %1 will be replaced by the default value</extracomment>
-        <translation type="unfinished"/>
+        <translation>Défaut (%1)</translation>
     </message>
 </context>
 </TS>
