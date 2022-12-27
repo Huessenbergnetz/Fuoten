@@ -235,6 +235,7 @@ int main(int argc, char *argv[])
     Fuoten::Component::setDefaultStorage(sqliteStorage);
     Fuoten::Component::setDefaultNotificator(notificator);
     Fuoten::Component::setDefaultWipeManager(wipeManager);
+    Fuoten::Component::setDefaultNam(new QNetworkAccessManager(app.get()));
 
     auto synchronizer = new Fuoten::Synchronizer(app.get());
     synchronizer->setConfiguration(config);
