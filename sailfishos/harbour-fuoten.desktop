@@ -6,7 +6,7 @@ Exec=harbour-fuoten
 Name=Fuoten
 
 [X-Sailjail]
-Permissions=Internet;WebView
+Permissions=Internet;WebView;Audio
 OrganizationName=de.huessenbergnetz
 ApplicationName=fuoten
 ExecDBus=harbour-fuoten

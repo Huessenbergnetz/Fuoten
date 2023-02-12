@@ -1,3 +1,7 @@
+Fuoten 0.8.1 - to be released
+- SailfishOS
+  * improved: add Audio to the list of SailJail permissions to allow audio playback im WebView
+
 Fuoten 0.8.0 - 2022-03-06
 - General
   * improved: switch to CMake (#71)

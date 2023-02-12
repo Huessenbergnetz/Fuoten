@@ -15,6 +15,14 @@ import QtQuick 2.2
 
 ListModel {
     ListElement {
+        version: "0.8.1"
+        date: 1676184384000
+        entries: [
+            ListElement { type: 1; issue: ""; description: "add Audio to the list of SailJail permissions to allow audio playback im WebView" }
+        ]
+    }
+
+    ListElement {
         version: "0.8.0"
         date: 1646584837000
         entries: [
