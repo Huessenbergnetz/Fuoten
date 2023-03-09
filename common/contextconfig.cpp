@@ -27,7 +27,7 @@ ContextConfig::ContextConfig(const QString &settingsPath, QObject *parent) :
     m_showFolderSections = value(path(QStringLiteral("showFolderSections")), false).toBool();
     m_respectPinned = value(path(QStringLiteral("respectPinned")), true).toBool();
     m_showExcerpt = value(path(QStringLiteral("showExcerpt")), false).toBool();
-    m_openArticles = static_cast<FuotenAppEnums::OpenIn>(value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenInternal).toInt());
+    m_openArticles = static_cast<FuotenAppEnums::OpenIn>(value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenDefault).toInt());
     m_deletionStrategy = static_cast<Fuoten::FuotenEnums::ItemDeletionStrategy>(value(path(QStringLiteral("deletionStrategy")), Fuoten::FuotenEnums::DeleteItemsByTime).toInt());
     m_deletionValue = value(path(QStringLiteral("deletionValue")), 14).value<quint16>();
     m_userAgentIdx = value(path(QStringLiteral(CONF_KEY_USERAGENTIDX)), m_userAgentIdx).value<quint8>();
@@ -55,7 +55,7 @@ void ContextConfig::load()
     setShowFolderSections(value(path(QStringLiteral("showFolderSections")), true).toBool());
     setRespectPinned(value(path(QStringLiteral("respectPinned")), true).toBool());
     setShowExcerpt(value(path(QStringLiteral("showExcerpt")), false).toBool());
-    setOpenArticles(static_cast<FuotenAppEnums::OpenIn>(value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenInternal).toInt()));
+    setOpenArticles(static_cast<FuotenAppEnums::OpenIn>(value(path(QStringLiteral("openArticles")), FuotenAppEnums::OpenDefault).toInt()));
     setDeletionStrategy(static_cast<Fuoten::FuotenEnums::ItemDeletionStrategy>(value(path(QStringLiteral("deletionStrategy")), Fuoten::FuotenEnums::DeleteItemsByTime).toInt()));
     setDeletionValue(value(path(QStringLiteral("deletionValue")), 14).value<quint16>());
     setUserAgentIdx(value(path(QStringLiteral(CONF_KEY_USERAGENTIDX)), 0).value<quint8>());
