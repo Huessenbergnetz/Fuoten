@@ -1,6 +1,7 @@
-Fuoten 0.8.1 - to be released
+Fuoten 0.8.1 - 2023-03-18
 - SailfishOS
-  * improved: add Audio to the list of SailJail permissions to allow audio playback im WebView
+  * fixed: add Audio to the list of SailJail permissions to allow audio playback im WebView (#81)
+  * fixed: default value for opening articles is not used (#82)
 
 Fuoten 0.8.0 - 2022-03-06
 - General

@@ -8,6 +8,10 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sat Mar 18 2023 Matthias Fehring <> 0.8.1
+  * fixed: default value for opening articles is not used (#82)
+  * fixed: allow audio for SailJail to play videos in internal web view with sound (#81)
+
 * Sun Mar  6 2022 Matthias Fehring <> 0.8.0
   * new: add default config values (#76)
   * improved: switch to CMake (#71)

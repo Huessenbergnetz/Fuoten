@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.16.0 FATAL_ERROR)
 cmake_policy(SET CMP0048 NEW)
 
 project(fuoten
-        VERSION 0.8.0
+        VERSION 0.8.1
         DESCRIPTION "Qt based client for the Nextcloud News Application"
         HOMEPAGE_URL "https://github.com/Huessenbergnetz/Fuoten"
         LANGUAGES CXX)
