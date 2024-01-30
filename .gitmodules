@@ -9,4 +9,4 @@
 	url = https://github.com/Huessenbergnetz/HBN_SFOS_Components.git
 [submodule "HBN_SFOS_Cmake"]
 	path = HBN_SFOS_Cmake
-	url = git@github.com:Huessenbergnetz/HBN_SFOS_Cmake.git
+	url = https://github.com/Huessenbergnetz/HBN_SFOS_Cmake.git
