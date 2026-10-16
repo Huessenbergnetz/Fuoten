@@ -55,7 +55,7 @@ if(${TARGETSYSTEM} STREQUAL "sfos")
     set(FUOTEN_AES256_KEY "" CACHE STRING "32 charachter (32 byte) long encryption key used for AES256 encryption of the password, if you change this key, passwords stored with old keys are not readable anymore")
 
     if(NOT ${FUOTEN_AES256_KEY} MATCHES "[a-zA-Z0-9][a-zA-Z0-9][a-zA-Z0-9]+")
-        message(FATAL_ERROR "Invalid FUOTEN_AES256_KEY variable")
+        message(FATAL_ERROR "Invalid FUOTEN_AES256_KEY variable.")
     endif()
 
     list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/HBN_SFOS_Cmake)
@@ -69,6 +69,5 @@ if(${TARGETSYSTEM} STREQUAL "sfos")
         SOURCES
             rpm/harbour-fuoten.changes
             rpm/harbour-fuoten.spec
-            rpm/harbour-fuoten.yaml
     )
 endif(${TARGETSYSTEM} STREQUAL "sfos")
